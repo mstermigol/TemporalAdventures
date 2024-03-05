@@ -69,14 +69,29 @@ class Review extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function getUser(): User
+    {
+        return $this->user;
+    }
+
     public function travel(): BelongsTo
     {
         return $this->belongsTo(Travel::class);
     }
 
+    public function getTravel(): Travel
+    {
+        return $this->travel;
+    }
+
     public function community_post(): BelongsTo
     {
         return $this->belongsTo(CommunityPost::class);
+    }
+
+    public function getCommunityPost(): CommunityPost
+    {
+        return $this->community_post;
     }
 
     public function getCreatedAt(): string
