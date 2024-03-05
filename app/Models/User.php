@@ -121,6 +121,11 @@ class User extends Authenticatable
         return $this->reviews;
     }
 
+    public function setReviews(Collection $reviews): void
+    {
+        $this->reviews = $reviews;
+    }
+
     public function communityPosts(): HasMany
     {
         return $this->hasMany(CommunityPost::class);
@@ -131,6 +136,11 @@ class User extends Authenticatable
         return $this->communityPosts;
     }
 
+    public function setCommunityPosts(Collection $communityPosts): void
+    {
+        $this->communityPosts = $communityPosts;
+    }
+
     public function orders(): HasMany
     {
         return $this->hasMany(Order::class);
@@ -139,6 +149,11 @@ class User extends Authenticatable
     public function getOrders(): Collection
     {
         return $this->orders;
+    }
+
+    public function setOrders(Collection $orders): void
+    {
+        $this->orders = $orders;
     }
 
     public function getCreatedAt(): string
