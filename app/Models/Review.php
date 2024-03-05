@@ -74,6 +74,11 @@ class Review extends Model
         return $this->user;
     }
 
+    public function setUser(User $user): void
+    {
+        $this->user()->associate($user);
+    }
+
     public function travel(): BelongsTo
     {
         return $this->belongsTo(Travel::class);
@@ -84,6 +89,11 @@ class Review extends Model
         return $this->travel;
     }
 
+    public function setTravel(Travel $travel): void
+    {
+        $this->travel()->associate($travel);
+    }
+
     public function community_post(): BelongsTo
     {
         return $this->belongsTo(CommunityPost::class);
@@ -92,6 +102,11 @@ class Review extends Model
     public function getCommunityPost(): CommunityPost
     {
         return $this->community_post;
+    }
+
+    public function setCommunityPost(CommunityPost $community_post): void
+    {
+        $this->community_post()->associate($community_post);
     }
 
     public function getCreatedAt(): string
