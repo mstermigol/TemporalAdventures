@@ -18,13 +18,16 @@ class Review extends Model
      * $this->attributes['description'] - string - contains the review description
      * $this->attributes['rating'] - int - contains review rating
      * $this->user - User - contains the user who made the review
+     * $this->attribute['user_id'] - int - contains the user primary key (id)
      * $this->travel - Travel - contains the travel asocciated to the review
+     * $this->attribute['travel_id'] - int - contains the travel primary key (id)
      * $this->community_post - CommunityPost - contains the community post assocciated to the review
+     * $this->attribute['community_post_id'] - int - contains the community post primary key (id)
      * $this->attributes['created_at'] - string - contains the date of toy creation
      * $this->attributes['updated_at'] - string - contains when the review was updated
     */
 
-    protected $fillable = ['title', 'description', 'rating'];
+    protected $fillable = ['title', 'description', 'rating', 'travel_id', 'community_post_id'];
 
     public function getId(): string
     {
@@ -76,6 +79,16 @@ class Review extends Model
         $this->user()->associate($user);
     }
 
+    public function getUserId(): int
+    {
+        return $this->attributes['user_id'];
+    }
+
+    public function setUserId(int $user_id): void
+    {
+        $this->attributes['user_id'] = $user_id;
+    }
+
     public function travel(): BelongsTo
     {
         return $this->belongsTo(Travel::class);
@@ -91,6 +104,16 @@ class Review extends Model
         $this->travel()->associate($travel);
     }
 
+    public function getTravelId(): int
+    {
+        return $this->attributes['travel_id'];
+    }
+
+    public function setTravelId(int $travel_id): void
+    {
+        $this->attributes['travel_id'] = $travel_id;
+    }
+
     public function community_post(): BelongsTo
     {
         return $this->belongsTo(CommunityPost::class);
@@ -104,6 +127,16 @@ class Review extends Model
     public function setCommunityPost(CommunityPost $community_post): void
     {
         $this->community_post()->associate($community_post);
+    }
+
+    public function getCommunityPostId(): int
+    {
+        return $this->attributes['community_post_id'];
+    }
+
+    public function setCommunityPostId(int $community_post_id): void
+    {
+        $this->attributes['community_post_id'] = $community_post_id;
     }
 
     public function getCreatedAt(): string
