@@ -8,6 +8,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Item extends Model
 {
@@ -73,9 +74,9 @@ class Item extends Model
         return $this->attributes['subTotal'];
     }
 
-    public function travel(): HasMany
+    public function travel(): BelongsTo
     {
-        return $this->hasMany(Travel::class);
+        return $this->belongsTo(Travel::class);
     }
 
     public function setTravel(Travel $travel): void
@@ -98,9 +99,9 @@ class Item extends Model
         return $this->attributes['travel_id'];
     }
 
-    public function order(): HasMany
+    public function order(): BelongsTo
     {
-        return $this->hasMany(Order::class);
+        return $this->belongsTo(Order::class);
     }
 
     public function setOrder(Order $order): void
