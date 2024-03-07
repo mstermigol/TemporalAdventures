@@ -15,7 +15,7 @@ class Order extends Model
 {
     /**
      * ORDER ATTRIBUTES
-     * $this->attributes['id'] - int - contains the order primary key (id)
+     * $this->attributes['id'] - string - contains the order primary key (id)
      * $this->attributes['total'] - int - contains the order total
      * $this->items - Item[] - contains the order items
      * $this->user - User - contains the user who made the order

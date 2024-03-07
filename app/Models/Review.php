@@ -13,7 +13,7 @@ class Review extends Model
 {
     /**
      * REVIEW ATTRIBUTES
-     * $this->attributes['id'] - int - contains the review primary key (id)
+     * $this->attributes['id'] - string - contains the review primary key (id)
      * $this->attributes['title'] - string - contains the review title
      * $this->attributes['description'] - string - contains the review description
      * $this->attributes['rating'] - int - contains review rating
