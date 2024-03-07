@@ -2,7 +2,7 @@
 
 /*
     Author: Miguel Jaramillo
-*/ 
+*/
 
 namespace App\Models;
 
@@ -25,8 +25,7 @@ class Review extends Model
      * $this->attribute['community_post_id'] - int - contains the community post primary key (id)
      * $this->attributes['created_at'] - string - contains the date of toy creation
      * $this->attributes['updated_at'] - string - contains when the review was updated
-    */
-
+     */
     protected $fillable = ['title', 'description', 'rating', 'travel_id', 'community_post_id'];
 
     public function getId(): string

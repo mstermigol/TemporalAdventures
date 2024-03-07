@@ -22,7 +22,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->unsignedBigInteger('balance')->default(9999999);
-            $table->boolean('is_staff')->default(False);
+            $table->boolean('is_staff')->default(false);
             $table->string('phone_number');
             $table->rememberToken();
             $table->timestamps();
