@@ -71,12 +71,12 @@ class Order extends Model
         return $this->user;
     }
 
-    public function setUserId(int $user_id): void
+    public function setUserId(string $user_id): void
     {
         $this->attributes['user_id'] = $user_id;
     }
 
-    public function getUserId(): int
+    public function getUserId(): string
     {
         return $this->attributes['user_id'];
     }

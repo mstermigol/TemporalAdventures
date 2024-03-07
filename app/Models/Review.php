@@ -78,12 +78,12 @@ class Review extends Model
         $this->user()->associate($user);
     }
 
-    public function getUserId(): int
+    public function getUserId(): string
     {
         return $this->attributes['user_id'];
     }
 
-    public function setUserId(int $user_id): void
+    public function setUserId(string $user_id): void
     {
         $this->attributes['user_id'] = $user_id;
     }
@@ -103,12 +103,12 @@ class Review extends Model
         $this->travel()->associate($travel);
     }
 
-    public function getTravelId(): int
+    public function getTravelId(): string
     {
         return $this->attributes['travel_id'];
     }
 
-    public function setTravelId(int $travel_id): void
+    public function setTravelId(string $travel_id): void
     {
         $this->attributes['travel_id'] = $travel_id;
     }
@@ -128,12 +128,12 @@ class Review extends Model
         $this->community_post()->associate($community_post);
     }
 
-    public function getCommunityPostId(): int
+    public function getCommunityPostId(): string
     {
         return $this->attributes['community_post_id'];
     }
 
-    public function setCommunityPostId(int $community_post_id): void
+    public function setCommunityPostId(string $community_post_id): void
     {
         $this->attributes['community_post_id'] = $community_post_id;
     }
