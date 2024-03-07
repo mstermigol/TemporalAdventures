@@ -19,7 +19,7 @@ class User extends Authenticatable
 
     /**
      * USER ATTRIBUTES
-     * $this->attributes['id'] - int - contains the user primary key (id)
+     * $this->attributes['id'] - string - contains the user primary key (id)
      * $this->attributes['name'] - string - contains the user name
      * $this->attributes['email'] - string - contains the user email
      * $this->attributes['password'] - string - contains the user password
@@ -44,7 +44,7 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function getId(): int
+    public function getId(): string
     {
         return $this->attributes['id'];
     }
