@@ -7,11 +7,11 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Collection;
 
 class User extends Authenticatable
 {
@@ -32,7 +32,6 @@ class User extends Authenticatable
      * $this->attributes['created_at'] - string - contains the date of user creation
      * $this->attributes['updated_at'] - string - contains when the user was updated
      */
-
     protected $fillable = ['name', 'email', 'password', 'phone_number'];
 
     protected $hidden = [
