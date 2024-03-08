@@ -1,12 +1,15 @@
 <?php
 
+/*
+    Author: David Fonseca
+*/
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use DateTime;
 
-// Travel.php
 class Travel extends Model
 {
     /**
