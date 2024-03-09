@@ -6,22 +6,24 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use DateTime;
+use App\Enums\CategoryEnum;
+
 
 class Travel extends Model
 {
     /**
      * TRAVEL ATTRIBUTES
-     * $this->attributes['id'] - int - contains the travel primary key (id)
+     * $this->attributes['id'] - string - contains the travel primary key (id)
      * $this->attributes['title'] - string - contains the travel title
      * $this->attributes['description'] - string - contains the travel description
      * $this->attributes['place'] - string - contains the place of travel
-     * $this->attributes['dateOfDestination'] - date - contains the date of destination
+     * $this->attributes['date_of_destination'] - date - contains the date of destination
      * $this->attributes['price'] - int - contains the price of the travel
-     * $this->attributes['startDate'] - date - contains the start date of the travel
-     * $this->attributes['endDate'] - date - contains the end date of the travel
+     * $this->attributes['start_date'] - date - contains the start date of the travel
+     * $this->attributes['end_date'] - date - contains the end date of the travel
      * $this->attributes['image'] - string - contains the image URL of the travel
      * $this->attributes['category'] - enum<Category> - contains the category of the travel
      * $this->reviews - Review[] - contains the reviews associated with the travel
@@ -31,7 +33,9 @@ class Travel extends Model
      */
     protected $fillable = ['title', 'description', 'place', 'dateOfDestination', 'price', 'startDate', 'endDate', 'image', 'category'];
 
-    public function getId(): int
+    protected $casts = ['category' => CategoryEnum::class,];
+
+    public function getId(): string
     {
         return $this->attributes['id'];
     }
@@ -66,14 +70,14 @@ class Travel extends Model
         $this->attributes['place'] = $place;
     }
 
-    public function getDateOfDestination(): DateTime
+    public function getDateOfDestination(): string
     {
-        return $this->attributes['dateOfDestination'];
+        return $this->attributes['date_of_destination'];
     }
 
-    public function setDateOfDestination(DateTime $dateOfDestination): void
+    public function setDateOfDestination(string $date_of_destination): void
     {
-        $this->attributes['dateOfDestination'] = $dateOfDestination;
+        $this->attributes['date_of_destination'] = $date_of_destination;
     }
 
     public function getPrice(): int
@@ -86,24 +90,24 @@ class Travel extends Model
         $this->attributes['price'] = $price;
     }
 
-    public function getStartDate(): DateTime
+    public function getStartDate(): string
     {
-        return $this->attributes['startDate'];
+        return $this->attributes['start_date'];
     }
 
-    public function setStartDate(DateTime $startDate): void
+    public function setStartDate(string $start_date): void
     {
-        $this->attributes['startDate'] = $startDate;
+        $this->attributes['start_date'] = $start_date;
     }
 
-    public function getEndDate(): DateTime
+    public function getEndDate(): string
     {
-        return $this->attributes['endDate'];
+        return $this->attributes['end_date'];
     }
 
-    public function setEndDate(DateTime $endDate): void
+    public function setEndDate(string $end_date): void
     {
-        $this->attributes['endDate'] = $endDate;
+        $this->attributes['end_date'] = $end_date;
     }
 
     public function getImage(): string
@@ -116,14 +120,14 @@ class Travel extends Model
         $this->attributes['image'] = $image;
     }
 
-    public function getCategory()
+    public function getCategory(): CategoryEnum
     {
         return $this->attributes['category'];
     }
 
     public function setCategory($category): void
     {
-        $this->attributes['category'] = $category;
+        $this->attributes['category'] = $category->value;
     }
 
     public function reviews(): HasMany
@@ -131,9 +135,29 @@ class Travel extends Model
         return $this->hasMany(Review::class);
     }
 
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
+    }
+
+    public function setReviews(Collection $reviews): void
+    {
+        $this->reviews = $reviews;
+    }
+
     public function items(): HasMany
     {
         return $this->hasMany(Item::class);
+    }
+
+    public function getItems(): Collection
+    {
+        return $this->items;
+    }
+
+    public function setItems(Collection $items): void
+    {
+        $this->items = $items;
     }
 
     public function getCreatedAt(): string
