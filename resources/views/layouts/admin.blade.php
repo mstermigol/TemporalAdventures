@@ -48,7 +48,7 @@
           </li>
         </ul>
         <div class="container-fluid justify-content-center mt-4">
-          <a href="#" class="btn btn-danger">Logout</a>
+          <a href="#" class="btn btn-danger">@lang('admin.navbar_items.logout')</a>
         </div>
         </div>
       </div>
@@ -83,7 +83,7 @@
           </li>
         </ul>
         <div class="container-fluid justify-content-center">
-          <a href="#" class="btn btn-danger">Logout</a>
+          <a href="#" class="btn btn-danger">@lang('admin.navbar_items.logout')</a>
         </div>
       </nav>
       </div>
