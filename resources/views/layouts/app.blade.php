@@ -43,7 +43,7 @@
 <footer class="footer mt-auto py-3 bg-light fixed-bottom">
     <div class="container">
       <div class="text-center">
-        <p class="mb-0">Copyright - <a href="https://github.com/mstermigol" class="link-dark">Miguel Jaramillo</a> - <a href="https://github.com/sergiocordobam" class="link-dark">Sergio Cordoba</a> - <a href="https://github.com/DavidFonsek" class="link-dark">David Fonseca</a></p>
+        <p class="mb-0">@lang('app.footer.copyright') - <a href="https://github.com/mstermigol" class="link-dark">Miguel Jaramillo</a> - <a href="https://github.com/sergiocordobam" class="link-dark">Sergio Cordoba</a> - <a href="https://github.com/DavidFonsek" class="link-dark">David Fonseca</a></p>
       </div>
     </div>
 </footer>

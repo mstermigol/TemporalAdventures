@@ -9,4 +9,7 @@ return [
         'travels' => 'Travels',
         'community_posts' => 'Community Posts',
     ],
+    'footer' => [
+        'copyright' => 'Copyright',
+    ],
 ];
