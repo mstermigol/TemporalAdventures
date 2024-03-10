@@ -20,7 +20,7 @@ class CommunityPost extends Model
      * $this->attributes['title'] - string - contains the community post title
      * $this->attributes['description'] - string - contains the community post description
      * $this->attributes['image'] - string - contains the community post image URL
-     * $this->attributes['date_of_event'] - date - contains the date of the related event
+     * $this->attributes['date_of_event'] - string- contains the date of the related event
      * $this->attributes['place_of_event'] - string - contains the location of the related event
      * $this->attributes['category'] - enum<Category> - contains the category of the community post
      * $this->user - User - contains the user who made the community post
