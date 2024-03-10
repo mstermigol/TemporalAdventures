@@ -25,7 +25,7 @@ return new class extends Migration
             $table->date('start_date');
             $table->date('end_date');
             $table->string('image');
-            $table->enum('status', CategoryEnum::values());
+            $table->enum('category', CategoryEnum::values());
             $table->timestamps();
         });
     }
