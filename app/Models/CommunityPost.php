@@ -89,7 +89,7 @@ class CommunityPost extends Model
         $this->attributes['place_of_event'] = $placeOfEvent;
     }
 
-    public function getCategory(): CategoryEnum
+    public function getCategory(): string
     {
         return $this->attributes['category'];
     }
