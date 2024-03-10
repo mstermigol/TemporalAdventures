@@ -7,6 +7,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Enums\CategoryEnum;
 
 return new class extends Migration
 {
@@ -20,19 +21,12 @@ return new class extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('place');
-            $table->date('dateOfDestination');
+            $table->date('date_of_destination');
             $table->integer('price');
-            $table->date('startDate');
-            $table->date('endDate');
+            $table->date('start_date');
+            $table->date('end_date');
             $table->string('image');
-            $table->enum('category', [
-                'Art and Culture',
-                'War and Conflict',
-                'Music and Entertainment',
-                'Inventions and Discoveries',
-                'Daily Life and Customs',
-                'Exploration and Adventure'
-            ]);
+            $table->enum('status', CategoryEnum::values());
             $table->timestamps();
         });
     }
