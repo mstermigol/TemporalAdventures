@@ -120,7 +120,7 @@ class Travel extends Model
         $this->attributes['image'] = $image;
     }
 
-    public function getCategory(): CategoryEnum
+    public function getCategory(): string
     {
         return $this->attributes['category'];
     }
