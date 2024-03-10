@@ -94,7 +94,7 @@ class CommunityPost extends Model
         return $this->attributes['category'];
     }
 
-    public function setCategory($category): void
+    public function setCategory(CategoryEnum $category): void
     {
         $this->attributes['category'] = $category->value;
     }
