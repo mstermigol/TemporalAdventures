@@ -9,7 +9,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use DateTime;
+use Illuminate\Database\Eloquent\Collection;
+use App\Enums\CategoryEnum;
 
 class CommunityPost extends Model
 {
@@ -19,8 +20,8 @@ class CommunityPost extends Model
      * $this->attributes['title'] - string - contains the community post title
      * $this->attributes['description'] - string - contains the community post description
      * $this->attributes['image'] - string - contains the community post image URL
-     * $this->attributes['dateOfEvent'] - date - contains the date of the related event
-     * $this->attributes['placeOfEvent'] - string - contains the location of the related event
+     * $this->attributes['date_of_event'] - date - contains the date of the related event
+     * $this->attributes['place_of_event'] - string - contains the location of the related event
      * $this->attributes['category'] - enum<Category> - contains the category of the community post
      * $this->user - User - contains the user who made the community post
      * $this->attribute['user_id'] - int - contains the user primary key (id)
@@ -30,6 +31,8 @@ class CommunityPost extends Model
      */
 
     protected $fillable = ['title', 'description', 'image', 'dateOfEvent', 'placeOfEvent', 'category', 'user_id'];
+
+    protected $casts = ['category' => CategoryEnum::class,];
 
     public function getId(): string
     {
@@ -66,34 +69,34 @@ class CommunityPost extends Model
         $this->attributes['image'] = $image;
     }
 
-    public function getDateOfEvent(): DateTime
+    public function getDateOfEvent(): string
     {
-        return $this->attributes['dateOfEvent'];
+        return $this->attributes['date_of_event'];
     }
 
-    public function setDateOfEvent(DateTime $dateOfEvent): void
+    public function setDateOfEvent(string $dateOfEvent): void
     {
-        $this->attributes['dateOfEvent'] = $dateOfEvent->format('Y-m-d');
+        $this->attributes['date_of_event'] = $dateOfEvent;
     }
 
     public function getPlaceOfEvent(): string
     {
-        return $this->attributes['placeOfEvent'];
+        return $this->attributes['place_of_event'];
     }
 
     public function setPlaceOfEvent(string $placeOfEvent): void
     {
-        $this->attributes['placeOfEvent'] = $placeOfEvent;
+        $this->attributes['place_of_event'] = $placeOfEvent;
     }
 
-    public function getCategory()
+    public function getCategory(): CategoryEnum
     {
         return $this->attributes['category'];
     }
 
     public function setCategory($category): void
     {
-        $this->attributes['category'] = $category;
+        $this->attributes['category'] = $category->value;
     }
 
     public function user(): BelongsTo
@@ -124,6 +127,16 @@ class CommunityPost extends Model
     public function reviews(): HasMany
     {
         return $this->hasMany(Review::class);
+    }
+
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
+    }
+
+    public function setReviews(Collection $reviews): void
+    {
+        $this->reviews = $reviews;
     }
 
     public function getCreatedAt(): string
