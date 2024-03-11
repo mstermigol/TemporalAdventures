@@ -58,12 +58,6 @@
                                 <button type="submit" class="btn btn-primary">
                                 @lang('app.login.login')
                                 </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    @lang('app.login.forgot_password')
-                                    </a>
-                                @endif
                             </div>
                         </div>
                     </form>
