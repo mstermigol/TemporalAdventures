@@ -8,7 +8,8 @@ namespace App\Enums;
 
 use Kongulov\Traits\InteractWithEnum;
 
-enum CategoryEnum: string {
+enum CategoryEnum: string
+{
     use InteractWithEnum;
 
     case ArtAndCulture = 'Art and culture';
@@ -18,4 +19,3 @@ enum CategoryEnum: string {
     case DailyLifeAndCustoms = 'Daily Life and Customs';
     case ExplorationAndAdventure = 'Exploration and Adventure';
 }
-

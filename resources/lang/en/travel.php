@@ -13,5 +13,5 @@ return [
         'start' => 'Start date',
         'end' => 'End date',
         'category' => 'Category',
-    ]
+    ],
 ];

@@ -20,7 +20,7 @@ return [
         'email' => 'Restablecer contraseña - Temporal Adventures',
         'reset' => 'Restablecer contraseña - Temporal Adventures',
         'login' => 'Iniciar sesión - Temporal Adventures',
-        'register'=> 'Registrarse - Temporal Adventures',
+        'register' => 'Registrarse - Temporal Adventures',
         'verify' => 'Verificar dirección de correo electrónico - Temporal Adventures',
     ],
     'confirm' => [

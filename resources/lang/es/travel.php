@@ -13,5 +13,5 @@ return [
         'start' => 'Fecha de inicio',
         'end' => 'Fecha de regreso',
         'category' => 'Categoría',
-    ]
+    ],
 ];

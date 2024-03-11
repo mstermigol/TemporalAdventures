@@ -21,7 +21,7 @@ return [
         'email' => 'Reset Password - Temporal Adventures',
         'reset' => 'Reset Password - Temporal Adventures',
         'login' => 'Login - Temporal Adventures',
-        'register'=> 'Register - Temporal Adventures',
+        'register' => 'Register - Temporal Adventures',
         'verify' => 'Verify Your Email Address - Temporal Adventures',
     ],
     'confirm' => [

@@ -26,7 +26,7 @@ class TravelsTableSeeder extends Seeder
                 'image' => '/travels/pyramids-of-giza.webp',
                 'category' => 'Inventions and Discoveries',
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
             ],
             [
                 'id' => 2,
@@ -40,7 +40,7 @@ class TravelsTableSeeder extends Seeder
                 'image' => '/travels/cristobal-colon.webp',
                 'category' => 'Inventions and Discoveries',
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
             ],
             [
                 'id' => 3,
@@ -54,7 +54,7 @@ class TravelsTableSeeder extends Seeder
                 'image' => '/travels/world-war-i.webp',
                 'category' => 'War and Conflict',
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
             ],
             [
                 'id' => 4,
@@ -68,11 +68,11 @@ class TravelsTableSeeder extends Seeder
                 'image' => '/travels/world-war-ii.webp',
                 'category' => 'War and Conflict',
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
             ],
             [
                 'id' => 5,
-                'title' => "Nagasaki Atomic Bomb",
+                'title' => 'Nagasaki Atomic Bomb',
                 'description' => 'Travel to the exact moment in which the first atomic bomb in history was dropped on the city of Nagazaki. BOOM!',
                 'place' => 'Nagasaki, Japon',
                 'date_of_destination' => '1945-08-06',
@@ -82,11 +82,11 @@ class TravelsTableSeeder extends Seeder
                 'image' => '/travels/nagasaki.webp',
                 'category' => 'War and Conflict',
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
             ],
             [
                 'id' => 6,
-                'title' => "Hiroshima Atomic Bomb",
+                'title' => 'Hiroshima Atomic Bomb',
                 'description' => 'Travel to the exact moment in which the second atomic bomb in history was dropped on the city of Hiroshima. BOOM!',
                 'place' => 'Hiroshima, Japon',
                 'date_of_destination' => '1945-08-09',
@@ -96,7 +96,7 @@ class TravelsTableSeeder extends Seeder
                 'image' => '/travels/hiroshima.webp',
                 'category' => 'War and Conflict',
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
             ],
         ]);
     }
