@@ -46,7 +46,6 @@ return [
         'email_address' => 'E-Mail Address',
         'password' => 'Password',
         'remember_me' => 'Remember Me',
-        'forgot_password' => 'Forgot Your Password?',
     ],
     'register' => [
         'register' => 'Register',
