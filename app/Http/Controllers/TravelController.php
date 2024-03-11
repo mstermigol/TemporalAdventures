@@ -25,7 +25,7 @@ class TravelController extends Controller{
 
         $view_data = [];
         $view_data['title'] = "{$travel->getTitle()}";
-        $view_data['travels'] = $travel;
+        $view_data['travel'] = $travel;
 
         return view('travel.show')->with('view_data', $view_data);
     }

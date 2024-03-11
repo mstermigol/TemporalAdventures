@@ -25,21 +25,21 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" href="/travels">@lang('app.navbar_items.travels')</a>
+          <a class="nav-link" href="{{route('travel.index')}}">@lang('app.navbar_items.travels')</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">@lang('app.navbar_items.community_posts')</a>
         </li>
-        @guest 
-        <a class="nav-link active" href="{{ route('login') }}">@lang('app.navbar_items.login')</a> 
-        <a class="nav-link active" href="{{ route('register') }}">@lang('app.navbar_items.register')</a> 
-        @else 
-        <form id="logout" action="{{ route('logout') }}" method="POST"> 
-        <a role="button" class="nav-link active" 
-        onclick="document.getElementById('logout').submit();">@lang('app.navbar_items.logout')</a> 
-        @csrf 
-        </form> 
-        @endguest 
+        @guest
+        <a class="nav-link active" href="{{ route('login') }}">@lang('app.navbar_items.login')</a>
+        <a class="nav-link active" href="{{ route('register') }}">@lang('app.navbar_items.register')</a>
+        @else
+        <form id="logout" action="{{ route('logout') }}" method="POST">
+        <a role="button" class="nav-link active"
+        onclick="document.getElementById('logout').submit();">@lang('app.navbar_items.logout')</a>
+        @csrf
+        </form>
+        @endguest
       </ul>
     </div>
   </div>

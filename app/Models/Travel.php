@@ -32,7 +32,7 @@ class Travel extends Model
      */
 
     protected $table = 'travels';
-    protected $fillable = ['title', 'description', 'place', 'dateOfDestination', 'price', 'startDate', 'endDate', 'image', 'category'];
+    protected $fillable = ['title', 'description', 'place', 'date_of_destination', 'price', 'start_date', 'end_date', 'image', 'category'];
     protected $casts = ['category' => CategoryEnum::class,];
 
     public function getId(): string
