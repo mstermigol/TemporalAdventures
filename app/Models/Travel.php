@@ -20,10 +20,10 @@ class Travel extends Model
      * $this->attributes['title'] - string - contains the travel title
      * $this->attributes['description'] - string - contains the travel description
      * $this->attributes['place'] - string - contains the place of travel
-     * $this->attributes['date_of_destination'] - date - contains the date of destination
+     * $this->attributes['date_of_destination'] - string - contains the date of destination
      * $this->attributes['price'] - int - contains the price of the travel
-     * $this->attributes['start_date'] - date - contains the start date of the travel
-     * $this->attributes['end_date'] - date - contains the end date of the travel
+     * $this->attributes['start_date'] - string - contains the start date of the travel
+     * $this->attributes['end_date'] - string - contains the end date of the travel
      * $this->attributes['image'] - string - contains the image URL of the travel
      * $this->attributes['category'] - enum<Category> - contains the category of the travel
      * $this->reviews - Review[] - contains the reviews associated with the travel
