@@ -1,6 +1,5 @@
 <?php
 
-/*
     Author: Miguel Jaramillo
 */
 
