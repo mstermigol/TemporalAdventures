@@ -6,11 +6,11 @@
 
 namespace App\Models;
 
+use App\Enums\CategoryEnum;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Collection;
-use App\Enums\CategoryEnum;
 
 class CommunityPost extends Model
 {
@@ -29,10 +29,9 @@ class CommunityPost extends Model
      * $this->attributes['created_at'] - string - contains the date of community post creation
      * $this->attributes['updated_at'] - string - contains when the community post was updated
      */
-
     protected $fillable = ['title', 'description', 'image', 'dateOfEvent', 'placeOfEvent', 'category', 'user_id'];
 
-    protected $casts = ['category' => CategoryEnum::class,];
+    protected $casts = ['category' => CategoryEnum::class];
 
     public function getId(): string
     {

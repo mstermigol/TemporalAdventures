@@ -6,11 +6,10 @@
 
 namespace App\Models;
 
+use App\Enums\CategoryEnum;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use App\Enums\CategoryEnum;
-
 
 class Travel extends Model
 {
@@ -31,9 +30,11 @@ class Travel extends Model
      * $this->attributes['created_at'] - string - contains the date of travel creation
      * $this->attributes['updated_at'] - string - contains when the travel was updated
      */
-    protected $fillable = ['title', 'description', 'place', 'dateOfDestination', 'price', 'startDate', 'endDate', 'image', 'category'];
+    protected $table = 'travels';
 
-    protected $casts = ['category' => CategoryEnum::class,];
+    protected $fillable = ['title', 'description', 'place', 'date_of_destination', 'price', 'start_date', 'end_date', 'image', 'category'];
+
+    protected $casts = ['category' => CategoryEnum::class];
 
     public function getId(): string
     {
