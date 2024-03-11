@@ -9,6 +9,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -162,5 +163,17 @@ class User extends Authenticatable
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public static function validate(Request $request): void
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'password' => 'required|string|min:8|max:255',
+            'email' => 'required|string|email|max:255',
+            'phone_number' => 'required|string|max:255',
+            'is_staff' => 'required|boolean',
+            'balance' => 'required|numeric',
+        ]);
     }
 }
