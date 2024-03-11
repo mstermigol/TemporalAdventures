@@ -12,4 +12,17 @@ return [
     'footer' => [
         'copyright' => 'Copyright',
     ],
+    'titles' => [
+        'cart_index' => 'Cart - TemporalAdventures',
+    ],
+    'cart' => [
+        'travels' => 'Travels in Cart',
+        'id' => 'ID',
+        'name' => 'Name',
+        'price' => 'Price',
+        'quantity' => 'Quantity',
+        'total' => 'Total to pay:',
+        'purchase' => 'Purchase',
+        'remove' => 'Remove all travels from Cart',
+    ],
 ];

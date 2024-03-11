@@ -169,4 +169,14 @@ class Travel extends Model
     {
         return $this->attributes['updated_at'];
     }
+
+    public static function sumPricesByQuantities(array $travels, array $travelsInSession): int
+    {
+        $total = 0;
+        foreach($travels as $travel){
+            $total = $total + ($travel->getPrice()*$travelsInSession[$travel->getId()]);
+        }
+        
+        return $total;
+    }
 }
