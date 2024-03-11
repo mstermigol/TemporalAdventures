@@ -6,7 +6,6 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
-        "barryvdh/laravel-ide-helper": "*",
         "guzzlehttp/guzzle": "^7.2",
         "kongulov/interact-with-enum": "^1.0",
         "laravel/framework": "^10.10",
