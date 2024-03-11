@@ -1,8 +1,5 @@
 <?php
 
-/*
-    Author: Miguel Jaramillo
-*/
 
 namespace App\Http\Controllers;
 
