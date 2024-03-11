@@ -21,7 +21,6 @@ class CartController extends Controller
         }
 
         $viewData = [];
-        $viewData['title'] = trans('app.titles.cart_index');
         $viewData['total'] = $total;
         $viewData['travels'] = $travelsInCart;
         return view('cart.index')->with('viewData', $viewData);

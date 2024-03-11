@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', $viewData['title'])
+@section('title', @lang('app.titles.cart_index'))
 @section('content')
 <div class="card"> 
     <div class="card-header"> 
