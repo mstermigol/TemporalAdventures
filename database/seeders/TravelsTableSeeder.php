@@ -66,6 +66,34 @@ class TravelsTableSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now()
             ],
+            [
+                'id' => 5,
+                'title' => "Nagasaki Atomic Bomb",
+                'description' => 'Travel to the exact moment in which the first atomic bomb in history was dropped on the city of Nagazaki. BOOM!',
+                'place' => 'Nagasaki, Japon',
+                'date_of_destination' => '1945-08-06',
+                'price' => 120000,
+                'start_date' => '2024-12-19',
+                'end_date' => '2024-12-19',
+                'image' => '/travels/nagasaki.webp',
+                'category' => 'War and Conflict',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'id' => 6,
+                'title' => "Hiroshima Atomic Bomb",
+                'description' => 'Travel to the exact moment in which the second atomic bomb in history was dropped on the city of Hiroshima. BOOM!',
+                'place' => 'Hiroshima, Japon',
+                'date_of_destination' => '1945-08-09',
+                'price' => 110000,
+                'start_date' => '2024-12-20',
+                'end_date' => '2024-12-20',
+                'image' => '/travels/hiroshima.webp',
+                'category' => 'War and Conflict',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
         ]);
     }
 }
