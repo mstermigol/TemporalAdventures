@@ -1,7 +1,7 @@
 <?php
 
 /*
-    Author: Miguel Jaramillo
+    Authors: Miguel Jaramillo and Sergio Córdoba
 */
 
 return [
