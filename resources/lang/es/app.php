@@ -7,7 +7,7 @@
 return [
     'navbar_items' => [
         'travels' => 'Viajes',
-        'community_posts' => 'publicaciones de la comunidad',
+        'community_posts' => 'Publicaciones de la comunidad',
         'login' => 'Iniciar sesión',
         'register' => 'Registrarse',
         'logout' => 'Cerrar sesión',
@@ -45,7 +45,6 @@ return [
         'email_address' => 'Dirección de correo electrónico',
         'password' => 'Contraseña',
         'remember_me' => 'Recuérdame',
-        'forgot_password' => '¿Olvidaste tu contraseña?',
     ],
     'register' => [
         'register' => 'Registrarse',
