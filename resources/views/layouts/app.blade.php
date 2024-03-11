@@ -25,7 +25,7 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">@lang('app.navbar_items.travels')</a>
+          <a class="nav-link" href="/travels">@lang('app.navbar_items.travels')</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">@lang('app.navbar_items.community_posts')</a>
