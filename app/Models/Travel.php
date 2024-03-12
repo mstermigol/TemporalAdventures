@@ -174,10 +174,10 @@ class Travel extends Model
     public static function sumPricesByQuantities(Collection $travels, array $travelsInSession): int
     {
         $total = 0;
-        foreach($travels as $travel){
-            $total = $total + ($travel->getPrice()*$travelsInSession[$travel->getId()]);
+        foreach ($travels as $travel) {
+            $total = $total + ($travel->getPrice() * $travelsInSession[$travel->getId()]);
         }
-        
+
         return $total;
     }
 }

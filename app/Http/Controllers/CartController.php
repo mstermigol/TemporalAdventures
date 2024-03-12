@@ -19,7 +19,7 @@ class CartController extends Controller
         $travelsInCart = [];
 
         $travelsInSession = $request->session()->get('travels');
-        if($travelsInSession){
+        if ($travelsInSession) {
             $travelsInCart = Travel::findMany(array_keys($travelsInSession));
             $total = Travel::sumPricesByQuantities($travelsInCart, $travelsInSession);
         }
@@ -27,6 +27,7 @@ class CartController extends Controller
         $viewData = [];
         $viewData['total'] = $total;
         $viewData['travels'] = $travelsInCart;
+
         return view('cart.index')->with('viewData', $viewData);
     }
 
@@ -35,13 +36,14 @@ class CartController extends Controller
         $travels = $request->session()->get('travels');
         $travels[$id] = $request->input('quantity');
         $request->session()->put('travels', $travels);
+
         return redirect()->route('travel.index');
     }
 
     public function delete(Request $request): RedirectResponse
     {
         $request->session()->forget('travels');
+
         return back();
     }
-
 }

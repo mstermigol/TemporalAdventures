@@ -31,18 +31,37 @@
           <a class="nav-link" href="#">@lang('app.navbar_items.community_posts')</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{route('cart.index')}}">@lang('app.navbar_items.cart')</a>
-        </li>
+        <a class="nav-link" href="{{ route('cart.index') }}">
+          <i class="fas fa-shopping-cart"></i>
+        </a>
+      </li>
         <div class="vr bg-black mx-2 d-none d-lg-block"></div> 
         @guest
         <a class="nav-link active" href="{{ route('login') }}">@lang('app.navbar_items.login')</a>
         <a class="nav-link active" href="{{ route('register') }}">@lang('app.navbar_items.register')</a>
         @else
-        <form id="logout" action="{{ route('logout') }}" method="POST">
-        <a role="button" class="nav-link active"
-        onclick="document.getElementById('logout').submit();">@lang('app.navbar_items.logout')</a>
-        @csrf
-        </form>
+        <li class="nav-item dropdown">
+          <div class="nav-link dropdown-toggle" role="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-user"></i> 
+          </div>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <li>
+              <div class="dropdown-header">
+                <span>{{ Auth::user()->getFirstName() }}</span>
+                
+              </div>
+              <div class="dropdown-divider"></div>
+            </li>
+            <span class="dropdown-item-text">${{ Auth::user()->getBalance() }}</span>
+            <div class="dropdown-divider"></div>
+            <li>
+              <form id="logout" action="{{ route('logout') }}" method="POST">
+                <button type="submit" class="dropdown-item">@lang('app.navbar_items.logout')</button>
+                @csrf
+              </form>
+            </li>
+          </ul>
+        </li>
         @endguest
       </ul>
     </div>

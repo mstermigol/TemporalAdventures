@@ -55,6 +55,14 @@ class User extends Authenticatable
         return $this->attributes['name'];
     }
 
+    public function getFirstName(): string
+    {
+        $fullName = $this->attributes['name'];
+        $firstName = explode(' ', $fullName)[0];
+
+        return $firstName;
+    }
+
     public function setName(string $name): void
     {
         $this->attributes['name'] = $name;
