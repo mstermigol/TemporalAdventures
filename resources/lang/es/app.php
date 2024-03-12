@@ -1,7 +1,7 @@
 <?php
 
 /*
-    Author: Miguel Jaramillo
+    Authors: Miguel Jaramillo, Sergio Córdoba and David Fonseca
 */
 
 return [
@@ -11,9 +11,20 @@ return [
         'login' => 'Iniciar sesión',
         'register' => 'Registrarse',
         'logout' => 'Cerrar sesión',
+        'cart' => 'Carrito',
     ],
     'footer' => [
         'copyright' => 'Derechos de autor',
+    ],
+    'cart' => [
+        'travels' => 'Viajes en el carrito',
+        'id' => 'ID',
+        'name' => 'Nombre',
+        'price' => 'Precio',
+        'quantity' => 'Cantidad',
+        'total' => 'Total a pagar:',
+        'purchase' => 'Comprar',
+        'remove' => 'Quitar todos los viajes del carrito',
     ],
     'titles' => [
         'confirm' => 'Confirmar contraseña - Temporal Adventures',
@@ -23,6 +34,7 @@ return [
         'register' => 'Registrarse - Temporal Adventures',
         'verify' => 'Verificar dirección de correo electrónico - Temporal Adventures',
         'travels' => 'Viajes - Temporal Adventures',
+        'cart_index' => 'Carrito - TemporalAdventures',
     ],
     'confirm' => [
         'confirm_password' => 'Confirmar contraseña',
@@ -70,5 +82,6 @@ return [
         'start' => 'Fecha de inicio',
         'end' => 'Fecha de regreso',
         'category' => 'Categoría',
+        'quantity' => 'Cantidad',
     ],
 ];
