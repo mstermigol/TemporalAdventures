@@ -22,6 +22,7 @@ return [
         'login' => 'Iniciar sesión - Temporal Adventures',
         'register' => 'Registrarse - Temporal Adventures',
         'verify' => 'Verificar dirección de correo electrónico - Temporal Adventures',
+        'travels' => 'Viajes - Temporal Adventures',
     ],
     'confirm' => [
         'confirm_password' => 'Confirmar contraseña',
@@ -60,5 +61,14 @@ return [
         'not_receive_email' => 'Si no recibió el correo electrónico',
         'click_request_another' => 'haga clic aquí para solicitar otro',
         'fresh_verification' => 'Se ha enviado un nuevo enlace de verificación a su dirección de correo electrónico.',
+    ],
+    'content_travels' => [
+        'see_more' => 'Ver más',
+        'price' => 'Precio',
+        'description' => 'Descripción',
+        'add_to_cart' => 'Agregar al carrito',
+        'start' => 'Fecha de inicio',
+        'end' => 'Fecha de regreso',
+        'category' => 'Categoría',
     ],
 ];

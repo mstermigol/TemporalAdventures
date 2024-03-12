@@ -12,7 +12,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{$travel->getTitle()}}</h5>
                             <p class="card-text">{{$travel->getDescription()}}</p>
-                            <a href="{{ route('travel.show', ['id'=> $travel->getId()]) }}" class="btn btn-primary">@lang('travel.content_travels.see_more')</a>
+                            <a href="{{ route('travel.show', ['id'=> $travel->getId()]) }}" class="btn btn-primary">@lang('app.content_travels.see_more')</a>
                         </div>
                     </div>
                 </li>

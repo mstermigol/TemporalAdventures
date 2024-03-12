@@ -30,6 +30,7 @@
         <li class="nav-item">
           <a class="nav-link" href="#">@lang('app.navbar_items.community_posts')</a>
         </li>
+        <div class="vr bg-black mx-2 d-none d-lg-block"></div> 
         @guest
         <a class="nav-link active" href="{{ route('login') }}">@lang('app.navbar_items.login')</a>
         <a class="nav-link active" href="{{ route('register') }}">@lang('app.navbar_items.register')</a>
