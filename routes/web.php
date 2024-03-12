@@ -1,10 +1,11 @@
 <?php
 
 /*
-    Author: David Fonseca
+    Authors: David Fonseca and Sergio Córdoba
 */
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 

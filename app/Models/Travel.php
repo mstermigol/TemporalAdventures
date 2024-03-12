@@ -1,7 +1,7 @@
 <?php
 
 /*
-    Author: David Fonseca
+    Authors: David Fonseca and Sergio Córdoba
 */
 
 namespace App\Models;
@@ -171,7 +171,7 @@ class Travel extends Model
         return $this->attributes['updated_at'];
     }
 
-    public static function sumPricesByQuantities(array $travels, array $travelsInSession): int
+    public static function sumPricesByQuantities(Collection $travels, array $travelsInSession): int
     {
         $total = 0;
         foreach($travels as $travel){
