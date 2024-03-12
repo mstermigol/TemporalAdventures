@@ -7,7 +7,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Item extends Model
@@ -26,7 +25,6 @@ class Item extends Model
      * $this->attributes['created_at'] - string - contains the date of toy creation
      * $this->attributes['updated_at'] - string - contains when the review was updated
      */
-
     protected $fillable = ['name', 'quantity', 'price', 'subTotal', 'travel_id', 'order_id'];
 
     public function getId(): string
@@ -94,7 +92,7 @@ class Item extends Model
         $this->attributes['travel_id'] = $travel_id;
     }
 
-    public function getTravelId(): string 
+    public function getTravelId(): string
     {
         return $this->attributes['travel_id'];
     }

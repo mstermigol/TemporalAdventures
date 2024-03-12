@@ -12,6 +12,6 @@ return [
         'reviews' => 'Reviews',
         'orders' => 'Orders',
         'items' => 'Items',
-        'logout' => 'Logout'
+        'logout' => 'Logout',
     ],
 ];
