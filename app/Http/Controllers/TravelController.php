@@ -13,21 +13,21 @@ class TravelController extends Controller
 {
     public function index(): View
     {
-        $view_data = [];
-        $view_data['title'] = trans('app.titles.travels');
-        $view_data['travels'] = Travel::all();
+        $viewData = [];
+        $viewData['title'] = trans('app.titles.travels');
+        $viewData['travels'] = Travel::all();
 
-        return view('travel.index')->with('view_data', $view_data);
+        return view('travel.index')->with('viewData', $viewData);
     }
 
     public function show(string $id): View
     {
         $travel = Travel::findOrFail($id);
 
-        $view_data = [];
-        $view_data['title'] = "{$travel->getTitle()} - Temporal Adventures";
-        $view_data['travel'] = $travel;
+        $viewData = [];
+        $viewData['title'] = "{$travel->getTitle()} - Temporal Adventures";
+        $viewData['travel'] = $travel;
 
-        return view('travel.show')->with('view_data', $view_data);
+        return view('travel.show')->with('viewData', $viewData);
     }
 }

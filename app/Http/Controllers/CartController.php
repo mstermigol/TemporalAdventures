@@ -1,5 +1,9 @@
 <?php
 
+/*
+    Author: Sergio Córdoba
+*/
+
 namespace App\Http\Controllers;
 
 use App\Models\Travel;
@@ -31,7 +35,7 @@ class CartController extends Controller
         $travels = $request->session()->get('travels');
         $travels[$id] = $request->input('quantity');
         $request->session()->put('travels', $travels);
-        return redirect()->route('cart.index');
+        return redirect()->route('travel.index');
     }
 
     public function delete(Request $request): RedirectResponse

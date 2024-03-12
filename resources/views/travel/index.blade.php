@@ -1,11 +1,11 @@
 <!-- Author: David Fonseca -->
 
 @extends('layouts.app')
-@section('title', $view_data['title'])
+@section('title', $viewData['title'])
 @section('content')
     <section class="container my-5">
         <ul class="row list-unstyled">
-            @foreach ($view_data["travels"] as $travel)
+            @foreach ($viewData["travels"] as $travel)
                 <li class="col-md-4 col-lg-4">
                     <div class="card">
                         <img src="{{ url("/images{$travel->getImage()}") }}" class="card-img-top">

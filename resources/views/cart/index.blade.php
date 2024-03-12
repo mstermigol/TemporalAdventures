@@ -1,5 +1,6 @@
+<!-- Author: Sergio Córdoba -->
 @extends('layouts.app')
-@section('title', @lang('app.titles.cart_index'))
+@section('title', trans('app.titles.cart_index'))
 @section('content')
 <div class="card"> 
     <div class="card-header"> 
@@ -19,7 +20,7 @@
                 @foreach ($viewData["travels"] as $travel) 
                     <tr> 
                         <td>{{ $travel->getId() }}</td> 
-                        <td>{{ $travel->getName() }}</td> 
+                        <td>{{ $travel->getTitle() }}</td> 
                         <td>${{ $travel->getPrice() }}</td> 
                         <td>{{ session('travels')[$travel->getId()] }}</td> 
                     </tr>

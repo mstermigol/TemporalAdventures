@@ -1,4 +1,4 @@
-<!-- Author: Miguel Jaramillo -->
+<!-- Authors: Miguel Jaramillo and Sergio Córdoba-->
 
 <!doctype html>
 <html lang="en">
@@ -29,6 +29,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">@lang('app.navbar_items.community_posts')</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('cart.index')}}">@lang('app.navbar_items.cart')</a>
         </li>
         <div class="vr bg-black mx-2 d-none d-lg-block"></div> 
         @guest

@@ -1,7 +1,7 @@
 <?php
 
 /*
-    Authors: Miguel Jaramillo and Sergio Córdoba
+    Authors: Miguel Jaramillo, Sergio Córdoba and David Fonseca
 */
 
 return [
@@ -11,6 +11,7 @@ return [
         'login' => 'Login',
         'register' => 'Register',
         'logout' => 'Logout',
+        'cart' => 'Cart',
 
     ],
     'footer' => [
@@ -83,6 +84,7 @@ return [
         'start' => 'Start date',
         'end' => 'End date',
         'category' => 'Category',
+        'quantity' => 'Quantity',
     ],
 ];
 
