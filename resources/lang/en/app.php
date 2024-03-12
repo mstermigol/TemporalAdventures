@@ -87,4 +87,3 @@ return [
         'quantity' => 'Quantity',
     ],
 ];
-
