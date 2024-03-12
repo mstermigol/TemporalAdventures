@@ -23,6 +23,7 @@ return [
         'login' => 'Login - Temporal Adventures',
         'register' => 'Register - Temporal Adventures',
         'verify' => 'Verify Your Email Address - Temporal Adventures',
+        'travels' => 'Travels - Temporal Adventures',
     ],
     'confirm' => [
         'confirm_password' => 'Confirm Password',
@@ -61,5 +62,14 @@ return [
         'not_receive_email' => 'If you did not receive the email',
         'click_request_another' => 'click here to request another',
         'fresh_verification' => 'A fresh verification link has been sent to your email address.',
+    ],
+    'content_travels' => [
+        'see_more' => 'See more',
+        'price' => 'Price',
+        'description' => 'Description',
+        'add_to_cart' => 'Add to cart',
+        'start' => 'Start date',
+        'end' => 'End date',
+        'category' => 'Category',
     ],
 ];

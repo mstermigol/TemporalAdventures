@@ -14,13 +14,13 @@
                         {{ $view_data["travel"]->getTitle() }}
                     </h4>
                     <p class="card-text">
-                        @lang('travel.content_travels.description'): {{ $view_data["travel"]->getDescription() }}<br>
-                        @lang('travel.content_travels.start'): {{ $view_data["travel"]->getStartDate() }}<br>
-                        @lang('travel.content_travels.end'): {{ $view_data["travel"]->getEndDate() }}<br>
-                        <b>@lang('travel.content_travels.category'):</b> {{ $view_data["travel"]->getCategory() }}<br>
-                        @lang('travel.content_travels.price'): <b>{{ $view_data["travel"]->getPrice() }}$</b>
+                        @lang('app.content_travels.description'): {{ $view_data["travel"]->getDescription() }}<br>
+                        @lang('app.content_travels.start'): {{ $view_data["travel"]->getStartDate() }}<br>
+                        @lang('app.content_travels.end'): {{ $view_data["travel"]->getEndDate() }}<br>
+                        <b>@lang('app.content_travels.category'):</b> {{ $view_data["travel"]->getCategory() }}<br>
+                        @lang('app.content_travels.price'): <b>{{ $view_data["travel"]->getPrice() }}$</b>
                     </p>
-                    <a href="#" class="btn btn-primary">@lang('travel.content_travels.add_to_cart')</a>
+                    <a href="#" class="btn btn-primary">@lang('app.content_travels.add_to_cart')</a>
                 </div>
             </div>
         </div>
