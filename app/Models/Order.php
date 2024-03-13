@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use SebastianBergmann\Type\VoidType;
 
 class Order extends Model
 {
@@ -94,8 +93,8 @@ class Order extends Model
     public static function validate($request): void
     {
         $request->validate([
-            'total' => ['required', 'numeric'],
-            'user_id' => ['required', 'exists:users,id'],
+            'total' => 'required|numeric',
+            'user_id' => 'required|exists:users,id',
         ]);
     }
 }
