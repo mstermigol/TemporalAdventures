@@ -13,6 +13,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Order;
 
 class User extends Authenticatable
 {
@@ -29,7 +30,7 @@ class User extends Authenticatable
      * $this->atributes['phone_number'] - string - contains the user phone number
      * $this->items - review[] - contains associated reviews
      * $this->items - community_post[] - contains associated community posts
-     * $this->orders - order[] - contains associated orders
+     * $this->orders - Order[] - contains associated orders
      * $this->attributes['created_at'] - string - contains the date of user creation
      * $this->attributes['updated_at'] - string - contains when the user was updated
      */

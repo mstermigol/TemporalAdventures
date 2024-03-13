@@ -29,13 +29,19 @@
         </table> 
         <div class="row"> 
             <div class="text-end"> 
-                <a class="btn btn-outline-secondary mb-2"><b>@lang('app.cart.total')</b> ${{ $viewData["total"] }}</a> 
-                <a class="btn bg-primary text-white mb-2">@lang('app.cart.purchase')</a> 
+                <a class="btn btn-outline-secondary mb-2"><b>@lang('app.cart.total')</b> ${{ $viewData["total"] }}</a>
+                @if(count($viewData['travels']) > 0) 
+                <a href="{{ route('cart.purchase') }}"> 
+                    <button class="btn bg-primary text-white mb-2"> 
+                        @lang('app.cart.purchase') 
+                    </button> 
+                </a> 
                 <a href="{{ route('cart.delete') }}"> 
                     <button class="btn btn-danger mb-2"> 
                         @lang('app.cart.remove') 
                     </button> 
-                </a> 
+                </a>
+                @endif 
             </div> 
         </div> 
     </div> 

@@ -34,7 +34,8 @@ return [
         'register' => 'Registrarse - Temporal Adventures',
         'verify' => 'Verificar dirección de correo electrónico - Temporal Adventures',
         'travels' => 'Viajes - Temporal Adventures',
-        'cart_index' => 'Carrito - TemporalAdventures',
+        'cart_index' => 'Carrito - Temporal Adventures',
+        'purchase' => 'Compra - Temporal Adventures',
     ],
     'confirm' => [
         'confirm_password' => 'Confirmar contraseña',
@@ -84,4 +85,8 @@ return [
         'category' => 'Categoría',
         'quantity' => 'Cantidad',
     ],
+    'purchase' => [
+        'completed' => 'Compra Completada',
+        'congratulations' => 'Felicidades, tu compra ha sido completada. El número de orden es'
+    ]
 ];

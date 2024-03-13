@@ -37,6 +37,7 @@ return [
         'verify' => 'Verify Your Email Address - Temporal Adventures',
         'travels' => 'Travels - Temporal Adventures',
         'cart_index' => 'Cart - TemporalAdventures',
+        'purchase' => 'Purchase - TemporalAdventures',
     ],
     'confirm' => [
         'confirm_password' => 'Confirm Password',
@@ -86,4 +87,8 @@ return [
         'category' => 'Category',
         'quantity' => 'Quantity',
     ],
+    'purchase' => [
+        'completed' => 'Purchase Completed',
+        'congratulations' => 'Congratulations, purchase completed. Order number is'
+    ]
 ];

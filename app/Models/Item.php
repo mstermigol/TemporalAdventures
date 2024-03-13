@@ -131,4 +131,15 @@ class Item extends Model
     {
         return $this->attributes['updated_at'];
     }
+
+    public static function validate($request): void
+    {
+        $request->validate([
+            'price' => ['required', 'numeric', 'gt:0'],
+            'quantity' => ['required', 'numeric', 'gt:0'],
+            'travel_id' => ['required', 'exists:travels,id'],
+            'order_id' => ['required', 'exists:orders,id'],
+        ]);
+
+    }
 }
