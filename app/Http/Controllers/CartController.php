@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Order;
 use App\Models\Item;
+use Illuminate\Support\Facades\DB;
+use Exception;
 
 class CartController extends Controller
 {
@@ -54,50 +56,61 @@ class CartController extends Controller
     {
         $travelsInSession = $request->session()->get('travels');
         if($travelsInSession){
-            $userId = Auth::user()->getId();
-            $order = new Order();
-            $order->setUserId($userId);
-            $order->setTotal(0);
-            $order->save();
+            try {
+                DB::beginTransaction();
 
-            $total = 0;
-            $travelsInCart = Travel::findMany(array_keys($travelsInSession));
-            foreach($travelsInCart as $travel){
-                $quantity = $travelsInSession[$travel->getId()];
-                $item = new Item();
-                $item->setName($travel->getTitle());
-                $item->setQuantity($quantity);
-                $item->setPrice($travel->getPrice());
-                $item->setTravelId($travel->getId());
-                $item->setOrderId($order->getId());
-                $item->setSubTotal($item->getQuantity()*$travel->getPrice());
-                $item->save();
-                $total = $total + ($travel->getPrice()*$quantity);
-            }
+                $userId = Auth::user()->getId();
+                $order = new Order();
+                $order->setUserId($userId);
+                $order->setTotal(0);
+                $order->save();
 
-            $order->setTotal($total);
-            $order->save();
+                $total = 0;
+                $travelsInCart = Travel::findMany(array_keys($travelsInSession));
+                foreach($travelsInCart as $travel){
+                    $quantity = $travelsInSession[$travel->getId()];
+                    $item = new Item();
+                    $item->setName($travel->getTitle());
+                    $item->setQuantity($quantity);
+                    $item->setPrice($travel->getPrice());
+                    $item->setTravelId($travel->getId());
+                    $item->setOrderId($order->getId());
+                    $item->setSubTotal($item->getQuantity()*$travel->getPrice());
+                    $item->save();
+                    $total = $total + ($travel->getPrice()*$quantity);
+                }
 
-            $actualBalance = Auth::user()->getBalance();
-            if($actualBalance >= $total){
-                $newBalance = Auth::user()->getBalance() - $total;
-                Auth::user()->setBalance($newBalance);
-                Auth::user()->save();
+                $order->setTotal($total);
+                $order->save();
 
-                $request->session()->forget('travels');
+                $actualBalance = Auth::user()->getBalance();
+                if($actualBalance >= $total){
+                    $newBalance = Auth::user()->getBalance() - $total;
+                    Auth::user()->setBalance($newBalance);
+                    Auth::user()->save();
 
-                $viewData = [];
-                $viewData['order'] = $order;
-                return view('cart.purchase')->with('viewData', $viewData);
-            }else{
+                    $request->session()->forget('travels');
+
+                    $viewData = [];
+                    $viewData['order'] = $order;
+
+                    DB::commit();
+
+                    return view('cart.purchase')->with('viewData', $viewData);
+                } else {
+                    throw new Exception('Insufficient balance');
+                }
+            } catch (Exception $e) {
+                DB::rollBack();
+
                 session()->flash('alert', [
                     'type' => 'danger',
                     'message' => trans('app.cart.alert'),
                 ]);
+
                 return redirect()->route('cart.index');
             }
-               
-        } else{
+        } else {
             return redirect()->route('cart.index');
         }
     }
