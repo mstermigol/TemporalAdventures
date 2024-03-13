@@ -6,7 +6,12 @@
     <div class="card-header"> 
         @lang('app.cart.travels') 
     </div> 
-    <div class="card-body"> 
+    <div class="card-body">
+        @if(session('alert'))
+            <div class="alert alert-{{ session('alert')['type'] }}">
+                {{ session('alert')['message'] }}
+            </div>
+        @endif 
         <table class="table table-bordered table-striped text-center"> 
             <thead> 
                 <tr> 

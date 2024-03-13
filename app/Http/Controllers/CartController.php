@@ -70,7 +70,7 @@ class CartController extends Controller
                 $item->setPrice($travel->getPrice());
                 $item->setTravelId($travel->getId());
                 $item->setOrderId($order->getId());
-                $item->setSubTotal(0);
+                $item->setSubTotal($item->getQuantity()*$travel->getPrice());
                 $item->save();
                 $total = $total + ($travel->getPrice()*$quantity);
             }
@@ -78,15 +78,25 @@ class CartController extends Controller
             $order->setTotal($total);
             $order->save();
 
-            $newBalance = Auth::user()->getBalance() - $total;
-            Auth::user()->setBalance($newBalance);
-            Auth::user()->save();
+            $actualBalance = Auth::user()->getBalance();
+            if($actualBalance >= $total){
+                $newBalance = Auth::user()->getBalance() - $total;
+                Auth::user()->setBalance($newBalance);
+                Auth::user()->save();
 
-            $request->session()->forget('travels');
+                $request->session()->forget('travels');
 
-            $viewData = [];
-            $viewData['order'] = $order;
-            return view('cart.purchase')->with('viewData', $viewData);
+                $viewData = [];
+                $viewData['order'] = $order;
+                return view('cart.purchase')->with('viewData', $viewData);
+            }else{
+                session()->flash('alert', [
+                    'type' => 'danger',
+                    'message' => trans('app.cart.alert'),
+                ]);
+                return redirect()->route('cart.index');
+            }
+               
         } else{
             return redirect()->route('cart.index');
         }

@@ -25,6 +25,7 @@ return [
         'total' => 'Total a pagar:',
         'purchase' => 'Comprar',
         'remove' => 'Quitar todos los viajes del carrito',
+        'alert' => '¡No tienes fondos suficientes, por favor intenta de nuevo!',
     ],
     'titles' => [
         'confirm' => 'Confirmar contraseña - Temporal Adventures',
@@ -36,6 +37,7 @@ return [
         'travels' => 'Viajes - Temporal Adventures',
         'cart_index' => 'Carrito - Temporal Adventures',
         'purchase' => 'Compra - Temporal Adventures',
+        'purchase_denied' => 'Compra Denegada - TemporalAdventures',
     ],
     'confirm' => [
         'confirm_password' => 'Confirmar contraseña',
@@ -87,6 +89,8 @@ return [
     ],
     'purchase' => [
         'completed' => 'Compra Completada',
-        'congratulations' => 'Felicidades, tu compra ha sido completada. El número de orden es'
+        'congratulations' => 'Felicidades, tu compra ha sido completada. El número de orden es',
+        'denied' => 'Tu balance no es suficiente, por favor intenta otra vez',
+        'message' => 'Compra Denegada',
     ]
 ];

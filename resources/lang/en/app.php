@@ -26,6 +26,7 @@ return [
         'total' => 'Total to pay:',
         'purchase' => 'Purchase',
         'remove' => 'Remove all travels from Cart',
+        'alert' => 'Not enough balance, please try again!',
     ],
 
     'titles' => [
@@ -38,6 +39,7 @@ return [
         'travels' => 'Travels - Temporal Adventures',
         'cart_index' => 'Cart - TemporalAdventures',
         'purchase' => 'Purchase - TemporalAdventures',
+        'purchase_denied' => 'Purchase Denied - TemporalAdventures',
     ],
     'confirm' => [
         'confirm_password' => 'Confirm Password',
@@ -89,6 +91,8 @@ return [
     ],
     'purchase' => [
         'completed' => 'Purchase Completed',
-        'congratulations' => 'Congratulations, purchase completed. Order number is'
+        'congratulations' => 'Congratulations, purchase completed. Order number is',
+        'denied' => 'Your balance is not enough, please try again',
+        'message' => 'Purchase Denied',
     ]
 ];
