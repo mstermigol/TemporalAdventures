@@ -18,3 +18,7 @@ Route::get('/cart/delete', 'App\Http\Controllers\CartController@delete')->name('
 Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name('cart.add');
 Route::get('/travels', 'App\Http\Controllers\TravelController@index')->name('travel.index');
 Route::get('/travels/{id}', 'App\Http\Controllers\TravelController@show')->name('travel.show');
+
+Route::middleware('auth')->group(function(){
+    Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name('cart.purchase');
+});
