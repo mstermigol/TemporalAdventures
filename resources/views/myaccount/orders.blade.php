@@ -5,7 +5,7 @@
 @forelse ($viewData["orders"] as $order) 
 <div class="card mb-4"> 
     <div class="card-header"> 
-        <strong>Order #{{ $order->getId() }}</strong> 
+        <strong>@lang('app.order.order'){{ $order->getId() }}</strong> 
     </div> 
     <div class="card-body"> 
         <b>Date:</b> {{ $order->getCreatedAt() }}<br/> 
@@ -13,10 +13,10 @@
         <table class="table table-bordered table-striped text-center mt-3"> 
             <thead> 
                 <tr> 
-                    <th scope="col">Item ID</th> 
-                    <th scope="col">Travel Title</th> 
-                    <th scope="col">Price</th> 
-                    <th scope="col">Quantity</th> 
+                    <th scope="col">@lang('app.order.item_id')</th> 
+                    <th scope="col">@lang('app.order.travel_title')</th> 
+                    <th scope="col">@lang('app.order.price')</th> 
+                    <th scope="col">@lang('app.order.quantity')</th> 
                 </tr> 
             </thead> 
             <tbody> 
@@ -43,7 +43,7 @@
 </div> 
 @empty 
     <div class="alert alert-danger" role="alert"> 
-        Seems to be that you have not purchased anything in our store =(. 
+        @lang('app.order.no_order')
     </div> 
 @endforelse 
 @endsection

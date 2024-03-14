@@ -98,7 +98,9 @@ return [
     'order' => [
         'download_order' => 'Download Order',
         'temporal_adventures' => 'Temporal Adventures',
+        'order' => 'Order',
         'order_number' => 'Order Number:',
+        'no_order' => 'Seems to be that you have not purchased anything in our store =(.',
         'date' => 'Date:',
         'billed_to' => 'Billed To:',
         'item_id' => 'Item ID',
