@@ -11,6 +11,8 @@ use Dompdf\Options;
 use App\Models\Order;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\View;
+use Illuminate\Contracts\View\View as ViewPDF;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -44,5 +46,12 @@ class OrderController extends Controller
         $dompdf->render();
 
         return $dompdf->output();
+    }
+
+    public function orders(): ViewPDF
+    {
+        $viewData = [];
+        $viewData["orders"] = Order::where('user_id', Auth::user()->getId())->get();
+        return view('myaccount.orders')->with("viewData", $viewData);
     }
 }
