@@ -83,7 +83,7 @@
     </div>
     
     <div class="total-amount">
-        <p>@lang('app.order.total_amount') {{ $order->getTotal() }}</p>
+        <p>@lang('app.order.total_amount') ${{ $order->getTotal() }}</p>
     </div>
     
     <div class="footer">
