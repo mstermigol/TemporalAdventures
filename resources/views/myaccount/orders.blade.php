@@ -8,8 +8,8 @@
         <strong>@lang('app.order.order'){{ $order->getId() }}</strong> 
     </div> 
     <div class="card-body"> 
-        <b>Date:</b> {{ $order->getCreatedAt() }}<br/> 
-        <b>Total:</b> ${{ $order->getTotal() }}<br/>
+        <b>@lang('app.order.date')</b> {{ $order->getCreatedAt() }}<br/> 
+        <b>@lang('app.order.total_amount')</b> ${{ $order->getTotal() }}<br/>
         <table class="table table-bordered table-striped text-center mt-3"> 
             <thead> 
                 <tr> 
