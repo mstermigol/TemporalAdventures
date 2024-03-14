@@ -19,9 +19,10 @@ Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name('
 Route::get('/travels', 'App\Http\Controllers\TravelController@index')->name('travel.index');
 Route::get('/travels/{id}', 'App\Http\Controllers\TravelController@show')->name('travel.show');
 
-Route::middleware('auth')->group(function(){
+Route::middleware('auth')->group(function () {
     Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name('cart.purchase');
     Route::get('/my-account/orders', 'App\Http\Controllers\OrderController@orders')->name("myaccount.orders");
     Route::get('/order/{id}/pdf', 'App\Http\Controllers\OrderController@downloadPDF')->name('order.download');
-
 });
+
+Route::get('/admin/users', 'App\Http\Controllers\Admin\AdminUserController@index')->name("admin.user.index");

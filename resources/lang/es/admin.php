@@ -14,4 +14,13 @@ return [
         'items' => 'Artículos',
         'logout' => 'Salir',
     ],
+
+    'titles' => [
+        'users' => 'Admin usuarios - Temporal Adventures',    
+    ],
+
+    'user' => [
+        'admin' => 'Admin',
+        'regular' => 'Regular',
+    ],
 ];

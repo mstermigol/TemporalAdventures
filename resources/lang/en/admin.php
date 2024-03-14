@@ -14,4 +14,11 @@ return [
         'items' => 'Items',
         'logout' => 'Logout',
     ],
+    'titles' => [
+        'users' => 'Admin users - Temporal Adventures',
+    ],
+    'user' => [
+        'admin' => 'Admin',
+        'regular' => 'Regular',
+    ],
 ];
