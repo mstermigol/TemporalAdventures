@@ -97,5 +97,15 @@ return [
     ],
     'order' => [
         'download_order' => 'Download Order',
+        'temporal_adventures' => 'Temporal Adventures',
+        'order_number' => 'Order Number:',
+        'date' => 'Date:',
+        'billed_to' => 'Billed To:',
+        'item_id' => 'Item ID',
+        'travel_title' => 'Travel Title',
+        'price' => 'Price',
+        'quantity' => 'Quantity',
+        'total_amount' => 'Total Amount:',
+        'thanks' => 'Thanks for visiting Temporal Adventures online store!',
     ]
 ];
