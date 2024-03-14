@@ -37,9 +37,9 @@ return [
         'register' => 'Register - Temporal Adventures',
         'verify' => 'Verify Your Email Address - Temporal Adventures',
         'travels' => 'Travels - Temporal Adventures',
-        'cart_index' => 'Cart - TemporalAdventures',
-        'purchase' => 'Purchase - TemporalAdventures',
-        'purchase_denied' => 'Purchase Denied - TemporalAdventures',
+        'cart_index' => 'Cart - Temporal Adventures',
+        'purchase' => 'Purchase - Temporal Adventures',
+        'order' => 'My Orders - Temporal Adventures',
     ],
     'confirm' => [
         'confirm_password' => 'Confirm Password',
@@ -94,5 +94,8 @@ return [
         'congratulations' => 'Congratulations, purchase completed. Order number is',
         'denied' => 'Your balance is not enough, please try again',
         'message' => 'Purchase Denied',
+    ],
+    'order' => [
+        'download_order' => 'Download Order',
     ]
 ];

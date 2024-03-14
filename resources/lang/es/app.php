@@ -37,7 +37,7 @@ return [
         'travels' => 'Viajes - Temporal Adventures',
         'cart_index' => 'Carrito - Temporal Adventures',
         'purchase' => 'Compra - Temporal Adventures',
-        'purchase_denied' => 'Compra Denegada - TemporalAdventures',
+        'order' => 'Mis Órdenes - Temporal Adventures',
     ],
     'confirm' => [
         'confirm_password' => 'Confirmar contraseña',
@@ -92,5 +92,8 @@ return [
         'congratulations' => 'Felicidades, tu compra ha sido completada. El número de orden es',
         'denied' => 'Tu balance no es suficiente, por favor intenta otra vez',
         'message' => 'Compra Denegada',
+    ],
+    'order' => [
+        'download_order' => 'Descargar Orden',
     ]
 ];
