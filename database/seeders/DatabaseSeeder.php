@@ -2,9 +2,7 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use TravelsTableSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,6 +13,9 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             TravelsTableSeeder::class,
+            UsersTableSeeder::class,
+            CommunityPostsTableSeeder::class,
+            ReviewsTableSeeder::class,
         ]);
     }
 }

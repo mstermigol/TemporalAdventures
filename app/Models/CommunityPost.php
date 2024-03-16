@@ -58,7 +58,7 @@ class CommunityPost extends Model
         $this->attributes['description'] = $description;
     }
 
-    public function getImage(): string
+    public function getImage(): ?string
     {
         return $this->attributes['image'];
     }

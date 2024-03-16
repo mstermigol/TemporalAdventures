@@ -37,7 +37,8 @@ return [
         'travels' => 'Viajes - Temporal Adventures',
         'cart_index' => 'Carrito - Temporal Adventures',
         'purchase' => 'Compra - Temporal Adventures',
-        'purchase_denied' => 'Compra Denegada - TemporalAdventures',
+        'purchase_denied' => 'Compra Denegada - Temporal Adventures',
+        'community_posts' => 'Comunidad - Temporal Adventures',
     ],
     'confirm' => [
         'confirm_password' => 'Confirmar contraseña',
@@ -86,6 +87,16 @@ return [
         'end' => 'Fecha de regreso',
         'category' => 'Categoría',
         'quantity' => 'Cantidad',
+    ],
+    'content_community' => [
+        'see_more' => 'Ver más',
+        'comments' => 'Comentarios',
+        'community' => 'Comunidad',
+        'title' => 'Titulo',
+        'description' => 'Descripción',
+        'rating' => 'Calificación',
+        'posted_on' => 'Publicado el',
+        'reviews' => 'Reseñas',
     ],
     'purchase' => [
         'completed' => 'Compra Completada',
