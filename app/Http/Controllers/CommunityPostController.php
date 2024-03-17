@@ -48,7 +48,7 @@ class CommunityPostController extends Controller
         $review->setCommunityPostId($communityPostId);
         $review->save();
 
-        return redirect()->route('communitypost.show', $communityPostId)->with('success', 'Review added successfully.');
+        return redirect()->route('communitypost.show', $communityPostId);
     }
 
     public function delete(string $id): RedirectResponse
