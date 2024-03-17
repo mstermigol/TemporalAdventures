@@ -8,11 +8,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Illuminate\View\View;
+use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Exception;
-
+use Illuminate\View\View;
 
 class AdminUserController extends Controller
 {
@@ -68,6 +67,7 @@ class AdminUserController extends Controller
     {
         try {
             User::destroy($id);
+
             return redirect()->route('admin.user.index');
         } catch (Exception $e) {
             return redirect()->route('admin.user.index');
@@ -81,6 +81,7 @@ class AdminUserController extends Controller
             $viewData = [];
             $viewData['title'] = trans('admin.titles.edit_user');
             $viewData['user'] = $user;
+
             return view('admin.user.edit')->with('viewData', $viewData);
         } catch (Exception $e) {
             return redirect()->route('admin.user.index');
@@ -89,20 +90,20 @@ class AdminUserController extends Controller
 
     public function update(Request $request, string $id): RedirectResponse
     {
-        try{
-        User::validateUpdate($request);
+        try {
+            User::validateUpdate($request);
 
-        $user = User::findOrFail($id);
-        $user->setName($request->input('name'));
-        $user->setEmail($request->input('email'));
-        $user->setPassword($request->input('password'));
-        $user->setBalance($request->input('balance'));
-        $user->setIsStaff($request->input('is_staff'));
-        $user->setPhoneNumber($request->input('phone_number'));
+            $user = User::findOrFail($id);
+            $user->setName($request->input('name'));
+            $user->setEmail($request->input('email'));
+            $user->setPassword($request->input('password'));
+            $user->setBalance($request->input('balance'));
+            $user->setIsStaff($request->input('is_staff'));
+            $user->setPhoneNumber($request->input('phone_number'));
 
-        $user->save();
+            $user->save();
 
-        return redirect()->route('admin.user.index');
+            return redirect()->route('admin.user.index');
         } catch (Exception $e) {
             return redirect()->route('admin.user.index');
         }
