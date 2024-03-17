@@ -46,7 +46,7 @@ class TravelController extends Controller
         $review->setTravelId($travelId);
         $review->save();
 
-        return redirect()->route('travel.show', $travelId)->with('success', 'Review agregada con éxito.');
+        return redirect()->route('travel.show', $travelId);
     }
 
     public function delete(string $id): RedirectResponse
