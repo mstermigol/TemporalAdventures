@@ -27,6 +27,5 @@ enum CategoryEnum: string
                 return $case;
             }
         }
-        throw new InvalidArgumentException("Value '{$value}' is not a valid enum value");
     }
 }
