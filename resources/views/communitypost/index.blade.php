@@ -8,9 +8,11 @@
         <!-- Sección de título-->
             <div class="p-3 w-75 mx-auto d-flex justify-content-between align-items-center">
                 <h1 class="text-uppercase">@lang('app.content_community.community')</h1>
-                <a href="{{ route('communityposts.new') }}" class="btn btn-success" title="Crear Community Post">
-                    <i class="fas fa-plus"></i> Crear Community Post
+                @if(auth()->check())
+                <a href="{{ route('communitypost.new') }}" class="btn btn-success" title="@lang('app.content_community.create_post')">
+                    <i class="fas fa-plus"></i> @lang('app.content_community.create_post')
                 </a>
+                @endif
             </div>
             <!-- Sección de los posts-->
             @foreach ($viewData["posts"] as $post)
@@ -20,28 +22,28 @@
                             <h4>{{ $post->getUser()->name }}</h4>
                             <!-- Botón de eliminar post-->
                             @if (auth()->check() && auth()->user()->id === $post->user_id)
-                                <form method="POST" action="{{ route('communityposts.destroy', $post->id) }}">
+                                <form method="POST" action="{{ route('communitypost.destroy', $post->id) }}">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger" title="Eliminar Post">
+                                    <button type="submit" class="btn btn-danger" title="@lang('app.content_community.delete_review')" onclick="return confirm('Are you sure?')">
                                         <i class="fas fa-trash-alt"></i>
                                     </button>
                                 </form>
                             @endif
                         </div>
                         @if($post->getImage())
-                            <img src="{{ url($post->image) }}" class="card-img-top w-75 mx-auto">
+                            <img src="{{ url($post->image) }}" class="card-img rounded-0 border-bottom mx-auto">
                         @endif
                         <div class="card-body">
                             <h5 class="card-title">{{ $post->getTitle() }}</h5>
                             <p class="card-text">{!! $post->getDescription() !!}</p>
-                            <a href="{{ route('communityposts.show', ['id' => $post->getId()]) }}" class="btn btn-primary">
+                            <a href="{{ route('communitypost.show', ['id' => $post->getId()]) }}" class="btn btn-primary">
                                 <i class="fa fa-comments"></i>
                                 @lang('app.content_community.reviews')
                             </a>
                         </div>
                         <div class="card-footer text-muted">
-                            Posted on {{ $post->getCreatedAt()}}
+                            @lang('app.content_community.posted_on') {{ $post->getCreatedAt()}}
                         </div>
                     </div>
                 </div>

@@ -37,11 +37,7 @@ class CommunityPostController extends Controller
 
     public function save(Request $request, $communityPostId)
     {
-        $request->validate([
-            'title' => 'required|max:255',
-            'description' => 'required|max:255',
-            'rating' => 'required|integer|between:1,5',
-        ]);
+        CommunityPost::validateSave($request);
 
         $review = new Review();
         $review->title = $request->title;
@@ -51,14 +47,13 @@ class CommunityPostController extends Controller
         $review->community_post_id = $communityPostId;
         $review->save();
 
-        return redirect()->route('communityposts.show', $communityPostId)->with('success', 'Review agregada con éxito.');
+        return redirect()->route('communitypost.show', $communityPostId)->with('success', 'Review agregada con éxito.');
     }
 
     public function delete($id)
     {
         $review = Review::findOrFail($id);
 
-        // Asegúrate de que el usuario autenticado puede eliminar la review
         if ($review->user_id === auth()->id()) {
             $review->delete();
             return back()->with('success', 'Review eliminada con éxito.');
@@ -78,14 +73,7 @@ class CommunityPostController extends Controller
 
     public function create(Request $request)
     {
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'image' => 'nullable|image|max:2048',
-            'date_of_event' => 'required|date',
-            'place_of_event' => 'required|string',
-            'category' => 'required|in:' . implode(',', CategoryEnum::values()),
-        ]);
+        CommunityPost::validateCreate($request);
 
         if ($request->hasFile('image')) {
             // Generar un nombre único para la imagen
@@ -110,17 +98,16 @@ class CommunityPostController extends Controller
         $post->user_id = Auth::id();
         $post->save();
 
-        return redirect()->route('communityposts.index')->with('success', 'Community post created successfully.');
+        return redirect()->route('communitypost.index')->with('success', 'Community post created successfully.');
     }
 
     public function destroy($id)
     {
         $post = CommunityPost::findOrFail($id);
 
-        // Asegúrate de que el usuario autenticado puede eliminar el post
         if ($post->user_id === auth()->id()) {
             $post->delete();
-            return redirect()->route('communityposts.index')->with('success', 'Post eliminado con éxito.');
+            return redirect()->route('communitypost.index')->with('success', 'Post eliminado con éxito.');
         }
 
         return back()->with('error', 'No tienes permiso para eliminar este post.');

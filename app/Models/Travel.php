@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use App\Models\Item;
+use Illuminate\Http\Request;
 
 class Travel extends Model
 {
@@ -180,5 +181,14 @@ class Travel extends Model
         }
 
         return (int)$total;
+    }
+
+    public static function validateSave(Request $request): void
+    {
+        $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'required|max:255',
+            'rating' => 'required|integer|between:1,5',
+        ]);
     }
 }

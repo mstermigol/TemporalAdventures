@@ -10,6 +10,7 @@
             </div>
             <div class="col-md-9">
                 <div class="card-body">
+                    <!-- Viaje -->
                     <h4 class="card-title">
                         {{ $viewData["travel"]->getTitle() }}
                     </h4>
@@ -20,6 +21,7 @@
                         <b>@lang('app.content_travels.category'):</b> {{ $viewData["travel"]->getCategory() }}<br>
                         <b>@lang('app.content_travels.price'):</b> {{ $viewData["travel"]->getPrice() }}$
                     </p>
+                    <!-- Botón de agregar al carrito -->
                     <form method="POST" action="{{ route('cart.add', ['id'=> $viewData['travel']->getId()]) }}">
                         <div class="row">
                             @csrf
@@ -34,8 +36,66 @@
                             </div>
                         </div>
                     </form>
-
                 </div>
+            </div>
+            <!-- Sección para agregar una review -->
+            @if(auth()->check())
+            <div>
+                <div class="card my-4">
+                    <div class="card-body">
+                        <form method="POST" action="{{ route('travel.reviews.save', $viewData['travel']->getId()) }}">
+                            @csrf
+                            <div class="form-group">
+                                <label for="reviewTitle">@lang('app.content_travels.title')</label>
+                                <input type="text" class="form-control" id="reviewTitle" name="title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="reviewDescription">@lang('app.content_travels.description')</label>
+                                <textarea class="form-control" id="reviewDescription" name="description" rows="3" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="reviewRating">@lang('app.content_travels.rating')</label>
+                                <select class="form-control" id="reviewRating" name="rating">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-success mt-2">@lang('app.content_travels.submit')</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            @endif
+
+            <!-- Sección de reviews -->
+            <div class="reviews mt-4">
+                <h5>{{ $viewData['travel']->reviews->count() }} @lang('app.content_travels.reviews')</h5>
+                @foreach ($viewData['travel']->reviews as $review)
+                    <div class="card mt-3">
+                        <div class="card-body d-flex justify-content-between align-items-start">
+                            <div>
+                                <h5 class="card-subtitle mb-2 text-muted">{{ $review->user->name }}</h5>
+                                <h6 class="card-text">{{ $review->title }}</h6>
+                                <p class="card-text">{{ $review->description }}</p>
+                                <div class="text-muted">@lang('app.content_travels.rating'): {{ $review->rating }}/5</div>
+                            </div>
+
+                            <!-- Botón de eliminar review -->
+                            @if(auth()->check() && auth()->id() === $review->user_id)
+                                <form method="POST" action="{{ route('travel.reviews.delete', $review->id) }}" class="d-inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm" title="Delete review" onclick="return confirm('Are you sure?')">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
+                            @endif
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>

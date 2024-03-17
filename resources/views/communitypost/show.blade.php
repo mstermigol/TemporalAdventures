@@ -8,9 +8,11 @@
         <div class="col-12 mb-4 w-75 mx-auto">
             <!-- Post -->
             <div class="card">
-                <h4 class="card-title border-bottom ps-3 pt-2 pb-2">{{ $viewData["post"]->getUser()->name }}</h4>
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h4>{{ $viewData["post"]->getUser()->name }}</h4>
+                </div>
                 @if($viewData["post"]->getImage())
-                    <img src="{{ url("{$viewData["post"]->getImage()}") }}" class="card-img w-75 mx-auto">
+                    <img src="{{ url("{$viewData["post"]->getImage()}") }}" class="card-img rounded-0 border-bottom mx-auto">
                 @endif
                 <div class="card-body">
                     <h5 class="card-title">{{ $viewData["post"]->getTitle() }}</h5>
@@ -22,9 +24,10 @@
             </div>
 
             <!-- Sección para agregar una review -->
+            @if(auth()->check())
             <div class="card my-4">
                 <div class="card-body">
-                    <form method="POST" action="{{ route('communityposts.reviews.save', $viewData['post']->getId()) }}">
+                    <form method="POST" action="{{ route('communitypost.reviews.save', $viewData['post']->getId()) }}">
                         @csrf
                         <div class="form-group">
                             <label for="reviewTitle">@lang('app.content_community.title')</label>
@@ -44,10 +47,11 @@
                                 <option value="5">5</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-success mt-2">Enviar Review</button>
+                        <button type="submit" class="btn btn-success mt-2">@lang('app.content_community.submit')</button>
                     </form>
                 </div>
             </div>
+            @endif
 
             <!-- Sección de Reviews -->
             <div class="reviews mt-4">
@@ -64,10 +68,10 @@
 
                             <!-- Botón de eliminar review -->
                             @if(auth()->check() && auth()->id() === $review->user_id)
-                                <form method="POST" action="{{ route('communityposts.reviews.delete', $review->id) }}" class="d-inline">
+                                <form method="POST" action="{{ route('communitypost.reviews.delete', $review->id) }}" class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">
+                                    <button type="submit" class="btn btn-danger btn-sm" title="@lang('app.content_community.delete_review')" onclick="return confirm('Are you sure?')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </form>

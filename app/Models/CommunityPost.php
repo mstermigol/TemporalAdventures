@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Http\Request;
 
 class CommunityPost extends Model
 {
@@ -146,5 +147,26 @@ class CommunityPost extends Model
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public static function validateCreate(Request $request): void
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'image' => 'nullable|image|max:2048',
+            'date_of_event' => 'required|date',
+            'place_of_event' => 'required|string',
+            'category' => 'required|in:' . implode(',', CategoryEnum::values()),
+        ]);
+    }
+
+    public static function validateSave(Request $request): void
+    {
+        $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'required|max:255',
+            'rating' => 'required|integer|between:1,5',
+        ]);
     }
 }
