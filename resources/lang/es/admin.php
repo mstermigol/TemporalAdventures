@@ -16,11 +16,22 @@ return [
     ],
 
     'titles' => [
-        'users' => 'Admin usuarios - Temporal Adventures',    
+        'users' => 'Admin usuarios - Temporal Adventures',
+        'create_user' => 'Crear usuario - Temporal Adventures',
+        'edit_user' => 'Editar usuario - Temporal Adventures',
     ],
 
     'user' => [
         'admin' => 'Admin',
         'regular' => 'Regular',
+        'email' => 'Correo Electrónico',
+        'phone_number' => 'Número de Teléfono',
+        'role' => 'Rol',
+        'edit_user' => 'Editar Usuario',
+        'name' => 'Nombre',
+        'password' => 'Contraseña',
+        'balance' => 'Saldo',
+        'edit' => 'Editar',
+        'create_user' => 'Crear Usuario',
     ],
 ];

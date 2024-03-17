@@ -6,13 +6,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use Dompdf\Dompdf;
 use Dompdf\Options;
-use App\Models\Order;
-use Illuminate\Http\Response;
-use Illuminate\Support\Facades\View;
 use Illuminate\Contracts\View\View as ViewPDF;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
 
 class OrderController extends Controller
 {
@@ -25,8 +25,8 @@ class OrderController extends Controller
         $pdfContent = $this->generatePDF('myaccount.download', $viewData);
 
         return response($pdfContent)
-        ->header('Content-Type', 'application/pdf')
-        ->header('Content-Disposition', 'attachment; filename="order_' . $order->getId() . '.pdf"');
+            ->header('Content-Type', 'application/pdf')
+            ->header('Content-Disposition', 'attachment; filename="order_'.$order->getId().'.pdf"');
     }
 
     private function generatePDF(string $view, array $data): string
@@ -51,7 +51,8 @@ class OrderController extends Controller
     public function orders(): ViewPDF
     {
         $viewData = [];
-        $viewData["orders"] = Order::where('user_id', Auth::user()->getId())->get();
-        return view('myaccount.orders')->with("viewData", $viewData);
+        $viewData['orders'] = Order::where('user_id', Auth::user()->getId())->get();
+
+        return view('myaccount.orders')->with('viewData', $viewData);
     }
 }

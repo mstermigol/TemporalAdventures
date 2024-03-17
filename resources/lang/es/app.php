@@ -105,5 +105,5 @@ return [
         'quantity' => 'Cantidad',
         'total_amount' => 'Suma Total:',
         'thanks' => '¡Gracias por visitar la tienda online de Temporal Adventures!',
-    ]
+    ],
 ];
