@@ -9,7 +9,7 @@
             <!-- Post -->
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h4>{{ $viewData["post"]->getUser()->name }}</h4>
+                    <h4>{{ $viewData["post"]->getUser()->getName() }}</h4>
                 </div>
                 @if($viewData["post"]->getImage())
                     <img src="{{ url("{$viewData["post"]->getImage()}") }}" class="card-img rounded-0 border-bottom mx-auto">
@@ -23,7 +23,7 @@
                 </div>
             </div>
 
-            <!-- Sección para agregar una review -->
+            <!-- Add review section -->
             @if(auth()->check())
             <div class="card my-4">
                 <div class="card-body">
@@ -53,22 +53,22 @@
             </div>
             @endif
 
-            <!-- Sección de Reviews -->
+            <!-- Reviews section -->
             <div class="reviews mt-4">
-                <h5>{{ $viewData["post"]->reviews->count() }} @lang('app.content_community.reviews')</h5>
-                @foreach ($viewData["post"]->reviews as $review)
+                <h5>{{ $viewData["post"]->getReviews()->count() }} @lang('app.content_community.reviews')</h5>
+                @foreach ($viewData["post"]->getReviews() as $review)
                     <div class="card mt-3">
                         <div class="card-body d-flex justify-content-between align-items-start">
                             <div>
-                                <h5 class="card-subtitle mb-2 text-muted">{{ $review->user->name }}</h5>
-                                <h6 class="card-text">{{ $review->title }}</h6>
-                                <p class="card-text">{{ $review->description }}</p>
-                                <div class="text-muted">@lang('app.content_community.rating'): {{ $review->rating }}/5</div>
+                                <h5 class="card-subtitle mb-2 text-muted">{{ $review->getUser()->getName() }}</h5>
+                                <h6 class="card-text">{{ $review->getTitle() }}</h6>
+                                <p class="card-text">{{ $review->getDescription()}}</p>
+                                <div class="text-muted">@lang('app.content_community.rating'): {{ $review->getRating() }}/5</div>
                             </div>
 
-                            <!-- Botón de eliminar review -->
-                            @if(auth()->check() && auth()->id() === $review->user_id)
-                                <form method="POST" action="{{ route('communitypost.reviews.delete', $review->id) }}" class="d-inline">
+                            <!-- Delete review button -->
+                            @if(auth()->check() && auth()->getUser()->getId() === $review->getUserId())
+                                <form method="POST" action="{{ route('communitypost.reviews.delete', $review->getId()) }}" class="d-inline">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm" title="@lang('app.content_community.delete_review')" onclick="return confirm('Are you sure?')">

@@ -5,7 +5,7 @@
 @section('content')
     <section class="container my-5">
         <div class="row">
-        <!-- Sección de título-->
+        <!-- Title section-->
             <div class="p-3 w-75 mx-auto d-flex justify-content-between align-items-center">
                 <h1 class="text-uppercase">@lang('app.content_community.community')</h1>
                 @if(auth()->check())
@@ -14,15 +14,15 @@
                 </a>
                 @endif
             </div>
-            <!-- Sección de los posts-->
+            <!-- Posts section-->
             @foreach ($viewData["posts"] as $post)
                 <div class="col-12 mb-4 w-75 mx-auto">
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center">
-                            <h4>{{ $post->getUser()->name }}</h4>
-                            <!-- Botón de eliminar post-->
-                            @if (auth()->check() && auth()->user()->id === $post->user_id)
-                                <form method="POST" action="{{ route('communitypost.destroy', $post->id) }}">
+                            <h4>{{ $post->getUser()->getName() }}</h4>
+                            <!-- Delete post button-->
+                            @if (auth()->check() && auth()->user()->getId() === $post->getUser()->getId())
+                                <form method="POST" action="{{ route('communitypost.destroy', $post->getId()) }}">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger" title="@lang('app.content_community.delete_review')" onclick="return confirm('Are you sure?')">
@@ -32,7 +32,7 @@
                             @endif
                         </div>
                         @if($post->getImage())
-                            <img src="{{ url($post->image) }}" class="card-img rounded-0 border-bottom mx-auto">
+                            <img src="{{ url($post->getImage()) }}" class="card-img rounded-0 border-bottom mx-auto">
                         @endif
                         <div class="card-body">
                             <h5 class="card-title">{{ $post->getTitle() }}</h5>

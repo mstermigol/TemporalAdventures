@@ -13,8 +13,7 @@
                             <h5 class="card-title">{{$travel->getTitle()}}</h5>
                             <p class="card-text">{{$travel->getDescription()}}</p>
                             <a href="{{ route('travel.show', ['id'=> $travel->getId()]) }}"
-                               class="btn btn-primary mt-auto d-inline"
-                               style="width: max-content" > <!-- Esta propiedad no la tiene boostrap, la única manera es hacerlo con style-->
+                               class="btn btn-primary mt-auto d-inline travel-button">
                                @lang('app.content_travels.see_more')
                             </a>
                         </div>

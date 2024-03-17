@@ -64,7 +64,7 @@ class CommunityPost extends Model
         return $this->attributes['image'];
     }
 
-    public function setImage(string $image): void
+    public function setImage(?string $image): void
     {
         $this->attributes['image'] = $image;
     }
@@ -149,7 +149,7 @@ class CommunityPost extends Model
         return $this->attributes['updated_at'];
     }
 
-    public static function validateCreate(Request $request): void
+    public static function validate(Request $request): void
     {
         $request->validate([
             'title' => 'required|string|max:255',
@@ -158,15 +158,6 @@ class CommunityPost extends Model
             'date_of_event' => 'required|date',
             'place_of_event' => 'required|string',
             'category' => 'required|in:' . implode(',', CategoryEnum::values()),
-        ]);
-    }
-
-    public static function validateSave(Request $request): void
-    {
-        $request->validate([
-            'title' => 'required|max:255',
-            'description' => 'required|max:255',
-            'rating' => 'required|integer|between:1,5',
         ]);
     }
 }

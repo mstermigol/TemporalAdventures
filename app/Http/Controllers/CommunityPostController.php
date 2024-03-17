@@ -9,6 +9,7 @@ namespace App\Http\Controllers;
 use App\Enums\CategoryEnum;
 use App\Models\CommunityPost;
 use App\Models\Review;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
@@ -26,7 +27,7 @@ class CommunityPostController extends Controller
 
     public function show(string $id): View
     {
-        $post = CommunityPost::with('reviews.user')->findOrFail($id); // Eager load the reviews and associated user
+        $post = CommunityPost::with('reviews.user')->findOrFail($id);
 
         $viewData = [];
         $viewData['title'] = "{$post->getTitle()} - Temporal Adventures";
@@ -35,34 +36,33 @@ class CommunityPostController extends Controller
         return view('communitypost.show')->with('viewData', $viewData);
     }
 
-    public function save(Request $request, $communityPostId)
+    public function save(Request $request, string $communityPostId): RedirectResponse
     {
-        CommunityPost::validateSave($request);
+        Review::validate($request);
 
         $review = new Review();
-        $review->title = $request->title;
-        $review->description = $request->description;
-        $review->rating = $request->rating;
-        $review->user_id = auth()->id();
-        $review->community_post_id = $communityPostId;
+        $review->setTitle($request->input('title'));
+        $review->setDescription($request->input('description'));
+        $review->setRating($request->input('rating'));
+        $review->setUserId(auth()->id());
+        $review->setCommunityPostId($communityPostId);
         $review->save();
 
-        return redirect()->route('communitypost.show', $communityPostId)->with('success', 'Review agregada con éxito.');
+        return redirect()->route('communitypost.show', $communityPostId)->with('success', 'Review added successfully.');
     }
 
-    public function delete($id)
+    public function delete(string $id): RedirectResponse
     {
         $review = Review::findOrFail($id);
 
-        if ($review->user_id === auth()->id()) {
+        if ($review->getUser()->getId()  === auth()->getUser()->getId()) {
             $review->delete();
-            return back()->with('success', 'Review eliminada con éxito.');
+            return back();
         }
-
-        return back()->with('error', 'No tienes permiso para eliminar esta review.');
+        return back();
     }
 
-    public function new()
+    public function new(): View
     {
         $viewData = [];
         $viewData['title'] = "Create New Community Post";
@@ -71,46 +71,43 @@ class CommunityPostController extends Controller
         return view('communitypost.new')->with('viewData', $viewData);
     }
 
-    public function create(Request $request)
+    public function create(Request $request): RedirectResponse
     {
-        CommunityPost::validateCreate($request);
+        CommunityPost::validate($request);
 
         if ($request->hasFile('image')) {
-            // Generar un nombre único para la imagen
             $filename = uniqid() . '.' . $request->file('image')->extension();
-
-            // Guardar la imagen en el disco public en la carpeta community
             $imagePath = $request->file('image')->storeAs('public/community', $filename);
-
-            // La ruta que se guarda en la base de datos debería ser la ruta pública
-            $imagePath = '/storage/community/' . $filename; // Esto será algo como '/community/5f5d3f8ab28b8.jpeg'
+            $imagePath = '/storage/community/' . $filename;
         } else {
             $imagePath = null;
         }
 
         $post = new CommunityPost();
-        $post->title = $request->title;
-        $post->description = $request->description;
-        $post->image = $imagePath;
-        $post->date_of_event = $request->date_of_event;
-        $post->place_of_event = $request->place_of_event;
-        $post->category = $request->category;
-        $post->user_id = Auth::id();
+        $post->setTitle($request->get('title'));
+        $post->setDescription($request->get('description'));
+        $post->setImage($imagePath);
+        $post->setDateOfEvent($request->get('date_of_event'));
+        $post->setPlaceOfEvent($request->get('place_of_event'));
+        $categoryEnum = CategoryEnum::fromValue($request->get('category'));
+        $post->setCategory($categoryEnum);
+        $post->setUserId(Auth::id());
         $post->save();
 
-        return redirect()->route('communitypost.index')->with('success', 'Community post created successfully.');
+
+        return redirect()->route('communitypost.index');
     }
 
-    public function destroy($id)
+    public function destroy(string $id): RedirectResponse
     {
         $post = CommunityPost::findOrFail($id);
 
-        if ($post->user_id === auth()->id()) {
+        if ($post->getUser()->getId() === auth()->getUser()->getId()) {
             $post->delete();
-            return redirect()->route('communitypost.index')->with('success', 'Post eliminado con éxito.');
+            return redirect()->route('communitypost.index');
         }
 
-        return back()->with('error', 'No tienes permiso para eliminar este post.');
+        return back();
     }
 
 }

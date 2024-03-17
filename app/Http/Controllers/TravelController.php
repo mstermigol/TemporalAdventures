@@ -8,6 +8,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Review;
 use App\Models\Travel;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -24,7 +25,7 @@ class TravelController extends Controller
 
     public function show(string $id): View
     {
-        $travel = Travel::with('reviews.user')->findOrFail($id); // Eager load the reviews and associated user
+        $travel = Travel::with('reviews.user')->findOrFail($id);
 
         $viewData = [];
         $viewData['title'] = "{$travel->getTitle()} - Temporal Adventures";
@@ -33,30 +34,30 @@ class TravelController extends Controller
         return view('travel.show')->with('viewData', $viewData);
     }
 
-    public function save(Request $request, $travelId)
+    public function save(Request $request, string $travelId): RedirectResponse
     {
-        Travel::validateSave($request);
+        Travel::validate($request);
 
         $review = new Review();
-        $review->title = $request->title;
-        $review->description = $request->description;
-        $review->rating = $request->rating;
-        $review->user_id = auth()->id();
-        $review->travel_id = $travelId;
+        $review->setTitle($request->title);
+        $review->setDescription($request->description);
+        $review->setRating($request->rating);
+        $review->setUserId(auth()->id());
+        $review->setTravelId($travelId);
         $review->save();
 
         return redirect()->route('travel.show', $travelId)->with('success', 'Review agregada con éxito.');
     }
 
-    public function delete($id)
+    public function delete(string $id): RedirectResponse
     {
         $review = Review::findOrFail($id);
 
-        if ($review->user_id === auth()->id()) {
+        if ($review->getUser()->getId() === auth()->getUser()->getId() ) {
             $review->delete();
-            return back()->with('success', 'Review eliminada con éxito.');
+            return back();
         }
 
-        return back()->with('error', 'No tienes permiso para eliminar esta review.');
+        return back();
     }
 }

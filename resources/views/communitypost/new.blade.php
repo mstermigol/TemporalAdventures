@@ -6,7 +6,7 @@
 <section class="container my-5">
     <div class="row">
         <div class="col-12">
-            <h2>Create Community Post</h2>
+            <h2>@lang('app.content_community.create_post')</h2>
             <form method="POST" action="{{ route('communityposts.create') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group mb-3">
@@ -33,7 +33,7 @@
                     <label for="category">@lang('app.content_community.category')</label>
                     <select class="form-control" id="category" name="category">
                         @foreach ($viewData['categories'] as $category)
-                            <option value="{{ $category->value }}">{{ $category->name }}</option>
+                            <option value="{{ $category->value }}">{{ $category->value }}</option>
                         @endforeach
                     </select>
                 </div>

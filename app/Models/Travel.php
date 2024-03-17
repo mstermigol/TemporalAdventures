@@ -183,7 +183,7 @@ class Travel extends Model
         return (int)$total;
     }
 
-    public static function validateSave(Request $request): void
+    public static function validate(Request $request): void
     {
         $request->validate([
             'title' => 'required|max:255',
