@@ -28,4 +28,6 @@ Route::delete('/communityposts/reviews/{review}', 'App\Http\Controllers\Communit
 
 Route::middleware('auth')->group(function(){
     Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name('cart.purchase');
+    Route::get('/my-account/orders', 'App\Http\Controllers\OrderController@orders')->name("myaccount.orders");
+    Route::get('/order/{id}/pdf', 'App\Http\Controllers\OrderController@downloadPDF')->name('order.download');
 });

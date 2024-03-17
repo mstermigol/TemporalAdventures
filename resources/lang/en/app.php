@@ -41,6 +41,7 @@ return [
         'purchase' => 'Purchase - Temporal Adventures',
         'purchase_denied' => 'Purchase Denied - Temporal Adventures',
         'community_posts' => 'Community - Temporal Adventures',
+        'order' => 'My Orders - Temporal Adventures',
     ],
     'confirm' => [
         'confirm_password' => 'Confirm Password',
@@ -105,5 +106,20 @@ return [
         'congratulations' => 'Congratulations, purchase completed. Order number is',
         'denied' => 'Your balance is not enough, please try again',
         'message' => 'Purchase Denied',
+    ],
+    'order' => [
+        'download_order' => 'Download Order',
+        'temporal_adventures' => 'Temporal Adventures',
+        'order' => 'Order',
+        'order_number' => 'Order Number:',
+        'no_order' => 'Seems to be that you have not purchased anything in our store =(.',
+        'date' => 'Date:',
+        'billed_to' => 'Billed To:',
+        'item_id' => 'Item ID',
+        'travel_title' => 'Travel Title',
+        'price' => 'Price',
+        'quantity' => 'Quantity',
+        'total_amount' => 'Total Amount:',
+        'thanks' => 'Thanks for visiting Temporal Adventures online store!',
     ]
 ];
