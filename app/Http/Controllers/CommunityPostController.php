@@ -35,7 +35,7 @@ class CommunityPostController extends Controller
         return view('communitypost.show')->with('viewData', $viewData);
     }
 
-    public function new(): View
+    public function create(): View
     {
         $viewData = [];
         $viewData['title'] = "Create New Community Post";
@@ -44,7 +44,7 @@ class CommunityPostController extends Controller
         return view('communitypost.new')->with('viewData', $viewData);
     }
 
-    public function create(Request $request): RedirectResponse
+    public function save(Request $request): RedirectResponse
     {
         CommunityPost::validate($request);
 
@@ -71,7 +71,7 @@ class CommunityPostController extends Controller
         return redirect()->route('communitypost.index');
     }
 
-    public function destroy(string $id): RedirectResponse
+    public function delete(string $id): RedirectResponse
     {
         $post = CommunityPost::findOrFail($id);
 
