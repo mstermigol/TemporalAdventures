@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
   <script src="https://kit.fontawesome.com/be50e46cfb.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css">
   <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
   <title>@yield('title', 'Temporal Adventures')</title>
 </head>
@@ -16,7 +17,7 @@
 
 <nav class="navbar navbar-expand-sm bg-light navbar-light px-4">
   <div class="container-fluid d-flex justify-content-between">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="{{route('home.index')}}">
       <img src="{{ url('/images/logo-no-bg.png') }}" alt="Logo" style="width:60px;" class="rounded-pill">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -35,20 +36,20 @@
           <i class="fas fa-shopping-cart"></i>
         </a>
       </li>
-        <div class="vr bg-black mx-2 d-none d-lg-block"></div> 
+        <div class="vr bg-black mx-2 d-none d-lg-block"></div>
         @guest
         <a class="nav-link active" href="{{ route('login') }}">@lang('app.navbar_items.login')</a>
         <a class="nav-link active" href="{{ route('register') }}">@lang('app.navbar_items.register')</a>
         @else
         <li class="nav-item dropdown">
           <div class="nav-link dropdown-toggle" role="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fas fa-user"></i> 
+            <i class="fas fa-user"></i>
           </div>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <li>
               <div class="dropdown-header">
                 <span>{{ Auth::user()->getFirstName() }}</span>
-                
+
               </div>
               <div class="dropdown-divider"></div>
             </li>
@@ -68,7 +69,7 @@
   </div>
 </nav>
 
-<main class="py-4 px-4">
+<main>
     @yield('content')
 </main>
 

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\View\View;
+
 class HomeController extends Controller
 {
     public function __construct()
@@ -9,13 +11,10 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
+    public function index(): view
     {
-        return view('home');
+        $viewData = [];
+        $viewData['title'] = trans('app.titles.travels');
+        return view('home.index')->with('viewData', $viewData);
     }
 }

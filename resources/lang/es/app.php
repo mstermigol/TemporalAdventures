@@ -38,6 +38,7 @@ return [
         'cart_index' => 'Carrito - Temporal Adventures',
         'purchase' => 'Compra - Temporal Adventures',
         'order' => 'Mis Órdenes - Temporal Adventures',
+        'welcome' => 'Bienvenido - Temporal Adventures'
     ],
     'confirm' => [
         'confirm_password' => 'Confirmar contraseña',

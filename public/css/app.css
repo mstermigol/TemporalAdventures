@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Rubik+Gemstones&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Madimi+One&display=swap');
+
+.courgette-regular {
+    font-family: "Courgette", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.madimi-one-regular {
+    font-family: "Madimi One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.text-shadow {
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+    font-weight: bold;
+}
+
+.background-image{
+    background-image: url('../images/background-negro.jpg') ;
+    background-size: cover;
+    background-position: center center;
+}
+
+.pagina-principal p{
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
+}

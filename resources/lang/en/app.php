@@ -40,6 +40,7 @@ return [
         'cart_index' => 'Cart - Temporal Adventures',
         'purchase' => 'Purchase - Temporal Adventures',
         'order' => 'My Orders - Temporal Adventures',
+        'welcome' => 'Welcome - Temporal Adventures'
     ],
     'confirm' => [
         'confirm_password' => 'Confirm Password',
