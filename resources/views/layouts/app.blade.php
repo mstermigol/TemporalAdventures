@@ -28,9 +28,6 @@
                         <a class="nav-link" href="{{route('communitypost.index')}}">@lang('app.navbar_items.community_posts')</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('myaccount.orders')}}">@lang('app.navbar_items.orders')</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('cart.index') }}">
                             <i class="fas fa-shopping-cart"></i>
                         </a>
@@ -51,6 +48,9 @@
                                 </div>
                                 <div class="dropdown-divider"></div>
                             </li>
+                            <li class="dropdown-item">
+                                <a class="nav-link" href="{{route('myaccount.orders')}}">@lang('app.navbar_items.orders')</a>
+                             </li>
                             <span class="dropdown-item-text">${{ Auth::user()->getBalance() }}</span>
                             <div class="dropdown-divider"></div>
                             <li>
