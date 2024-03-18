@@ -29,7 +29,7 @@ class User extends Authenticatable
      * $this->atributes['phone_number'] - string - contains the user phone number
      * $this->items - review[] - contains associated reviews
      * $this->items - community_post[] - contains associated community posts
-     * $this->orders - order[] - contains associated orders
+     * $this->orders - Order[] - contains associated orders
      * $this->attributes['created_at'] - string - contains the date of user creation
      * $this->attributes['updated_at'] - string - contains when the user was updated
      */
@@ -174,6 +174,18 @@ class User extends Authenticatable
     }
 
     public static function validate(Request $request): void
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'password' => 'required|string|min:8|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'phone_number' => 'required|string|max:255',
+            'is_staff' => 'required|boolean',
+            'balance' => 'required|numeric',
+        ]);
+    }
+
+    public static function validateUpdate(Request $request): void
     {
         $request->validate([
             'name' => 'required|string|max:255',

@@ -178,6 +178,6 @@ class Travel extends Model
             $total = $total + ($travel->getPrice() * $travelsInSession[$travel->getId()]);
         }
 
-        return $total;
+        return (int) $total;
     }
 }

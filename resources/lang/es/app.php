@@ -25,6 +25,7 @@ return [
         'total' => 'Total a pagar:',
         'purchase' => 'Comprar',
         'remove' => 'Quitar todos los viajes del carrito',
+        'alert' => '¡No tienes fondos suficientes, por favor intenta de nuevo!',
     ],
     'titles' => [
         'confirm' => 'Confirmar contraseña - Temporal Adventures',
@@ -34,7 +35,9 @@ return [
         'register' => 'Registrarse - Temporal Adventures',
         'verify' => 'Verificar dirección de correo electrónico - Temporal Adventures',
         'travels' => 'Viajes - Temporal Adventures',
-        'cart_index' => 'Carrito - TemporalAdventures',
+        'cart_index' => 'Carrito - Temporal Adventures',
+        'purchase' => 'Compra - Temporal Adventures',
+        'order' => 'Mis Órdenes - Temporal Adventures',
     ],
     'confirm' => [
         'confirm_password' => 'Confirmar contraseña',
@@ -83,5 +86,24 @@ return [
         'end' => 'Fecha de regreso',
         'category' => 'Categoría',
         'quantity' => 'Cantidad',
+    ],
+    'purchase' => [
+        'completed' => 'Compra Completada',
+        'congratulations' => 'Felicidades, tu compra ha sido completada. El número de orden es',
+        'denied' => 'Tu balance no es suficiente, por favor intenta otra vez',
+        'message' => 'Compra Denegada',
+    ],
+    'order' => [
+        'download_order' => 'Descargar Orden',
+        'temporal_adventures' => 'Temporal Adventures',
+        'order_number' => 'Número de Orden:',
+        'date' => 'Fecha:',
+        'billed_to' => 'Facturado a:',
+        'item_id' => 'ID del Item',
+        'travel_title' => 'Título del Viaje',
+        'price' => 'Precio',
+        'quantity' => 'Cantidad',
+        'total_amount' => 'Suma Total:',
+        'thanks' => '¡Gracias por visitar la tienda online de Temporal Adventures!',
     ],
 ];

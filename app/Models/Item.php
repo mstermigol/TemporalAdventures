@@ -8,6 +8,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Http\Request;
 
 class Item extends Model
 {
@@ -130,5 +131,16 @@ class Item extends Model
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public static function validate(Request $request): void
+    {
+        $request->validate([
+            'price' => 'required|numeric|gt:0',
+            'quantity' => 'required|numeric|gt:0',
+            'travel_id' => 'required|exists:travels,id',
+            'order_id' => 'required|exists:orders,id',
+        ]);
+
     }
 }
