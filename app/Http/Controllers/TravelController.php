@@ -1,7 +1,7 @@
 <?php
 
 /*
-    Author: David Fonseca
+    Authors: David Fonseca and Sergio Córdoba
 */
 
 namespace App\Http\Controllers;
@@ -22,7 +22,7 @@ class TravelController extends Controller
 
     public function show(string $id): View
     {
-        $travel = Travel::findOrFail($id);
+        $travel = Travel::with('reviews.user')->findOrFail($id);
 
         $viewData = [];
         $viewData['title'] = "{$travel->getTitle()} - Temporal Adventures";

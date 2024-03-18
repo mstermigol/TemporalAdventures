@@ -1,5 +1,4 @@
-<!-- Authors: Miguel Jaramillo and Sergio Córdoba-->
-
+<!-- Authors: Miguel Jaramillo and Sergio Córdoba and David Fonseca-->
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,11 +7,10 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
   <script src="https://kit.fontawesome.com/be50e46cfb.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
   <title>@yield('title', 'Temporal Adventures')</title>
 </head>
-
-
 <body>
 
 <nav class="navbar navbar-expand-sm bg-light navbar-light px-4">
