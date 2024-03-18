@@ -25,7 +25,7 @@
                                 <form method="POST" action="{{ route('communitypost.delete', $post->getId()) }}">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger" title="@lang('app.content_community.delete_review')" onclick="return confirm('Are you sure?')">
+                                    <button type="submit" class="btn btn-danger" title="@lang('app.content_community.delete_review')" onclick="return confirm(trans('app.content_community.are_you_sure'))">
                                         <i class="fas fa-trash-alt"></i>
                                     </button>
                                 </form>

@@ -41,7 +41,7 @@ class CommunityPostController extends Controller
         $viewData['title'] = "Create New Community Post";
         $viewData['categories'] = CategoryEnum::cases();
 
-        return view('communitypost.new')->with('viewData', $viewData);
+        return view('communitypost.create')->with('viewData', $viewData);
     }
 
     public function save(Request $request): RedirectResponse

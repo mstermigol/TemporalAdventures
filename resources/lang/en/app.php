@@ -111,6 +111,7 @@ return [
         'create_post' => 'Create post',
         'delete_review' => 'Delete review',
         'submit' => 'Submit',
+        'are_you_sure' => 'Are you sure?',
     ],
     'purchase' => [
         'completed' => 'Purchase Completed',
