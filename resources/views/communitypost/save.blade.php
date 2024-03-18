@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-12">
             <h2>@lang('app.content_community.create_post')</h2>
-            <form method="POST" action="{{ route('communityposts.create') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('communityposts.save') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group mb-3">
                     <label for="title">@lang('app.content_community.title')</label>
