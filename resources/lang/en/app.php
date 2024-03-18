@@ -12,6 +12,7 @@ return [
         'register' => 'Register',
         'logout' => 'Logout',
         'cart' => 'Cart',
+        'orders' => 'Orders',
 
     ],
     'footer' => [
@@ -27,6 +28,7 @@ return [
         'purchase' => 'Purchase',
         'remove' => 'Remove all travels from Cart',
         'alert' => 'Not enough balance, please try again!',
+        'delete_item' => 'Delete Item',
     ],
 
     'titles' => [

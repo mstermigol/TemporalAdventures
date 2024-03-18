@@ -1,4 +1,4 @@
-<!-- Authors: Miguel Jaramillo and Sergio Córdoba and David Fonseca-->
+<!-- Authors: Miguel Jaramillo, Sergio Córdoba and David Fonseca-->
 <!doctype html>
 <html lang="en">
 <head>
@@ -48,6 +48,9 @@
                                 </div>
                                 <div class="dropdown-divider"></div>
                             </li>
+                            <li class="dropdown-item">
+                                <a class="nav-link" href="{{route('myaccount.orders')}}">@lang('app.navbar_items.orders')</a>
+                             </li>
                             <span class="dropdown-item-text">${{ Auth::user()->getBalance() }}</span>
                             <div class="dropdown-divider"></div>
                             <li>

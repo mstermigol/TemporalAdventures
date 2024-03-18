@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function(){
     Route::post('/communityposts/{id}/reviews', 'App\Http\Controllers\ReviewController@save')->name('communitypost.reviews.save');
     Route::delete('/communityposts/reviews/{review}', 'App\Http\Controllers\ReviewController@delete')->name('communitypost.reviews.delete');
     Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name('cart.purchase');
+    Route::delete('/cart/delete-item/{id}', 'App\Http\Controllers\CartController@deleteItem')->name('cart.delete_item');
     Route::get('/my-account/orders', 'App\Http\Controllers\OrderController@orders')->name("myaccount.orders");
     Route::get('/order/{id}/pdf', 'App\Http\Controllers\OrderController@downloadPDF')->name('order.download');
 });
