@@ -90,7 +90,7 @@
                                 <form method="POST" action="{{ route('travel.reviews.delete', $review->id) }}" class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm" title="Delete review" onclick="return confirm('Are you sure?')">
+                                    <button type="submit" class="btn btn-danger btn-sm" title="Delete review" onclick="return confirm(trans('app.content_community.are_you_sure'))">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </form>

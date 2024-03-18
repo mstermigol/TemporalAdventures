@@ -9,7 +9,7 @@
             <div class="p-3 w-75 mx-auto d-flex justify-content-between align-items-center">
                 <h1 class="text-uppercase">@lang('app.content_community.community')</h1>
                 @if(auth()->check())
-                <a href="{{ route('communitypost.new') }}" class="btn btn-success" title="@lang('app.content_community.create_post')">
+                <a href="{{ route('communitypost.create') }}" class="btn btn-success" title="@lang('app.content_community.create_post')">
                     <i class="fas fa-plus"></i> @lang('app.content_community.create_post')
                 </a>
                 @endif
@@ -22,10 +22,10 @@
                             <h4>{{ $post->getUser()->getName() }}</h4>
                             <!-- Delete post button-->
                             @if (auth()->check() && auth()->user()->getId() === $post->getUser()->getId())
-                                <form method="POST" action="{{ route('communitypost.destroy', $post->getId()) }}">
+                                <form method="POST" action="{{ route('communitypost.delete', $post->getId()) }}">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger" title="@lang('app.content_community.delete_review')" onclick="return confirm('Are you sure?')">
+                                    <button type="submit" class="btn btn-danger" title="@lang('app.content_community.delete_review')" onclick="return confirm(trans('app.content_community.are_you_sure'))">
                                         <i class="fas fa-trash-alt"></i>
                                     </button>
                                 </form>
