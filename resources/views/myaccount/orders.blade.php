@@ -5,7 +5,7 @@
 @forelse ($viewData["orders"] as $order) 
 <div class="card mb-4"> 
     <div class="card-header"> 
-        <strong>@lang('app.order.order'){{ $order->getId() }}</strong> 
+        <strong>@lang('app.order.order') #{{ $order->getId() }}</strong> 
     </div> 
     <div class="card-body"> 
         <b>@lang('app.order.date')</b> {{ $order->getCreatedAt() }}<br/> 

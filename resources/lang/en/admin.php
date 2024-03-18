@@ -18,6 +18,7 @@ return [
         'users' => 'Admin users - Temporal Adventures',
         'create_user' => 'Create user - Temporal Adventures',
         'edit_user' => 'Edit user - Temporal Adventures',
+        'orders' => 'Admin orders - Temporal Adventures',
     ],
     'user' => [
         'admin' => 'Admin',
@@ -31,5 +32,10 @@ return [
         'balance' => 'Balance',
         'edit' => 'Edit',
         'create_user' => 'Create User',
+    ],
+    'order' => [
+        'total' => 'Total',
+        'user' => 'User',
+        'order' => 'Order',
     ],
 ];
