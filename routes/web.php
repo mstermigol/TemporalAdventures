@@ -23,12 +23,12 @@ Route::get('/communityposts/new', 'App\Http\Controllers\CommunityPostController@
 Route::get('/communityposts/{id}', 'App\Http\Controllers\CommunityPostController@show')->name('communitypost.show');
 
 Route::middleware('auth')->group(function(){
-    Route::post('/travels/{id}/reviews', 'App\Http\Controllers\TravelController@save')->name('travel.reviews.save');
-    Route::delete('/travels/reviews/{review}', 'App\Http\Controllers\TravelController@delete')->name('travel.reviews.delete');
+    Route::post('/travels/{id}/reviews', 'App\Http\Controllers\ReviewController@save')->name('travel.reviews.save');
+    Route::delete('/travels/reviews/{review}', 'App\Http\Controllers\ReviewController@delete')->name('travel.reviews.delete');
     Route::post('/communityposts/new/create', 'App\Http\Controllers\CommunityPostController@create')->name('communityposts.create');
     Route::delete('/communityposts/{communitypost}', 'App\Http\Controllers\CommunityPostController@destroy')->name('communitypost.destroy');
-    Route::post('/communityposts/{id}/reviews', 'App\Http\Controllers\CommunityPostController@save')->name('communitypost.reviews.save');
-    Route::delete('/communityposts/reviews/{review}', 'App\Http\Controllers\CommunityPostController@delete')->name('communitypost.reviews.delete');
+    Route::post('/communityposts/{id}/reviews', 'App\Http\Controllers\ReviewController@save')->name('communitypost.reviews.save');
+    Route::delete('/communityposts/reviews/{review}', 'App\Http\Controllers\ReviewController@delete')->name('communitypost.reviews.delete');
     Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name('cart.purchase');
     Route::get('/my-account/orders', 'App\Http\Controllers\OrderController@orders')->name("myaccount.orders");
     Route::get('/order/{id}/pdf', 'App\Http\Controllers\OrderController@downloadPDF')->name('order.download');

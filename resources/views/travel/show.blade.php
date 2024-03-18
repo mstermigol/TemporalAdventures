@@ -1,4 +1,4 @@
-<!-- Author: David Fonseca -->
+<!-- Authors: David Fonseca and Sergio Córdoba-->
 
 @extends('layouts.app')
 @section('title', $viewData['title'])
@@ -10,7 +10,7 @@
             </div>
             <div class="col-md-9">
                 <div class="card-body">
-                    <!-- Viaje -->
+                    <!-- Travel -->
                     <h4 class="card-title">
                         {{ $viewData["travel"]->getTitle() }}
                     </h4>
@@ -21,7 +21,7 @@
                         <b>@lang('app.content_travels.category'):</b> {{ $viewData["travel"]->getCategory() }}<br>
                         <b>@lang('app.content_travels.price'):</b> {{ $viewData["travel"]->getPrice() }}$
                     </p>
-                    <!-- Botón de agregar al carrito -->
+                    <!--Button to add to the cart -->
                     <form method="POST" action="{{ route('cart.add', ['id'=> $viewData['travel']->getId()]) }}">
                         <div class="row">
                             @csrf
@@ -38,13 +38,15 @@
                     </form>
                 </div>
             </div>
-            <!-- Sección para agregar una review -->
+            <!-- Section to add a review -->
             @if(auth()->check())
             <div>
                 <div class="card my-4">
                     <div class="card-body">
-                        <form method="POST" action="{{ route('travel.reviews.save', $viewData['travel']->getId()) }}">
+                        <form method="POST" action="{{ route('travel.reviews.save', ['id'=> Auth::user()->getId()]) }}">
                             @csrf
+                            <input type="hidden" name="id" value="{{ Auth::user()->getId() }}">
+                                <input type="hidden" name="view" value="travel">
                             <div class="form-group">
                                 <label for="reviewTitle">@lang('app.content_travels.title')</label>
                                 <input type="text" class="form-control" id="reviewTitle" name="title" required>
@@ -70,7 +72,7 @@
             </div>
             @endif
 
-            <!-- Sección de reviews -->
+            <!-- Reviews section -->
             <div class="reviews mt-4">
                 <h5>{{ $viewData['travel']->reviews->count() }} @lang('app.content_travels.reviews')</h5>
                 @foreach ($viewData['travel']->reviews as $review)
@@ -83,7 +85,7 @@
                                 <div class="text-muted">@lang('app.content_travels.rating'): {{ $review->rating }}/5</div>
                             </div>
 
-                            <!-- Botón de eliminar review -->
+                            <!-- Button to delete a review -->
                             @if(auth()->check() && auth()->id() === $review->user_id)
                                 <form method="POST" action="{{ route('travel.reviews.delete', $review->id) }}" class="d-inline">
                                     @csrf

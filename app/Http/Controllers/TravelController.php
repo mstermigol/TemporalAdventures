@@ -1,15 +1,12 @@
 <?php
 
 /*
-    Author: David Fonseca
+    Authors: David Fonseca and Sergio Córdoba
 */
 
 namespace App\Http\Controllers;
 
-use App\Models\Review;
 use App\Models\Travel;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class TravelController extends Controller
@@ -32,32 +29,5 @@ class TravelController extends Controller
         $viewData['travel'] = $travel;
 
         return view('travel.show')->with('viewData', $viewData);
-    }
-
-    public function save(Request $request, string $travelId): RedirectResponse
-    {
-        Travel::validate($request);
-
-        $review = new Review();
-        $review->setTitle($request->title);
-        $review->setDescription($request->description);
-        $review->setRating($request->rating);
-        $review->setUserId(auth()->id());
-        $review->setTravelId($travelId);
-        $review->save();
-
-        return redirect()->route('travel.show', $travelId);
-    }
-
-    public function delete(string $id): RedirectResponse
-    {
-        $review = Review::findOrFail($id);
-
-        if ($review->getUser()->getId() === auth()->getUser()->getId() ) {
-            $review->delete();
-            return back();
-        }
-
-        return back();
     }
 }

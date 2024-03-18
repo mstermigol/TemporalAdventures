@@ -1,4 +1,4 @@
-<!-- Author: David Fonseca -->
+<!-- Authors: David Fonseca and Sergio Córdoba-->
 
 @extends('layouts.app')
 @section('title', $viewData['title'])
@@ -27,8 +27,10 @@
             @if(auth()->check())
             <div class="card my-4">
                 <div class="card-body">
-                    <form method="POST" action="{{ route('communitypost.reviews.save', $viewData['post']->getId()) }}">
+                    <form method="POST" action="{{ route('communitypost.reviews.save', ['id'=> Auth::user()->getId()]) }}">
                         @csrf
+                        <input type="hidden" name="id" value="{{ Auth::user()->getId() }}">
+                        <input type="hidden" name="view" value="community">
                         <div class="form-group">
                             <label for="reviewTitle">@lang('app.content_community.title')</label>
                             <input type="text" class="form-control" id="reviewTitle" name="title" required>

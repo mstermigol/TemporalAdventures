@@ -1,14 +1,13 @@
 <?php
 
 /*
-    Author: David Fonseca
+    Authors: David Fonseca and Sergio Córdoba
 */
 
 namespace App\Http\Controllers;
 
 use App\Enums\CategoryEnum;
 use App\Models\CommunityPost;
-use App\Models\Review;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -34,32 +33,6 @@ class CommunityPostController extends Controller
         $viewData['post'] = $post;
 
         return view('communitypost.show')->with('viewData', $viewData);
-    }
-
-    public function save(Request $request, string $communityPostId): RedirectResponse
-    {
-        Review::validate($request);
-
-        $review = new Review();
-        $review->setTitle($request->input('title'));
-        $review->setDescription($request->input('description'));
-        $review->setRating($request->input('rating'));
-        $review->setUserId(auth()->id());
-        $review->setCommunityPostId($communityPostId);
-        $review->save();
-
-        return redirect()->route('communitypost.show', $communityPostId);
-    }
-
-    public function delete(string $id): RedirectResponse
-    {
-        $review = Review::findOrFail($id);
-
-        if ($review->getUser()->getId()  === auth()->getUser()->getId()) {
-            $review->delete();
-            return back();
-        }
-        return back();
     }
 
     public function new(): View
