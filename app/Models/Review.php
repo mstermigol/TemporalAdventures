@@ -8,6 +8,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Http\Request;
 
 class Review extends Model
 {
@@ -146,5 +147,14 @@ class Review extends Model
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public static function validate(Request $request): void
+    {
+        $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'required|max:255',
+            'rating' => 'required|integer|between:1,5',
+        ]);
     }
 }
