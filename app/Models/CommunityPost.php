@@ -157,7 +157,7 @@ class CommunityPost extends Model
             'image' => 'nullable|image|max:2048',
             'date_of_event' => 'required|date',
             'place_of_event' => 'required|string',
-            'category' => 'required|in:' . implode(',', CategoryEnum::values()),
+            'category' => 'required|in:'.implode(',', CategoryEnum::values()),
         ]);
     }
 }

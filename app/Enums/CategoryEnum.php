@@ -6,7 +6,6 @@
 
 namespace App\Enums;
 
-use InvalidArgumentException;
 use Kongulov\Traits\InteractWithEnum;
 
 enum CategoryEnum: string

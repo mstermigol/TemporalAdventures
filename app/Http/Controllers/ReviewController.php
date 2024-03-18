@@ -24,18 +24,18 @@ class ReviewController extends Controller
         $review->setDescription($request->input('description'));
         $review->setRating($request->input('rating'));
         $review->setUserId(auth()->id());
-        
-        if($view == 'community'){
+
+        if ($view == 'community') {
             $review->setCommunityPostId($id);
-        }elseif($view == 'travel'){
+        } elseif ($view == 'travel') {
             $review->setTravelId($id);
         }
-        
+
         $review->save();
 
-        if($view == 'community'){
+        if ($view == 'community') {
             return redirect()->route('communitypost.show', $id);
-        }elseif($view == 'travel'){
+        } elseif ($view == 'travel') {
             return redirect()->route('travel.show', $id);
         }
     }
@@ -44,8 +44,9 @@ class ReviewController extends Controller
     {
         $review = Review::findOrFail($id);
 
-        if($review->getUser()->getId() === Auth::user()->getId()){
+        if ($review->getUser()->getId() === Auth::user()->getId()) {
             $review->delete();
+
             return back();
         }
 

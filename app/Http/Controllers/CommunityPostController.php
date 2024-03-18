@@ -10,8 +10,8 @@ use App\Enums\CategoryEnum;
 use App\Models\CommunityPost;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class CommunityPostController extends Controller
 {
@@ -38,7 +38,7 @@ class CommunityPostController extends Controller
     public function create(): View
     {
         $viewData = [];
-        $viewData['title'] = "Create New Community Post";
+        $viewData['title'] = 'Create New Community Post';
         $viewData['categories'] = CategoryEnum::cases();
 
         return view('communitypost.create')->with('viewData', $viewData);
@@ -49,9 +49,9 @@ class CommunityPostController extends Controller
         CommunityPost::validate($request);
 
         if ($request->hasFile('image')) {
-            $filename = uniqid() . '.' . $request->file('image')->extension();
+            $filename = uniqid().'.'.$request->file('image')->extension();
             $imagePath = $request->file('image')->storeAs('public/community', $filename);
-            $imagePath = '/storage/community/' . $filename;
+            $imagePath = '/storage/community/'.$filename;
         } else {
             $imagePath = null;
         }
@@ -67,7 +67,6 @@ class CommunityPostController extends Controller
         $post->setUserId(Auth::id());
         $post->save();
 
-
         return redirect()->route('communitypost.index');
     }
 
@@ -77,10 +76,10 @@ class CommunityPostController extends Controller
 
         if ($post->getUser()->getId() === auth()->getUser()->getId()) {
             $post->delete();
+
             return redirect()->route('communitypost.index');
         }
 
         return back();
     }
-
 }

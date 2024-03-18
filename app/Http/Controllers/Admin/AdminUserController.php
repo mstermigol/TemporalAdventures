@@ -11,6 +11,7 @@ use App\Models\User;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 
 class AdminUserController extends Controller
@@ -50,15 +51,15 @@ class AdminUserController extends Controller
     {
         User::validate($request);
 
-        $newProduct = new User();
-        $newProduct->setName($request->input('name'));
-        $newProduct->setEmail($request->input('email'));
-        $newProduct->setPassword($request->input('password'));
-        $newProduct->setBalance($request->input('balance'));
-        $newProduct->setIsStaff($request->input('is_staff'));
-        $newProduct->setPhoneNumber($request->input('phone_number'));
+        $newUser = new User();
+        $newUser->setName($request->input('name'));
+        $newUser->setEmail($request->input('email'));
+        $newUser->setPassword(Hash::make($request->input('password')));
+        $newUser->setBalance($request->input('balance'));
+        $newUser->setIsStaff($request->input('is_staff'));
+        $newUser->setPhoneNumber($request->input('phone_number'));
 
-        $newProduct->save();
+        $newUser->save();
 
         return redirect()->route('admin.user.index');
     }
@@ -90,22 +91,20 @@ class AdminUserController extends Controller
 
     public function update(Request $request, string $id): RedirectResponse
     {
-        try {
-            User::validateUpdate($request);
 
-            $user = User::findOrFail($id);
-            $user->setName($request->input('name'));
-            $user->setEmail($request->input('email'));
-            $user->setPassword($request->input('password'));
-            $user->setBalance($request->input('balance'));
-            $user->setIsStaff($request->input('is_staff'));
-            $user->setPhoneNumber($request->input('phone_number'));
+        User::validateUpdate($request);
 
-            $user->save();
+        $user = User::findOrFail($id);
+        $user->setName($request->input('name'));
+        $user->setEmail($request->input('email'));
+        $user->setPassword(Hash::make($request->input('password')));
+        $user->setBalance($request->input('balance'));
+        $user->setIsStaff($request->input('is_staff'));
+        $user->setPhoneNumber($request->input('phone_number'));
 
-            return redirect()->route('admin.user.index');
-        } catch (Exception $e) {
-            return redirect()->route('admin.user.index');
-        }
+        $user->save();
+
+        return redirect()->route('admin.user.index');
+
     }
 }

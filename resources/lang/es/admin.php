@@ -19,6 +19,7 @@ return [
         'users' => 'Admin usuarios - Temporal Adventures',
         'create_user' => 'Crear usuario - Temporal Adventures',
         'edit_user' => 'Editar usuario - Temporal Adventures',
+        'orders' => 'Admin pedidos - Temporal Adventures',
     ],
 
     'user' => [
@@ -33,5 +34,10 @@ return [
         'balance' => 'Saldo',
         'edit' => 'Editar',
         'create_user' => 'Crear Usuario',
+    ],
+    'order' => [
+        'total' => 'Total',
+        'user' => 'Usuario',
+        'order' => 'Pedido',
     ],
 ];

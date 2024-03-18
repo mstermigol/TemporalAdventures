@@ -46,7 +46,7 @@
         <a class="btn btn-primary w-100 my-1">@lang('admin.navbar_items.reviews')</a>
     </li>
     <li>
-        <a class="btn btn-primary w-100 my-1">@lang('admin.navbar_items.orders')</a>
+        <a class="btn btn-primary w-100 my-1  @if (Request::segment(2) == 'orders') active @endif" href="{{ route('admin.order.index') }}">@lang('admin.navbar_items.orders')</a>
     </li>
         </ul>
         <div class="container-fluid justify-content-center mt-4">
@@ -82,7 +82,7 @@
         <a class="btn btn-primary w-100 my-1">@lang('admin.navbar_items.reviews')</a>
     </li>
     <li>
-        <a class="btn btn-primary w-100 my-1">@lang('admin.navbar_items.orders')</a>
+        <a class="btn btn-primary w-100 my-1  @if (Request::segment(2) == 'orders') active @endif" href="{{ route('admin.order.index') }}">@lang('admin.navbar_items.orders')</a>
     </li>
         </ul>
         <div class="container-fluid justify-content-center">
