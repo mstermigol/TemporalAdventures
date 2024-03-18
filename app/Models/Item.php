@@ -141,6 +141,5 @@ class Item extends Model
             'travel_id' => 'required|exists:travels,id',
             'order_id' => 'required|exists:orders,id',
         ]);
-
     }
 }

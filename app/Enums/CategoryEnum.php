@@ -6,6 +6,7 @@
 
 namespace App\Enums;
 
+use InvalidArgumentException;
 use Kongulov\Traits\InteractWithEnum;
 
 enum CategoryEnum: string
@@ -18,4 +19,13 @@ enum CategoryEnum: string
     case InventionsAndDiscoveries = 'Inventions and Discoveries';
     case DailyLifeAndCustoms = 'Daily Life and Customs';
     case ExplorationAndAdventure = 'Exploration and Adventure';
+
+    public static function fromValue(string $value): self
+    {
+        foreach (self::cases() as $case) {
+            if ($case->value === $value) {
+                return $case;
+            }
+        }
+    }
 }
