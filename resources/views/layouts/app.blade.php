@@ -1,4 +1,4 @@
-<!-- Authors: Miguel Jaramillo and Sergio Córdoba and David Fonseca-->
+<!-- Authors: Miguel Jaramillo, Sergio Córdoba and David Fonseca-->
 <!doctype html>
 <html lang="en">
 <head>
@@ -26,6 +26,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('communitypost.index')}}">@lang('app.navbar_items.community_posts')</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('myaccount.orders')}}">@lang('app.navbar_items.orders')</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('cart.index') }}">

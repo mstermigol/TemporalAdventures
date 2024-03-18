@@ -114,4 +114,17 @@ class CartController extends Controller
             return redirect()->route('cart.index');
         }
     }
+
+    public function deleteItem(Request $request, string $id): RedirectResponse
+    {
+        $cartItems = $request->session()->get('travels');
+
+        if (isset($cartItems[$id])) {
+            unset($cartItems[$id]);
+
+            $request->session()->put('travels', $cartItems);
+        }
+
+        return redirect()->route('cart.index');
+    }
 }
