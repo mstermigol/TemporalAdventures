@@ -5,6 +5,10 @@
 @section('content')
     <section class="container my-5">
         <ul class="row list-unstyled align-items-stretch">
+            <!-- Title section-->
+            <div class="p-3 mx-auto d-flex justify-content-between align-items-center">
+                <h1 class="text-uppercase">@lang('app.content_travels.travels')</h1>
+            </div>
             @foreach ($viewData["travels"] as $travel)
                 <li class="col-md-4 col-lg-4 mb-4">
                     <div class="card h-100">

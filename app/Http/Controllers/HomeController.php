@@ -14,7 +14,7 @@ class HomeController extends Controller
     public function index(): view
     {
         $viewData = [];
-        $viewData['title'] = trans('app.titles.travels');
+        $viewData['title'] = trans('app.titles.welcome');
         return view('home.index')->with('viewData', $viewData);
     }
 }
