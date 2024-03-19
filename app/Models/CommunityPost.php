@@ -160,7 +160,7 @@ class CommunityPost extends Model
             $reviewCount = $post->getReviews()->count();
 
             if ($reviewCount > 0) {
-                
+
                 foreach ($post->getReviews() as $review) {
                     $totalRating += $review->getRating();
                 }
@@ -176,11 +176,9 @@ class CommunityPost extends Model
 
         $topThreePosts = array_slice($communityPostRatings, 0, 3, true);
 
-
         return $topThreePosts;
     }
 
- 
     public static function validate(Request $request): void
     {
         $request->validate([
@@ -189,7 +187,7 @@ class CommunityPost extends Model
             'image' => 'nullable|image|max:2048',
             'date_of_event' => 'required|date',
             'place_of_event' => 'required|string',
-            'category' => 'required|in:' . implode(',', CategoryEnum::values()),
+            'category' => 'required|in:'.implode(',', CategoryEnum::values()),
         ]);
     }
 }
