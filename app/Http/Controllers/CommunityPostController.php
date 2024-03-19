@@ -21,9 +21,9 @@ class CommunityPostController extends Controller
 
         $viewData = [];
         $viewData['title'] = trans('app.titles.community_posts');
-        $viewData['posts'] = CommunityPost::all();
+        $viewData['posts'] = CommunityPost::with('user')->get();
         $viewData['topThreePosts'] = collect($arrayTopThreePosts)->keys()->map(function ($id) {
-        return CommunityPost::find($id);
+            return CommunityPost::find($id);
         });
         return view('communitypost.index')->with('viewData', $viewData);
     }
