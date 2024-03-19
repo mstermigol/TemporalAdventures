@@ -15,7 +15,7 @@
 
 <body>
 
-  <nav class="navbar navbar-expand-sm bg-light navbar-light d-sm-block d-md-none fixed-top">
+  <nav class="navbar navbar-expand-sm bg-light navbar-light d-sm-block d-md-none sticky-top">
     <div class="container-fluid">
     <a class="navbar-brand p-0 m-0" href="#">
           <img src="{{ url('/images/logo-no-bg.png') }}" alt="Logo" style="width:50px;" class="rounded-pill">
@@ -43,7 +43,7 @@
         <a class="btn btn-primary w-100 my-1">@lang('admin.navbar_items.community_posts')</a>
     </li>
     <li>
-        <a class="btn btn-primary w-100 my-1">@lang('admin.navbar_items.reviews')</a>
+        <a class="btn btn-primary w-100 my-1 @if (Request::segment(2) == 'reviews') active @endif" href="{{ route('admin.review.index') }}">@lang('admin.navbar_items.reviews')</a>
     </li>
     <li>
         <a class="btn btn-primary w-100 my-1  @if (Request::segment(2) == 'orders') active @endif" href="{{ route('admin.order.index') }}">@lang('admin.navbar_items.orders')</a>
@@ -79,7 +79,7 @@
         <a class="btn btn-primary w-100 my-1">@lang('admin.navbar_items.community_posts')</a>
     </li>
     <li>
-        <a class="btn btn-primary w-100 my-1">@lang('admin.navbar_items.reviews')</a>
+        <a class="btn btn-primary w-100 my-1 @if (Request::segment(2) == 'reviews') active @endif" href="{{ route('admin.review.index') }}">@lang('admin.navbar_items.reviews')</a>
     </li>
     <li>
         <a class="btn btn-primary w-100 my-1  @if (Request::segment(2) == 'orders') active @endif" href="{{ route('admin.order.index') }}">@lang('admin.navbar_items.orders')</a>

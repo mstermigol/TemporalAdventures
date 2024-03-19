@@ -1,7 +1,7 @@
 <?php
 
 /*
-    Author: David Fonseca
+    Authors: David Fonseca and Miguel Jaramillo
 */
 
 namespace App\Enums;
@@ -19,12 +19,14 @@ enum CategoryEnum: string
     case DailyLifeAndCustoms = 'Daily Life and Customs';
     case ExplorationAndAdventure = 'Exploration and Adventure';
 
-    public static function fromValue(string $value): self
+    public static function fromValue(string $value): ?self
     {
         foreach (self::cases() as $case) {
             if ($case->value === $value) {
                 return $case;
             }
         }
+
+        return null;
     }
 }

@@ -1,7 +1,7 @@
-<!-- Author: David Fonseca -->
+<!-- Authors: David Fonseca and Miguel Jaramillo-->
 
 @extends('layouts.app')
-@section('title', 'Create Community Post')
+@section('title', $viewData['title'])
 @section('content')
 <section class="container my-5">
     <div class="row">
