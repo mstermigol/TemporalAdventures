@@ -1,7 +1,7 @@
 <?php
 
 /*
-    Author: David Fonseca
+    Authors: David Fonseca and Miguel Jaramillo
 */
 
 namespace App\Models;

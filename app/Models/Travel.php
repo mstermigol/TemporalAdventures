@@ -1,7 +1,7 @@
 <?php
 
 /*
-    Authors: David Fonseca and Sergio Córdoba
+    Authors: David Fonseca, Sergio Córdoba and Miguel Jaramillo
 */
 
 namespace App\Models;
@@ -182,10 +182,10 @@ class Travel extends Model
         return (int) $total;
     }
 
-    public static function getTopTravels(Collection $travels): Collection
+    public static function getTopThreePopular(): Collection
     {
-        $sortedTravels = $travels->sortByDesc(function ($travel) {
-            return $travel->getOrdersCount();
+        $sortedTravels = self::with('items')->get()->sortByDesc(function ($travel) {
+            return $travel->getItems()->count();
         });
 
         $topTravels = $sortedTravels->take(3);

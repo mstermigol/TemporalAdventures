@@ -94,6 +94,8 @@ return [
         'rating' => 'Calificación',
         'reviews' => 'Reseñas',
         'submit' => 'Subir',
+        'all' => 'Todos',
+        'top_three' => 'Top 3',
     ],
     'content_community' => [
         'see_more' => 'Ver más',

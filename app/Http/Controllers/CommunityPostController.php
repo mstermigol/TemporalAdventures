@@ -1,7 +1,7 @@
 <?php
 
 /*
-    Authors: David Fonseca and Sergio Córdoba
+    Authors: David Fonseca, Sergio Córdoba and Miguel Jaramillo
 */
 
 namespace App\Http\Controllers;
@@ -22,7 +22,7 @@ class CommunityPostController extends Controller
         $viewData = [];
         $viewData['title'] = trans('app.titles.community_posts');
         $viewData['posts'] = CommunityPost::with('user')->get();
-        $viewData['topThreePosts'] = collect($arrayTopThreePosts)->keys()->map(function ($id) {
+        $viewData['topThree'] = collect($arrayTopThreePosts)->keys()->map(function ($id) {
             return CommunityPost::find($id);
         });
 

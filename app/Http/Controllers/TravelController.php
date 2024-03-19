@@ -1,7 +1,7 @@
 <?php
 
 /*
-    Authors: David Fonseca and Sergio Córdoba
+    Authors: David Fonseca, Sergio Córdoba and Miguel Jaramillo
 */
 
 namespace App\Http\Controllers;
@@ -16,7 +16,7 @@ class TravelController extends Controller
         $viewData = [];
         $viewData['title'] = trans('app.titles.travels');
         $viewData['travels'] = Travel::all();
-
+        $viewData['topThree'] = Travel::getTopThreePopular();
         return view('travel.index')->with('viewData', $viewData);
     }
 

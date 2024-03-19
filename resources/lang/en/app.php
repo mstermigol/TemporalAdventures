@@ -96,6 +96,8 @@ return [
         'rating' => 'Rating',
         'reviews' => 'Reviews',
         'submit' => 'Submit',
+        'all' => 'All',
+        'top_three' => 'Top 3',
     ],
     'content_community' => [
         'see_more' => 'See more',

@@ -1,4 +1,4 @@
-<!-- Author: David Fonseca -->
+<!-- Authors: David Fonseca and Miguel Jaramillo -->
 
 @extends('layouts.app')
 @section('title', $viewData['title'])
@@ -6,7 +6,7 @@
     <section class="container my-5">
         <div class="row">
         <div class="p-3 w-75 mx-auto d-flex justify-content-between align-items-center">
-        @if(count($viewData['topThreePosts']) > 0)
+        @if(count($viewData['topThree']) > 0)
                 <h1 class="text-uppercase">@lang('app.content_community.top_three')</h1>
             @endif
                 @if(auth()->check())
@@ -16,7 +16,7 @@
                 @endif
             </div>
 
-            @foreach ($viewData["topThreePosts"] as $post)
+            @foreach ($viewData["topThree"] as $post)
                 <div class="col-12 mb-4 w-75 mx-auto">
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center">
