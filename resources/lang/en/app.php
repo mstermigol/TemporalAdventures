@@ -13,6 +13,8 @@ return [
         'logout' => 'Logout',
         'cart' => 'Cart',
         'about' => 'About Us',
+        'orders' => 'Orders',
+
     ],
     'footer' => [
         'copyright' => 'Copyright',
@@ -27,6 +29,7 @@ return [
         'purchase' => 'Purchase',
         'remove' => 'Remove all travels from Cart',
         'alert' => 'Not enough balance, please try again!',
+        'delete_item' => 'Delete Item',
     ],
     'titles' => [
         'confirm' => 'Confirm Password - Temporal Adventures',

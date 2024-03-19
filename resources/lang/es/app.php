@@ -12,6 +12,7 @@ return [
         'register' => 'Registrarse',
         'logout' => 'Cerrar sesión',
         'cart' => 'Carrito',
+        'orders' => 'Órdenes',
         'about' => 'Sobre Nosotros',
     ],
     'footer' => [
@@ -27,6 +28,7 @@ return [
         'purchase' => 'Comprar',
         'remove' => 'Quitar todos los viajes del carrito',
         'alert' => '¡No tienes fondos suficientes, por favor intenta de nuevo!',
+        'delete_item' => 'Eliminar ítem',
     ],
     'titles' => [
         'confirm' => 'Confirmar contraseña - Temporal Adventures',

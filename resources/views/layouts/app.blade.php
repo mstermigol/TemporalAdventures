@@ -1,4 +1,4 @@
-<!-- Authors: Miguel Jaramillo and Sergio Córdoba and David Fonseca-->
+<!-- Authors: Miguel Jaramillo, Sergio Córdoba and David Fonseca-->
 <!doctype html>
 <html lang="en">
 <head>
@@ -12,7 +12,6 @@
   <title>@yield('title', 'Temporal Adventures')</title>
 </head>
 <body>
-
 <nav class="navbar navbar-expand-sm bg-light navbar-light px-4 sticky-top shadow">
   <div class="container-fluid d-flex justify-content-between">
     <a class="navbar-brand" href="{{route('home.index')}}">
@@ -50,9 +49,11 @@
             <li>
               <div class="dropdown-header">
                 <span>{{ Auth::user()->getFirstName() }}</span>
-
               </div>
               <div class="dropdown-divider"></div>
+            </li>
+            <li class="dropdown-item">
+                <a class="nav-link" href="{{route('myaccount.orders')}}">@lang('app.navbar_items.orders')</a>
             </li>
             <span class="dropdown-item-text">${{ Auth::user()->getBalance() }}</span>
             <div class="dropdown-divider"></div>
@@ -69,12 +70,9 @@
     </div>
   </div>
 </nav>
-
 <main>
     @yield('content')
 </main>
-
-
 <footer class="footer mt-auto py-3 bg-light">
     <div class="container">
       <div class="text-center">
@@ -82,7 +80,5 @@
       </div>
     </div>
 </footer>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-
 </body>
