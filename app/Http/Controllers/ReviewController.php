@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ReviewController extends Controller
 {
-    public function save(Request $request, string $id): RedirectResponse
+    public function save(Request $request, string $reviewOfId): RedirectResponse
     {
         Review::validate($request);
 
@@ -23,20 +23,20 @@ class ReviewController extends Controller
         $review->setTitle($request->input('title'));
         $review->setDescription($request->input('description'));
         $review->setRating($request->input('rating'));
-        $review->setUserId(auth()->id());
+        $review->setUserId($request->input('id'));
         
         if($view == 'community'){
-            $review->setCommunityPostId($id);
+            $review->setCommunityPostId($reviewOfId);
         }elseif($view == 'travel'){
-            $review->setTravelId($id);
+            $review->setTravelId($reviewOfId);
         }
         
         $review->save();
 
         if($view == 'community'){
-            return redirect()->route('communitypost.show', $id);
+            return redirect()->route('communitypost.show', $reviewOfId);
         }elseif($view == 'travel'){
-            return redirect()->route('travel.show', $id);
+            return redirect()->route('travel.show', $reviewOfId);
         }
     }
 

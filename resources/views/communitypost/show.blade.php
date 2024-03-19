@@ -27,7 +27,7 @@
             @if(auth()->check())
             <div class="card my-4">
                 <div class="card-body">
-                    <form method="POST" action="{{ route('communitypost.reviews.save', ['id'=> Auth::user()->getId()]) }}">
+                    <form method="POST" action="{{ route('communitypost.reviews.save', ['reviewOfId'=> $viewData["post"]->getId()]) }}">
                         @csrf
                         <input type="hidden" name="id" value="{{ Auth::user()->getId() }}">
                         <input type="hidden" name="view" value="community">
