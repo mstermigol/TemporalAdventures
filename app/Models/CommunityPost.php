@@ -149,6 +149,39 @@ class CommunityPost extends Model
         return $this->attributes['updated_at'];
     }
 
+    public static function getTopThreeRated(): array
+    {
+        $communityPosts = self::with('reviews')->get();
+
+        $communityPostRatings = [];
+
+        $communityPosts->each(function ($post) use (&$communityPostRatings) {
+            $totalRating = 0;
+            $reviewCount = $post->getReviews()->count();
+
+            if ($reviewCount > 0) {
+                
+                foreach ($post->getReviews() as $review) {
+                    $totalRating += $review->getRating();
+                }
+                $averageRating = $totalRating / $reviewCount;
+            } else {
+                $averageRating = 0;
+            }
+
+            $communityPostRatings[$post->getId()] = $averageRating;
+        });
+
+        arsort($communityPostRatings);
+
+        $topThreePosts = array_slice($communityPostRatings, 0, 3, true);
+
+        print_r($topThreePosts);
+
+        return $topThreePosts;
+    }
+
+ 
     public static function validate(Request $request): void
     {
         $request->validate([

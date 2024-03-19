@@ -17,10 +17,14 @@ class CommunityPostController extends Controller
 {
     public function index(): View
     {
+        $arrayTopThreePosts = CommunityPost::getTopThreeRated();
+
         $viewData = [];
         $viewData['title'] = trans('app.titles.community_posts');
         $viewData['posts'] = CommunityPost::all();
-
+        $viewData['topThreePosts'] = collect($arrayTopThreePosts)->keys()->map(function ($id) {
+        return CommunityPost::find($id);
+        });
         return view('communitypost.index')->with('viewData', $viewData);
     }
 
