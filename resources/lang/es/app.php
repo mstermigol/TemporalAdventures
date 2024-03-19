@@ -111,6 +111,7 @@ return [
         'create_post' => 'Crear publicación',
         'delete_review' => 'Borrar reseña',
         'submit' => 'Subir',
+        'top_three' => 'Top 3',
     ],
     'purchase' => [
         'completed' => 'Compra Completada',

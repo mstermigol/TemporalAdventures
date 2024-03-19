@@ -114,6 +114,7 @@ return [
         'delete_review' => 'Delete review',
         'submit' => 'Submit',
         'are_you_sure' => 'Are you sure?',
+        'top_three' => 'Top 3',
     ],
     'purchase' => [
         'completed' => 'Purchase Completed',

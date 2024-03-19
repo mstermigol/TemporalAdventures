@@ -6,7 +6,9 @@
     <section class="container my-5">
         <div class="row">
         <div class="p-3 w-75 mx-auto d-flex justify-content-between align-items-center">
-                <h1 class="text-uppercase">top 3</h1>
+        @if(count($viewData['topThreePosts']) > 0)
+                <h1 class="text-uppercase">@lang('app.content_community.top_three')</h1>
+            @endif
                 @if(auth()->check())
                 <a href="{{ route('communitypost.create') }}" class="btn btn-success" title="@lang('app.content_community.create_post')">
                     <i class="fas fa-plus"></i> @lang('app.content_community.create_post')
