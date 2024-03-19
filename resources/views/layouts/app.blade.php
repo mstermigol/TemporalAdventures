@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-sm bg-light navbar-light px-4">
+<nav class="navbar navbar-expand-sm bg-light navbar-light px-4 sticky-top shadow">
   <div class="container-fluid d-flex justify-content-between">
     <a class="navbar-brand" href="{{route('home.index')}}">
       <img src="{{ url('/images/logo-no-bg.png') }}" alt="Logo" style="width:60px;" class="rounded-pill">
@@ -27,7 +27,10 @@
           <a class="nav-link" href="{{route('travel.index')}}">@lang('app.navbar_items.travels')</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">@lang('app.navbar_items.community_posts')</a>
+          <a class="nav-link" href={{route('communitypost.index')}}>@lang('app.navbar_items.community_posts')</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href={{route('about')}}>@lang('app.navbar_items.about')</a>
         </li>
         <li class="nav-item">
         <a class="nav-link" href="{{ route('cart.index') }}">
@@ -72,7 +75,7 @@
 </main>
 
 
-<footer class="footer mt-auto py-3 bg-light fixed-bottom">
+<footer class="footer mt-auto py-3 bg-light">
     <div class="container">
       <div class="text-center">
         <p class="mb-0">@lang('app.footer.copyright') - <a href="https://github.com/mstermigol" class="link-dark">Miguel Jaramillo</a> - <a href="https://github.com/sergiocordobam" class="link-dark">Sergio Cordoba</a> - <a href="https://github.com/DavidFonsek" class="link-dark">David Fonseca</a></p>

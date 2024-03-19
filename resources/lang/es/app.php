@@ -12,6 +12,7 @@ return [
         'register' => 'Registrarse',
         'logout' => 'Cerrar sesión',
         'cart' => 'Carrito',
+        'about' => 'Sobre Nosotros',
     ],
     'footer' => [
         'copyright' => 'Derechos de autor',
@@ -40,7 +41,8 @@ return [
         'purchase_denied' => 'Compra Denegada - Temporal Adventures',
         'community_posts' => 'Comunidad - Temporal Adventures',
         'order' => 'Mis Órdenes - Temporal Adventures',
-        'welcome' => 'Bienvenido - Temporal Adventures'
+        'welcome' => 'Bienvenido - Temporal Adventures',
+        'about' => 'Sobre nosotros - Temporal Adventures',
     ],
     'confirm' => [
         'confirm_password' => 'Confirmar contraseña',
