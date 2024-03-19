@@ -38,6 +38,7 @@ class ReviewController extends Controller
         } elseif ($view == 'travel') {
             return redirect()->route('travel.show', $fromReviewId);
         }
+
         return back();
     }
 

@@ -7,15 +7,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\CommunityPost;
 use App\Models\Review;
 use App\Models\Travel;
-use App\Models\CommunityPost;
 use Exception;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\View\View;
 
 class AdminReviewController extends Controller
 {
@@ -38,24 +37,25 @@ class AdminReviewController extends Controller
             if ($review->getTravelId() !== null) {
                 $travelTitle = $review->getTravel()->getTitle();
                 $viewData = [];
-                $viewData['title'] = $travelTitle . ' - Temporal Adventures';
+                $viewData['title'] = $travelTitle.' - Temporal Adventures';
                 $viewData['review'] = $review;
                 $viewData['reviewOfTitle'] = $travelTitle;
                 $viewData['userName'] = $userName;
-                return view('admin.review.show')->with('viewData', $viewData);
-                ;
 
+                return view('admin.review.show')->with('viewData', $viewData);
 
             } elseif ($review->getCommunityPostId() !== null) {
                 $communityPostTitle = $review->getCommunityPost()->getTitle();
                 $viewData = [];
-                $viewData['title'] = $communityPostTitle . ' - Temporal Adventures';
+                $viewData['title'] = $communityPostTitle.' - Temporal Adventures';
                 $viewData['review'] = $review;
                 $viewData['reviewOfTitle'] = $communityPostTitle;
                 $viewData['userName'] = $userName;
+
                 return view('admin.review.show')->with('viewData', $viewData);
-                ;
+
             }
+
             return redirect()->route('admin.review.index');
         } catch (Exception $e) {
             return redirect()->route('admin.review.index');
@@ -68,6 +68,7 @@ class AdminReviewController extends Controller
         $viewData = [];
         $viewData['title'] = trans('admin.titles.create_review_travel');
         $viewData['travels'] = $travels;
+
         return view('admin.review.createTravel')->with('viewData', $viewData);
     }
 
@@ -77,15 +78,15 @@ class AdminReviewController extends Controller
         $viewData = [];
         $viewData['title'] = trans('admin.titles.create_review_community');
         $viewData['communityPosts'] = $communityPosts;
+
         return view('admin.review.createCommunityPost')->with('viewData', $viewData);
     }
 
-    public function save(Request $request, ): RedirectResponse
+    public function save(Request $request): RedirectResponse
     {
         Review::validate($request);
 
         $view = $request->input('view');
-
 
         $review = new Review();
         $review->setTitle($request->input('title'));
@@ -101,7 +102,6 @@ class AdminReviewController extends Controller
         }
 
         $review->save();
-
 
         return redirect()->route('admin.review.index');
     }
@@ -133,7 +133,6 @@ class AdminReviewController extends Controller
 
         return redirect()->route('admin.review.index');
     }
-
 
     public function delete(string $id): RedirectResponse
     {
