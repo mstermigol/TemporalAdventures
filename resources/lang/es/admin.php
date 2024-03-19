@@ -20,6 +20,10 @@ return [
         'create_user' => 'Crear usuario - Temporal Adventures',
         'edit_user' => 'Editar usuario - Temporal Adventures',
         'orders' => 'Admin pedidos - Temporal Adventures',
+        'reviews' => 'Admin reseñas - Temporal Adventures',
+        'create_review_travel' => 'Crear reseña de viaje - Temporal Adventures',
+        'create_review_community' => 'Crear reseña de publicación de la comunidad - Temporal Adventures',
+        'edit_review' => 'Editar reseña - Temporal Adventures',
     ],
 
     'user' => [
@@ -39,5 +43,16 @@ return [
         'total' => 'Total',
         'user' => 'Usuario',
         'order' => 'Pedido',
+    ],
+    'review' => [
+        'travel' => 'Viaje',
+        'community_post' => 'Publicación de la comunidad',
+        'title' => 'Título',
+        'description' => 'Descripción',
+        'rating' => 'Calificación',
+        'submit' => 'Enviar',
+        'user' => 'Usuario',
+        'edit_review' => 'Editar Reseña',
+        'edit' => 'Editar',
     ],
 ];

@@ -46,3 +46,12 @@ Route::get('/admin/users/{id}', 'App\Http\Controllers\Admin\AdminUserController@
 Route::get('/admin/orders', 'App\Http\Controllers\Admin\AdminOrderController@index')->name('admin.order.index');
 Route::get('/admin/orders/{id}', 'App\Http\Controllers\Admin\AdminOrderController@show')->name('admin.order.show');
 Route::delete('/admin/orders/delete/{id}', 'App\Http\Controllers\Admin\AdminOrderController@delete')->name('admin.order.delete');
+
+Route::get('/admin/reviews', 'App\Http\Controllers\Admin\AdminReviewController@index')->name('admin.review.index');
+Route::get('/admin/reviews/create/travel', 'App\Http\Controllers\Admin\AdminReviewController@createTravel')->name('admin.review.createTravel');
+Route::get('/admin/reviews/create/community_post', 'App\Http\Controllers\Admin\AdminReviewController@createCommunityPost')->name('admin.review.createCommunityPost');
+Route::post('/admin/reviews/save', 'App\Http\Controllers\Admin\AdminReviewController@save')->name('admin.review.save');
+Route::delete('/admin/reviews/delete/{id}', 'App\Http\Controllers\Admin\AdminReviewController@delete')->name('admin.review.delete');
+Route::get('/admin/reviews/edit/{id}', 'App\Http\Controllers\Admin\AdminReviewController@edit')->name('admin.review.edit');
+Route::put('/admin/reviews/update/{id}', 'App\Http\Controllers\Admin\AdminReviewController@update')->name('admin.review.update');
+Route::get('/admin/reviews/{id}', 'App\Http\Controllers\Admin\AdminReviewController@show')->name('admin.review.show');

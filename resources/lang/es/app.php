@@ -40,6 +40,7 @@ return [
         'purchase_denied' => 'Compra Denegada - Temporal Adventures',
         'community_posts' => 'Comunidad - Temporal Adventures',
         'order' => 'Mis Órdenes - Temporal Adventures',
+        'create_post' => 'Crear Publicación - Temporal Adventures',
     ],
     'confirm' => [
         'confirm_password' => 'Confirmar contraseña',
