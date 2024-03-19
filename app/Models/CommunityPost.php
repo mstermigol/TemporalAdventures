@@ -176,7 +176,6 @@ class CommunityPost extends Model
 
         $topThreePosts = array_slice($communityPostRatings, 0, 3, true);
 
-        print_r($topThreePosts);
 
         return $topThreePosts;
     }
