@@ -68,7 +68,7 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{ url("/images/tokyo.webp") }}" class="d-block w-100" alt="">
+                    <img src="{{ url("/images/tokyo.webp") }}" class="d-block w-100 border" alt="">
                 </div>
                 <div class="carousel-item">
                     <img src="{{ url("/images/dubai.webp") }}" class="d-block w-100" alt="">
