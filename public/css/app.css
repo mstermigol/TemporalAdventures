@@ -54,3 +54,19 @@
 .background-user{
     background: #4D8EA5;
 }
+
+.my-form-control{
+    height: 120px !important;
+}
+
+.my-logo-small{
+    width: 50px !important;
+}
+
+.my-logo-medium {
+    width: 60px !important;
+}
+
+.my-logo-large {
+    width: 150px !important;
+}

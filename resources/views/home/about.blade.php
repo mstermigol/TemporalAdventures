@@ -96,7 +96,7 @@
                         <label for="floatingInput">@lang('app.contact.subject')</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <textarea class="form-control" style="height: 120px" id="floatingMessage" name="message" placeholder="@lang('app.contact.body')"></textarea>
+                        <textarea class="form-control my-form-control" id="floatingMessage" name="message" placeholder="@lang('app.contact.body')"></textarea>
                         <label for="floatingMessage">@lang('app.contact.body')</label>
                     </div>
                     <button class="w-100 btn btn-lg btn-primary" type="submit">@lang('app.contact.send')</button>
