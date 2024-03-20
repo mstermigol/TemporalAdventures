@@ -18,6 +18,7 @@ class TravelController extends Controller
         $viewData['title'] = trans('app.titles.travels');
         $viewData['travels'] = Travel::all();
         $viewData['topThree'] = Travel::getTopThreePopular();
+
         return view('travel.index')->with('viewData', $viewData);
     }
 
@@ -40,6 +41,4 @@ class TravelController extends Controller
 
         return redirect()->route('travel.show', ['id' => $travel->getId()]);
     }
-
-
 }

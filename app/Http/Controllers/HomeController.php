@@ -10,6 +10,7 @@ class HomeController extends Controller
     {
         $viewData = [];
         $viewData['title'] = trans('app.titles.welcome');
+
         return view('home.index')->with('viewData', $viewData);
     }
 
@@ -17,6 +18,7 @@ class HomeController extends Controller
     {
         $viewData = [];
         $viewData['title'] = trans('app.titles.about');
+
         return view('home.about')->with('viewData', $viewData);
     }
 }

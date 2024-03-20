@@ -179,8 +179,8 @@ return [
             'testimonial' => 'My trip to the Renaissance with Temporal Adventures was enlightening and perspective-shifting. Interacting with the great minds of that era like Da Vinci and Michelangelo was humbling. The agency went above and beyond to ensure an authentic experience. I came back with a newfound appreciation for art and culture.',
         ],
         'john_smith' => [
-        'name' => 'John Smith',
-        'testimonial' => 'Temporal Adventures was an experience unlike anything else. Stepping back into ancient Rome was mind-blowing - the sights, the sounds, the smells! It felt incredibly real. The guides were knowledgeable and the safety protocols made me feel at ease. An unforgettable adventure!',
+            'name' => 'John Smith',
+            'testimonial' => 'Temporal Adventures was an experience unlike anything else. Stepping back into ancient Rome was mind-blowing - the sights, the sounds, the smells! It felt incredibly real. The guides were knowledgeable and the safety protocols made me feel at ease. An unforgettable adventure!',
         ],
     ],
     'discover_adventure' => [
