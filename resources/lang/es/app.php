@@ -14,6 +14,7 @@ return [
         'cart' => 'Carrito',
         'orders' => 'Órdenes',
         'about' => 'Sobre Nosotros',
+        'balance' => 'Balance',
     ],
     'footer' => [
         'copyright' => 'Derechos de autor',
@@ -45,6 +46,7 @@ return [
         'order' => 'Mis Órdenes - Temporal Adventures',
         'welcome' => 'Bienvenido - Temporal Adventures',
         'about' => 'Sobre nosotros - Temporal Adventures',
+        'create_community_post' => 'Crear Publicación de la Comunidad - Temporal Adventures',
     ],
     'confirm' => [
         'confirm_password' => 'Confirmar contraseña',

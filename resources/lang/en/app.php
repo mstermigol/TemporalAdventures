@@ -14,6 +14,7 @@ return [
         'cart' => 'Cart',
         'about' => 'About Us',
         'orders' => 'Orders',
+        'balance' => 'Balance',
 
     ],
     'footer' => [
@@ -46,6 +47,7 @@ return [
         'order' => 'My Orders - Temporal Adventures',
         'welcome' => 'Welcome - Temporal Adventures',
         'about' => 'About Us - Temporal Adventures',
+        'create_community_post' => 'Create Community Post - Temporal Adventures',
     ],
     'confirm' => [
         'confirm_password' => 'Confirm Password',

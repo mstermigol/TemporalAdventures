@@ -47,7 +47,7 @@ class ReviewController extends Controller
     {
         $review = Review::findOrFail($id);
 
-        if ($review->getUser()->getId() === Auth::user()->getId()) {
+        if ($review->getUser()->getId() === Auth::getUser()->getId()) {
             $review->delete();
         }
 

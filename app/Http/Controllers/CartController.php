@@ -30,6 +30,7 @@ class CartController extends Controller
         }
 
         $viewData = [];
+        $viewData['title'] = trans('app.titles.cart_index'); 
         $viewData['total'] = $total;
         $viewData['travels'] = $travelsInCart;
 
@@ -59,7 +60,7 @@ class CartController extends Controller
             try {
                 DB::beginTransaction();
 
-                $userId = Auth::user()->getId();
+                $userId = Auth::getUser()->getId();
                 $order = new Order();
                 $order->setUserId($userId);
                 $order->setTotal(0);
@@ -83,15 +84,16 @@ class CartController extends Controller
                 $order->setTotal($total);
                 $order->save();
 
-                $actualBalance = Auth::user()->getBalance();
+                $actualBalance = Auth::getUser()->getBalance();
                 if ($actualBalance >= $total) {
-                    $newBalance = Auth::user()->getBalance() - $total;
-                    Auth::user()->setBalance($newBalance);
-                    Auth::user()->save();
+                    $newBalance = Auth::getUser()->getBalance() - $total;
+                    Auth::getUser()->setBalance($newBalance);
+                    Auth::getUser()->save();
 
                     $request->session()->forget('travels');
 
                     $viewData = [];
+                    $viewData['title'] = trans('app.titles.purchase');
                     $viewData['order'] = $order;
 
                     DB::commit();

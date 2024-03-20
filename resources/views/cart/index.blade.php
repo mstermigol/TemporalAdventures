@@ -1,6 +1,6 @@
 <!-- Author: Sergio Córdoba -->
 @extends('layouts.app')
-@section('title', trans('app.titles.cart_index'))
+@section('title', $viewData['title'])
 @section('content')
 <div class="card"> 
     <div class="card-header"> 
