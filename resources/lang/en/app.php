@@ -12,6 +12,7 @@ return [
         'register' => 'Register',
         'logout' => 'Logout',
         'cart' => 'Cart',
+        'about' => 'About Us',
         'orders' => 'Orders',
 
     ],
@@ -30,7 +31,6 @@ return [
         'alert' => 'Not enough balance, please try again!',
         'delete_item' => 'Delete Item',
     ],
-
     'titles' => [
         'confirm' => 'Confirm Password - Temporal Adventures',
         'email' => 'Reset Password - Temporal Adventures',
@@ -44,6 +44,8 @@ return [
         'purchase_denied' => 'Purchase Denied - Temporal Adventures',
         'community_posts' => 'Community - Temporal Adventures',
         'order' => 'My Orders - Temporal Adventures',
+        'welcome' => 'Welcome - Temporal Adventures',
+        'about' => 'About Us - Temporal Adventures',
     ],
     'confirm' => [
         'confirm_password' => 'Confirm Password',
@@ -96,6 +98,7 @@ return [
         'rating' => 'Rating',
         'reviews' => 'Reviews',
         'submit' => 'Submit',
+        'travels' => 'Travels',
     ],
     'content_community' => [
         'see_more' => 'See more',
@@ -135,5 +138,70 @@ return [
         'quantity' => 'Quantity',
         'total_amount' => 'Total Amount:',
         'thanks' => 'Thanks for visiting Temporal Adventures online store!',
-    ]
+    ],
+
+    //Home
+    'adventure' => [
+        'intro' => 'Embark on an extraordinary journey through the annals of history with Temporal Adventures. Explore iconic moments and ancient civilizations. Our curated selection of immersive experiences offers glimpses into the past, from ancient wonders to pivotal events. Securely book your historical adventures and uncover the secrets of bygone eras. Discover the richness of our collective heritage and create unforgettable memories with us.',
+        'start_shopping' => 'Start Shopping',
+    ],
+    'time_travel' => [
+        'discover' => 'Discover Time Travel',
+        'description' => 'Our time-travel platform makes journeying into the past a breeze with reliable, round-the-clock chrono-assistance and exclusive benefits for our adventurers. Step into history and experience the memories that await you.',
+        'support_24_7' => '24/7 Chrono Support',
+        'support_description' => 'Assistance at any point in time, always there when you need it',
+        'risk_free_journeys' => 'Risk-Free Journeys',
+        'risk_free_description' => 'Guaranteed safe returns from every epoch, for your peace of mind',
+        'exclusive_access' => 'Exclusive Era Access',
+        'exclusive_access_description' => 'Special passage to rarely visited times for members',
+        'time_saving_travel' => 'Time-Saving Travel',
+        'time_saving_description' => 'Quick & easy booking for a seamless trip to the past',
+        'epoch_selection' => 'Broad Epoch Selection',
+        'epoch_selection_description' => 'Choose from a wide array of historical periods',
+        'secure_payments' => 'Secure Chrono Payments',
+        'payments_description' => 'Protected transactions to ensure your temporal investments are safe',
+    ],
+    'adventures_gallery' => [
+        'header' => 'Our Adventures',
+        'description' => 'Here you can find a little sneak peak of the different pictures taken by previous tourists who have made business with us.',
+    ],
+    'testimonials' => [
+        'header' => 'Testimonials',
+        'maria_samantha' => [
+            'name' => 'Maria Samantha',
+            'testimonial' => 'Temporal Adventures made my childhood dream come true. Witnessing the moon landing in 1969 firsthand is a memory I\'ll cherish forever. The technology they use is cutting-edge and the preparation they provide really immerses you in the time period. Highly recommended for history buffs!',
+        ],
+        'lisa_cudrow' => [
+            'name' => 'Lisa Cudrow',
+            'testimonial' => 'My trip to the Renaissance with Temporal Adventures was enlightening and perspective-shifting. Interacting with the great minds of that era like Da Vinci and Michelangelo was humbling. The agency went above and beyond to ensure an authentic experience. I came back with a newfound appreciation for art and culture.',
+        ],
+        'john_smith' => [
+        'name' => 'John Smith',
+        'testimonial' => 'Temporal Adventures was an experience unlike anything else. Stepping back into ancient Rome was mind-blowing - the sights, the sounds, the smells! It felt incredibly real. The guides were knowledgeable and the safety protocols made me feel at ease. An unforgettable adventure!',
+        ],
+    ],
+    'discover_adventure' => [
+        'header' => 'Discover Your Next Adventure Awaits!',
+        'description' => 'Embark on a journey of a lifetime with our curated list of unforgettable destinations.',
+        'start_your_adventure' => 'Start Your Adventure',
+    ],
+
+    //About Us
+    'user' => [
+        'greeting' => 'Dear Time Travelers',
+        'thank_you' => 'We extend our sincerest gratitude to each of you for embarking on this extraordinary journey with us. Your curiosity, enthusiasm, and support have fueled our passion for creating the ultimate time-traveling experience. As developers, we are endlessly grateful for the opportunity to bring history to life and to share it with you. Your exploration of ancient civilizations, iconic moments, and pivotal events inspires us every day.',
+        'team_acknowledgment' => 'Our Team Members',
+        'thanks' => 'Thanks',
+        'back' => 'Back',
+    ],
+    'feedback' => [
+        'introduction' => 'After asking him about the project he responded:',
+    ],
+    'contact' => [
+        'header' => 'Contact us',
+        'message' => 'Let us know about your problems so we can better ignore you.',
+        'subject' => 'Subject',
+        'body' => 'Message',
+        'send' => 'Send',
+    ],
 ];

@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\View\View;
+
 class HomeController extends Controller
 {
-    public function __construct()
+    public function index(): view
     {
-        $this->middleware('auth');
+        $viewData = [];
+        $viewData['title'] = trans('app.titles.welcome');
+        return view('home.index')->with('viewData', $viewData);
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
+    public static function about(): view
     {
-        return view('home');
+        $viewData = [];
+        $viewData['title'] = trans('app.titles.about');
+        return view('home.about')->with('viewData', $viewData);
     }
 }
