@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
+    <link rel="shortcut icon" href="{{ url('/images/logo-no-bg.png') }}" type="image/x-icon">
     <title>@yield('title', 'Temporal Adventures')</title>
 </head>
 <body>
@@ -48,14 +49,15 @@
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li>
                                 <div class="dropdown-header">
-                                    <span>{{ Auth::user()->getFirstName() }}</span>
+                                    <span><strong>{{ Auth::user()->getFirstName() }}</strong></span>
                                 </div>
                                 <div class="dropdown-divider"></div>
                             </li>
                             <li class="dropdown-item">
                                 <a class="nav-link" href="{{route('myaccount.orders')}}">@lang('app.navbar_items.orders')</a>
                             </li>
-                            <span class="dropdown-item-text">${{ Auth::user()->getBalance() }}</span>
+                            <div class="dropdown-divider"></div>
+                            <span class="dropdown-item-text">@lang('app.navbar_items.balance'): <strong>${{ Auth::user()->getBalance() }}</strong></span>
                             <div class="dropdown-divider"></div>
                             <li>
                                 <form id="logout" action="{{ route('logout') }}" method="POST">
