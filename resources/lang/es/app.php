@@ -13,6 +13,7 @@ return [
         'logout' => 'Cerrar sesión',
         'cart' => 'Carrito',
         'orders' => 'Órdenes',
+        'about' => 'Sobre Nosotros',
     ],
     'footer' => [
         'copyright' => 'Derechos de autor',
@@ -42,6 +43,8 @@ return [
         'purchase_denied' => 'Compra Denegada - Temporal Adventures',
         'community_posts' => 'Comunidad - Temporal Adventures',
         'order' => 'Mis Órdenes - Temporal Adventures',
+        'welcome' => 'Bienvenido - Temporal Adventures',
+        'about' => 'Sobre nosotros - Temporal Adventures',
     ],
     'confirm' => [
         'confirm_password' => 'Confirmar contraseña',
@@ -96,7 +99,8 @@ return [
         'submit' => 'Subir',
         'all' => 'Todos',
         'top_three' => 'Top 3',
-        'random' => 'Aleatorio'
+        'random' => 'Aleatorio',
+        'travels' => 'Viajes',
     ],
     'content_community' => [
         'see_more' => 'Ver más',
@@ -115,6 +119,7 @@ return [
         'delete_review' => 'Borrar reseña',
         'submit' => 'Subir',
         'top_three' => 'Top 3',
+        'are_you_sure' => '¿Estás seguro?',
     ],
     'purchase' => [
         'completed' => 'Compra Completada',
@@ -134,5 +139,68 @@ return [
         'quantity' => 'Cantidad',
         'total_amount' => 'Suma Total:',
         'thanks' => '¡Gracias por visitar la tienda online de Temporal Adventures!',
+    ],
+
+    'adventure' => [
+        'intro' => 'Embárcate en un extraordinario viaje a través de los anales de la historia con Aventuras Temporales. Explora momentos icónicos y civilizaciones antiguas. Nuestra selección curada de experiencias inmersivas ofrece vislumbres del pasado, desde maravillas antiguas hasta eventos cruciales. Reserva con seguridad tus aventuras históricas y descubre los secretos de eras pasadas. Descubre la riqueza de nuestra herencia colectiva y crea recuerdos inolvidables con nosotros.',
+        'start_shopping' => 'Comienza a Comprar',
+    ],
+    'time_travel' => [
+        'discover' => 'Descubre Viaje en el Tiempo',
+        'description' => 'Nuestra plataforma de viaje en el tiempo facilita el viaje al pasado con asistencia cronológica confiable y disponible las 24 horas del día, y beneficios exclusivos para nuestros aventureros. Entra en la historia y experimenta los recuerdos que te esperan.',
+        'support_24_7' => 'Soporte Cronológico 24/7',
+        'support_description' => 'Asistencia en cualquier punto del tiempo, siempre allí cuando lo necesites',
+        'risk_free_journeys' => 'Viajes sin Riesgos',
+        'risk_free_description' => 'Regresos seguros de cada época, para tu tranquilidad',
+        'exclusive_access' => 'Acceso Exclusivo a Eras',
+        'exclusive_access_description' => 'Paso especial a tiempos raramente visitados para miembros',
+        'time_saving_travel' => 'Viaje Rápido y Sencillo',
+        'time_saving_description' => 'Reserva rápida y fácil para un viaje sin complicaciones al pasado',
+        'epoch_selection' => 'Amplia Selección de Épocas',
+        'epoch_selection_description' => 'Elige de una amplia gama de períodos históricos',
+        'secure_payments' => 'Pagos Cronológicos Seguros',
+        'payments_description' => 'Transacciones protegidas para asegurar tus inversiones temporales',
+    ],
+    'adventures_gallery' => [
+        'header' => 'Nuestras Aventuras',
+        'description' => 'Aquí puedes encontrar un pequeño adelanto de las diferentes fotos tomadas por turistas anteriores que han hecho negocios con nosotros.',
+    ],
+    'testimonials' => [
+        'header' => 'Testimonios',
+        'maria_samantha' => [
+            'name' => 'Maria Samantha',
+            'testimonial' => 'Temporal Adventures hizo realidad el sueño de mi infancia. Presenciar el alunizaje de 1969 en primera persona es un recuerdo que atesoraré para siempre. La tecnología que usan es de punta y la preparación que brindan realmente te sumerge en el período de tiempo. ¡Muy recomendado para los aficionados a la historia!',
+        ],
+        'lisa_cudrow' => [
+            'name' => 'Lisa Cudrow',
+            'testimonial' => 'Mi viaje al Renacimiento con Temporal Adventures fue iluminador y cambió mi perspectiva. Interactuar con las grandes mentes de esa era, como Da Vinci y Michelangelo, fue humillante. La agencia hizo todo lo posible para asegurar una experiencia auténtica. Regresé con una nueva apreciación por el arte y la cultura.',
+        ],
+        'john_smith' => [
+            'name' => 'John Smith',
+            'testimonial' => 'Temporal Adventures fue una experiencia como ninguna otra. Retroceder a la antigua Roma fue alucinante: ¡las vistas, los sonidos, los olores! Se sentía increíblemente real. Los guías eran conocedores y los protocolos de seguridad me hicieron sentir tranquilo. ¡Una aventura inolvidable!',
+        ],
+    ],
+    'discover_adventure' => [
+        'header' => '¡Descubre Tu Próxima Aventura Te Espera!',
+        'description' => 'Embárcate en el viaje de tu vida con nuestra lista curada de destinos inolvidables.',
+        'start_your_adventure' => 'Inicia Tu Aventura',
+    ],
+
+    'user' => [
+        'greeting' => 'Queridos Viajeros en el Tiempo',
+        'thank_you' => 'Extendemos nuestra más sincera gratitud a cada uno de ustedes por embarcarse en este extraordinario viaje con nosotros. Vuestra curiosidad, entusiasmo y apoyo han alimentado nuestra pasión por crear la experiencia definitiva de viaje en el tiempo. Como desarrolladores, estamos infinitamente agradecidos por la oportunidad de traer la historia a la vida y compartirla con ustedes. Vuestra exploración de civilizaciones antiguas, momentos icónicos y eventos cruciales nos inspira todos los días.',
+        'team_acknowledgment' => 'Nuestros Miembros del Equipo',
+        'thanks' => 'Gracias',
+        'back' => 'Atrás',
+    ],
+    'feedback' => [
+        'introduction' => 'Después de preguntarle sobre el proyecto, respondió:',
+    ],
+    'contact' => [
+        'header' => 'Contáctanos',
+        'message' => 'Haznos saber sobre tus problemas para poder ignorarte mejor.',
+        'subject' => 'Asunto',
+        'body' => 'Mensaje',
+        'send' => 'Envíar',
     ],
 ];
