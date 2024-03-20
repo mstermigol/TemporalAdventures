@@ -85,15 +85,23 @@
                                 <div class="text-muted">@lang('app.content_travels.rating'): {{ $review->getRating() }}/5</div>
                             </div>
 
-                            <!-- Button to delete a review -->
-                            @if(auth()->check() && auth()->id() === $review->getUserId())
-                                <form method="POST" action="{{ route('travel.reviews.delete', $review->getId()) }}" class="d-inline">
+                            <!-- Delete and edit review button -->
+                            @if(auth()->check() && auth()->getUser()->getId() === $review->getUserId())
+                            <div class="d-flex justify-content-between">
+                                <form method="POST" action="{{ route('communitypost.reviews.delete', $review->getId()) }}" class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm" title="Delete review" onclick="return confirm(trans('app.content_community.are_you_sure'))">
+                                    <button type="submit" class="btn btn-danger btn-sm ms-2" title="@lang('app.content_community.delete_review')" onclick="return confirm('Are you sure?')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </form>
+                                <form method="GET" action="{{ route('review.edit', $review->getId()) }}">
+                                    @csrf
+                                    <button type="submit" class="btn btn-success btn-sm ms-2" title="@lang('app.content_community.edit_review')">
+                                        <i class="bi bi-pencil-fill"></i>
+                                    </button>
+                                </form>
+                            </div>
                             @endif
                         </div>
                     </div>

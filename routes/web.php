@@ -1,7 +1,7 @@
 <?php
 
 /*
-    Authors: David Fonseca and Sergio Córdoba
+    Authors: David Fonseca, Sergio Córdoba and Miguel Jaramillo
 */
 
 use Illuminate\Support\Facades\Auth;
@@ -27,12 +27,20 @@ Route::get('/communityposts/{id}', 'App\Http\Controllers\CommunityPostController
 Route::middleware('auth')->group(function () {
     Route::post('/travels/{reviewOfId}/reviews', 'App\Http\Controllers\ReviewController@save')->name('travel.reviews.save');
     Route::delete('/travels/reviews/{review}', 'App\Http\Controllers\ReviewController@delete')->name('travel.reviews.delete');
+
+    Route::get('/review/edit/{id}', 'App\Http\Controllers\ReviewController@edit')->name('review.edit');
+    Route::put('/review/update/{id}', 'App\Http\Controllers\ReviewController@update')->name('review.update');
+
     Route::post('/communityposts/new/create', 'App\Http\Controllers\CommunityPostController@save')->name('communityposts.save');
     Route::delete('/communityposts/{communitypost}', 'App\Http\Controllers\CommunityPostController@delete')->name('communitypost.delete');
+    Route::get('/communitypost/edit/{id}', 'App\Http\Controllers\CommunityPostController@edit')->name('communitypost.edit');
+    Route::put('/communitypost/update/{id}', 'App\Http\Controllers\CommunityPostController@update')->name('communitypost.update');
     Route::post('/communityposts/{reviewOfId}/reviews', 'App\Http\Controllers\ReviewController@save')->name('communitypost.reviews.save');
     Route::delete('/communityposts/reviews/{review}', 'App\Http\Controllers\ReviewController@delete')->name('communitypost.reviews.delete');
+
     Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name('cart.purchase');
     Route::delete('/cart/delete-item/{id}', 'App\Http\Controllers\CartController@deleteItem')->name('cart.delete_item');
+
     Route::get('/my-account/orders', 'App\Http\Controllers\OrderController@orders')->name('myaccount.orders');
     Route::get('/order/{id}/pdf', 'App\Http\Controllers\OrderController@downloadPDF')->name('order.download');
 });

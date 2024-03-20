@@ -118,6 +118,8 @@ return [
         'reviews' => 'Reviews',
         'create_post' => 'Create post',
         'delete_review' => 'Delete review',
+        'delete_post' => 'Delete post',
+        'edit_post' => 'Edit post',
         'submit' => 'Submit',
         'are_you_sure' => 'Are you sure?',
         'top_three' => 'Top 3',

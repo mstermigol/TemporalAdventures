@@ -1,7 +1,7 @@
 <?php
 
 /*
-    Author: Sergio Córdoba
+    Author: Sergio Córdoba and David Fonseca
 */
 
 namespace App\Http\Controllers;
@@ -10,6 +10,7 @@ use App\Models\Review;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class ReviewController extends Controller
 {
@@ -48,6 +49,34 @@ class ReviewController extends Controller
 
         if ($review->getUser()->getId() === Auth::user()->getId()) {
             $review->delete();
+        }
+
+        return back();
+    }
+
+    public function edit(string $id) : View
+    {
+        $review = Review::findOrFail($id);
+        $viewData = [];
+        $viewData['title'] = 'Edit Community Post';
+        $viewData['review'] = $review;
+        return view('review.edit')->with('viewData', $viewData);
+    }
+
+    public function update(Request $request, string $id) : RedirectResponse
+    {
+        $review = Review::findOrFail($id);
+        Review::validate($request);
+
+        $review->setTitle($request->input('title'));
+        $review->setDescription($request->input('description'));
+        $review->setRating($request->input('rating'));
+        $review->save();
+
+        if ($review->getCommunityPostId()) {
+            return redirect()->route('communitypost.show', $review->community_post_id);
+        } else if ($review->getTravelId()) {
+            return redirect()->route('travel.show', $review->travel_id);
         }
 
         return back();

@@ -87,4 +87,40 @@ class CommunityPostController extends Controller
 
         return back();
     }
+
+    public function edit(string $id): View
+    {
+        $post = CommunityPost::findOrFail($id);
+        $viewData = [];
+        $viewData['title'] = 'Edit Community Post';
+        $viewData['post'] = $post;
+        $viewData['categories'] = CategoryEnum::cases();
+
+        return view('communitypost.edit')->with('viewData', $viewData);
+    }
+
+    public function update(Request $request, string $id): RedirectResponse
+    {
+        $post = CommunityPost::findOrFail($id);
+        CommunityPost::validate($request);
+
+        if ($request->hasFile('image')) {
+            $filename = uniqid().'.'.$request->file('image')->extension();
+            $imagePath = $request->file('image')->storeAs('public/community', $filename);
+            $imagePath = '/storage/community/'.$filename;
+        } else {
+            $imagePath = $post->getImage();
+        }
+
+        $post->setTitle($request->get('title'));
+        $post->setDescription($request->get('description'));
+        $post->setImage($imagePath);
+        $post->setDateOfEvent($request->get('date_of_event'));
+        $post->setPlaceOfEvent($request->get('place_of_event'));
+        $categoryEnum = CategoryEnum::fromValue($request->get('category'));
+        $post->setCategory($categoryEnum);
+        $post->save();
+
+        return redirect()->route('communitypost.index');
+    }
 }

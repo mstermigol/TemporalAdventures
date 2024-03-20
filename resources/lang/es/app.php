@@ -117,6 +117,8 @@ return [
         'reviews' => 'Reseñas',
         'create_post' => 'Crear publicación',
         'delete_review' => 'Borrar reseña',
+        'delete_post' => 'Borrar publicación',
+        'edit_post' => 'Editar publicación',
         'submit' => 'Subir',
         'top_three' => 'Top 3',
         'are_you_sure' => '¿Estás seguro?',
