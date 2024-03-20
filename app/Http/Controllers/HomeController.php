@@ -13,7 +13,8 @@ class HomeController extends Controller
         return view('home.index')->with('viewData', $viewData);
     }
 
-    public static function about() {
+    public static function about(): view
+    {
         $viewData = [];
         $viewData['title'] = trans('app.titles.about');
         return view('home.about')->with('viewData', $viewData);
