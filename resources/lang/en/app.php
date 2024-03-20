@@ -14,6 +14,7 @@ return [
         'cart' => 'Cart',
         'about' => 'About Us',
         'orders' => 'Orders',
+        'balance' => 'Balance',
 
     ],
     'footer' => [
