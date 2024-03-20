@@ -166,15 +166,15 @@ return [
         'header' => 'Testimonios',
         'maria_samantha' => [
             'name' => 'Maria Samantha',
-            'testimonial' => 'Chronos Travel hizo realidad el sueño de mi infancia. Presenciar el alunizaje de 1969 en primera persona es un recuerdo que atesoraré para siempre. La tecnología que usan es de punta y la preparación que brindan realmente te sumerge en el período de tiempo. ¡Muy recomendado para los aficionados a la historia!',
+            'testimonial' => 'Temporal Adventures hizo realidad el sueño de mi infancia. Presenciar el alunizaje de 1969 en primera persona es un recuerdo que atesoraré para siempre. La tecnología que usan es de punta y la preparación que brindan realmente te sumerge en el período de tiempo. ¡Muy recomendado para los aficionados a la historia!',
         ],
         'lisa_cudrow' => [
             'name' => 'Lisa Cudrow',
-            'testimonial' => 'Mi viaje al Renacimiento con TemporalQuest fue iluminador y cambió mi perspectiva. Interactuar con las grandes mentes de esa era, como Da Vinci y Michelangelo, fue humillante. La agencia hizo todo lo posible para asegurar una experiencia auténtica. Regresé con una nueva apreciación por el arte y la cultura.',
+            'testimonial' => 'Mi viaje al Renacimiento con Temporal Adventures fue iluminador y cambió mi perspectiva. Interactuar con las grandes mentes de esa era, como Da Vinci y Michelangelo, fue humillante. La agencia hizo todo lo posible para asegurar una experiencia auténtica. Regresé con una nueva apreciación por el arte y la cultura.',
         ],
         'john_smith' => [
             'name' => 'John Smith',
-            'testimonial' => 'Time Tours fue una experiencia como ninguna otra. Retroceder a la antigua Roma fue alucinante: ¡las vistas, los sonidos, los olores! Se sentía increíblemente real. Los guías eran conocedores y los protocolos de seguridad me hicieron sentir tranquilo. ¡Una aventura inolvidable!',
+            'testimonial' => 'Temporal Adventures fue una experiencia como ninguna otra. Retroceder a la antigua Roma fue alucinante: ¡las vistas, los sonidos, los olores! Se sentía increíblemente real. Los guías eran conocedores y los protocolos de seguridad me hicieron sentir tranquilo. ¡Una aventura inolvidable!',
         ],
     ],
     'discover_adventure' => [

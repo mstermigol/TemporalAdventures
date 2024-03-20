@@ -169,15 +169,15 @@ return [
         'header' => 'Testimonials',
         'maria_samantha' => [
             'name' => 'Maria Samantha',
-            'testimonial' => 'Chronos Travel made my childhood dream come true. Witnessing the moon landing in 1969 firsthand is a memory I\'ll cherish forever. The technology they use is cutting-edge and the preparation they provide really immerses you in the time period. Highly recommended for history buffs!',
+            'testimonial' => 'Temporal Adventures made my childhood dream come true. Witnessing the moon landing in 1969 firsthand is a memory I\'ll cherish forever. The technology they use is cutting-edge and the preparation they provide really immerses you in the time period. Highly recommended for history buffs!',
         ],
         'lisa_cudrow' => [
             'name' => 'Lisa Cudrow',
-            'testimonial' => 'My trip to the Renaissance with TemporalQuest was enlightening and perspective-shifting. Interacting with the great minds of that era like Da Vinci and Michelangelo was humbling. The agency went above and beyond to ensure an authentic experience. I came back with a newfound appreciation for art and culture.',
+            'testimonial' => 'My trip to the Renaissance with Temporal Adventures was enlightening and perspective-shifting. Interacting with the great minds of that era like Da Vinci and Michelangelo was humbling. The agency went above and beyond to ensure an authentic experience. I came back with a newfound appreciation for art and culture.',
         ],
         'john_smith' => [
         'name' => 'John Smith',
-        'testimonial' => 'Time Tours was an experience unlike anything else. Stepping back into ancient Rome was mind-blowing - the sights, the sounds, the smells! It felt incredibly real. The guides were knowledgeable and the safety protocols made me feel at ease. An unforgettable adventure!',
+        'testimonial' => 'Temporal Adventures was an experience unlike anything else. Stepping back into ancient Rome was mind-blowing - the sights, the sounds, the smells! It felt incredibly real. The guides were knowledgeable and the safety protocols made me feel at ease. An unforgettable adventure!',
         ],
     ],
     'discover_adventure' => [
