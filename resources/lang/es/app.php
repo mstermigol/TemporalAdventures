@@ -97,6 +97,9 @@ return [
         'rating' => 'Calificación',
         'reviews' => 'Reseñas',
         'submit' => 'Subir',
+        'all' => 'Todos',
+        'top_three' => 'Top 3',
+        'random' => 'Aleatorio',
         'travels' => 'Viajes',
     ],
     'content_community' => [
@@ -115,6 +118,7 @@ return [
         'create_post' => 'Crear publicación',
         'delete_review' => 'Borrar reseña',
         'submit' => 'Subir',
+        'top_three' => 'Top 3',
         'are_you_sure' => '¿Estás seguro?',
     ],
     'purchase' => [
@@ -137,7 +141,6 @@ return [
         'thanks' => '¡Gracias por visitar la tienda online de Temporal Adventures!',
     ],
 
-    //Home
     'adventure' => [
         'intro' => 'Embárcate en un extraordinario viaje a través de los anales de la historia con Aventuras Temporales. Explora momentos icónicos y civilizaciones antiguas. Nuestra selección curada de experiencias inmersivas ofrece vislumbres del pasado, desde maravillas antiguas hasta eventos cruciales. Reserva con seguridad tus aventuras históricas y descubre los secretos de eras pasadas. Descubre la riqueza de nuestra herencia colectiva y crea recuerdos inolvidables con nosotros.',
         'start_shopping' => 'Comienza a Comprar',
@@ -183,7 +186,6 @@ return [
         'start_your_adventure' => 'Inicia Tu Aventura',
     ],
 
-    //About us
     'user' => [
         'greeting' => 'Queridos Viajeros en el Tiempo',
         'thank_you' => 'Extendemos nuestra más sincera gratitud a cada uno de ustedes por embarcarse en este extraordinario viaje con nosotros. Vuestra curiosidad, entusiasmo y apoyo han alimentado nuestra pasión por crear la experiencia definitiva de viaje en el tiempo. Como desarrolladores, estamos infinitamente agradecidos por la oportunidad de traer la historia a la vida y compartirla con ustedes. Vuestra exploración de civilizaciones antiguas, momentos icónicos y eventos cruciales nos inspira todos los días.',

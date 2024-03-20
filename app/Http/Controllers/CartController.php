@@ -6,15 +6,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item;
+use App\Models\Order;
 use App\Models\Travel;
+use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Order;
-use App\Models\Item;
 use Illuminate\Support\Facades\DB;
-use Exception;
 
 class CartController extends Controller
 {
@@ -52,10 +52,10 @@ class CartController extends Controller
         return back();
     }
 
-    public function purchase(Request $request): View | RedirectResponse
+    public function purchase(Request $request): View|RedirectResponse
     {
         $travelsInSession = $request->session()->get('travels');
-        if($travelsInSession){
+        if ($travelsInSession) {
             try {
                 DB::beginTransaction();
 
@@ -67,7 +67,7 @@ class CartController extends Controller
 
                 $total = 0;
                 $travelsInCart = Travel::findMany(array_keys($travelsInSession));
-                foreach($travelsInCart as $travel){
+                foreach ($travelsInCart as $travel) {
                     $quantity = $travelsInSession[$travel->getId()];
                     $item = new Item();
                     $item->setName($travel->getTitle());
@@ -75,16 +75,16 @@ class CartController extends Controller
                     $item->setPrice($travel->getPrice());
                     $item->setTravelId($travel->getId());
                     $item->setOrderId($order->getId());
-                    $item->setSubTotal($item->getQuantity()*$travel->getPrice());
+                    $item->setSubTotal($item->getQuantity() * $travel->getPrice());
                     $item->save();
-                    $total = $total + ($travel->getPrice()*$quantity);
+                    $total = $total + ($travel->getPrice() * $quantity);
                 }
 
                 $order->setTotal($total);
                 $order->save();
 
                 $actualBalance = Auth::user()->getBalance();
-                if($actualBalance >= $total){
+                if ($actualBalance >= $total) {
                     $newBalance = Auth::user()->getBalance() - $total;
                     Auth::user()->setBalance($newBalance);
                     Auth::user()->save();

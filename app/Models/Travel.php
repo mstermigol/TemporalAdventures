@@ -1,7 +1,7 @@
 <?php
 
 /*
-    Authors: David Fonseca and Sergio Córdoba
+    Authors: David Fonseca, Sergio Córdoba and Miguel Jaramillo
 */
 
 namespace App\Models;
@@ -10,7 +10,6 @@ use App\Enums\CategoryEnum;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use App\Models\Item;
 use Illuminate\Http\Request;
 
 class Travel extends Model
@@ -180,7 +179,18 @@ class Travel extends Model
             $total = $total + ($travel->getPrice() * $travelsInSession[$travel->getId()]);
         }
 
-        return (int)$total;
+        return (int) $total;
+    }
+
+    public static function getTopThreePopular(): Collection
+    {
+        $sortedTravels = self::with('items')->get()->sortByDesc(function ($travel) {
+            return $travel->getItems()->count();
+        });
+
+        $topTravels = $sortedTravels->take(3);
+
+        return $topTravels;
     }
 
     public static function validate(Request $request): void

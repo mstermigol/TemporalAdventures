@@ -98,6 +98,9 @@ return [
         'rating' => 'Rating',
         'reviews' => 'Reviews',
         'submit' => 'Submit',
+        'all' => 'All',
+        'top_three' => 'Top 3',
+        'random' => 'Random',
         'travels' => 'Travels',
     ],
     'content_community' => [
@@ -117,6 +120,7 @@ return [
         'delete_review' => 'Delete review',
         'submit' => 'Submit',
         'are_you_sure' => 'Are you sure?',
+        'top_three' => 'Top 3',
     ],
     'purchase' => [
         'completed' => 'Purchase Completed',
@@ -140,7 +144,6 @@ return [
         'thanks' => 'Thanks for visiting Temporal Adventures online store!',
     ],
 
-    //Home
     'adventure' => [
         'intro' => 'Embark on an extraordinary journey through the annals of history with Temporal Adventures. Explore iconic moments and ancient civilizations. Our curated selection of immersive experiences offers glimpses into the past, from ancient wonders to pivotal events. Securely book your historical adventures and uncover the secrets of bygone eras. Discover the richness of our collective heritage and create unforgettable memories with us.',
         'start_shopping' => 'Start Shopping',
@@ -176,8 +179,8 @@ return [
             'testimonial' => 'My trip to the Renaissance with Temporal Adventures was enlightening and perspective-shifting. Interacting with the great minds of that era like Da Vinci and Michelangelo was humbling. The agency went above and beyond to ensure an authentic experience. I came back with a newfound appreciation for art and culture.',
         ],
         'john_smith' => [
-        'name' => 'John Smith',
-        'testimonial' => 'Temporal Adventures was an experience unlike anything else. Stepping back into ancient Rome was mind-blowing - the sights, the sounds, the smells! It felt incredibly real. The guides were knowledgeable and the safety protocols made me feel at ease. An unforgettable adventure!',
+            'name' => 'John Smith',
+            'testimonial' => 'Temporal Adventures was an experience unlike anything else. Stepping back into ancient Rome was mind-blowing - the sights, the sounds, the smells! It felt incredibly real. The guides were knowledgeable and the safety protocols made me feel at ease. An unforgettable adventure!',
         ],
     ],
     'discover_adventure' => [
@@ -186,7 +189,6 @@ return [
         'start_your_adventure' => 'Start Your Adventure',
     ],
 
-    //About Us
     'user' => [
         'greeting' => 'Dear Time Travelers',
         'thank_you' => 'We extend our sincerest gratitude to each of you for embarking on this extraordinary journey with us. Your curiosity, enthusiasm, and support have fueled our passion for creating the ultimate time-traveling experience. As developers, we are endlessly grateful for the opportunity to bring history to life and to share it with you. Your exploration of ancient civilizations, iconic moments, and pivotal events inspires us every day.',

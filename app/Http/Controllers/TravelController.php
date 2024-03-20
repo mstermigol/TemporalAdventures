@@ -1,12 +1,13 @@
 <?php
 
 /*
-    Authors: David Fonseca and Sergio Córdoba
+    Authors: David Fonseca, Sergio Córdoba and Miguel Jaramillo
 */
 
 namespace App\Http\Controllers;
 
 use App\Models\Travel;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
 class TravelController extends Controller
@@ -16,6 +17,7 @@ class TravelController extends Controller
         $viewData = [];
         $viewData['title'] = trans('app.titles.travels');
         $viewData['travels'] = Travel::all();
+        $viewData['topThree'] = Travel::getTopThreePopular();
 
         return view('travel.index')->with('viewData', $viewData);
     }
@@ -29,5 +31,12 @@ class TravelController extends Controller
         $viewData['travel'] = $travel;
 
         return view('travel.show')->with('viewData', $viewData);
+    }
+
+    public function random(): RedirectResponse
+    {
+        $travel = Travel::inRandomOrder()->first();
+
+        return redirect()->route('travel.show', ['id' => $travel->getId()]);
     }
 }

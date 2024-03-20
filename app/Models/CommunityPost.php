@@ -1,7 +1,7 @@
 <?php
 
 /*
-    Author: David Fonseca
+    Authors: David Fonseca and Miguel Jaramillo
 */
 
 namespace App\Models;
@@ -149,6 +149,36 @@ class CommunityPost extends Model
         return $this->attributes['updated_at'];
     }
 
+    public static function getTopThreeRated(): array
+    {
+        $communityPosts = self::with('reviews')->get();
+
+        $communityPostRatings = [];
+
+        $communityPosts->each(function ($post) use (&$communityPostRatings) {
+            $totalRating = 0;
+            $reviewCount = $post->getReviews()->count();
+
+            if ($reviewCount > 0) {
+
+                foreach ($post->getReviews() as $review) {
+                    $totalRating += $review->getRating();
+                }
+                $averageRating = $totalRating / $reviewCount;
+            } else {
+                $averageRating = 0;
+            }
+
+            $communityPostRatings[$post->getId()] = $averageRating;
+        });
+
+        arsort($communityPostRatings);
+
+        $topThreePosts = array_slice($communityPostRatings, 0, 3, true);
+
+        return $topThreePosts;
+    }
+
     public static function validate(Request $request): void
     {
         $request->validate([
@@ -157,7 +187,7 @@ class CommunityPost extends Model
             'image' => 'nullable|image|max:2048',
             'date_of_event' => 'required|date',
             'place_of_event' => 'required|string',
-            'category' => 'required|in:' . implode(',', CategoryEnum::values()),
+            'category' => 'required|in:'.implode(',', CategoryEnum::values()),
         ]);
     }
 }
