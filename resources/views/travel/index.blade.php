@@ -26,7 +26,14 @@
     </section>
 
     <section class="container my-5">
-    <h2>@lang('app.content_travels.all')</h2> 
+    <div class="row justify-content-between d-flex">
+    <h2 class="col-sm-6">@lang('app.content_travels.all')</h2> 
+    <div>
+    <button href="{{ route('travel.show', ['id' => $viewData['travels']->random()->getId()]) }}" class="btn btn-primary col-sm-6">
+        @lang('app.content_travels.random')
+</button>
+    </div>
+</div>
         <ul class="row list-unstyled align-items-stretch">
             @foreach ($viewData["travels"] as $travel)
                 <li class="col-md-4 col-lg-4 mb-4">

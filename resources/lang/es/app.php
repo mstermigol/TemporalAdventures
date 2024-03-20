@@ -96,6 +96,7 @@ return [
         'submit' => 'Subir',
         'all' => 'Todos',
         'top_three' => 'Top 3',
+        'random' => 'Aleatorio'
     ],
     'content_community' => [
         'see_more' => 'Ver más',
