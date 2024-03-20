@@ -14,6 +14,7 @@ return [
         'cart' => 'Carrito',
         'orders' => 'Órdenes',
         'about' => 'Sobre Nosotros',
+        'balance' => 'Balance',
     ],
     'footer' => [
         'copyright' => 'Derechos de autor',
