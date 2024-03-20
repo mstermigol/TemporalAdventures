@@ -48,14 +48,14 @@
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li>
                                 <div class="dropdown-header">
-                                    <span>{{ Auth::user()->getFirstName() }}</span>
+                                    <span>{{ Auth::getUser()->getFirstName() }}</span>
                                 </div>
                                 <div class="dropdown-divider"></div>
                             </li>
                             <li class="dropdown-item">
                                 <a class="nav-link" href="{{route('myaccount.orders')}}">@lang('app.navbar_items.orders')</a>
                             </li>
-                            <span class="dropdown-item-text">${{ Auth::user()->getBalance() }}</span>
+                            <span class="dropdown-item-text">${{ Auth::getUser()->getBalance() }}</span>
                             <div class="dropdown-divider"></div>
                             <li>
                                 <form id="logout" action="{{ route('logout') }}" method="POST">

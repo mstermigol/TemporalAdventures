@@ -51,7 +51,7 @@ class OrderController extends Controller
     public function orders(): ViewPDF
     {
         $viewData = [];
-        $viewData['orders'] = Order::where('user_id', Auth::user()->getId())->get();
+        $viewData['orders'] = Order::where('user_id', Auth::getUser()->getId())->get();
 
         return view('myaccount.orders')->with('viewData', $viewData);
     }

@@ -69,7 +69,7 @@ class CommunityPostController extends Controller
         $post->setPlaceOfEvent($request->get('place_of_event'));
         $categoryEnum = CategoryEnum::fromValue($request->get('category'));
         $post->setCategory($categoryEnum);
-        $post->setUserId(Auth::id());
+        $post->setUserId(Auth::getUser()->getId());
         $post->save();
 
         return redirect()->route('communitypost.index');
@@ -79,7 +79,7 @@ class CommunityPostController extends Controller
     {
         $post = CommunityPost::findOrFail($id);
 
-        if ($post->getUser()->getId() === auth()->getUser()->getId()) {
+        if ($post->getUser()->getId() === Auth::getUser()->getId()) {
             $post->delete();
 
             return redirect()->route('communitypost.index');
