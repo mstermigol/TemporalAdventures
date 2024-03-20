@@ -29,7 +29,7 @@
                         <a class="nav-link" href={{route('communitypost.index')}}>@lang('app.navbar_items.community_posts')</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href={{route('about')}}>@lang('app.navbar_items.about')</a>
+                        <a class="nav-link" href={{route('home.about')}}>@lang('app.navbar_items.about')</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('cart.index') }}">
