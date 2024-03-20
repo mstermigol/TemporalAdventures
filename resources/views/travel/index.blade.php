@@ -3,8 +3,9 @@
 @extends('layouts.app')
 @section('title', $viewData['title'])
 @section('content')
-<h2>@lang('app.content_travels.top_three')</h2> 
+ 
     <section class="container my-5">
+    <h2>@lang('app.content_travels.top_three')</h2>
         <ul class="row list-unstyled align-items-stretch">
             @foreach ($viewData["topThree"] as $travel)
                 <li class="col-md-4 col-lg-4 mb-4">
@@ -23,8 +24,9 @@
             @endforeach
         </ul>
     </section>
-    <h2>@lang('app.content_travels.all')</h2> 
+
     <section class="container my-5">
+    <h2>@lang('app.content_travels.all')</h2> 
         <ul class="row list-unstyled align-items-stretch">
             @foreach ($viewData["travels"] as $travel)
                 <li class="col-md-4 col-lg-4 mb-4">
