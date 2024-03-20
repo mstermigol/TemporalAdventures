@@ -27,7 +27,7 @@
             @if(Auth::check())
             <div class="card my-4">
                 <div class="card-body">
-                    <form method="POST" action="{{ route('communitypost.reviews.save', ['reviewOfId'=> $viewData["post"]->getId()]) }}">
+                    <form method="POST" action="{{ route('communitypost.review.save', ['reviewOfId'=> $viewData["post"]->getId()]) }}">
                         @csrf
                         <input type="hidden" name="id" value="{{ Auth::getUser()->getId() }}">
                         <input type="hidden" name="view" value="community">
@@ -70,7 +70,7 @@
 
                             <!-- Delete review button -->
                             @if(Auth::check() && Auth::getUser()->getId() === $review->getUserId())
-                                <form method="POST" action="{{ route('communitypost.reviews.delete', $review->getId()) }}" class="d-inline">
+                                <form method="POST" action="{{ route('communitypost.review.delete', $review->getId()) }}" class="d-inline">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm" title="@lang('app.content_community.delete_review')" onclick="return confirm('Are you sure?')">

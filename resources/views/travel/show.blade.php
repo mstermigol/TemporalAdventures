@@ -43,7 +43,7 @@
             <div>
                 <div class="card my-4">
                     <div class="card-body">
-                        <form method="POST" action="{{ route('travel.reviews.save', ['reviewOfId' => $viewData['travel']->getId()]) }}">
+                        <form method="POST" action="{{ route('travel.review.save', ['reviewOfId' => $viewData['travel']->getId()]) }}">
                             @csrf
                             <input type="hidden" name="id" value="{{ Auth::getUser()->getId() }}">
                                 <input type="hidden" name="view" value="travel">
@@ -87,7 +87,7 @@
 
                             <!-- Button to delete a review -->
                             @if(Auth::check() && Auth::getUser()->getId() === $review->getUserId())
-                                <form method="POST" action="{{ route('travel.reviews.delete', $review->getId()) }}" class="d-inline">
+                                <form method="POST" action="{{ route('travel.review.delete', $review->getId()) }}" class="d-inline">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm" title="Delete review" onclick="return confirm(trans('app.content_community.are_you_sure'))">
