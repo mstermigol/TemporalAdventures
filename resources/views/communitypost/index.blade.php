@@ -9,7 +9,7 @@
         @if(count($viewData['topThree']) > 0)
                 <h1 class="text-uppercase">@lang('app.content_community.top_three')</h1>
             @endif
-                @if(auth()->check())
+                @if(Auth::check())
                 <a href="{{ route('communitypost.create') }}" class="btn btn-success" title="@lang('app.content_community.create_post')">
                     <i class="fas fa-plus"></i> @lang('app.content_community.create_post')
                 </a>
@@ -22,7 +22,7 @@
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h4>{{ $post->getUser()->getName() }}</h4>
                             <!-- Delete post button-->
-                            @if (auth()->check() && auth()->user()->getId() === $post->getUser()->getId())
+                            @if (Auth::check() && Auth::getUser()->getId() === $post->getUser()->getId())
                                 <form method="POST" action="{{ route('communitypost.delete', $post->getId()) }}">
                                     @csrf
                                     @method('DELETE')
@@ -60,7 +60,7 @@
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h4>{{ $post->getUser()->getName() }}</h4>
                             <!-- Delete post button-->
-                            @if (auth()->check() && auth()->user()->getId() === $post->getUser()->getId())
+                            @if (Auth::check() && Auth::getUser()->getId() === $post->getUser()->getId())
                                 <form method="POST" action="{{ route('communitypost.delete', $post->getId()) }}">
                                     @csrf
                                     @method('DELETE')

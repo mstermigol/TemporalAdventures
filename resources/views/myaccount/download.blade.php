@@ -56,7 +56,7 @@
         <p>
             <strong>@lang('app.order.billed_to')</strong>
         </p>
-        <p>{{ Auth::user()->getName() }}</p>
+        <p>{{ Auth::getUser()->getName() }}</p>
     </div>
     
     <div class="itemized-list">

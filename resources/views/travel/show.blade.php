@@ -39,13 +39,13 @@
                 </div>
             </div>
             <!-- Section to add a review -->
-            @if(auth()->check())
+            @if(Auth::check())
             <div>
                 <div class="card my-4">
                     <div class="card-body">
                         <form method="POST" action="{{ route('travel.reviews.save', ['reviewOfId' => $viewData['travel']->getId()]) }}">
                             @csrf
-                            <input type="hidden" name="id" value="{{ Auth::user()->getId() }}">
+                            <input type="hidden" name="id" value="{{ Auth::getUser()->getId() }}">
                                 <input type="hidden" name="view" value="travel">
                             <div class="form-group">
                                 <label for="reviewTitle">@lang('app.content_travels.title')</label>
@@ -86,7 +86,7 @@
                             </div>
 
                             <!-- Button to delete a review -->
-                            @if(auth()->check() && auth()->id() === $review->getUserId())
+                            @if(Auth::check() && Auth::getUser()->getId() === $review->getUserId())
                                 <form method="POST" action="{{ route('travel.reviews.delete', $review->getId()) }}" class="d-inline">
                                     @csrf
                                     @method('DELETE')
