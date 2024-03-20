@@ -192,7 +192,6 @@ return [
         'description' => 'Embark on a journey of a lifetime with our curated list of unforgettable destinations.',
         'start_your_adventure' => 'Start Your Adventure',
     ],
-
     'user' => [
         'greeting' => 'Dear Time Travelers',
         'thank_you' => 'We extend our sincerest gratitude to each of you for embarking on this extraordinary journey with us. Your curiosity, enthusiasm, and support have fueled our passion for creating the ultimate time-traveling experience. As developers, we are endlessly grateful for the opportunity to bring history to life and to share it with you. Your exploration of ancient civilizations, iconic moments, and pivotal events inspires us every day.',
@@ -209,5 +208,23 @@ return [
         'subject' => 'Subject',
         'body' => 'Message',
         'send' => 'Send',
+    ],
+    'edit_post' => [
+        'edit_post' => 'Edit Post',
+        'title' => 'Title',
+        'description' => 'Description',
+        'post_image' => 'Post Image',
+        'change_post_image' => 'If you want to change the post image, choose a new one.',
+        'date_of_event' => 'Date of Event',
+        'place_of_event' => 'Place of Event',
+        'category' => 'Category',
+        'update_post' => 'Update Post',
+    ],
+    'edit_review' => [
+        'edit_review' => 'Edit Review',
+        'title' => 'Title',
+        'description' => 'Description',
+        'rating' => 'Rating',
+        'update_review' => 'Update Review',
     ],
 ];

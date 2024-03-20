@@ -33,6 +33,8 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/communityposts/new/create', 'App\Http\Controllers\CommunityPostController@save')->name('communityposts.save');
     Route::delete('/communityposts/{communitypost}', 'App\Http\Controllers\CommunityPostController@delete')->name('communitypost.delete');
+    Route::get('/communitypost/edit/{id}', 'App\Http\Controllers\CommunityPostController@edit')->name('communitypost.edit');
+    Route::put('/communitypost/update/{id}', 'App\Http\Controllers\CommunityPostController@update')->name('communitypost.update');
     Route::post('/communityposts/{reviewOfId}/reviews', 'App\Http\Controllers\ReviewController@save')->name('communitypost.review.save');
     Route::delete('/communityposts/reviews/{review}', 'App\Http\Controllers\ReviewController@delete')->name('communitypost.review.delete');
 

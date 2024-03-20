@@ -207,4 +207,22 @@ return [
         'body' => 'Mensaje',
         'send' => 'Envíar',
     ],
+    'edit_post' => [
+        'edit_post' => 'Editar Publicación',
+        'title' => 'Título',
+        'description' => 'Descripción',
+        'post_image' => 'Imagen de la Publicación',
+        'change_post_image' => 'Si deseas cambiar la imagen de la publicación, elige una nueva.',
+        'date_of_event' => 'Fecha del Evento',
+        'place_of_event' => 'Lugar del Evento',
+        'category' => 'Categoría',
+        'update_post' => 'Actualizar Publicación',
+    ],
+    'edit_review' => [
+        'edit_review' => 'Editar Reseña',
+        'title' => 'Título',
+        'description' => 'Descripción',
+        'rating' => 'Calificación',
+        'update_review' => 'Actualizar Reseña',
+    ],
 ];
