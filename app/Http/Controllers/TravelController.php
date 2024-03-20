@@ -37,8 +37,6 @@ class TravelController extends Controller
     {
         $travel = Travel::inRandomOrder()->first();
 
-        echo $travel->getId();
-
         return redirect()->route('travel.show', ['id' => $travel->getId()]);
     }
 }
