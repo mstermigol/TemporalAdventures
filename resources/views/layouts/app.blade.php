@@ -16,7 +16,7 @@
     <nav class="navbar navbar-expand-sm bg-light navbar-light px-4 sticky-top shadow">
         <div class="container-fluid d-flex justify-content-between">
             <a class="navbar-brand" href="{{route('home.index')}}">
-                <img src="{{ url('/images/logo-no-bg.png') }}" alt="Logo" style="width:60px;" class="rounded-pill">
+                <img src="{{ url('/images/logo-no-bg.png') }}" alt="Logo" class="rounded-pill my-logo-medium">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
