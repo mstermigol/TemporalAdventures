@@ -43,7 +43,7 @@ class CommunityPostController extends Controller
     public function create(): View
     {
         $viewData = [];
-        $viewData['title'] = 'Create New Community Post';
+        $viewData['title'] = trans('app.titles.create_community_post');
         $viewData['categories'] = CategoryEnum::cases();
 
         return view('communitypost.create')->with('viewData', $viewData);

@@ -30,6 +30,7 @@ class CartController extends Controller
         }
 
         $viewData = [];
+        $viewData['title'] = trans('app.titles.cart_index'); 
         $viewData['total'] = $total;
         $viewData['travels'] = $travelsInCart;
 
@@ -92,6 +93,7 @@ class CartController extends Controller
                     $request->session()->forget('travels');
 
                     $viewData = [];
+                    $viewData['title'] = trans('app.titles.purchase');
                     $viewData['order'] = $order;
 
                     DB::commit();
