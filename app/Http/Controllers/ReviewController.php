@@ -38,6 +38,7 @@ class ReviewController extends Controller
         } elseif ($view == 'travel') {
             return redirect()->route('travel.show', $reviewOfId);
         }
+        return back();
     }
 
     public function delete(string $id): RedirectResponse
@@ -46,8 +47,6 @@ class ReviewController extends Controller
 
         if ($review->getUser()->getId() === Auth::user()->getId()) {
             $review->delete();
-
-            return back();
         }
 
         return back();

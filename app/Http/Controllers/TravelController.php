@@ -7,6 +7,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Travel;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
 class TravelController extends Controller
@@ -30,4 +31,15 @@ class TravelController extends Controller
 
         return view('travel.show')->with('viewData', $viewData);
     }
+
+    public function random(): RedirectResponse
+    {
+        $travel = Travel::inRandomOrder()->first();
+
+        echo $travel->getId();
+
+        return redirect()->route('travel.show', ['id' => $travel->getId()]);
+    }
+
+
 }

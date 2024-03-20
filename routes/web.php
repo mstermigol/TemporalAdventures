@@ -11,11 +11,15 @@ Auth::routes();
 
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
 Route::get('/about', 'App\Http\Controllers\HomeController@about')->name('home.about');
+
 Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.index');
 Route::get('/cart/delete', 'App\Http\Controllers\CartController@delete')->name('cart.delete');
 Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name('cart.add');
+
 Route::get('/travels', 'App\Http\Controllers\TravelController@index')->name('travel.index');
+Route::get('/travels/random', 'App\Http\Controllers\TravelController@random')->name('travel.random');
 Route::get('/travels/{id}', 'App\Http\Controllers\TravelController@show')->name('travel.show');
+
 Route::get('/communityposts', 'App\Http\Controllers\CommunityPostController@index')->name('communitypost.index');
 Route::get('/communityposts/new', 'App\Http\Controllers\CommunityPostController@create')->name('communitypost.create');
 Route::get('/communityposts/{id}', 'App\Http\Controllers\CommunityPostController@show')->name('communitypost.show');

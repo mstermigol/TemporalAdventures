@@ -26,19 +26,11 @@
     </section>
 
     <section class="container my-5">
-    <div class="row justify-content-between d-flex">
-    <h2 class="col-sm-6">@lang('app.content_travels.all')</h2> 
-    <div>
-    <button href="{{ route('travel.show', ['id' => $viewData['travels']->random()->getId()]) }}" class="btn btn-primary col-sm-6">
-        @lang('app.content_travels.random')
-</button>
+    <div class="container d-flex justify-content-between mb-2">
+    <h2>@lang('app.content_travels.all')</h2>
+    <button onclick="location.href='{{ route('travel.random') }}'" class="btn btn-primary">@lang('app.content_travels.random')</button>
     </div>
-</div>
         <ul class="row list-unstyled align-items-stretch">
-            <!-- Title section-->
-            <div class="p-3 mx-auto d-flex justify-content-between align-items-center">
-                <h1 class="text-uppercase">@lang('app.content_travels.travels')</h1>
-            </div>
             @foreach ($viewData["travels"] as $travel)
                 <li class="col-md-4 col-lg-4 mb-4">
                     <div class="card h-100">
