@@ -1,34 +1,31 @@
 <?php
 
 /*
-    Authors: David Fonseca, Sergio Córdoba and Miguel Jaramillo
+    Author: Miguel Jaramillo
 */
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Enums\CategoryEnum;
+use App\Http\Controllers\Controller;
 use App\Models\CommunityPost;
 use App\Util\ImageLocalStorage;
+use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
-class CommunityPostController extends Controller
+class AdminCommunityPostController extends Controller
 {
     public function index(): View
     {
-        $arrayTopThreePosts = CommunityPost::getTopThreeRated();
-
         $viewData = [];
-        $viewData['title'] = trans('app.titles.community_posts');
-        $viewData['posts'] = CommunityPost::with('user')->get();
-        $viewData['delete'] = trans('app.content_community.are_you_sure');
-        $viewData['topThree'] = collect($arrayTopThreePosts)->keys()->map(function ($id) {
-            return CommunityPost::find($id);
-        });
+        $viewData['title'] = trans('admin.titles.community_posts');
+        $viewData['delete'] = trans('admin.community.are_you_sure');
+        $viewData['posts'] = CommunityPost::all();
 
-        return view('communitypost.index')->with('viewData', $viewData);
+        return view('admin.communitypost.index')->with('viewData', $viewData);
     }
 
     public function show(string $id): View
@@ -37,19 +34,18 @@ class CommunityPostController extends Controller
 
         $viewData = [];
         $viewData['title'] = "{$post->getTitle()} - Temporal Adventures";
-        $viewData['delete'] = trans('app.content_community.are_you_sure');
         $viewData['post'] = $post;
 
-        return view('communitypost.show')->with('viewData', $viewData);
+        return view('admin.communitypost.show')->with('viewData', $viewData);
     }
 
     public function create(): View
     {
         $viewData = [];
-        $viewData['title'] = trans('app.titles.create_community_post');
+        $viewData['title'] = trans('admin.titles.create_post');
         $viewData['categories'] = CategoryEnum::cases();
 
-        return view('communitypost.create')->with('viewData', $viewData);
+        return view('admin.communitypost.create')->with('viewData', $viewData);
     }
 
     public function save(Request $request): RedirectResponse
@@ -67,34 +63,32 @@ class CommunityPostController extends Controller
         $post->setPlaceOfEvent($request->get('place_of_event'));
         $categoryEnum = CategoryEnum::fromValue($request->get('category'));
         $post->setCategory($categoryEnum);
-        $post->setUserId(Auth::getUser()->getId());
+        $post->setUserId(Auth::id());
         $post->save();
 
-        return redirect()->route('communitypost.index');
+        return redirect()->route('admin.communitypost.index');
     }
 
     public function delete(string $id): RedirectResponse
     {
-        $post = CommunityPost::findOrFail($id);
+        try {
+            CommunityPost::destroy($id);
 
-        if ($post->getUser()->getId() === Auth::getUser()->getId()) {
-            $post->delete();
-
-            return redirect()->route('communitypost.index');
+            return redirect()->route('admin.communitypost.index');
+        } catch (Exception $e) {
+            return redirect()->route('admin.communitypost.index');
         }
-
-        return back();
     }
 
     public function edit(string $id): View
     {
         $post = CommunityPost::findOrFail($id);
         $viewData = [];
-        $viewData['title'] = trans('app.titles.edit_community_post');
+        $viewData['title'] = trans('admin.titles.edit_community_post');
         $viewData['post'] = $post;
         $viewData['categories'] = CategoryEnum::cases();
 
-        return view('communitypost.edit')->with('viewData', $viewData);
+        return view('admin.communitypost.edit')->with('viewData', $viewData);
     }
 
     public function update(Request $request, string $id): RedirectResponse
@@ -105,10 +99,6 @@ class CommunityPostController extends Controller
         $imagePath = new ImageLocalStorage();
         $imagePath = $imagePath->storeAndGetPath($request, 'community');
 
-        if (! $imagePath) {
-            $imagePath = $post->getImage();
-        }
-
         $post->setTitle($request->get('title'));
         $post->setDescription($request->get('description'));
         $post->setImage($imagePath);
@@ -118,6 +108,6 @@ class CommunityPostController extends Controller
         $post->setCategory($categoryEnum);
         $post->save();
 
-        return redirect()->route('communitypost.index');
+        return redirect()->route('admin.communitypost.index');
     }
 }

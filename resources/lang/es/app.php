@@ -15,6 +15,7 @@ return [
         'orders' => 'Órdenes',
         'about' => 'Sobre Nosotros',
         'balance' => 'Balance',
+        'admin_pannel' => 'Panel de Administración',
     ],
     'footer' => [
         'copyright' => 'Derechos de autor',
@@ -44,6 +45,7 @@ return [
         'purchase_denied' => 'Compra Denegada - Temporal Adventures',
         'community_posts' => 'Comunidad - Temporal Adventures',
         'order' => 'Mis Órdenes - Temporal Adventures',
+        'create_post' => 'Crear Publicación - Temporal Adventures',
         'welcome' => 'Bienvenido - Temporal Adventures',
         'about' => 'Sobre nosotros - Temporal Adventures',
         'create_community_post' => 'Crear Publicación de la Comunidad - Temporal Adventures',

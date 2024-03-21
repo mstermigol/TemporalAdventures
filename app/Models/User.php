@@ -178,6 +178,18 @@ class User extends Authenticatable
         $request->validate([
             'name' => 'required|string|max:255',
             'password' => 'required|string|min:8|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'phone_number' => 'required|string|max:255',
+            'is_staff' => 'required|boolean',
+            'balance' => 'required|numeric',
+        ]);
+    }
+
+    public static function validateUpdate(Request $request): void
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'password' => 'required|string|min:8|max:255',
             'email' => 'required|string|email|max:255',
             'phone_number' => 'required|string|max:255',
             'is_staff' => 'required|boolean',

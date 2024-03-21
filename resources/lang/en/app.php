@@ -15,6 +15,7 @@ return [
         'about' => 'About Us',
         'orders' => 'Orders',
         'balance' => 'Balance',
+        'admin_pannel' => 'Admin Pannel',
 
     ],
     'footer' => [
@@ -45,6 +46,7 @@ return [
         'purchase_denied' => 'Purchase Denied - Temporal Adventures',
         'community_posts' => 'Community - Temporal Adventures',
         'order' => 'My Orders - Temporal Adventures',
+        'create_post' => 'Create Post - Temporal Adventures',
         'welcome' => 'Welcome - Temporal Adventures',
         'about' => 'About Us - Temporal Adventures',
         'create_community_post' => 'Create Community Post - Temporal Adventures',

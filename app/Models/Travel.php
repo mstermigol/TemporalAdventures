@@ -198,7 +198,12 @@ class Travel extends Model
         $request->validate([
             'title' => 'required|max:255',
             'description' => 'required|max:255',
-            'rating' => 'required|integer|between:1,5',
+            'place' => 'required|max:255',
+            'date_of_destination' => 'required|date',
+            'price' => 'required|integer',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date',
+            'category' => 'required|in:'.implode(',', CategoryEnum::values()),
         ]);
     }
 }
