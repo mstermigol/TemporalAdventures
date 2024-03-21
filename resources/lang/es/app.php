@@ -47,6 +47,8 @@ return [
         'welcome' => 'Bienvenido - Temporal Adventures',
         'about' => 'Sobre nosotros - Temporal Adventures',
         'create_community_post' => 'Crear Publicación de la Comunidad - Temporal Adventures',
+        'edit_community_post' => 'Editar Publicación de la Comunidad - Temporal Adventures',
+        'edit_review' => 'Editar Reseña - Temporal Adventures',
     ],
     'confirm' => [
         'confirm_password' => 'Confirmar contraseña',
@@ -103,6 +105,7 @@ return [
         'top_three' => 'Top 3',
         'random' => 'Aleatorio',
         'travels' => 'Viajes',
+        'are_you_sure' => '¿Estás seguro?',
     ],
     'content_community' => [
         'see_more' => 'Ver más',

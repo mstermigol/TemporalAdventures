@@ -74,7 +74,7 @@
                                 <form method="POST" action="{{ route('communitypost.review.delete', $review->getId()) }}" class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm ms-2" title="@lang('app.content_community.delete_review')" onclick="return confirm('Are you sure?')">
+                                    <button type="submit" class="btn btn-danger btn-sm ms-2" title="@lang('app.content_community.delete_review')" onclick="return confirm('{{$viewData['delete']}}')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </form>

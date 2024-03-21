@@ -48,6 +48,8 @@ return [
         'welcome' => 'Welcome - Temporal Adventures',
         'about' => 'About Us - Temporal Adventures',
         'create_community_post' => 'Create Community Post - Temporal Adventures',
+        'edit_community_post' => 'Edit Community Post - Temporal Adventures',
+        'edit_review' => 'Edit Review - Temporal Adventures',
     ],
     'confirm' => [
         'confirm_password' => 'Confirm Password',
@@ -104,6 +106,7 @@ return [
         'top_three' => 'Top 3',
         'random' => 'Random',
         'travels' => 'Travels',
+        'are_you_sure' => 'Are you sure?',
     ],
     'content_community' => [
         'see_more' => 'See more',

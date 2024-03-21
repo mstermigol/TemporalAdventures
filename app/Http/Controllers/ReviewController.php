@@ -58,7 +58,7 @@ class ReviewController extends Controller
     {
         $review = Review::findOrFail($id);
         $viewData = [];
-        $viewData['title'] = 'Edit Community Post';
+        $viewData['title'] = trans('app.titles.edit_review');
         $viewData['review'] = $review;
         return view('review.edit')->with('viewData', $viewData);
     }

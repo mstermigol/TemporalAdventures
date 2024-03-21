@@ -22,6 +22,7 @@ class CommunityPostController extends Controller
         $viewData = [];
         $viewData['title'] = trans('app.titles.community_posts');
         $viewData['posts'] = CommunityPost::with('user')->get();
+        $viewData['delete'] = __('app.content_community.are_you_sure');
         $viewData['topThree'] = collect($arrayTopThreePosts)->keys()->map(function ($id) {
             return CommunityPost::find($id);
         });
@@ -35,6 +36,7 @@ class CommunityPostController extends Controller
 
         $viewData = [];
         $viewData['title'] = "{$post->getTitle()} - Temporal Adventures";
+        $viewData['delete'] = __('app.content_community.are_you_sure');
         $viewData['post'] = $post;
 
         return view('communitypost.show')->with('viewData', $viewData);
@@ -92,7 +94,7 @@ class CommunityPostController extends Controller
     {
         $post = CommunityPost::findOrFail($id);
         $viewData = [];
-        $viewData['title'] = 'Edit Community Post';
+        $viewData['title'] = trans('app.titles.edit_community_posts');
         $viewData['post'] = $post;
         $viewData['categories'] = CategoryEnum::cases();
 
