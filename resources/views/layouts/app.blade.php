@@ -1,17 +1,21 @@
 <!-- Authors: Miguel Jaramillo, Sergio Córdoba and David Fonseca-->
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous" />
     <script src="https://kit.fontawesome.com/be50e46cfb.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
     <link rel="shortcut icon" href="{{ url('/images/logo-no-bg.png') }}" type="image/x-icon">
     <title>@yield('title', 'Temporal Adventures')</title>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-sm bg-light navbar-light px-4 sticky-top shadow">
         <div class="container-fluid d-flex justify-content-between">
@@ -27,7 +31,8 @@
                         <a class="nav-link" href="{{route('travel.index')}}">@lang('app.navbar_items.travels')</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href={{route('communitypost.index')}}>@lang('app.navbar_items.community_posts')</a>
+                        <a class="nav-link"
+                            href={{route('communitypost.index')}}>@lang('app.navbar_items.community_posts')</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href={{route('home.about')}}>@lang('app.navbar_items.about')</a>
@@ -43,7 +48,8 @@
                     <a class="nav-link active" href="{{ route('register') }}">@lang('app.navbar_items.register')</a>
                     @else
                     <li class="nav-item dropdown">
-                        <div class="nav-link dropdown-toggle" role="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="nav-link dropdown-toggle" role="button" id="navbarDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fas fa-user"></i>
                         </div>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -54,13 +60,15 @@
                                 <div class="dropdown-divider"></div>
                             </li>
                             <li class="dropdown-item">
-                                <a class="nav-link" href="{{route('myaccount.orders')}}">@lang('app.navbar_items.orders')</a>
+                                <a class="nav-link"
+                                    href="{{route('myaccount.orders')}}">@lang('app.navbar_items.orders')</a>
                             </li>
                             <span class="dropdown-item-text">${{ Auth::getUser()->getBalance() }}</span>
                             <div class="dropdown-divider"></div>
                             <li>
                                 <form id="logout" action="{{ route('logout') }}" method="POST">
-                                    <button type="submit" class="dropdown-item">@lang('app.navbar_items.logout')</button>
+                                    <button type="submit"
+                                        class="dropdown-item">@lang('app.navbar_items.logout')</button>
                                     @csrf
                                 </form>
                             </li>
@@ -77,10 +85,15 @@
     <footer class="footer mt-auto py-3 bg-light">
         <div class="container">
             <div class="text-center">
-                <p class="mb-0">@lang('app.footer.copyright') - <a href="https://github.com/mstermigol" class="link-dark">Miguel Jaramillo</a> - <a href="https://github.com/sergiocordobam" class="link-dark">Sergio Cordoba</a> - <a href="https://github.com/DavidFonsek" class="link-dark">David Fonseca</a></p>
+                <p class="mb-0">@lang('app.footer.copyright') - <a href="https://github.com/mstermigol"
+                        class="link-dark">Miguel Jaramillo</a> - <a href="https://github.com/sergiocordobam"
+                        class="link-dark">Sergio Cordoba</a> - <a href="https://github.com/DavidFonsek"
+                        class="link-dark">David Fonseca</a></p>
             </div>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

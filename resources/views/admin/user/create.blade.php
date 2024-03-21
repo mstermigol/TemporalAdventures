@@ -6,14 +6,14 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-        @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
             @endif
             <a href="{{ route('admin.user.index') }}" class="btn btn-primary mb-3"><i class="fas fa-arrow-left"></i></a>
             <form action="{{ route('admin.user.save') }}" method="POST">

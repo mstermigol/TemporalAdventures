@@ -4,7 +4,7 @@
 @section('title', $viewData['title'])
 @section('content')
 <div class="container">
-<a href="{{ route('admin.review.index') }}" class="btn btn-primary mb-3"><i class="fas fa-arrow-left"></i></a>
+    <a href="{{ route('admin.review.index') }}" class="btn btn-primary mb-3"><i class="fas fa-arrow-left"></i></a>
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <h2>{{ $viewData['reviewOfTitle']}}</h2>

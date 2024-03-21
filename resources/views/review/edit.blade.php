@@ -11,12 +11,14 @@
 
         <div class="mb-3">
             <label for="title">@lang('app.edit_review.title')</label>
-            <input type="text" class="form-control" id="title" name="title" value="{{ $viewData['review']->getTitle() }}" required>
+            <input type="text" class="form-control" id="title" name="title"
+                value="{{ $viewData['review']->getTitle() }}" required>
         </div>
 
         <div class="mb-3">
             <label for="description">@lang('app.edit_review.description')</label>
-            <textarea class="form-control" id="description" name="description" required>{{ $viewData['review']->getDescription() }}</textarea>
+            <textarea class="form-control" id="description" name="description"
+                required>{{ $viewData['review']->getDescription() }}</textarea>
         </div>
 
         <div class="mb-3">
