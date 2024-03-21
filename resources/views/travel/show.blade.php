@@ -22,7 +22,7 @@
                         <b>@lang('app.content_travels.price'):</b> {{ $viewData["travel"]->getPrice() }}$
                     </p>
                     <!--Button to add to the cart -->
-                    <form method="POST" action="{{ route('cart.add', ['id'=> $viewData['travel']->getId()]) }}">
+                    <form method="POST" action="{{ route('cart.add', ['id' => $viewData['travel']->getId()]) }}">
                         <div class="row">
                             @csrf
                             <div class="col-auto">
@@ -39,13 +39,13 @@
                 </div>
             </div>
             <!-- Section to add a review -->
-            @if(auth()->check())
+            @if(Auth::check())
             <div>
                 <div class="card my-4">
                     <div class="card-body">
-                        <form method="POST" action="{{ route('travel.reviews.save', ['id'=> Auth::user()->getId()]) }}">
+                        <form method="POST" action="{{ route('travel.review.save', ['reviewOfId' => $viewData['travel']->getId()]) }}">
                             @csrf
-                            <input type="hidden" name="id" value="{{ Auth::user()->getId() }}">
+                            <input type="hidden" name="id" value="{{ Auth::getUser()->getId() }}">
                                 <input type="hidden" name="view" value="travel">
                             <div class="form-group">
                                 <label for="reviewTitle">@lang('app.content_travels.title')</label>
@@ -74,26 +74,34 @@
 
             <!-- Reviews section -->
             <div class="reviews mt-4">
-                <h5>{{ $viewData['travel']->reviews->count() }} @lang('app.content_travels.reviews')</h5>
-                @foreach ($viewData['travel']->reviews as $review)
+                <h5>{{ $viewData['travel']->getReviews()->count() }} @lang('app.content_travels.reviews')</h5>
+                @foreach ($viewData['travel']->getReviews() as $review)
                     <div class="card mt-3">
                         <div class="card-body d-flex justify-content-between align-items-start">
                             <div>
-                                <h5 class="card-subtitle mb-2 text-muted">{{ $review->user->name }}</h5>
-                                <h6 class="card-text">{{ $review->title }}</h6>
-                                <p class="card-text">{{ $review->description }}</p>
-                                <div class="text-muted">@lang('app.content_travels.rating'): {{ $review->rating }}/5</div>
+                                <h5 class="card-subtitle mb-2 text-muted">{{ $review->getUser()->getName() }}</h5>
+                                <h6 class="card-text">{{ $review->getTitle() }}</h6>
+                                <p class="card-text">{{ $review->getDescription() }}</p>
+                                <div class="text-muted">@lang('app.content_travels.rating'): {{ $review->getRating() }}/5</div>
                             </div>
 
-                            <!-- Button to delete a review -->
-                            @if(auth()->check() && auth()->id() === $review->user_id)
-                                <form method="POST" action="{{ route('travel.reviews.delete', $review->id) }}" class="d-inline">
+                            <!-- Delete and edit review button -->
+                            @if(Auth::check() && Auth::getUser()->getId() === $review->getUserId())
+                            <div class="d-flex justify-content-between">
+                                <form method="POST" action="{{ route('travel.review.delete', $review->getId()) }}" class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm" title="Delete review" onclick="return confirm(trans('app.content_community.are_you_sure'))">
+                                    <button type="submit" class="btn btn-danger btn-sm" title="Delete review" onclick="return confirm('{{$viewData['delete']}}')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </form>
+                                <form method="GET" action="{{ route('review.edit', $review->getId()) }}">
+                                    @csrf
+                                    <button type="submit" class="btn btn-success btn-sm ms-2" title="@lang('app.content_community.edit_review')">
+                                        <i class="bi bi-pencil-fill"></i>
+                                    </button>
+                                </form>
+                            </div>
                             @endif
                         </div>
                     </div>

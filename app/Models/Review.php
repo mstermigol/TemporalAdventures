@@ -104,7 +104,7 @@ class Review extends Model
         $this->travel()->associate($travel);
     }
 
-    public function getTravelId(): string
+    public function getTravelId(): ?string
     {
         return $this->attributes['travel_id'];
     }
@@ -129,7 +129,7 @@ class Review extends Model
         $this->community_post()->associate($community_post);
     }
 
-    public function getCommunityPostId(): string
+    public function getCommunityPostId(): ?string
     {
         return $this->attributes['community_post_id'];
     }

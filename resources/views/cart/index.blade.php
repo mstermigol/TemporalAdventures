@@ -1,6 +1,6 @@
 <!-- Author: Sergio Córdoba -->
 @extends('layouts.app')
-@section('title', trans('app.titles.cart_index'))
+@section('title', $viewData['title'])
 @section('content')
 <div class="card"> 
     <div class="card-header"> 
@@ -18,8 +18,9 @@
                     <th scope="col">@lang('app.cart.id')</th> 
                     <th scope="col">@lang('app.cart.name')</th> 
                     <th scope="col">@lang('app.cart.price')</th> 
-                    <th scope="col">@lang('app.cart.quantity')</th> 
-                </tr> 
+                    <th scope="col">@lang('app.cart.quantity')</th>
+                    <th scope="col">@lang('app.cart.delete_item')</th>  
+                </tr>
             </thead> 
             <tbody> 
                 @foreach ($viewData["travels"] as $travel) 
@@ -27,7 +28,16 @@
                         <td>{{ $travel->getId() }}</td> 
                         <td>{{ $travel->getTitle() }}</td> 
                         <td>${{ $travel->getPrice() }}</td> 
-                        <td>{{ session('travels')[$travel->getId()] }}</td> 
+                        <td>{{ session('travels')[$travel->getId()] }}</td>
+                        <td>
+                            <form method="POST" action="{{ route('cart.delete_item', ['id'=> $travel->getId()]) }}" class="d-inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm" title="@lang('app.cart.delete_item')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                        </td>  
                     </tr>
                 @endforeach 
             </tbody> 

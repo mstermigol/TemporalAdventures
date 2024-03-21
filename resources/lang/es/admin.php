@@ -24,6 +24,9 @@ return [
         'create_review_travel' => 'Crear reseña de viaje - Temporal Adventures',
         'create_review_community' => 'Crear reseña de publicación de la comunidad - Temporal Adventures',
         'edit_review' => 'Editar reseña - Temporal Adventures',
+        'community_posts' => 'Admin publicaciones de la comunidad - Temporal Adventures',
+        'create_post' => 'Crear Publicación - Temporal Adventures',
+        'edit_community_post' => 'Editar Publicación de la Comunidad',
     ],
 
     'user' => [
@@ -54,5 +57,22 @@ return [
         'user' => 'Usuario',
         'edit_review' => 'Editar Reseña',
         'edit' => 'Editar',
+    ],
+    'community' => [
+        'are_you_sure' => '¿Estás seguro?',
+        'create_post' => 'Crear Publicación',
+        'title' => 'Título',
+        'description' => 'Descripción',
+        'image' => 'Imagen',
+        'date_of_event' => 'Fecha del evento',
+        'place_of_event' => 'Lugar del evento',
+        'category' => 'Categoría',
+        'submit' => 'Enviar',
+        'edit_post' => 'Editar Publicación',
+        'post_image' => 'Imagen de la Publicación',
+        'change_post_image' => 'Si deseas cambiar la imagen de la publicación, elige una nueva.',
+        'update_post' => 'Actualizar Publicación',
+        'delete_post' => '¿Estás seguro de que quieres eliminar esta publicación?',
+        'posted_on' => 'Publicado el',
     ],
 ];

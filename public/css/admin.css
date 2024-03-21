@@ -5,3 +5,15 @@
 .sidebar {
     min-height: 555px;
 }
+
+.my-logo-small{
+    width: 50px !important;
+}
+
+.my-logo-medium {
+    width: 60px !important;
+}
+
+.my-logo-large {
+    width: 150px !important;
+}
