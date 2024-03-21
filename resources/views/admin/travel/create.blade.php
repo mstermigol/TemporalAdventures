@@ -8,7 +8,7 @@
         <div class="col-md-6 offset-md-3">
             <a href="{{ route('admin.travel.index') }}" class="btn btn-primary mb-3"><i
                     class="fas fa-arrow-left"></i></a>
-            <h2>Create travel</h2>
+            <h2>@lang('admin.travel.create_travel')</h2>
             <form method="POST" action="{{ route('admin.travel.save') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group mb-3">
@@ -26,7 +26,8 @@
                 </div>
                 <div class="form-group mb-3">
                     <label for="date_of_destination">@lang('admin.date_of_destination.place')</label>
-                    <input type="date" class="form-control" id="date_of_destination" name="date_of_destination" required>
+                    <input type="date" class="form-control" id="date_of_destination" name="date_of_destination"
+                        required>
                 </div>
                 <div class="form-group">
                     <label for="price">@lang('admin.travel.price')</label>
