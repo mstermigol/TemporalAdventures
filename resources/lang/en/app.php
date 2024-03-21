@@ -15,6 +15,7 @@ return [
         'about' => 'About Us',
         'orders' => 'Orders',
         'balance' => 'Balance',
+        'admin_pannel' => 'Admin Pannel',
 
     ],
     'footer' => [

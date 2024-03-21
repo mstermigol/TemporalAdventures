@@ -13,6 +13,7 @@ return [
         'orders' => 'Orders',
         'items' => 'Items',
         'logout' => 'Logout',
+        'user_section' => 'User section',
     ],
     'titles' => [
         'users' => 'Admin users - Temporal Adventures',

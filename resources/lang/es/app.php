@@ -15,6 +15,7 @@ return [
         'orders' => 'Órdenes',
         'about' => 'Sobre Nosotros',
         'balance' => 'Balance',
+        'admin_pannel' => 'Panel de Administración',
     ],
     'footer' => [
         'copyright' => 'Derechos de autor',

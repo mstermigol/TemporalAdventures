@@ -63,6 +63,12 @@
                                 <a class="nav-link"
                                     href="{{route('myaccount.orders')}}">@lang('app.navbar_items.orders')</a>
                             </li>
+                            @if (Auth::getUser()->getIsStaff())
+                            <li class="dropdown-item">
+                                <a class="nav-link"
+                                    href="{{route('admin.user.index')}}">@lang('app.navbar_items.admin_pannel')</a>
+                            </li>
+                            @endif
                             <span class="dropdown-item-text">${{ Auth::getUser()->getBalance() }}</span>
                             <div class="dropdown-divider"></div>
                             <li>

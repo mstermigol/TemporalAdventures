@@ -45,10 +45,10 @@
                         href="{{ route('admin.user.index') }}">@lang('admin.navbar_items.users')</a>
                 </li>
                 <li>
-                    <a class="btn btn-primary w-100 my-1 @if (Request::segment(2) == 'travels') active @endif"  href="{{ route('admin.travel.index') }}>@lang('admin.navbar_items.travels')</a>
+                    <a class="btn btn-primary w-100 my-1 @if (Request::segment(2) == 'travels') active @endif" href="{{ route('admin.travel.index') }}>@lang('admin.navbar_items.travels')</a>
                 </li>
                 <li>
-                    <a class="btn btn-primary w-100 my-1 @if (Request::segment(2) == 'communityposts') active @endif"
+                    <a class=" btn btn-primary w-100 my-1 @if (Request::segment(2)=='communityposts' ) active @endif"
                         href="{{ route('admin.communitypost.index')}}">@lang('admin.navbar_items.community_posts')</a>
                 </li>
                 <li>
@@ -86,7 +86,8 @@
                                 href="{{ route('admin.user.index') }}">@lang('admin.navbar_items.users')</a>
                         </li>
                         <li>
-                            <a class="btn btn-primary w-100 my-1 @if (Request::segment(2) == 'travels') active @endif" href="{{ route('admin.travel.index') }}">@lang('admin.navbar_items.travels')</a>
+                            <a class="btn btn-primary w-100 my-1 @if (Request::segment(2) == 'travels') active @endif"
+                                href="{{ route('admin.travel.index') }}">@lang('admin.navbar_items.travels')</a>
                         </li>
                         <li>
                             <a class="btn btn-primary w-100 my-1  @if (Request::segment(2) == 'communityposts') active @endif"
@@ -101,8 +102,15 @@
                                 href="{{ route('admin.order.index') }}">@lang('admin.navbar_items.orders')</a>
                         </li>
                     </ul>
-                    <div class="container-fluid justify-content-center">
-                        <a href="#" class="btn btn-danger">@lang('admin.navbar_items.logout')</a>
+                    <div class="container-fluid justify-content-center mb-2">
+                        <a href="{{ route('home.index') }}"
+                            class="btn btn-primary">@lang('admin.navbar_items.user_section')</a>
+                    </div>
+                    <div class="container-fluid justify-content-center mb-2">
+                        <form id="logout" action="{{ route('logout') }}" method="POST">
+                            <button type="submit" class="btn btn-danger">@lang('admin.navbar_items.logout')</button>
+                            @csrf
+                        </form>
                     </div>
                 </nav>
             </div>

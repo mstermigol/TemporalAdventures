@@ -13,6 +13,7 @@ return [
         'orders' => 'Pedidos',
         'items' => 'Artículos',
         'logout' => 'Salir',
+        'user_section' => 'Sección de Usuario',
     ],
 
     'titles' => [
