@@ -48,6 +48,8 @@ return [
         'welcome' => 'Welcome - Temporal Adventures',
         'about' => 'About Us - Temporal Adventures',
         'create_community_post' => 'Create Community Post - Temporal Adventures',
+        'edit_community_post' => 'Edit Community Post - Temporal Adventures',
+        'edit_review' => 'Edit Review - Temporal Adventures',
     ],
     'confirm' => [
         'confirm_password' => 'Confirm Password',
@@ -104,6 +106,7 @@ return [
         'top_three' => 'Top 3',
         'random' => 'Random',
         'travels' => 'Travels',
+        'are_you_sure' => 'Are you sure?',
     ],
     'content_community' => [
         'see_more' => 'See more',
@@ -120,6 +123,8 @@ return [
         'reviews' => 'Reviews',
         'create_post' => 'Create post',
         'delete_review' => 'Delete review',
+        'delete_post' => 'Delete post',
+        'edit_post' => 'Edit post',
         'submit' => 'Submit',
         'are_you_sure' => 'Are you sure?',
         'top_three' => 'Top 3',
@@ -190,7 +195,6 @@ return [
         'description' => 'Embark on a journey of a lifetime with our curated list of unforgettable destinations.',
         'start_your_adventure' => 'Start Your Adventure',
     ],
-
     'user' => [
         'greeting' => 'Dear Time Travelers',
         'thank_you' => 'We extend our sincerest gratitude to each of you for embarking on this extraordinary journey with us. Your curiosity, enthusiasm, and support have fueled our passion for creating the ultimate time-traveling experience. As developers, we are endlessly grateful for the opportunity to bring history to life and to share it with you. Your exploration of ancient civilizations, iconic moments, and pivotal events inspires us every day.',
@@ -207,5 +211,23 @@ return [
         'subject' => 'Subject',
         'body' => 'Message',
         'send' => 'Send',
+    ],
+    'edit_post' => [
+        'edit_post' => 'Edit Post',
+        'title' => 'Title',
+        'description' => 'Description',
+        'post_image' => 'Post Image',
+        'change_post_image' => 'If you want to change the post image, choose a new one.',
+        'date_of_event' => 'Date of Event',
+        'place_of_event' => 'Place of Event',
+        'category' => 'Category',
+        'update_post' => 'Update Post',
+    ],
+    'edit_review' => [
+        'edit_review' => 'Edit Review',
+        'title' => 'Title',
+        'description' => 'Description',
+        'rating' => 'Rating',
+        'update_review' => 'Update Review',
     ],
 ];

@@ -28,6 +28,7 @@ class TravelController extends Controller
 
         $viewData = [];
         $viewData['title'] = "{$travel->getTitle()} - Temporal Adventures";
+        $viewData['delete'] = trans('app.content_travels.are_you_sure');
         $viewData['travel'] = $travel;
 
         return view('travel.show')->with('viewData', $viewData);

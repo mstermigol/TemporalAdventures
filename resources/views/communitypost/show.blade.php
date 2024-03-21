@@ -70,13 +70,21 @@
 
                             <!-- Delete review button -->
                             @if(Auth::check() && Auth::getUser()->getId() === $review->getUserId())
+                            <div class="d-flex justify-content-between">
                                 <form method="POST" action="{{ route('communitypost.review.delete', $review->getId()) }}" class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm" title="@lang('app.content_community.delete_review')" onclick="return confirm('Are you sure?')">
+                                    <button type="submit" class="btn btn-danger btn-sm ms-2" title="@lang('app.content_community.delete_review')" onclick="return confirm('{{$viewData['delete']}}')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </form>
+                                <form method="GET" action="{{ route('review.edit', $review->getId()) }}">
+                                    @csrf
+                                    <button type="submit" class="btn btn-success btn-sm ms-2" title="@lang('app.content_community.edit_review')">
+                                        <i class="bi bi-pencil-fill"></i>
+                                    </button>
+                                </form>
+                            </div>
                             @endif
                         </div>
                     </div>

@@ -15,11 +15,11 @@
                 </div>
                 <div class="form-group mb-3">
                     <label for="description">@lang('app.content_community.description')</label>
-                    <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+                    <textarea class="form-control custom-height-300" id="description" name="description" rows="3" required></textarea>
                 </div>
                 <div class="form-group mb-3">
                     <label for="image">@lang('app.content_community.image')</label>
-                    <input type="file" class="form-control-file" id="image" name="image">
+                    <input type="file" class="form-control" id="image" name="image">
                 </div>
                 <div class="form-group mb-3">
                     <label for="date_of_event">@lang('app.content_community.date_of_event')</label>

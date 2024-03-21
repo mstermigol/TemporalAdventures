@@ -6,6 +6,7 @@
     <section class="container my-5">
         <div class="row">
         <div class="p-3 w-75 mx-auto d-flex justify-content-between align-items-center">
+        <!-- Top three-->
         @if(count($viewData['topThree']) > 0)
                 <h1 class="text-uppercase">@lang('app.content_community.top_three')</h1>
             @endif
@@ -21,15 +22,23 @@
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h4>{{ $post->getUser()->getName() }}</h4>
-                            <!-- Delete post button-->
+                            <!-- Delete and edit post button-->
                             @if (Auth::check() && Auth::getUser()->getId() === $post->getUser()->getId())
+                            <div class="d-flex justify-content-between">
                                 <form method="POST" action="{{ route('communitypost.delete', $post->getId()) }}">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger" title="@lang('app.content_community.delete_review')" onclick="return confirm(trans('app.content_community.are_you_sure'))">
+                                    <button type="submit" class="btn btn-danger ms-2" title="@lang('app.content_community.delete_post')" onclick="return confirm(trans('app.content_community.are_you_sure'))">
                                         <i class="fas fa-trash-alt"></i>
                                     </button>
                                 </form>
+                                <form method="GET" action="{{ route('communitypost.edit', $post->getId()) }}">
+                                    @csrf
+                                    <button type="submit" class="btn btn-success ms-2" title="@lang('app.content_community.edit_post')" onclick="return confirm(trans('app.content_community.are_you_sure'))">
+                                        <i class="bi bi-pencil-fill"></i>
+                                    </button>
+                                </form>
+                            </div>
                             @endif
                         </div>
                         @if($post->getImage())
@@ -49,7 +58,7 @@
                     </div>
                 </div>
             @endforeach
-        <!-- Title section-->
+            <!-- Title section-->
             <div class="p-3 w-75 mx-auto d-flex justify-content-between align-items-center">
                 <h1 class="text-uppercase">@lang('app.content_community.community')</h1>
             </div>
@@ -59,16 +68,24 @@
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h4>{{ $post->getUser()->getName() }}</h4>
-                            <!-- Delete post button-->
-                            @if (Auth::check() && Auth::getUser()->getId() === $post->getUser()->getId())
-                                <form method="POST" action="{{ route('communitypost.delete', $post->getId()) }}">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger" title="@lang('app.content_community.delete_review')" onclick="return confirm(trans('app.content_community.are_you_sure'))">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
-                                </form>
-                            @endif
+                                <!-- Delete and edit post button-->
+                                @if (Auth::check() && Auth::getUser()->getId() === $post->getUser()->getId())
+                                <div class="d-flex justify-content-between">
+                                    <form method="POST" action="{{ route('communitypost.delete', $post->getId()) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger ms-2" title="@lang('app.content_community.delete_post')" onclick="return confirm('{{$viewData['delete']}}')">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </form>
+                                    <form method="GET" action="{{ route('communitypost.edit', $post->getId()) }}">
+                                        @csrf
+                                        <button type="submit" class="btn btn-success ms-2" title="@lang('app.content_community.edit_post')" onclick="return confirm(trans('app.content_community.are_you_sure'))">
+                                            <i class="bi bi-pencil-fill"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                                @endif
                         </div>
                         @if($post->getImage())
                             <img src="{{ url($post->getImage()) }}" class="card-img rounded-0 border-bottom mx-auto">
