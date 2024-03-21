@@ -22,7 +22,6 @@ class AdminTravelController extends Controller
         $viewData = [];
         $viewData['title'] = trans('admin.titles.travels');
         $viewData['travels'] = Travel::all();
-        $viewData['topThree'] = Travel::getTopThreePopular();
 
         return view('admin.travel.index')->with('viewData', $viewData);
     }
