@@ -8,7 +8,7 @@ Temporal Adventures is an online store where you can buy travels to explore icon
 - In order to run the project, you need no install `XAMPP`. Click [here](https://www.apachefriends.org/download.html) to download it.
 - Start `Apache` and `MySQL` instances in `XAMPP`.
 - Click in the `admin` button next to `MySQL` instance in order to access `phpMyAdmin`.
-- Create a new database called `temporal_adventures`.
+- Create a new database called `temporaladventures2`.
 - Install [composer](https://getcomposer.org/download/)
 - Clone the repository.
   
