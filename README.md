@@ -41,7 +41,7 @@ Temporal Adventures is an online store where you can buy travels to explore icon
   ```
   php artisan key:generate
   php artisan migrate
-  php storage:link
+  php artisan storage:link
   ```
 
 - Run the `seeders` to generate data into the database.
