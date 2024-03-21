@@ -203,7 +203,7 @@ class Travel extends Model
             'price' => 'required|integer',
             'start_date' => 'required|date',
             'end_date' => 'required|date',
-            'category' => 'required|in:' . implode(',', CategoryEnum::values())
+            'category' => 'required|in:'.implode(',', CategoryEnum::values()),
         ]);
     }
 }

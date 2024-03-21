@@ -14,7 +14,6 @@ use Illuminate\View\View;
 
 class ReviewController extends Controller
 {
-
     public function save(Request $request, string $reviewOfId): RedirectResponse
     {
         Review::validate($request);
@@ -56,16 +55,17 @@ class ReviewController extends Controller
         return back();
     }
 
-    public function edit(string $id) : View
+    public function edit(string $id): View
     {
         $review = Review::findOrFail($id);
         $viewData = [];
         $viewData['title'] = trans('app.titles.edit_review');
         $viewData['review'] = $review;
+
         return view('review.edit')->with('viewData', $viewData);
     }
 
-    public function update(Request $request, string $id) : RedirectResponse
+    public function update(Request $request, string $id): RedirectResponse
     {
         $review = Review::findOrFail($id);
         Review::validate($request);
@@ -77,7 +77,7 @@ class ReviewController extends Controller
 
         if ($review->getCommunityPostId()) {
             return redirect()->route('communitypost.show', $review->getCommunityPostId());
-        } else if ($review->getTravelId()) {
+        } elseif ($review->getTravelId()) {
             return redirect()->route('travel.show', $review->getTravelId());
         }
 

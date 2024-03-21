@@ -6,15 +6,15 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\CategoryEnum;
 use App\Http\Controllers\Controller;
 use App\Models\CommunityPost;
+use App\Util\ImageLocalStorage;
 use Exception;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\View\View;
-use App\Enums\CategoryEnum;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\View\View;
 
 class AdminCommunityPostController extends Controller
 {
@@ -52,13 +52,8 @@ class AdminCommunityPostController extends Controller
     {
         CommunityPost::validate($request);
 
-        if ($request->hasFile('image')) {
-            $filename = uniqid() . '.' . $request->file('image')->extension();
-            $imagePath = $request->file('image')->storeAs('public/community', $filename);
-            $imagePath = '/storage/community/' . $filename;
-        } else {
-            $imagePath = null;
-        }
+        $imagePath = new ImageLocalStorage();
+        $imagePath = $imagePath->storeAndGetPath($request, 'community');
 
         $post = new CommunityPost();
         $post->setTitle($request->get('title'));
@@ -101,13 +96,8 @@ class AdminCommunityPostController extends Controller
         $post = CommunityPost::findOrFail($id);
         CommunityPost::validate($request);
 
-        if ($request->hasFile('image')) {
-            $filename = uniqid() . '.' . $request->file('image')->extension();
-            $imagePath = $request->file('image')->storeAs('public/community', $filename);
-            $imagePath = '/storage/community/' . $filename;
-        } else {
-            $imagePath = $post->getImage();
-        }
+        $imagePath = new ImageLocalStorage();
+        $imagePath = $imagePath->storeAndGetPath($request, 'community');
 
         $post->setTitle($request->get('title'));
         $post->setDescription($request->get('description'));

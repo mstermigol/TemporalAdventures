@@ -6,15 +6,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\CategoryEnum;
 use App\Http\Controllers\Controller;
 use App\Models\Travel;
+use App\Util\ImageLocalStorage;
 use Exception;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\View\View;
-use App\Enums\CategoryEnum;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-
+use Illuminate\View\View;
 
 class AdminTravelController extends Controller
 {
@@ -65,11 +64,8 @@ class AdminTravelController extends Controller
 
         Travel::validate($request);
 
-        $filename = uniqid() . '.' . $request->file('image')->extension();
-        $imagePath = $request->file('image')->storeAs('public/travels', $filename);
-        $imagePath = '/storage/travels/' . $filename;
-
-
+        $imagePath = new ImageLocalStorage();
+        $imagePath = $imagePath->storeAndGetPath($request, 'travels');
 
         $travel = new Travel();
         $travel->setTitle($request->get('title'));
@@ -106,12 +102,10 @@ class AdminTravelController extends Controller
 
         $travel = Travel::findOrFail($id);
 
+        $imagePath = new ImageLocalStorage();
+        $imagePath = $imagePath->storeAndGetPath($request, 'travels');
 
-        if ($request->hasFile('image')) {
-            $filename = uniqid() . '.' . $request->file('image')->extension();
-            $imagePath = $request->file('image')->storeAs('public/travels', $filename);
-            $imagePath = '/storage/travels/' . $filename;
-        } else {
+        if (! $imagePath) {
             $imagePath = $travel->getImage();
         }
 
@@ -130,5 +124,4 @@ class AdminTravelController extends Controller
 
         return redirect()->route('admin.travel.index');
     }
-
 }
