@@ -34,8 +34,9 @@
                                 <i class="bi bi-pencil-fill"></i>
                             </button>
                         </form>
+                        @endif
                     </div>
-                    @endif
+
                     <form method="POST" action="{{ route('admin.communitypost.delete', $post->getId()) }}">
                         @csrf
                         @method('DELETE')
