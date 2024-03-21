@@ -6,7 +6,7 @@
 <section class="container my-5">
     <div class="row">
         <div class="col-md-3">
-            <img src="{{ url("/images{$viewData["travel"]->getImage()}") }}" class="img-fluid rounded-3">
+            <img src="{{ url("{$viewData["travel"]->getImage()}") }}" class="img-fluid rounded-3">
         </div>
         <div class="col-md-9">
             <div class="card-body">
