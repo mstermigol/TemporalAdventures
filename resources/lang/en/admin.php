@@ -23,6 +23,8 @@ return [
         'create_review_travel' => 'Create review travel - Temporal Adventures',
         'create_review_community' => 'Create review community post - Temporal Adventures',
         'edit_review' => 'Edit review - Temporal Adventures',
+        'community_posts' => 'Admin community posts - Temporal Adventures',
+        'create_post' => 'Create Post - Temporal Adventures',
     ],
     'user' => [
         'admin' => 'Admin',

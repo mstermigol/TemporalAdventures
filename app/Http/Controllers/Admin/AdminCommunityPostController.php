@@ -21,7 +21,7 @@ class AdminOrderController extends Controller
     public function index(): View
     {
         $viewData = [];
-        $viewData['title'] = trans('app.titles.community_posts');
+        $viewData['title'] = trans('admin.titles.community_posts');
         $viewData['posts'] = CommunityPost::all();
 
         return view('admin.communityPost.index')->with('viewData', $viewData);
@@ -41,7 +41,7 @@ class AdminOrderController extends Controller
     public function create(): View
     {
         $viewData = [];
-        $viewData['title'] = trans('app.titles.create_post');
+        $viewData['title'] = trans('admin.titles.create_post');
         $viewData['categories'] = CategoryEnum::cases();
 
         return view('admin.communityPost.create')->with('viewData', $viewData);

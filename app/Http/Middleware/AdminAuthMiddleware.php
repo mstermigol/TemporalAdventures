@@ -13,10 +13,10 @@ class AdminAuthMiddleware
 {
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::user() && Auth::user()->getIsStaff() == True) { 
-            return $next($request); 
-            } else { 
-            return redirect()->route('travel.index'); 
-            } 
+        if (Auth::user() && Auth::user()->getIsStaff() == True) {
+            return $next($request);
+        } else {
+            return redirect()->route('home.index');
+        }
     }
 }

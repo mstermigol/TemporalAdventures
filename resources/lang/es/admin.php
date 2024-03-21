@@ -24,6 +24,8 @@ return [
         'create_review_travel' => 'Crear reseña de viaje - Temporal Adventures',
         'create_review_community' => 'Crear reseña de publicación de la comunidad - Temporal Adventures',
         'edit_review' => 'Editar reseña - Temporal Adventures',
+        'community_posts' => 'Admin publicaciones de la comunidad - Temporal Adventures',
+        'create_post' => 'Crear Publicación - Temporal Adventures',
     ],
 
     'user' => [
