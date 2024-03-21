@@ -10,6 +10,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/be50e46cfb.js" crossorigin="anonymous"></script>
   <link href="{{ asset('/css/admin.css') }}" rel="stylesheet" />
+  <link rel="shortcut icon" href="{{ url('/images/logo-no-bg.png') }}" type="image/x-icon">
   <title>@yield('title', 'Temporal Adventures')</title>
 </head>
 
@@ -18,7 +19,7 @@
   <nav class="navbar navbar-expand-sm bg-light navbar-light d-sm-block d-md-none sticky-top">
     <div class="container-fluid">
     <a class="navbar-brand p-0 m-0" href="#">
-          <img src="{{ url('/images/logo-no-bg.png') }}" alt="Logo" style="width:50px;" class="rounded-pill">
+          <img src="{{ url('/images/logo-no-bg.png') }}" alt="Logo" class="rounded-pill my-logo-medium">
         </a>
       <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-menu">
         <span class="navbar-toggler-icon"></span>

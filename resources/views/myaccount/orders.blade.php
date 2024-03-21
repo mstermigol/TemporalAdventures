@@ -1,6 +1,6 @@
 <!-- Author: Sergio Córdoba -->
 @extends('layouts.app') 
-@section('title', trans('app.titles.order'))  
+@section('title', $viewData['title'])  
 @section('content') 
 @forelse ($viewData["orders"] as $order) 
 <div class="card mb-4"> 
