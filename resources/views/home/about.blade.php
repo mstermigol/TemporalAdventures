@@ -8,14 +8,17 @@
     <div class="container col-xxl-8 px-4 py-5 text-white">
         <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
             <div class="col-10 col-sm-8 col-lg-6">
-                <img src="{{ url("/images/michelin.webp") }}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+                <img src="{{ url("/images/michelin.webp") }}" class="d-block mx-lg-auto img-fluid"
+                    alt="Bootstrap Themes" width="700" height="500" loading="lazy">
             </div>
             <div class="col-lg-6">
                 <h1 class="display-5 fw-bold lh-1 mb-3">@lang('app.user.greeting')</h1>
                 <p class="lead">@lang('app.user.thank_you')</p>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                    <a href="https://youtu.be/fSlqTX39CMM" class="btn btn-primary btn-lg px-4 me-md-2">@lang('app.user.thanks')</a>
-                    <a href="{{route('home.index')}}" class="btn btn-outline btn-lg px-4 text-white">@lang('app.user.back')</a>
+                    <a href="https://youtu.be/fSlqTX39CMM"
+                        class="btn btn-primary btn-lg px-4 me-md-2">@lang('app.user.thanks')</a>
+                    <a href="{{route('home.index')}}"
+                        class="btn btn-outline btn-lg px-4 text-white">@lang('app.user.back')</a>
                 </div>
             </div>
         </div>
@@ -73,7 +76,8 @@
                         <h4 class="mb-4">Miguel</h4>
                         <hr />
                         <p class="dark-grey-text mt-4">
-                            @lang('app.feedback.introduction') "don't use styles in html. Use the css.app with the !important"
+                            @lang('app.feedback.introduction') "don't use styles in html. Use the css.app with the
+                            !important"
                         </p>
                     </div>
                 </div>
@@ -92,11 +96,13 @@
             <div class="col-md-10 mx-auto col-lg-5">
                 <form class="p-4 p-md-5 border rounded-3 bg-light">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="@lang('app.contact.subject')" name="subject">
+                        <input type="text" class="form-control" id="floatingInput"
+                            placeholder="@lang('app.contact.subject')" name="subject">
                         <label for="floatingInput">@lang('app.contact.subject')</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <textarea class="form-control my-form-control" id="floatingMessage" name="message" placeholder="@lang('app.contact.body')"></textarea>
+                        <textarea class="form-control my-form-control" id="floatingMessage" name="message"
+                            placeholder="@lang('app.contact.body')"></textarea>
                         <label for="floatingMessage">@lang('app.contact.body')</label>
                     </div>
                     <button class="w-100 btn btn-lg btn-primary" type="submit">@lang('app.contact.send')</button>

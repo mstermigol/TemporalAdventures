@@ -74,4 +74,12 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/communityposts/edit/{id}', 'App\Http\Controllers\Admin\AdminCommunityPostController@edit')->name('admin.communitypost.edit');
     Route::put('/admin/communityposts/update/{id}', 'App\Http\Controllers\Admin\AdminCommunityPostController@update')->name('admin.communitypost.update');
     Route::get('/admin/communityposts/{id}', 'App\Http\Controllers\Admin\AdminCommunityPostController@show')->name('admin.communitypost.show');
+
+    Route::get('/admin/travels', 'App\Http\Controllers\Admin\AdminTravelController@index')->name('admin.travel.index');
+    Route::get('/admin/travels/create', 'App\Http\Controllers\Admin\AdminTravelController@create')->name('admin.travel.create');
+    Route::post('/admin/travels/save', 'App\Http\Controllers\Admin\AdminTravelController@save')->name('admin.travel.save');
+    Route::delete('/admin/travels/delete/{id}', 'App\Http\Controllers\Admin\AdminTravelController@delete')->name('admin.travel.delete');
+    Route::get('/admin/travels/edit/{id}', 'App\Http\Controllers\Admin\AdminTravelController@edit')->name('admin.travel.edit');
+    Route::put('/admin/travels/update/{id}', 'App\Http\Controllers\Admin\AdminTravelController@update')->name('admin.travel.update');
+    Route::get('/admin/travels/{id}', 'App\Http\Controllers\Admin\AdminTravelController@show')->name('admin.travel.show');
 });

@@ -13,6 +13,7 @@ return [
         'orders' => 'Orders',
         'items' => 'Items',
         'logout' => 'Logout',
+        'user_section' => 'User section',
     ],
     'titles' => [
         'users' => 'Admin users - Temporal Adventures',
@@ -26,6 +27,8 @@ return [
         'community_posts' => 'Admin community posts - Temporal Adventures',
         'create_post' => 'Create Post - Temporal Adventures',
         'edit_community_post' => 'Edit Community Post',
+        'travels' => 'Admin travels - Temporal Adventures',
+        'edit_travel' => 'Edit Travel',
     ],
     'user' => [
         'admin' => 'Admin',
@@ -72,5 +75,21 @@ return [
         'update_post' => 'Update Post',
         'delete_post' => 'Are you sure you want to delete this post?',
         'posted_on' => 'Posted on',
+    ],
+    'travel' => [
+        'create_travel' => 'Create Travel',
+        'are_you_sure' => 'Are you sure?',
+        'title' => 'Title',
+        'description' => 'Description',
+        'place' => 'Place',
+        'date_of_destination' => 'Date of Destination',
+        'price' => 'Price',
+        'start_date' => 'Start Date',
+        'end_date' => 'End Date',
+        'image' => 'Image',
+        'category' => 'Category',
+        'submit' => 'Submit',
+        'edit_travel' => 'Edit Travel',
+        'update_travel' => 'Update Travel',
     ],
 ];

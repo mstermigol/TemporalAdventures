@@ -13,6 +13,7 @@ return [
         'orders' => 'Pedidos',
         'items' => 'Artículos',
         'logout' => 'Salir',
+        'user_section' => 'Sección de Usuario',
     ],
 
     'titles' => [
@@ -27,6 +28,8 @@ return [
         'community_posts' => 'Admin publicaciones de la comunidad - Temporal Adventures',
         'create_post' => 'Crear Publicación - Temporal Adventures',
         'edit_community_post' => 'Editar Publicación de la Comunidad',
+        'travels' => 'Admin viajes - Temporal Adventures',
+        'edit_travel' => 'Editar Viaje',
     ],
 
     'user' => [
@@ -74,5 +77,21 @@ return [
         'update_post' => 'Actualizar Publicación',
         'delete_post' => '¿Estás seguro de que quieres eliminar esta publicación?',
         'posted_on' => 'Publicado el',
+    ],
+    'travel' => [
+        'create_travel' => 'Crear Viaje',
+        'edit_travel' => 'Editar Viaje',
+        'are_you_sure' => '¿Estás seguro?',
+        'title' => 'Título',
+        'description' => 'Descripción',
+        'place' => 'Lugar',
+        'date_of_destination' => 'Fecha de destino',
+        'price' => 'Precio',
+        'start_date' => 'Fecha de inicio',
+        'end_date' => 'Fecha de fin',
+        'image' => 'Imagen',
+        'category' => 'Categoría',
+        'submit' => 'Enviar',
+        'update_travel' => 'Actualizar Viaje',
     ],
 ];

@@ -9,7 +9,8 @@
             <div class="col-lg-12">
                 <h1 class="display-1 font-weight-bold text-shadow courgette-regular">Temporal<br>Adventures</h1>
                 <p class="lead my-5 text-shadow">@lang('app.adventure.intro')</p>
-                <a href="{{route('travel.index')}}" class="btn btn-primary btn-lg mb-5">@lang('app.adventure.start_shopping')</a>
+                <a href="{{route('travel.index')}}"
+                    class="btn btn-primary btn-lg mb-5">@lang('app.adventure.start_shopping')</a>
             </div>
         </div>
     </div>
@@ -62,9 +63,12 @@
         </div>
         <div id="homeTravelCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#homeTravelCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#homeTravelCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#homeTravelCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#homeTravelCarousel" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#homeTravelCarousel" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#homeTravelCarousel" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -77,11 +81,13 @@
                     <img src="{{ url("/images/medellin.webp") }}" class="d-block w-100" alt="">
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#homeTravelCarousel" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#homeTravelCarousel"
+                data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden"></span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#homeTravelCarousel" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#homeTravelCarousel"
+                data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden"></span>
             </button>
@@ -160,7 +166,8 @@
                     <div class="col-12 col-md-10">
                         <span class="h5 mb-4 text-white text-uppercase">@lang('app.discover_adventure.header')</span>
                         <h2 class="display-5 text-white mb-5 mt-3">@lang('app.discover_adventure.description')</h2>
-                        <a href="{{ route('travel.index') }}" class="btn btn-primary btn-lg rounded mb-0 text-nowrap">@lang('app.discover_adventure.start_your_adventure')</a>
+                        <a href="{{ route('travel.index') }}"
+                            class="btn btn-primary btn-lg rounded mb-0 text-nowrap">@lang('app.discover_adventure.start_your_adventure')</a>
                     </div>
                 </div>
             </div>
