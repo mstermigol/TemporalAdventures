@@ -45,7 +45,7 @@
                         href="{{ route('admin.user.index') }}">@lang('admin.navbar_items.users')</a>
                 </li>
                 <li>
-                    <a class="btn btn-primary w-100 my-1">@lang('admin.navbar_items.travels')</a>
+                    <a class="btn btn-primary w-100 my-1 @if (Request::segment(2) == 'travels') active @endif"  href="{{ route('admin.travel.index') }}>@lang('admin.navbar_items.travels')</a>
                 </li>
                 <li>
                     <a class="btn btn-primary w-100 my-1 @if (Request::segment(2) == 'communityposts') active @endif"
@@ -86,7 +86,7 @@
                                 href="{{ route('admin.user.index') }}">@lang('admin.navbar_items.users')</a>
                         </li>
                         <li>
-                            <a class="btn btn-primary w-100 my-1">@lang('admin.navbar_items.travels')</a>
+                            <a class="btn btn-primary w-100 my-1 @if (Request::segment(2) == 'travels') active @endif" href="{{ route('admin.travel.index') }}">@lang('admin.navbar_items.travels')</a>
                         </li>
                         <li>
                             <a class="btn btn-primary w-100 my-1  @if (Request::segment(2) == 'communityposts') active @endif"
