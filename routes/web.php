@@ -31,10 +31,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/review/edit/{id}', 'App\Http\Controllers\ReviewController@edit')->name('review.edit');
     Route::put('/review/update/{id}', 'App\Http\Controllers\ReviewController@update')->name('review.update');
 
-    Route::post('/communityposts/new/create', 'App\Http\Controllers\CommunityPostController@save')->name('communityposts.save');
+    Route::post('/communityposts/new/create', 'App\Http\Controllers\CommunityPostController@save')->name('communitypost.save');
     Route::delete('/communityposts/{communitypost}', 'App\Http\Controllers\CommunityPostController@delete')->name('communitypost.delete');
-    Route::get('/communitypost/edit/{id}', 'App\Http\Controllers\CommunityPostController@edit')->name('communitypost.edit');
-    Route::put('/communitypost/update/{id}', 'App\Http\Controllers\CommunityPostController@update')->name('communitypost.update');
+    Route::get('/communityposts/edit/{id}', 'App\Http\Controllers\CommunityPostController@edit')->name('communitypost.edit');
+    Route::put('/communityposts/update/{id}', 'App\Http\Controllers\CommunityPostController@update')->name('communitypost.update');
     Route::post('/communityposts/{reviewOfId}/reviews', 'App\Http\Controllers\ReviewController@save')->name('communitypost.review.save');
     Route::delete('/communityposts/reviews/{review}', 'App\Http\Controllers\ReviewController@delete')->name('communitypost.review.delete');
 
@@ -66,4 +66,12 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/reviews/edit/{id}', 'App\Http\Controllers\Admin\AdminReviewController@edit')->name('admin.review.edit');
     Route::put('/admin/reviews/update/{id}', 'App\Http\Controllers\Admin\AdminReviewController@update')->name('admin.review.update');
     Route::get('/admin/reviews/{id}', 'App\Http\Controllers\Admin\AdminReviewController@show')->name('admin.review.show');
+
+    Route::get('/admin/communityposts', 'App\Http\Controllers\Admin\AdminCommunityPostController@index')->name('admin.communitypost.index');
+    Route::get('/admin/communityposts/create', 'App\Http\Controllers\Admin\AdminCommunityPostController@create')->name('admin.communitypost.create');
+    Route::post('/admin/communityposts/save', 'App\Http\Controllers\Admin\AdminCommunityPostController@save')->name('admin.communitypost.save');
+    Route::delete('/admin/communityposts/delete/{id}', 'App\Http\Controllers\Admin\AdminCommunityPostController@delete')->name('admin.communitypost.delete');
+    Route::get('/admin/communityposts/edit/{id}', 'App\Http\Controllers\Admin\AdminCommunityPostController@edit')->name('admin.communitypost.edit');
+    Route::put('/admin/communityposts/update/{id}', 'App\Http\Controllers\Admin\AdminCommunityPostController@update')->name('admin.communitypost.update');
+    Route::get('/admin/communityposts/{id}', 'App\Http\Controllers\Admin\AdminCommunityPostController@show')->name('admin.communitypost.show');
 });

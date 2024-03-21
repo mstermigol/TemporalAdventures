@@ -3,11 +3,11 @@
 @extends('layouts.app')
 @section('title', $viewData['title'])
 @section('content')
-<section class="container my-5">
+<div class="container">
     <div class="row">
-        <div class="col-12">
+        <div class="col-7">
             <h2>@lang('app.content_community.create_post')</h2>
-            <form method="POST" action="{{ route('communityposts.save') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('communitypost.save') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group mb-3">
                     <label for="title">@lang('app.content_community.title')</label>
@@ -15,7 +15,8 @@
                 </div>
                 <div class="form-group mb-3">
                     <label for="description">@lang('app.content_community.description')</label>
-                    <textarea class="form-control custom-height-300" id="description" name="description" rows="3" required></textarea>
+                    <textarea class="form-control custom-height-300" id="description" name="description" rows="3"
+                        required></textarea>
                 </div>
                 <div class="form-group mb-3">
                     <label for="image">@lang('app.content_community.image')</label>
@@ -33,7 +34,7 @@
                     <label for="category">@lang('app.content_community.category')</label>
                     <select class="form-control" id="category" name="category">
                         @foreach ($viewData['categories'] as $category)
-                            <option value="{{ $category->value }}">{{ $category->value }}</option>
+                        <option value="{{ $category->value }}">{{ $category->value }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -41,5 +42,5 @@
             </form>
         </div>
     </div>
-</section>
+</div>
 @endsection
