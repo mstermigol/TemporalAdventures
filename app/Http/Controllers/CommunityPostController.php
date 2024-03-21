@@ -8,6 +8,7 @@ namespace App\Http\Controllers;
 
 use App\Enums\CategoryEnum;
 use App\Models\CommunityPost;
+use App\Util\ImageLocalStorage;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -55,13 +56,8 @@ class CommunityPostController extends Controller
     {
         CommunityPost::validate($request);
 
-        if ($request->hasFile('image')) {
-            $filename = uniqid().'.'.$request->file('image')->extension();
-            $imagePath = $request->file('image')->storeAs('public/community', $filename);
-            $imagePath = '/storage/community/'.$filename;
-        } else {
-            $imagePath = null;
-        }
+        $imagePath = new ImageLocalStorage();
+        $imagePath = $imagePath->storeAndGetPath($request, 'community');
 
         $post = new CommunityPost();
         $post->setTitle($request->get('title'));
@@ -106,11 +102,10 @@ class CommunityPostController extends Controller
         $post = CommunityPost::findOrFail($id);
         CommunityPost::validate($request);
 
-        if ($request->hasFile('image')) {
-            $filename = uniqid().'.'.$request->file('image')->extension();
-            $imagePath = $request->file('image')->storeAs('public/community', $filename);
-            $imagePath = '/storage/community/'.$filename;
-        } else {
+        $imagePath = new ImageLocalStorage();
+        $imagePath = $imagePath->storeAndGetPath($request, 'community');
+
+        if (! $imagePath) {
             $imagePath = $post->getImage();
         }
 
