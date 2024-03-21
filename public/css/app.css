@@ -55,6 +55,10 @@
     background: #4D8EA5;
 }
 
+.custom-height-300 {
+    height: 300px;
+}
+
 .my-form-control{
     height: 120px !important;
 }
@@ -69,4 +73,9 @@
 
 .my-logo-large {
     width: 150px !important;
+}
+
+.img-edit {
+    max-width: 100%;
+    height: auto;
 }
