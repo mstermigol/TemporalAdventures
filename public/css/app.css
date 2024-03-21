@@ -74,3 +74,8 @@
 .my-logo-large {
     width: 150px !important;
 }
+
+.img-edit {
+    max-width: 100%;
+    height: auto;
+}

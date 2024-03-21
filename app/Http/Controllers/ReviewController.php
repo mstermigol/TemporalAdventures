@@ -74,9 +74,9 @@ class ReviewController extends Controller
         $review->save();
 
         if ($review->getCommunityPostId()) {
-            return redirect()->route('communitypost.show', $review->community_post_id);
+            return redirect()->route('communitypost.show', $review->getCommunityPostId());
         } else if ($review->getTravelId()) {
-            return redirect()->route('travel.show', $review->travel_id);
+            return redirect()->route('travel.show', $review->getTravelId());
         }
 
         return back();
