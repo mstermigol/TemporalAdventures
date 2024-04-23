@@ -35,9 +35,6 @@ RUN composer install \
 # Generate application key
 RUN php artisan key:generate
 
-# Run database migrations
-RUN php artisan migrate
-
 # Set appropriate permissions
 RUN chmod -R 755 storage
 
