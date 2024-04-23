@@ -1,36 +1,44 @@
 services:
-  web:
+  nginx:
     build:
-      context: ./
-      dockerfile: Dockerfile
-    ports:
-      - "80:80"
-    depends_on:
-      - db
-    volumes:
-      - .:/var/www/html
-      - uploads:/var/www/html/public/images 
+      context: .
+      dockerfile: nginx/Dockerfile
+    ports: 
+      - "8080:80"
     networks:
-      - laravel_network
-
-  db:
+      - internal
+    volumes:
+      - ./application/:/var/www/html/
+      - ./logs/nginx:/var/log/nginx/
+    container_name: nginx
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - internal
+    volumes:
+      - ./application/:/var/www/html/
+      - ./logs/php.log:/var/log/fpm-php.www.log
+      - ./images/:/var/www/html/public/images/
+    container_name: php
+    expose:
+      - "9000"
+  mysql:
+    container_name: db
+    restart: always
     image: mysql:latest
-    command: --default-authentication-plugin=mysql_native_password
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: temporaladventures
-      MYSQL_USER: user
-      MYSQL_PASSWORD: user
+    platform: linux/x86_64
     ports:
       - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_USER: 'user'
+      MYSQL_PASS: 'user'
     volumes:
-      - db_data:/var/lib/mysql
+      - ./db-data:/var/lib/mysql
     networks:
-      - laravel_network
-
+      - internal
 networks:
-  laravel_network:
-
-volumes:
-  db_data:
-  uploads:
+  internal:
+    driver: bridge
