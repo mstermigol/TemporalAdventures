@@ -20,7 +20,6 @@ services:
     volumes:
       - ./application/:/var/www/html/
       - ./logs/php.log:/var/log/fpm-php.www.log
-      - ./images/:/var/www/html/public/images/
     container_name: php
     expose:
       - "9000"
