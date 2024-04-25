@@ -1,4 +1,4 @@
-FROM php:8.1-fpm
+FROM php:8.2-fpm
 
 WORKDIR /var/www/html
 
@@ -19,7 +19,7 @@ RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-RUN composer install
+RUN composer install --no-dev
 RUN php artisan key:generate
 RUN php artisan migrate
 RUN chmod -R 777 storage
