@@ -16,20 +16,6 @@ services:
         - ./db-data:/var/lib/mysql
       networks:
         - internal
-  nginx:
-    build:
-      context: ./nginx
-      dockerfile: Dockerfile
-    restart: always
-    depends_on:
-      - mysql
-    volumes:
-      - ./application/:/var/www/html/
-    ports: 
-      - "80:80"
-    networks:
-      - internal      
-    container_name: nginx
   php:
     build:
       context: .
@@ -41,7 +27,6 @@ services:
       - internal
     volumes:
       - ./laravel/images:/var/www/html/public/images
-      - ./application/:/var/www/html/
     container_name: php
     expose:
       - "9000"
