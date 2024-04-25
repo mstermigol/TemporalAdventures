@@ -6,6 +6,8 @@ services:
     restart: always
     depends_on:
       - mysql
+    ports:
+      - "80:80"
     networks:
       - internal
     volumes:
