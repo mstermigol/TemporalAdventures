@@ -3,6 +3,7 @@ services:
     build:
       context: ./nginx
       dockerfile: Dockerfile
+    restart: always
     depends_on:
       - mysql
     ports: 
@@ -14,6 +15,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    restart: always
     depends_on:
       - mysql
     networks:
@@ -29,7 +31,6 @@ services:
       dockerfile: Dockerfile
     container_name: db
     restart: always
-    image: mysql:latest
     platform: linux/x86_64
     ports:
       - "3306:3306"
