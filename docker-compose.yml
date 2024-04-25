@@ -1,4 +1,21 @@
 services:
+  mysql:
+      build: 
+        context: ./mysql
+        dockerfile: Dockerfile
+      container_name: db
+      restart: always
+      platform: linux/x86_64
+      ports:
+        - "3306:3306"
+      environment:
+        MYSQL_ROOT_PASSWORD: 'root'
+        MYSQL_USER: 'user'
+        MYSQL_PASS: 'user'
+      volumes:
+        - ./db-data:/var/lib/mysql
+      networks:
+        - internal
   nginx:
     build:
       context: ./nginx
@@ -25,23 +42,6 @@ services:
     container_name: php
     expose:
       - "9000"
-  mysql:
-    build: 
-      context: ./mysql
-      dockerfile: Dockerfile
-    container_name: db
-    restart: always
-    platform: linux/x86_64
-    ports:
-      - "3306:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: 'root'
-      MYSQL_USER: 'user'
-      MYSQL_PASS: 'user'
-    volumes:
-      - ./db-data:/var/lib/mysql
-    networks:
-      - internal
 networks:
   internal:
     driver: bridge
