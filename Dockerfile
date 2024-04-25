@@ -22,6 +22,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 RUN composer install --no-dev
 RUN php artisan key:generate
 RUN chmod -R 777 storage
+RUN chmod -R 777 public
 RUN php artisan storage:link
 
 CMD ["php", "artisan", "migrate", "&&", "php", "artisan", "db:seed"]
