@@ -1,29 +1,32 @@
 services:
   nginx:
     build:
-      context: .
-      dockerfile: nginx/Dockerfile
+      context: ./nginx
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql
     ports: 
-      - "8080:80"
+      - "80:80"
     networks:
-      - internal
-    volumes:
-      - ./:/var/www/html/
-      - ./logs/nginx:/var/log/nginx/
+      - internal      
     container_name: nginx
   php:
     build:
       context: .
       dockerfile: Dockerfile
+    depends_on:
+      - mysql
     networks:
       - internal
     volumes:
-      - ./:/var/www/html/
-      - ./logs/php.log:/var/log/fpm-php.www.log
+      - ./laravel/images:/var/www/html/public/images
     container_name: php
     expose:
       - "9000"
   mysql:
+    build: 
+      context: ./mysql
+      dockerfile: Dockerfile
     container_name: db
     restart: always
     image: mysql:latest
