@@ -1,4 +1,16 @@
 services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      - mysql
+    networks:
+      - internal
+    volumes:
+      - ./laravel/images:/var/www/html/public/images
+    container_name: php
   mysql:
       build: 
         context: .
@@ -16,20 +28,7 @@ services:
         - ./db-data:/var/lib/mysql
       networks:
         - internal
-  php:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    restart: always
-    depends_on:
-      - mysql
-    networks:
-      - internal
-    volumes:
-      - ./laravel/images:/var/www/html/public/images
-    container_name: php
-    expose:
-      - "9000"
+
 networks:
   internal:
     driver: bridge
