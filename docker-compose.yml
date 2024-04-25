@@ -1,8 +1,8 @@
 services:
   mysql:
       build: 
-        context: ./mysql
-        dockerfile: Dockerfile
+        context: .
+        dockerfile: Dockerfile-sql
       container_name: db
       restart: always
       platform: linux/x86_64
