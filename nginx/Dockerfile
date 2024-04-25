@@ -1,3 +1,3 @@
 FROM nginx:alpine
-ADD default.conf /etc/nginx/conf.d
-ADD fastcgi-php.conf /etc/nginx
+ADD nginx/default.conf /etc/nginx/conf.d
+ADD nginx/fastcgi-php.conf /etc/nginx
