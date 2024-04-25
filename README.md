@@ -47,10 +47,7 @@ Temporal Adventures is an online store where you can buy travels to explore icon
 - Run the `seeders` to generate data into the database.
 
   ```
-  php artisan db:seed --class=Database\Seeders\TravelsTableSeeder
-  php artisan db:seed --class=Database\Seeders\UsersTableSeeder
-  php artisan db:seed --class=Database\Seeders\CommunityPostsTableSeeder
-  php artisan db:seed --class=Database\Seeders\ReviewsTableSeeder
+  php artisan db:seed
   ```
 
 - Run the `server`.
