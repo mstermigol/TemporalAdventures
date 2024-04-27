@@ -34,3 +34,5 @@ networks:
 
 volumes:
   mysql_data:
+  laravel_images:
+
