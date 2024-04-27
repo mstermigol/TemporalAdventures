@@ -8,7 +8,7 @@ services:
       - mysql
     ports:
       - "80:80"
-    entrypoint: sh -c "sleep 30 && php /var/www/html/artisan migrate && apache2-foreground"
+    entrypoint: sh -c "sleep 30 && php /var/www/html/artisan migrate --seed && apache2-foreground"
     container_name: laravel-apache
     networks:
       - internal
