@@ -29,3 +29,6 @@ services:
 
 networks:
   internal:
+
+volumes:
+  mysql_data:
