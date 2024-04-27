@@ -18,6 +18,3 @@ RUN chmod -R 777 storage
 RUN php artisan storage:link
 RUN a2enmod rewrite
 RUN sed -i 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf
-RUN service apache2 restart
-
-CMD ["php", "artisan", "migrate", "--seed"]
