@@ -8,4 +8,4 @@ services:
       - mysql
     ports:
       - "80:80"
-    container_name: php
+    container_name: laravel-apache
