@@ -8,28 +8,4 @@ services:
       - mysql
     ports:
       - "80:80"
-    networks:
-      - internal
-    volumes:
-      - ./laravel/images:/var/www/html/public/images
     container_name: php
-  mysql:
-      build: 
-        context: .
-        dockerfile: Dockerfile-sql
-      container_name: db
-      restart: always
-      ports:
-        - "3306:3306"
-      environment:
-        MYSQL_ROOT_PASSWORD: 'root'
-        MYSQL_USER: 'user'
-        MYSQL_PASS: 'user'
-      volumes:
-        - ./db-data:/var/lib/mysql
-      networks:
-        - internal
-
-networks:
-  internal:
-    driver: bridge
