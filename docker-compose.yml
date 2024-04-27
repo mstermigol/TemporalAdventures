@@ -1,9 +1,27 @@
 services:
-  php:
+  laravel-apache:
     build:
       context: .
       dockerfile: Dockerfile
     restart: always
+    depends_on:
+      - mysql
     ports:
       - "80:80"
     container_name: laravel-apache
+    networks:
+      - internal
+  mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: temporaladventures
+    ports:
+      - "3306:3306"
+    container_name: mysql
+    networks:
+      - internal
+
+networks:
+  internal:
