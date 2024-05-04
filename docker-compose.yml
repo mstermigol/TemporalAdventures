@@ -8,7 +8,7 @@ services:
       - mysql
     ports:
       - "80:80"
-    entrypoint: sh -c "php /var/www/html/artisan migrate && apache2-foreground"
+    entrypoint: sh -c "until nc -z mysql 3306; do sleep 1; done && php /var/www/html/artisan migrate && apache2-foreground"
     container_name: laravel-apache
     volumes:
       - laravel_images:/var/www/html/storage
