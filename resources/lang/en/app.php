@@ -16,7 +16,8 @@ return [
         'orders' => 'Orders',
         'balance' => 'Balance',
         'admin_pannel' => 'Admin Pannel',
-
+        'english' => 'English',
+        'spanish' => 'Spanish',
     ],
     'footer' => [
         'copyright' => 'Copyright',

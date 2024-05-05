@@ -42,6 +42,20 @@
                             <i class="fas fa-shopping-cart"></i>
                         </a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <div class="nav-link dropdown-toggle" role="button" id="navbarDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-globe"></i>
+                        </div>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li class="dropdown-item">
+                                <a class="nav-link" href="locale/en">@lang('app.navbar_items.english') <i> <img src="/images/usa-flag.png" alt="USA flag" style="width: 20px; height: 15px;"></i></a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a class="nav-link" href="locale/es">@lang('app.navbar_items.spanish') <i> <img src="/images/spain-flag.png" alt="Spain flag" style="width: 20px; height: 15px;"></i></a>
+                            </li>
+                        </ul>
+                    </li>
                     <div class="vr bg-black mx-2 d-none d-lg-block"></div>
                     @guest
                     <a class="nav-link active" href="{{ route('login') }}">@lang('app.navbar_items.login')</a>
