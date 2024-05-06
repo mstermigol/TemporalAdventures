@@ -23,7 +23,7 @@ class AdminCommunityPostController extends Controller
         $viewData = [];
         $viewData['title'] = trans('admin.titles.community_posts');
         $viewData['delete'] = trans('admin.community.are_you_sure');
-        $viewData['posts'] = CommunityPost::all();
+        $viewData['communityPosts'] = CommunityPost::all();
 
         return view('admin.communitypost.index')->with('viewData', $viewData);
     }
@@ -34,7 +34,7 @@ class AdminCommunityPostController extends Controller
 
         $viewData = [];
         $viewData['title'] = "{$post->getTitle()} - Temporal Adventures";
-        $viewData['post'] = $post;
+        $viewData['communityPost'] = $post;
 
         return view('admin.communitypost.show')->with('viewData', $viewData);
     }
@@ -85,7 +85,7 @@ class AdminCommunityPostController extends Controller
         $post = CommunityPost::findOrFail($id);
         $viewData = [];
         $viewData['title'] = trans('admin.titles.edit_community_post');
-        $viewData['post'] = $post;
+        $viewData['communityPost'] = $post;
         $viewData['categories'] = CategoryEnum::cases();
 
         return view('admin.communitypost.edit')->with('viewData', $viewData);

@@ -9,16 +9,21 @@
         <i class="fas fa-plus"></i> @lang('admin.travel.create_travel')
     </a>
 </div>
-<ul class="row list-unstyled align-items-stretch">
-    @foreach ($viewData["travels"] as $travel)
-    <li class="col-md-4 col-lg-4 mb-4">
-        <div class="card h-100">
-            <img src="{{ url("{$travel->getImage()}") }}" class="card-img-top">
-            <div class="card-body d-flex flex-column">
-                <h5 class="card-title">{{$travel->getTitle()}}</h5>
-                <p class="card-text">{{$travel->getDescription()}}</p>
-                <div class="d-flex justify-content-end container-fluid">
-                <a href="{{ route('admin.travel.show', $travel->getId()) }}"
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($viewData["travels"] as $travel)
+            <tr>
+                <td>{{$travel->getTitle()}}</td>
+                <td>
+                    <div class="d-flex">
+                        <a href="{{ route('admin.travel.show', $travel->getId()) }}"
                             class="btn btn-dark me-1"><i class="fas fa-eye"></i></a>
                         
                         <a href="{{ route('admin.travel.edit', $travel->getId()) }}"
@@ -27,12 +32,13 @@
                         <form action="{{ route('admin.travel.delete', $travel->getId())}}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger me-1"><i class="fas fa-trash-alt"></i></button>
+                            <button type="submit" class="btn btn-danger me-1" onclick="return confirm('{{$viewData['delete']}}')"><i class="fas fa-trash-alt"></i></button>
                         </form>
-                </div>
-            </div>
-        </div>
-    </li>
-    @endforeach
-</ul>
+                    </div>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
 @endsection

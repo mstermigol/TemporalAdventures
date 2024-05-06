@@ -21,6 +21,7 @@ class AdminTravelController extends Controller
     {
         $viewData = [];
         $viewData['title'] = trans('admin.titles.travels');
+        $viewData['delete'] = trans('admin.community.are_you_sure');
         $viewData['travels'] = Travel::all();
 
         return view('admin.travel.index')->with('viewData', $viewData);

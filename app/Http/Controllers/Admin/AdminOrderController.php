@@ -18,6 +18,7 @@ class AdminOrderController extends Controller
     {
         $viewData = [];
         $viewData['title'] = trans('admin.titles.orders');
+        $viewData['delete'] = trans('admin.community.are_you_sure');
         $viewData['orders'] = Order::with('user')->get();
 
         return view('admin.order.index')->with('viewData', $viewData);

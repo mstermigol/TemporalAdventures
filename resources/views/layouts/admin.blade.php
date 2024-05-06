@@ -23,7 +23,7 @@
 
     <nav class="navbar bg-light navbar-light sticky-top">
         <div class="container-fluid">
-            <a class="navbar-brand p-0 m-0" href="#">
+            <a class="navbar-brand p-0 m-0" href="{{ route('admin.user.index') }}">
                 <img src="{{ url('/images/logo-no-bg.png') }}" alt="Logo" class="rounded-pill my-logo-medium">
             </a>
             <h1 class="text-center text-dark">@lang('admin.navbar_items.title')</h1>
