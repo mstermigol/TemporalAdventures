@@ -113,6 +113,8 @@ return [
     ],
     'content_community' => [
         'see_more' => 'See more',
+        'see_more_suspense' => 'See more...',
+        'see_less' => 'See less',
         'comments' => 'Comments',
         'community' => 'Community',
         'title' => 'Title',

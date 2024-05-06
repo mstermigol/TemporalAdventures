@@ -20,6 +20,7 @@ class AdminUserController extends Controller
     {
         $viewData = [];
         $viewData['title'] = trans('admin.titles.users');
+        $viewData['delete'] = trans('admin.community.are_you_sure');
         $viewData['users'] = User::all();
 
         return view('admin.user.index')->with('viewData', $viewData);

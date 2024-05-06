@@ -22,6 +22,7 @@ class AdminReviewController extends Controller
     {
         $viewData = [];
         $viewData['title'] = trans('admin.titles.reviews');
+        $viewData['delete'] = trans('admin.community.are_you_sure');
         $viewData['reviews'] = Review::all();
 
         return view('admin.review.index')->with('viewData', $viewData);

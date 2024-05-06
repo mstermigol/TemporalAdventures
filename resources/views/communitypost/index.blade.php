@@ -37,7 +37,7 @@
                         </form>
                         <form method="GET" action="{{ route('communitypost.edit', $post->getId()) }}">
                             @csrf
-                            <button type="submit" class="btn btn-success ms-2"
+                            <button type="submit" class="btn btn-primary ms-2"
                                 title="@lang('app.content_community.edit_post')"
                                 onclick="return confirm(trans('app.content_community.are_you_sure'))">
                                 <i class="bi bi-pencil-fill"></i>
@@ -51,7 +51,10 @@
                 @endif
                 <div class="card-body">
                     <h5 class="card-title">{{ $post->getTitle() }}</h5>
-                    <p class="card-text">{!! $post->getDescription() !!}</p>
+                    <p class="card-text text-truncate no-margin" id="top-description-{{ $post->getId() }}">{!! $post->getDescription() !!}</p>
+                    <p class="see-more" data-post-id="top-{{ $post->getId() }}" data-more="@lang('app.content_community.see_more_suspense')" data-less="@lang('app.content_community.see_less')">
+                        @lang('app.content_community.see_more_suspense')
+                    </p>
                     <a href="{{ route('communitypost.show', ['id' => $post->getId()]) }}" class="btn btn-primary">
                         <i class="fa fa-comments"></i>
                         @lang('app.content_community.reviews')
@@ -87,7 +90,7 @@
                         </form>
                         <form method="GET" action="{{ route('communitypost.edit', $post->getId()) }}">
                             @csrf
-                            <button type="submit" class="btn btn-success ms-2"
+                            <button type="submit" class="btn btn-primary ms-2"
                                 title="@lang('app.content_community.edit_post')"
                                 onclick="return confirm(trans('app.content_community.are_you_sure'))">
                                 <i class="bi bi-pencil-fill"></i>
@@ -101,7 +104,10 @@
                 @endif
                 <div class="card-body">
                     <h5 class="card-title">{{ $post->getTitle() }}</h5>
-                    <p class="card-text">{!! $post->getDescription() !!}</p>
+                    <p class="card-text text-truncate no-margin" id="description-{{ $post->getId() }}">{!! $post->getDescription() !!}</p>
+                    <p class="see-more" data-post-id="{{ $post->getId() }}" data-more="@lang('app.content_community.see_more_suspense')" data-less="@lang('app.content_community.see_less')">
+                        @lang('app.content_community.see_more_suspense')
+                    </p>
                     <a href="{{ route('communitypost.show', ['id' => $post->getId()]) }}" class="btn btn-primary">
                         <i class="fa fa-comments"></i>
                         @lang('app.content_community.reviews')
@@ -115,4 +121,5 @@
         @endforeach
     </div>
 </section>
+<script src="{{ asset('/js/app.js') }}"></script>
 @endsection
