@@ -17,3 +17,7 @@
 .my-logo-large {
     width: 150px !important;
 }
+
+.no-style {
+    list-style: none;
+}
