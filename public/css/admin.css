@@ -21,3 +21,9 @@
 .no-style {
     list-style: none;
 }
+
+.image-preview {
+    width: 30vh;
+    height: 30vh;
+    object-fit: cover;
+}

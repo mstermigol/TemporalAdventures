@@ -25,7 +25,7 @@
       <div class="mb-3">
         <label for="image" class="form-label">@lang('admin.community.post_image')</label>
         <div class="mb-2">
-          <img src="{{ $viewData['communityPost']->getImage() }}" alt="Current Image img-edit">
+          <img class="image-preview" src="{{ $viewData['communityPost']->getImage() }}" alt="Current Image img-edit">
         </div>
         <input type="file" class="form-control" id="image" name="image">
         <div class="form-text">@lang('admin.community.change_post_image')</div>
