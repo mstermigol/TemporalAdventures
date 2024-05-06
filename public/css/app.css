@@ -79,3 +79,28 @@
     max-width: 100%;
     height: auto;
 }
+
+.text-truncate {
+    margin: 0;
+    white-space: normal;
+    text-overflow: clip;
+    overflow-wrap: break-word;
+    max-height: 4.5rem;
+}
+
+.no-margin{
+    margin: 0;
+}
+
+.see-more{
+    text-decoration: underline;
+    color: #0b5ed7;
+}
+
+.see-more:hover{
+    cursor: pointer;
+}
+
+.d-none {
+    display: none;
+}
