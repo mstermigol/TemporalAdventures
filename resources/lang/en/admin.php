@@ -14,6 +14,7 @@ return [
         'items' => 'Items',
         'logout' => 'Logout',
         'user_section' => 'User section',
+        'title' => 'Admin panel',
     ],
     'titles' => [
         'users' => 'Admin users - Temporal Adventures',

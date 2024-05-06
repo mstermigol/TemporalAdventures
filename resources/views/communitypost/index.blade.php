@@ -37,7 +37,7 @@
                         </form>
                         <form method="GET" action="{{ route('communitypost.edit', $post->getId()) }}">
                             @csrf
-                            <button type="submit" class="btn btn-success ms-2"
+                            <button type="submit" class="btn btn-primary ms-2"
                                 title="@lang('app.content_community.edit_post')"
                                 onclick="return confirm(trans('app.content_community.are_you_sure'))">
                                 <i class="bi bi-pencil-fill"></i>
@@ -90,7 +90,7 @@
                         </form>
                         <form method="GET" action="{{ route('communitypost.edit', $post->getId()) }}">
                             @csrf
-                            <button type="submit" class="btn btn-success ms-2"
+                            <button type="submit" class="btn btn-primary ms-2"
                                 title="@lang('app.content_community.edit_post')"
                                 onclick="return confirm(trans('app.content_community.are_you_sure'))">
                                 <i class="bi bi-pencil-fill"></i>

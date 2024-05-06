@@ -14,6 +14,7 @@ return [
         'items' => 'Artículos',
         'logout' => 'Salir',
         'user_section' => 'Sección de Usuario',
+        'title' => 'Panel de Admin',
     ],
 
     'titles' => [
