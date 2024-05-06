@@ -16,6 +16,8 @@ return [
         'about' => 'Sobre Nosotros',
         'balance' => 'Balance',
         'admin_pannel' => 'Panel de Administración',
+        'english' => 'Inglés',
+        'spanish' => 'Español',
     ],
     'footer' => [
         'copyright' => 'Derechos de autor',

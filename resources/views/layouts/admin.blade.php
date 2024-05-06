@@ -21,17 +21,31 @@
 
 <body>
 
-  <nav class="navbar bg-light navbar-light sticky-top">
+<nav class="navbar bg-light navbar-light sticky-top">
     <div class="container-fluid">
-      <a class="navbar-brand p-0 m-0" href="{{ route('admin.user.index') }}">
-        <img src="{{ url('/images/logo-no-bg.png') }}" alt="Logo" class="rounded-pill my-logo-medium">
-      </a>
-      <h1 class="text-center text-dark">@lang('admin.navbar_items.title')</h1>
-      <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-menu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+        <a class="navbar-brand p-0 m-0" href="{{ route('admin.user.index') }}">
+            <img src="{{ url('/images/logo-no-bg.png') }}" alt="Logo" class="rounded-pill my-logo-medium">
+        </a>
+        <h1 class="text-center text-dark">@lang('admin.navbar_items.title')</h1>
+        <div class="d-flex justify-content-end align-items-center">
+            <div class="dropdown no-style">
+                <div class="nav-link dropdown-toggle" role="button" id="navbarDropdown" data-bs-toggle="dropdown"
+                    aria-expanded="false"> <i class="bi bi-globe"></i> </div>
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-item"> <a class="nav-link" href="locale/en">@lang('app.navbar_items.english') <i> <img
+                                src="/images/usa-flag.png" alt="USA flag" width="20px" height="15px"></i></a> </div>
+                    <div class="dropdown-item"> <a class="nav-link" href="locale/es">@lang('app.navbar_items.spanish') <i> <img
+                                src="/images/spain-flag.png" alt="Spain flag" width="20px" height="15px"></i></a> </div>
+                </div>
+            </div>
+            <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        </div>
+        
     </div>
-  </nav>
+</nav>
+
 
   <div class="offcanvas offcanvas-start offcanvas-light" id="offcanvas-menu">
     <div class="offcanvas-header bg-light justify-content-between">

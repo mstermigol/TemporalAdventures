@@ -24,6 +24,8 @@ Route::get('/communityposts', 'App\Http\Controllers\CommunityPostController@inde
 Route::get('/communityposts/new', 'App\Http\Controllers\CommunityPostController@create')->name('communitypost.create');
 Route::get('/communityposts/{id}', 'App\Http\Controllers\CommunityPostController@show')->name('communitypost.show');
 
+Route::get('/locale/{lange}', 'App\Http\Controllers\LangController@setLang')->name('lang.setLang');
+
 Route::middleware('auth')->group(function () {
     Route::post('/travels/{reviewOfId}/reviews', 'App\Http\Controllers\ReviewController@save')->name('travel.review.save');
     Route::delete('/travels/reviews/{review}', 'App\Http\Controllers\ReviewController@delete')->name('travel.review.delete');
@@ -82,4 +84,6 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/travels/edit/{id}', 'App\Http\Controllers\Admin\AdminTravelController@edit')->name('admin.travel.edit');
     Route::put('/admin/travels/update/{id}', 'App\Http\Controllers\Admin\AdminTravelController@update')->name('admin.travel.update');
     Route::get('/admin/travels/{id}', 'App\Http\Controllers\Admin\AdminTravelController@show')->name('admin.travel.show');
+
+    Route::get('/admin/locale/{lange}', 'App\Http\Controllers\LangController@setLang')->name('lang.setLang');
 });
