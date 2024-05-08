@@ -20,7 +20,7 @@
             </tr>
           </thead>
           <tbody>
-            @foreach ($order->getItems() as $item)
+            @foreach($order->getItems() as $item)
               <tr>
                 <td>{{ $item->getId() }}</td>
                 <td>
@@ -46,4 +46,7 @@
       @lang('app.order.no_order')
     </div>
   @endforelse
+
+  {{ $viewData['orders']->links() }}
+
 @endsection

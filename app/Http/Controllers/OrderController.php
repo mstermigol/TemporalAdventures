@@ -52,7 +52,8 @@ class OrderController extends Controller
     {
         $viewData = [];
         $viewData['title'] = trans('app.titles.order');
-        $viewData['orders'] = Order::where('user_id', Auth::getUser()->getId())->get();
+        $ordersPerPage = 2;
+        $viewData['orders'] = Order::where('user_id', Auth::getUser()->getId())->paginate($ordersPerPage);
 
         return view('myaccount.orders')->with('viewData', $viewData);
     }

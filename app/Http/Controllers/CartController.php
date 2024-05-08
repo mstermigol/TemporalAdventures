@@ -32,7 +32,7 @@ class CartController extends Controller
         }
 
         $collection = collect($travelsInCart);
-        $itemsPerPage = 1;
+        $itemsPerPage = 2;
         $currentPage = Paginator::resolveCurrentPage('page') ?: 1;
         $pagedTravels = $collection->forPage($currentPage, $itemsPerPage);
         $paginatedTravels = new LengthAwarePaginator(

@@ -42,9 +42,6 @@
           @endforeach
         </tbody>
       </table>
-
-      {{ $viewData['travels']->onEachSide(1)->links() }}
-
       <div class="row">
         <div class="text-end">
           <a class="btn btn-outline-secondary mb-2"><b>@lang('app.cart.total')</b> ${{ $viewData['total'] }}</a>
@@ -59,6 +56,9 @@
                 @lang('app.cart.remove')
               </button>
             </a>
+
+            {{ $viewData['travels']->onEachSide(1)->links() }}
+
           @endif
         </div>
       </div>
