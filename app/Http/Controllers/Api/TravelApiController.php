@@ -16,6 +16,7 @@ class TravelApiController extends Controller
     public function index(): JsonResponse
     {
         $travels = TravelResource::collection(Travel::all());
+
         return response()->json($travels, 200);
     }
 }

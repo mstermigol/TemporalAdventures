@@ -30,13 +30,8 @@ class CartController extends Controller
         }
 
         $viewData = [];
-        $viewData["title"] = trans('app.titles.cart_index');
+        $viewData['title'] = trans('app.titles.cart_index');
 
-
-
-
-
-        
         $viewData['total'] = $total;
         $viewData['travels'] = $travelsInCart;
 

@@ -47,4 +47,4 @@ Route::middleware('auth')->group(function () {
     Route::get('/order/{id}/pdf', 'App\Http\Controllers\OrderController@downloadPDF')->name('order.download');
 });
 
-require __DIR__ . '/admin/adminRoutes.php';
+require __DIR__.'/admin/adminRoutes.php';

@@ -46,5 +46,3 @@ Route::middleware('admin')->group(function () {
 
     Route::get('/admin/locale/{lange}', 'App\Http\Controllers\LangController@setLang')->name('lang.setLang');
 });
-
-
