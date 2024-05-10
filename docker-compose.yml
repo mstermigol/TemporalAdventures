@@ -1,0 +1,38 @@
+services:
+  laravel-apache:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      - mysql
+    ports:
+      - "80:80"
+    entrypoint: sh -c "sleep 30 && php /var/www/html/artisan migrate && apache2-foreground"
+    container_name: laravel-apache
+    volumes:
+      - laravel_images:/var/www/html/storage
+    networks:
+      - internal
+
+  mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: temporaladventures
+    ports:
+      - "3306:3306"
+    container_name: mysql
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - internal
+
+networks:
+  internal:
+
+volumes:
+  mysql_data:
+  laravel_images:
+
