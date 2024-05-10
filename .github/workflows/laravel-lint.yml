@@ -30,4 +30,10 @@ jobs:
       run: php artisan key:generate
 
     - name: Execute Laravel Pint
-      run: vendor/bin/pint --test
+      run: vendor/bin/pint
+
+    - name: Commit and push changes if Pint modified files
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Refactor PHP Linting (Pint)
+        skip_fetch: true
