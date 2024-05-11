@@ -11,6 +11,8 @@ use App\Http\Controllers\Controller;
 use App\Models\CommunityPost;
 use App\Util\ImageLocalStorage;
 use Exception;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,10 +22,22 @@ class AdminCommunityPostController extends Controller
 {
     public function index(): View
     {
+        $collection = collect(CommunityPost::all());
+        $itemsPerPage = 5;
+        $currentPage = Paginator::resolveCurrentPage('page') ?: 1;
+        $pagedCommunityPosts = $collection->forPage($currentPage, $itemsPerPage);
+        $paginatedCommunityPosts = new LengthAwarePaginator(
+            $pagedCommunityPosts,
+            $collection->count(),
+            $itemsPerPage,
+            $currentPage,
+            ['path' => route('admin.communitypost.index')]
+        );
+
         $viewData = [];
         $viewData['title'] = trans('admin.titles.community_posts');
         $viewData['delete'] = trans('admin.community.are_you_sure');
-        $viewData['communityPosts'] = CommunityPost::all();
+        $viewData['communityPosts'] = $paginatedCommunityPosts;
 
         return view('admin.communitypost.index')->with('viewData', $viewData);
     }

@@ -11,15 +11,30 @@ use App\Models\Order;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
 
 class AdminOrderController extends Controller
 {
     public function index(): View
     {
+        $collection = collect(Order::with('user')->get());
+        $itemsPerPage = 5;
+        $currentPage = Paginator::resolveCurrentPage('page') ?: 1;
+        $pagedOrders = $collection->forPage($currentPage, $itemsPerPage);
+        $paginatedOrders = new LengthAwarePaginator(
+            $pagedOrders,
+            $collection->count(),
+            $itemsPerPage,
+            $currentPage,
+            ['path' => route('admin.order.index')]
+        );
+
+
         $viewData = [];
         $viewData['title'] = trans('admin.titles.orders');
         $viewData['delete'] = trans('admin.community.are_you_sure');
-        $viewData['orders'] = Order::with('user')->get();
+        $viewData['orders'] = $paginatedOrders;
 
         return view('admin.order.index')->with('viewData', $viewData);
     }

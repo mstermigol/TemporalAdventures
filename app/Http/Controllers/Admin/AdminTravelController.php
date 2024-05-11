@@ -14,15 +14,29 @@ use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
 
 class AdminTravelController extends Controller
 {
     public function index(): View
     {
+        $collection = collect(Travel::all());
+        $itemsPerPage = 5;
+        $currentPage = Paginator::resolveCurrentPage('page') ?: 1;
+        $pagedTravels = $collection->forPage($currentPage, $itemsPerPage);
+        $paginatedTravels = new LengthAwarePaginator(
+            $pagedTravels,
+            $collection->count(),
+            $itemsPerPage,
+            $currentPage,
+            ['path' => route('admin.travel.index')]
+        );
+
         $viewData = [];
         $viewData['title'] = trans('admin.titles.travels');
         $viewData['delete'] = trans('admin.community.are_you_sure');
-        $viewData['travels'] = Travel::all();
+        $viewData['travels'] = $paginatedTravels;
 
         return view('admin.travel.index')->with('viewData', $viewData);
     }

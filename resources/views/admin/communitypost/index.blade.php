@@ -13,14 +13,14 @@
       <table class="table">
         <thead>
           <tr>
-            <th>User</th>
-            <th>Title</th>
-            <th>Posted On</th>
-            <th>Actions</th>
+            <th>@lang('admin.community.table_user')</th>
+            <th>@lang('admin.community.table_title')</th>
+            <th>@lang('admin.community.table_posted_on')</th>
+            <th>@lang('admin.community.table_actions')</th>
           </tr>
         </thead>
         <tbody>
-          @foreach ($viewData['communityPosts'] as $communityPost)
+          @forelse ($viewData['communityPosts'] as $communityPost)
             <tr>
               <td>{{ $communityPost->getUser()->getName() }}</td>
               <td>{{ $communityPost->getTitle() }}</td>
@@ -52,9 +52,14 @@
                 </div>
               </td>
             </tr>
-          @endforeach
+          @empty
+            <div class="alert alert-danger" role="alert">
+              @lang('admin.community.empty')
+            </div>
+          @endforelse
         </tbody>
       </table>
+      {{ $viewData['communityPosts']->links() }}
     </div>
   </div>
 @endsection

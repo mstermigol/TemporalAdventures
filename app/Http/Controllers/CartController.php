@@ -13,6 +13,8 @@ use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -29,11 +31,23 @@ class CartController extends Controller
             $total = Travel::sumPricesByQuantities($travelsInCart, $travelsInSession);
         }
 
+        $collection = collect($travelsInCart);
+        $itemsPerPage = 2;
+        $currentPage = Paginator::resolveCurrentPage('page') ?: 1;
+        $pagedTravels = $collection->forPage($currentPage, $itemsPerPage);
+        $paginatedTravels = new LengthAwarePaginator(
+            $pagedTravels,
+            $collection->count(),
+            $itemsPerPage,
+            $currentPage,
+            ['path' => route('cart.index')]
+        );
+
         $viewData = [];
         $viewData['title'] = trans('app.titles.cart_index');
 
         $viewData['total'] = $total;
-        $viewData['travels'] = $travelsInCart;
+        $viewData['travels'] = $paginatedTravels;
 
         return view('cart.index')->with('viewData', $viewData);
     }

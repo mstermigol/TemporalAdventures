@@ -56,6 +56,9 @@
                 @lang('app.cart.remove')
               </button>
             </a>
+
+            {{ $viewData['travels']->onEachSide(1)->links() }}
+
           @endif
         </div>
       </div>

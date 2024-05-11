@@ -15,15 +15,29 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
 
 class AdminReviewController extends Controller
 {
     public function index(): View
     {
+        $collection = collect(Review::all());
+        $itemsPerPage = 5;
+        $currentPage = Paginator::resolveCurrentPage('page') ?: 1;
+        $pagedReviews = $collection->forPage($currentPage, $itemsPerPage);
+        $paginatedReviews = new LengthAwarePaginator(
+            $pagedReviews,
+            $collection->count(),
+            $itemsPerPage,
+            $currentPage,
+            ['path' => route('admin.review.index')]
+        );
+
         $viewData = [];
         $viewData['title'] = trans('admin.titles.reviews');
         $viewData['delete'] = trans('admin.community.are_you_sure');
-        $viewData['reviews'] = Review::all();
+        $viewData['reviews'] = $paginatedReviews;
 
         return view('admin.review.index')->with('viewData', $viewData);
     }

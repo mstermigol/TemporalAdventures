@@ -15,7 +15,7 @@
           </tr>
         </thead>
         <tbody>
-          @foreach ($viewData['orders'] as $order)
+          @forelse ($viewData['orders'] as $order)
             <tr>
               <td>#{{ $order->getId() }}</td>
               <td>${{ $order->getTotal() }}</td>
@@ -33,9 +33,14 @@
                 </div>
               </td>
             </tr>
-          @endforeach
+          @empty
+            <div class="alert alert-danger" role="alert">
+              @lang('admin.order.empty')
+            </div>
+          @endforelse
         </tbody>
       </table>
+      {{ $viewData['orders']->links() }}
     </div>
   </div>
 @endsection

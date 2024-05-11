@@ -11,13 +11,13 @@
       <table class="table">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>User Type</th>
-            <th>Actions</th>
+            <th>@lang('admin.user.table_name')</th>
+            <th>@lang('admin.user.table_user_role')</th>
+            <th>@lang('admin.user.table_actions')</th>
           </tr>
         </thead>
         <tbody>
-          @foreach ($viewData['users'] as $user)
+          @forelse ($viewData['users'] as $user)
             <tr>
               <td>{{ $user->getName() }}</td>
               <td>{{ $user->getIsStaff() ? trans('admin.user.admin') : trans('admin.user.regular') }}</td>
@@ -36,9 +36,14 @@
                 </div>
               </td>
             </tr>
-          @endforeach
+          @empty
+            <div class="alert alert-danger" role="alert">
+              @lang('admin.user.empty')
+            </div>
+          @endforelse
         </tbody>
       </table>
+      {{ $viewData['users']->links() }}
     </div>
   </div>
 @endsection

@@ -13,15 +13,29 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
 
 class AdminUserController extends Controller
 {
     public function index(): View
     {
+        $collection = collect(User::all());
+        $itemsPerPage = 5;
+        $currentPage = Paginator::resolveCurrentPage('page') ?: 1;
+        $pagedUsers = $collection->forPage($currentPage, $itemsPerPage);
+        $paginatedUsers = new LengthAwarePaginator(
+            $pagedUsers,
+            $collection->count(),
+            $itemsPerPage,
+            $currentPage,
+            ['path' => route('admin.user.index')]
+        );
+
         $viewData = [];
         $viewData['title'] = trans('admin.titles.users');
         $viewData['delete'] = trans('admin.community.are_you_sure');
-        $viewData['users'] = User::all();
+        $viewData['users'] = $paginatedUsers;
 
         return view('admin.user.index')->with('viewData', $viewData);
     }
