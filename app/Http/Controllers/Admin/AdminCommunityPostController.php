@@ -11,10 +11,10 @@ use App\Http\Controllers\Controller;
 use App\Models\CommunityPost;
 use App\Util\ImageLocalStorage;
 use Exception;
-use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Pagination\Paginator;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
