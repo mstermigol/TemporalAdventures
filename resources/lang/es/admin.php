@@ -117,5 +117,6 @@ return [
         'table_title' => 'Título',
         'table_actions' => 'Acciones',
         'empty' => 'No hay viajes',
+        'travels' => 'Viajes',
     ],
 ];

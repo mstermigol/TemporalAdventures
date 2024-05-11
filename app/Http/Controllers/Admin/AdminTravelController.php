@@ -21,6 +21,9 @@ class AdminTravelController extends Controller
 {
     public function index(): View
     {
+        $breadcrumbs = [
+            ['name' => trans('admin.travel.travels'), 'url' => route('admin.travel.index')],
+        ];
         $collection = collect(Travel::all());
         $itemsPerPage = 5;
         $currentPage = Paginator::resolveCurrentPage('page') ?: 1;
@@ -37,6 +40,7 @@ class AdminTravelController extends Controller
         $viewData['title'] = trans('admin.titles.travels');
         $viewData['delete'] = trans('admin.community.are_you_sure');
         $viewData['travels'] = $paginatedTravels;
+        $viewData['breadcrumbs'] = $breadcrumbs;
 
         return view('admin.travel.index')->with('viewData', $viewData);
     }
@@ -44,11 +48,16 @@ class AdminTravelController extends Controller
     public function show(string $id): View
     {
         $travel = Travel::findOrFail($id);
+        $breadcrumbs = [
+            ['name' => trans('admin.travel.travels'), 'url' => route('admin.travel.index')],
+            ['name' => $travel->getTitle(), 'url' => route('admin.travel.show', $id)],
+        ];
 
         $viewData = [];
         $viewData['title'] = "{$travel->getTitle()} - Temporal Adventures";
         $viewData['delete'] = trans('admin.travel.are_you_sure');
         $viewData['travel'] = $travel;
+        $viewData['breadcrumbs'] = $breadcrumbs;
 
         return view('admin.travel.show')->with('viewData', $viewData);
     }
@@ -66,9 +75,14 @@ class AdminTravelController extends Controller
 
     public function create(): View
     {
+        $breadcrumbs = [
+            ['name' => trans('admin.travel.travels'), 'url' => route('admin.travel.index')],
+            ['name'=> trans('admin.travel.create_travel'),'url'=> route('admin.travel.create')],
+        ];
         $viewData = [];
         $viewData['title'] = trans('admin.titles.create_travel');
         $viewData['categories'] = CategoryEnum::cases();
+        $viewData['breadcrumbs'] = $breadcrumbs;
 
         return view('admin.travel.create')->with('viewData', $viewData);
     }
@@ -101,10 +115,15 @@ class AdminTravelController extends Controller
     public function edit(string $id): View
     {
         $travel = Travel::findOrFail($id);
+        $breadcrumbs = [
+            ['name' => trans('admin.travel.travels'), 'url' => route('admin.travel.index')],
+            ['name' => $travel->getTitle(), 'url' => route('admin.travel.edit', $id)],
+        ];
         $viewData = [];
         $viewData['title'] = trans('admin.titles.edit_travel');
         $viewData['travel'] = $travel;
         $viewData['categories'] = CategoryEnum::cases();
+        $viewData['breadcrumbs'] = $breadcrumbs;
 
         return view('admin.travel.edit')->with('viewData', $viewData);
     }
