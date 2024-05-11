@@ -22,7 +22,7 @@
           </tr>
         </thead>
         <tbody>
-          @foreach ($viewData['reviews'] as $review)
+          @forelse ($viewData['reviews'] as $review)
             <tr>
               <td>{{ $review->getTitle() }}</td>
               <td>
@@ -49,10 +49,14 @@
                 </div>
               </td>
             </tr>
-          @endforeach
+          @empty
+            <div class="alert alert-danger" role="alert">
+              @lang('admin.review.empty')
+            </div>
+          @endforelse
         </tbody>
       </table>
-        {{ $viewData['reviews']->links() }}
+      {{ $viewData['reviews']->links() }}
     </div>
   </div>
 @endsection

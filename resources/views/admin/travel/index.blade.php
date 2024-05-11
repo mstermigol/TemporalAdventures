@@ -17,7 +17,7 @@
         </tr>
       </thead>
       <tbody>
-        @foreach ($viewData['travels'] as $travel)
+        @forelse ($viewData['travels'] as $travel)
           <tr>
             <td>{{ $travel->getTitle() }}</td>
             <td>
@@ -37,9 +37,13 @@
               </div>
             </td>
           </tr>
-        @endforeach
+        @empty
+          <div class="alert alert-danger" role="alert">
+            @lang('admin.travel.empty')
+          </div>
+        @endforelse
       </tbody>
     </table>
-        {{ $viewData['travels']->links() }}
+    {{ $viewData['travels']->links() }}
   </div>
 @endsection

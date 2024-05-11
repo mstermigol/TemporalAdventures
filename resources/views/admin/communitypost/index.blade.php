@@ -20,7 +20,7 @@
           </tr>
         </thead>
         <tbody>
-          @foreach ($viewData['communityPosts'] as $communityPost)
+          @forelse ($viewData['communityPosts'] as $communityPost)
             <tr>
               <td>{{ $communityPost->getUser()->getName() }}</td>
               <td>{{ $communityPost->getTitle() }}</td>
@@ -52,7 +52,11 @@
                 </div>
               </td>
             </tr>
-          @endforeach
+          @empty
+            <div class="alert alert-danger" role="alert">
+              @lang('admin.community.empty')
+            </div>
+          @endforelse
         </tbody>
       </table>
       {{ $viewData['communityPosts']->links() }}
