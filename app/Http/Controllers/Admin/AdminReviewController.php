@@ -32,12 +32,16 @@ class AdminReviewController extends Controller
             $itemsPerPage,
             $currentPage,
             ['path' => route('admin.review.index')]
-
         );
+
+
+
+
+        
 
         $viewData = [];
         $viewData['title'] = trans('admin.titles.reviews');
-        $viewData['delete'] = trans('admin.community.are_you_sure');
+        $viewData['delete'] = trans("admin.community.are_you_sure");
         $viewData['reviews'] = $paginatedReviews;
 
         return view('admin.review.index')->with('viewData', $viewData);
