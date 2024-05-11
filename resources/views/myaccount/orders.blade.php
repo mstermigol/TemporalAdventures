@@ -3,7 +3,7 @@
 @section('title', $viewData['title'])
 @section('content')
   @forelse ($viewData["orders"] as $order)
-    <div class="card mb-4">
+    <div class="card mb-4 mx-2">
       <div class="card-header">
         <strong>@lang('app.order.order') #{{ $order->getId() }}</strong>
       </div>
@@ -46,7 +46,9 @@
       @lang('app.order.no_order')
     </div>
   @endforelse
+    <div class="mx-2">
+        {{ $viewData['orders']->links() }}
+    </div>
 
-  {{ $viewData['orders']->links() }}
 
 @endsection
