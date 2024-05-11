@@ -11,9 +11,9 @@
       <table class="table">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>User Type</th>
-            <th>Actions</th>
+            <th>@lang('admin.user.table_name')</th>
+            <th>@lang('admin.user.table_user_role')</th>
+            <th>@lang('admin.user.table_actions')</th>
           </tr>
         </thead>
         <tbody>

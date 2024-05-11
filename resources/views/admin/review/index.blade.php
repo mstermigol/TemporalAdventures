@@ -16,9 +16,9 @@
       <table class="table">
         <thead>
           <tr>
-            <th>Title</th>
-            <th>Type</th>
-            <th>Actions</th>
+            <th>@lang('admin.review.table_title')</th>
+            <th>@lang('admin.review.table_type')</th>
+            <th>@lang('admin.review.table_actions')</th>
           </tr>
         </thead>
         <tbody>

@@ -45,11 +45,15 @@ return [
         'balance' => 'Saldo',
         'edit' => 'Editar',
         'create_user' => 'Crear Usuario',
+        'table_name' => 'Nombre',
+        'table_user_role' => 'Rol de Usuario',
+        'table_actions' => 'Acciones',
     ],
     'order' => [
         'total' => 'Total',
         'user' => 'Usuario',
         'order' => 'Pedido',
+        'actions' => 'Acciones',
     ],
     'review' => [
         'travel' => 'Viaje',
@@ -61,6 +65,9 @@ return [
         'user' => 'Usuario',
         'edit_review' => 'Editar Reseña',
         'edit' => 'Editar',
+        'table_title' => 'Título',
+        'table_type' => 'Tipo',
+        'table_actions' => 'Acciones',
     ],
     'community' => [
         'are_you_sure' => '¿Estás seguro?',
@@ -78,6 +85,10 @@ return [
         'update_post' => 'Actualizar Publicación',
         'delete_post' => '¿Estás seguro de que quieres eliminar esta publicación?',
         'posted_on' => 'Publicado el',
+        'table_user' => 'Usuario',
+        'table_title' => 'Título',
+        'table_actions' => 'Acciones',
+        'table_posted_on' => 'Publicado el',
     ],
     'travel' => [
         'create_travel' => 'Crear Viaje',
@@ -94,5 +105,7 @@ return [
         'category' => 'Categoría',
         'submit' => 'Enviar',
         'update_travel' => 'Actualizar Viaje',
+        'table_title' => 'Título',
+        'table_actions' => 'Acciones',
     ],
 ];
