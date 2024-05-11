@@ -55,6 +55,7 @@
           @endforeach
         </tbody>
       </table>
+      {{ $viewData['communityPosts']->links() }}
     </div>
   </div>
 @endsection

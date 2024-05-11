@@ -40,5 +40,6 @@
         @endforeach
       </tbody>
     </table>
+        {{ $viewData['travels']->links() }}
   </div>
 @endsection

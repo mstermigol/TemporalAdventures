@@ -36,6 +36,7 @@
           @endforeach
         </tbody>
       </table>
+        {{ $viewData['orders']->links() }}
     </div>
   </div>
 @endsection

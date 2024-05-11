@@ -39,6 +39,7 @@
           @endforeach
         </tbody>
       </table>
+        {{ $viewData['users']->links() }}
     </div>
   </div>
 @endsection

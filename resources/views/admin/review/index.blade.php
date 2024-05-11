@@ -52,6 +52,7 @@
           @endforeach
         </tbody>
       </table>
+        {{ $viewData['reviews']->links() }}
     </div>
   </div>
 @endsection
