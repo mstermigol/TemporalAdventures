@@ -49,6 +49,7 @@ return [
         'table_user_role' => 'Rol de Usuario',
         'table_actions' => 'Acciones',
         'empty' => 'No hay usuarios',
+        'users' => 'Usuarios',
     ],
     'order' => [
         'total' => 'Total',
