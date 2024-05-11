@@ -234,4 +234,12 @@ return [
         'rating' => 'Calificación',
         'update_review' => 'Actualizar Reseña',
     ],
+    'pagination' => [
+        'showing' => 'Mostrando',
+        'to' => 'a',
+        'of' => 'de',
+        'results' => 'resultados',
+        'next' => 'Siguiente',
+        'previous' => 'Anterior',
+    ],
 ];

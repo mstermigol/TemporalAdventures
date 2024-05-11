@@ -235,4 +235,12 @@ return [
         'rating' => 'Rating',
         'update_review' => 'Update Review',
     ],
+    'pagination' => [
+        'showing' => 'Showing',
+        'to' => 'to',
+        'of' => 'of',
+        'results' => 'results',
+        'next' => 'Next',
+        'previous' => 'Previous',
+    ],
 ];
