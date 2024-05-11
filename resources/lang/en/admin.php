@@ -70,6 +70,9 @@ return [
         'table_type' => 'Type',
         'table_actions' => 'Actions',
         'empty' => 'No reviews',
+        'reviews' => 'Reviews',
+        'create_travel_review' => 'Create Travel Review',
+        'create_community_post_review' => 'Create Community Post Review',
     ],
     'community' => [
         'are_you_sure' => 'Are you sure?',

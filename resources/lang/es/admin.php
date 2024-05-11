@@ -72,6 +72,9 @@ return [
         'table_type' => 'Tipo',
         'table_actions' => 'Acciones',
         'empty' => 'No hay reseñas',
+        'reviews' => 'Reseñas',
+        'create_travel_review' => 'Crear Reseña de Viaje',
+        'create_community_post_review' => 'Crear Reseña de Publicación de la Comunidad',
     ],
     'community' => [
         'are_you_sure' => '¿Estás seguro?',
