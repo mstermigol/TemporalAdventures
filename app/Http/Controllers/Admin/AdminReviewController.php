@@ -33,11 +33,6 @@ class AdminReviewController extends Controller
             $currentPage,
             ['path' => route('admin.review.index')]
 
-
-
-
-
-            
         );
 
         $viewData = [];
