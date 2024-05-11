@@ -32,6 +32,12 @@ class AdminReviewController extends Controller
             $itemsPerPage,
             $currentPage,
             ['path' => route('admin.review.index')]
+
+
+
+
+
+            
         );
 
         $viewData = [];
