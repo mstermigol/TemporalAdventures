@@ -18,6 +18,9 @@ class AdminOrderController extends Controller
 {
     public function index(): View
     {
+        $breadcrumbs = [
+            ['name' => trans('admin.order.orders'), 'url' => route('admin.order.index')],
+        ];
         $collection = collect(Order::with('user')->get());
         $itemsPerPage = 5;
         $currentPage = Paginator::resolveCurrentPage('page') ?: 1;
@@ -35,6 +38,7 @@ class AdminOrderController extends Controller
         $viewData['title'] = trans('admin.titles.orders');
         $viewData['delete'] = trans('admin.community.are_you_sure');
         $viewData['orders'] = $paginatedOrders;
+        $viewData['breadcrumbs'] = $breadcrumbs;
 
         return view('admin.order.index')->with('viewData', $viewData);
     }
@@ -54,9 +58,14 @@ class AdminOrderController extends Controller
     {
         try {
             $order = Order::findOrFail($id);
+            $breadcrumbs = [
+            ['name' => trans('admin.order.orders'), 'url' => route('admin.order.index')],
+            ['name'=> $order->getId(),'url'=> route('admin.order.show', $id)],
+            ];
             $viewData = [];
             $viewData['title'] = trans('admin.order.order')."#{$order->getId()} - Temporal Adventures";
             $viewData['order'] = $order;
+            $viewData['breadcrumbs'] = $breadcrumbs;
 
             return view('admin.order.show')->with('viewData', $viewData);
         } catch (Exception $e) {

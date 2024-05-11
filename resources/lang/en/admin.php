@@ -54,6 +54,7 @@ return [
         'order' => 'Order',
         'actions' => 'Actions',
         'empty' => 'No orders',
+        'orders' => 'Orders',
     ],
     'review' => [
         'travel' => 'Travel',
@@ -91,6 +92,7 @@ return [
         'table_actions' => 'Actions',
         'table_posted_on' => 'Posted on',
         'empty' => 'No posts',
+        'community_posts' => 'Community Posts',
     ],
     'travel' => [
         'create_travel' => 'Create Travel',

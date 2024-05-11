@@ -56,6 +56,7 @@ return [
         'order' => 'Pedido',
         'actions' => 'Acciones',
         'empty' => 'No hay pedidos',
+        'orders' => 'Pedidos',
     ],
     'review' => [
         'travel' => 'Viaje',
@@ -93,6 +94,7 @@ return [
         'table_actions' => 'Acciones',
         'table_posted_on' => 'Publicado el',
         'empty' => 'No hay publicaciones',
+        'community_posts' => 'Publicaciones de la comunidad',
     ],
     'travel' => [
         'create_travel' => 'Crear Viaje',
