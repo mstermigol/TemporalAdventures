@@ -20,7 +20,8 @@ class CommunityPostController extends Controller
     {
         $arrayTopThreePosts = CommunityPost::getTopThreeRated();
         $breadcrumbs = [
-            ['name' => trans('app.content_community.community_posts'), 'url' => route('communitypost.index')],
+            ['name' => trans('app.breadcrumbs.home'), 'url' => route('home.index')],
+            ['name' => trans('app.breadcrumbs.community_posts'), 'url' => route('communitypost.index')],
         ];
 
         $viewData = [];
@@ -39,7 +40,8 @@ class CommunityPostController extends Controller
     {
         $post = CommunityPost::with('reviews.user')->findOrFail($id);
         $breadcrumbs = [
-            ['name' => trans('app.content_community.community_posts'), 'url' => route('communitypost.index')],
+            ['name' => trans('app.breadcrumbs.home'), 'url' => route('home.index')],
+            ['name' => trans('app.breadcrumbs.community_posts'), 'url' => route('communitypost.index')],
             ['name' => $post->getTitle(), 'url' => route('communitypost.show', $id)],
         ];
 
@@ -55,8 +57,9 @@ class CommunityPostController extends Controller
     public function create(): View
     {
         $breadcrumbs = [
-            ['name' => trans('app.content_community.community_posts'), 'url' => route('communitypost.index')],
-            ['name' => trans('app.content_community.create'), 'url' => route('communitypost.create')],
+            ['name' => trans('app.breadcrumbs.home'), 'url' => route('home.index')],
+            ['name' => trans('app.breadcrumbs.community_posts'), 'url' => route('communitypost.index')],
+            ['name' => trans('app.breadcrumbs.create'), 'url' => route('communitypost.create')],
         ];
 
         $viewData = [];
@@ -105,8 +108,9 @@ class CommunityPostController extends Controller
     {
         $post = CommunityPost::findOrFail($id);
         $breadcrumbs = [
-            ['name' => trans('app.content_community.community_posts'), 'url' => route('communitypost.index')],
-            ['name' => trans('app.content_community.edit'), 'url' => route('communitypost.create')],
+            ['name' => trans('app.breadcrumbs.home'), 'url' => route('home.index')],
+            ['name' => trans('app.breadcrumbs.community_posts'), 'url' => route('communitypost.index')],
+            ['name' => trans('app.breadcrumbs.edit'), 'url' => route('communitypost.create')],
         ];
 
         $viewData = [];

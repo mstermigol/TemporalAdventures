@@ -112,9 +112,6 @@ return [
         'are_you_sure' => 'Are you sure?',
     ],
     'content_community' => [
-        'community_posts' => 'Community posts',
-        'create' => 'Create',
-        'edit' => 'Edit',
         'see_more' => 'See more',
         'see_more_suspense' => 'See more...',
         'see_less' => 'See less',
@@ -251,5 +248,10 @@ return [
         'cart_index' => 'Travels in Cart',
         'cart_purchase' => 'Order #',
         'orders' => 'Orders',
+        'community_posts' => 'Community posts',
+        'create' => 'Create',
+        'edit' => 'Edit',
+        'travels' => 'Travels',
+        'about_us' => 'About Us',
     ],
 ];

@@ -112,9 +112,6 @@ return [
         'are_you_sure' => '¿Estás seguro?',
     ],
     'content_community' => [
-        'community_posts' => 'Publicaciones de la comunidad',
-        'create' => 'Crear',
-        'edit' => 'Editar',
         'see_more' => 'Ver más',
         'see_more_suspense' => 'Ver más...',
         'see_less' => 'Ver menos',
@@ -250,5 +247,10 @@ return [
         'cart_index' => 'Viajes en el carrito',
         'cart_purchase' => 'Orden #',
         'orders' => 'Órdenes',
+        'community_posts' => 'Publicaciones de la comunidad',
+        'create' => 'Crear',
+        'edit' => 'Editar',
+        'travels' => 'Viajes',
+        'about_us' => 'Sobre nosotros',
     ],
 ];
