@@ -243,4 +243,10 @@ return [
         'next' => 'Next',
         'previous' => 'Previous',
     ],
+    'breadcrumbs' => [
+        'home' => 'Home',
+        'cart_index' => 'Travels in Cart',
+        'cart_purchase' => 'Order #',
+        'orders' => 'Orders',
+    ],
 ];

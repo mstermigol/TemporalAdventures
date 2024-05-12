@@ -2,6 +2,7 @@
 @extends('layouts.app')
 @section('title', $viewData['title'])
 @section('content')
+@include('partials.breadcrumbs', ['breadcrumbs' => $viewData['breadcrumbs']])
   @forelse ($viewData["orders"] as $order)
     <div class="card mb-4 mx-2">
       <div class="card-header">

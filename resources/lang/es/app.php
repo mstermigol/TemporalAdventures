@@ -242,4 +242,10 @@ return [
         'next' => 'Siguiente',
         'previous' => 'Anterior',
     ],
+    'breadcrumbs' => [
+        'home' => 'Página de Inicio',
+        'cart_index' => 'Viajes en el carrito',
+        'cart_purchase' => 'Orden #',
+        'orders' => 'Órdenes',
+    ],
 ];

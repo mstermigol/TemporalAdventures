@@ -50,10 +50,15 @@ class OrderController extends Controller
 
     public function orders(): ViewPDF
     {
+        $breadcrumbs = [
+            ['name' => trans('app.breadcrumbs.home'), 'url' => route('home.index')],
+            ['name' => trans('app.breadcrumbs.orders'), 'url' => route('myaccount.orders')],
+        ];
         $viewData = [];
         $viewData['title'] = trans('app.titles.order');
         $ordersPerPage = 2;
         $viewData['orders'] = Order::where('user_id', Auth::getUser()->getId())->paginate($ordersPerPage);
+        $viewData['breadcrumbs'] = $breadcrumbs;
 
         return view('myaccount.orders')->with('viewData', $viewData);
     }

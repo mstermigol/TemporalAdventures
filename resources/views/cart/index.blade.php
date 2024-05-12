@@ -2,6 +2,7 @@
 @extends('layouts.app')
 @section('title', $viewData['title'])
 @section('content')
+@include('partials.breadcrumbs', ['breadcrumbs' => $viewData['breadcrumbs']])
   <div class="card">
     <div class="card-header">
       @lang('app.cart.travels')
