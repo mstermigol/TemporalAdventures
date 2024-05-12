@@ -3,7 +3,8 @@
 @extends('layouts.app')
 @section('title', $viewData['title'])
 @section('content')
-<section class="container my-5">
+@include('partials.breadcrumbs', ['breadcrumbs' => $viewData['breadcrumbs']])
+<section class="container mx-5">
     <div class="row">
         <div class="p-3 w-75 mx-auto d-flex justify-content-between align-items-center">
             <!-- Top three-->

@@ -112,6 +112,9 @@ return [
         'are_you_sure' => 'Are you sure?',
     ],
     'content_community' => [
+        'community_posts' => 'Community posts',
+        'create' => 'Create',
+        'edit' => 'Edit',
         'see_more' => 'See more',
         'see_more_suspense' => 'See more...',
         'see_less' => 'See less',

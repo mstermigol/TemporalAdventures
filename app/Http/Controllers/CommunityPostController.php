@@ -19,6 +19,9 @@ class CommunityPostController extends Controller
     public function index(): View
     {
         $arrayTopThreePosts = CommunityPost::getTopThreeRated();
+        $breadcrumbs = [
+            ['name' => trans('app.content_community.community_posts'), 'url' => route('communitypost.index')],
+        ];
 
         $viewData = [];
         $viewData['title'] = trans('app.titles.community_posts');
@@ -27,6 +30,7 @@ class CommunityPostController extends Controller
         $viewData['topThree'] = collect($arrayTopThreePosts)->keys()->map(function ($id) {
             return CommunityPost::find($id);
         });
+        $viewData['breadcrumbs'] = $breadcrumbs;
 
         return view('communitypost.index')->with('viewData', $viewData);
     }
@@ -34,20 +38,31 @@ class CommunityPostController extends Controller
     public function show(string $id): View
     {
         $post = CommunityPost::with('reviews.user')->findOrFail($id);
+        $breadcrumbs = [
+            ['name' => trans('app.content_community.community_posts'), 'url' => route('communitypost.index')],
+            ['name' => $post->getTitle(), 'url' => route('communitypost.show', $id)],
+        ];
 
         $viewData = [];
         $viewData['title'] = "{$post->getTitle()} - Temporal Adventures";
         $viewData['delete'] = trans('app.content_community.are_you_sure');
         $viewData['post'] = $post;
+        $viewData['breadcrumbs'] = $breadcrumbs;
 
         return view('communitypost.show')->with('viewData', $viewData);
     }
 
     public function create(): View
     {
+        $breadcrumbs = [
+            ['name' => trans('app.content_community.community_posts'), 'url' => route('communitypost.index')],
+            ['name' => trans('app.content_community.create'), 'url' => route('communitypost.create')],
+        ];
+
         $viewData = [];
         $viewData['title'] = trans('app.titles.create_community_post');
         $viewData['categories'] = CategoryEnum::cases();
+        $viewData['breadcrumbs'] = $breadcrumbs;
 
         return view('communitypost.create')->with('viewData', $viewData);
     }
@@ -89,10 +104,16 @@ class CommunityPostController extends Controller
     public function edit(string $id): View
     {
         $post = CommunityPost::findOrFail($id);
+        $breadcrumbs = [
+            ['name' => trans('app.content_community.community_posts'), 'url' => route('communitypost.index')],
+            ['name' => trans('app.content_community.edit'), 'url' => route('communitypost.create')],
+        ];
+
         $viewData = [];
         $viewData['title'] = trans('app.titles.edit_community_post');
         $viewData['post'] = $post;
         $viewData['categories'] = CategoryEnum::cases();
+        $viewData['breadcrumbs'] = $breadcrumbs;
 
         return view('communitypost.edit')->with('viewData', $viewData);
     }
