@@ -14,6 +14,7 @@ class OrderDownloadPNG implements OrderDownload
 
         $imageData = Browsershot::html($html)
             ->setNodeModulePath(base_path('node_modules'))
+            ->setNodeBinary(base_path('node_modules/.bin/node'))
             ->noSandbox()
             ->waitUntilNetworkIdle()
             ->screenshot();
