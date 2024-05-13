@@ -32,17 +32,17 @@
                 <div class="nav-link dropdown-toggle" role="button" id="navbarDropdown" data-bs-toggle="dropdown"
                     aria-expanded="false"> <i class="bi bi-globe"></i> </div>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <div class="dropdown-item"> <a class="nav-link" href="locale/en">@lang('app.navbar_items.english') <i> <img
-                                src="/images/usa-flag.png" alt="USA flag" width="20px" height="15px"></i></a> </div>
-                    <div class="dropdown-item"> <a class="nav-link" href="locale/es">@lang('app.navbar_items.spanish') <i> <img
-                                src="/images/spain-flag.png" alt="Spain flag" width="20px" height="15px"></i></a> </div>
+                    <div class="dropdown-item"> <a class="nav-link" href="{{ route('admin.lang.setLang', ['lange' => 'en']) }}">@lang('app.navbar_items.english') <i> <img
+                                src="{{ url('/images/usa-flag.png') }}" alt="USA flag" width="20px" height="15px"></i></a> </div>
+                    <div class="dropdown-item"> <a class="nav-link" href="{{ route('admin.lang.setLang', ['lange' => 'es']) }}">@lang('app.navbar_items.spanish') <i> <img
+                                src="{{ url('/images/spain-flag.png') }}" alt="Spain flag" width="20px" height="15px"></i></a> </div>
                 </div>
             </div>
             <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-menu">
             <span class="navbar-toggler-icon"></span>
         </button>
         </div>
-        
+
     </div>
 </nav>
 
