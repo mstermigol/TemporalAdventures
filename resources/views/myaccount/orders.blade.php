@@ -34,10 +34,16 @@
               </tr>
             @endforeach
             <br>
-            <form action="{{ route('order.download', ['id' => $order->id]) }}" method="GET">
-              @csrf
-              <button class="btn bg-primary text-white" type="submit">@lang('app.order.download_order')</button>
-            </form>
+            <div class="d-flex flex-row">
+                <form action="{{ route('order.download', ['id' => $order->id, 'format' => 'pdf']) }}" method="GET">
+                @csrf
+                <button class="btn bg-primary text-white mx-2" type="submit">@lang('app.order.download_order_pdf')</button>
+                </form>
+                <form action="{{ route('order.download', ['id' => $order->id, 'format' => 'png']) }}" method="GET">
+                    @csrf
+                    <button class="btn bg-primary text-white mx-2" type="submit">@lang('app.order.download_order_png')</button>
+                </form>
+            </div>
           </tbody>
         </table>
       </div>

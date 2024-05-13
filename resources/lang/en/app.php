@@ -141,7 +141,8 @@ return [
         'message' => 'Purchase Denied',
     ],
     'order' => [
-        'download_order' => 'Download Order',
+        'download_order_pdf' => 'Download PDF',
+        'download_order_png' => 'Download PNG',
         'temporal_adventures' => 'Temporal Adventures',
         'order' => 'Order',
         'order_number' => 'Order Number:',
