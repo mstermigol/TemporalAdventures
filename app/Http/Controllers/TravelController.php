@@ -15,6 +15,7 @@ class TravelController extends Controller
     public function index(): View
     {
         $breadcrumbs = [
+            ['name' => trans('app.breadcrumbs.home'), 'url' => route('home.index')],
             ['name' => trans('app.content_travels.travels'), 'url' => route('travel.index')],
         ];
 
@@ -31,6 +32,7 @@ class TravelController extends Controller
     {
         $travel = Travel::with('reviews.user')->findOrFail($id);
         $breadcrumbs = [
+            ['name' => trans('app.breadcrumbs.home'), 'url' => route('home.index')],
             ['name' => trans('app.content_travels.travels'), 'url' => route('travel.index')],
             ['name' => $travel->getTitle(), 'url' => route('travel.show', $id)],
 
