@@ -8,9 +8,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Travel;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\View\View;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
+use Illuminate\View\View;
 
 class TravelController extends Controller
 {
