@@ -33,7 +33,6 @@
 
 .travel-button{
     width: max-content;
-
 }
 
 .testimonial-card .card-up {
@@ -103,4 +102,9 @@
 
 .d-none {
     display: none;
+}
+
+.mx-wh-800{
+    max-height: 800px;
+    max-width: 1200px;
 }

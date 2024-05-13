@@ -14,6 +14,13 @@
       </div>
     </div>
   </section>
+  <section class="background-user text-center py-5">
+    <h1 class="text-white">@lang('app.time_travel.weather_title') (@lang('app.time_travel.today') Medellín)</h1>
+    <p class="mx-5 lead text-white">@lang('app.time_travel.weather')</p>
+    <div class="d-flex justify-content-center">
+      <canvas class="mx-wh-800 mx-5" id="temperatureChart" width="400" height="200"></canvas>
+    </div>
+  </section>
   <section class="text-center py-5">
     <div class="container">
       <h2 class="mb-4">@lang('app.time_travel.discover')</h2>
@@ -166,4 +173,6 @@
       </div>
     </div>
   </section>
+  <script id="weatherData" type="application/json">@json($viewData['weatherData'])</script>
+  <script src="{{ asset('/js/home.js') }}"></script>
 @endsection

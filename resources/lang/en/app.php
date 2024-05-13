@@ -161,6 +161,9 @@ return [
         'start_shopping' => 'Start Shopping',
     ],
     'time_travel' => [
+        'weather_title' => 'Weather of the day',
+        'weather' => 'Knowing the weather of a city before purchasing a time travel ticket is essential to ensure safety and comfort. It allows travelers to properly prepare with the necessary clothing and equipment, plan activities according to weather conditions, avoid logistical problems, and select suitable accommodations. In addition, it helps prevent diseases, improve well-being, and ensure a more authentic and enjoyable experience, maximizing the satisfaction and enjoyment of the time travel journey.',
+        'today' => 'Today',
         'discover' => 'Discover Time Travel',
         'description' => 'Our time-travel platform makes journeying into the past a breeze with reliable, round-the-clock chrono-assistance and exclusive benefits for our adventurers. Step into history and experience the memories that await you.',
         'support_24_7' => '24/7 Chrono Support',

@@ -121,5 +121,5 @@
         @endforeach
     </div>
 </section>
-<script src="{{ asset('/js/app.js') }}"></script>
+<script src="{{ asset('/js/communityPostIndex.js') }}"></script>
 @endsection
