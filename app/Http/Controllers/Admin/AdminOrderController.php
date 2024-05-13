@@ -58,8 +58,8 @@ class AdminOrderController extends Controller
         try {
             $order = Order::findOrFail($id);
             $breadcrumbs = [
-            ['name' => trans('admin.order.orders'), 'url' => route('admin.order.index')],
-            ['name'=> $order->getId(),'url'=> route('admin.order.show', $id)],
+                ['name' => trans('admin.order.orders'), 'url' => route('admin.order.index')],
+                ['name' => $order->getId(), 'url' => route('admin.order.show', $id)],
             ];
             $viewData = [];
             $viewData['title'] = trans('admin.order.order')."#{$order->getId()} - Temporal Adventures";

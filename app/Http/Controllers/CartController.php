@@ -115,7 +115,7 @@ class CartController extends Controller
                     $breadcrumbs = [
                         ['name' => trans('app.breadcrumbs.home'), 'url' => route('home.index')],
                         ['name' => trans('app.breadcrumbs.cart_index'), 'url' => route('cart.index')],
-                        ['name'=> trans('app.breadcrumbs.cart_purchase').$order->getId(),'url'=> route('cart.purchase')],
+                        ['name' => trans('app.breadcrumbs.cart_purchase').$order->getId(), 'url' => route('cart.purchase')],
                     ];
                     $viewData = [];
                     $viewData['title'] = trans('app.titles.purchase');

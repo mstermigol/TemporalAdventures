@@ -77,7 +77,7 @@ class AdminTravelController extends Controller
     {
         $breadcrumbs = [
             ['name' => trans('admin.travel.travels'), 'url' => route('admin.travel.index')],
-            ['name'=> trans('admin.travel.create_travel'),'url'=> route('admin.travel.create')],
+            ['name' => trans('admin.travel.create_travel'), 'url' => route('admin.travel.create')],
         ];
         $viewData = [];
         $viewData['title'] = trans('admin.titles.create_travel');

@@ -54,7 +54,6 @@ class AdminCommunityPostController extends Controller
             ['name' => $post->getTitle(), 'url' => route('admin.communitypost.show', $id)],
         ];
 
-
         $viewData = [];
         $viewData['title'] = "{$post->getTitle()} - Temporal Adventures";
         $viewData['communityPost'] = $post;
@@ -68,7 +67,7 @@ class AdminCommunityPostController extends Controller
 
         $breadcrumbs = [
             ['name' => trans('admin.community.community_posts'), 'url' => route('admin.communitypost.index')],
-            ['name'=> trans('admin.community.create_post'), 'url' => route('admin.communitypost.create')],
+            ['name' => trans('admin.community.create_post'), 'url' => route('admin.communitypost.create')],
         ];
 
         $viewData = [];
@@ -116,7 +115,7 @@ class AdminCommunityPostController extends Controller
         $post = CommunityPost::findOrFail($id);
         $breadcrumbs = [
             ['name' => trans('admin.community.community_posts'), 'url' => route('admin.communitypost.index')],
-            ['name'=> $post->getTitle(),'url'=> route('admin.communitypost.edit', $id)],
+            ['name' => $post->getTitle(), 'url' => route('admin.communitypost.edit', $id)],
         ];
         $viewData = [];
         $viewData['title'] = trans('admin.titles.edit_community_post');

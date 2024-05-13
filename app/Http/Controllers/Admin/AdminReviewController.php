@@ -91,7 +91,7 @@ class AdminReviewController extends Controller
     {
         $breadcrumbs = [
             ['name' => trans('admin.review.reviews'), 'url' => route('admin.review.index')],
-            ['name' => trans('admin.review.create_travel_review'),'url'=> route('admin.review.createTravel')],
+            ['name' => trans('admin.review.create_travel_review'), 'url' => route('admin.review.createTravel')],
         ];
         $travels = Travel::all();
         $viewData = [];
@@ -106,7 +106,7 @@ class AdminReviewController extends Controller
     {
         $breadcrumbs = [
             ['name' => trans('admin.review.reviews'), 'url' => route('admin.review.index')],
-            ['name' => trans('admin.review.create_community_post_review'),'url'=> route('admin.review.createCommunityPost')],
+            ['name' => trans('admin.review.create_community_post_review'), 'url' => route('admin.review.createCommunityPost')],
         ];
         $communityPosts = CommunityPost::all();
         $viewData = [];
