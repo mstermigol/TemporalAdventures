@@ -33,11 +33,15 @@ class AdminCommunityPostController extends Controller
             $currentPage,
             ['path' => route('admin.communitypost.index')]
         );
+        $breadcrumbs = [
+            ['name' => trans('admin.community.community_posts'), 'url' => route('admin.communitypost.index')],
+        ];
 
         $viewData = [];
         $viewData['title'] = trans('admin.titles.community_posts');
         $viewData['delete'] = trans('admin.community.are_you_sure');
         $viewData['communityPosts'] = $paginatedCommunityPosts;
+        $viewData['breadcrumbs'] = $breadcrumbs;
 
         return view('admin.communitypost.index')->with('viewData', $viewData);
     }
@@ -45,19 +49,32 @@ class AdminCommunityPostController extends Controller
     public function show(string $id): View
     {
         $post = CommunityPost::with('reviews.user')->findOrFail($id);
+        $breadcrumbs = [
+            ['name' => trans('admin.community.community_posts'), 'url' => route('admin.communitypost.index')],
+            ['name' => $post->getTitle(), 'url' => route('admin.communitypost.show', $id)],
+        ];
+
 
         $viewData = [];
         $viewData['title'] = "{$post->getTitle()} - Temporal Adventures";
         $viewData['communityPost'] = $post;
+        $viewData['breadcrumbs'] = $breadcrumbs;
 
         return view('admin.communitypost.show')->with('viewData', $viewData);
     }
 
     public function create(): View
     {
+
+        $breadcrumbs = [
+            ['name' => trans('admin.community.community_posts'), 'url' => route('admin.communitypost.index')],
+            ['name'=> trans('admin.community.create_post'), 'url' => route('admin.communitypost.create')],
+        ];
+
         $viewData = [];
         $viewData['title'] = trans('admin.titles.create_post');
         $viewData['categories'] = CategoryEnum::cases();
+        $viewData['breadcrumbs'] = $breadcrumbs;
 
         return view('admin.communitypost.create')->with('viewData', $viewData);
     }
@@ -97,10 +114,15 @@ class AdminCommunityPostController extends Controller
     public function edit(string $id): View
     {
         $post = CommunityPost::findOrFail($id);
+        $breadcrumbs = [
+            ['name' => trans('admin.community.community_posts'), 'url' => route('admin.communitypost.index')],
+            ['name'=> $post->getTitle(),'url'=> route('admin.communitypost.edit', $id)],
+        ];
         $viewData = [];
         $viewData['title'] = trans('admin.titles.edit_community_post');
         $viewData['communityPost'] = $post;
         $viewData['categories'] = CategoryEnum::cases();
+        $viewData['breadcrumbs'] = $breadcrumbs;
 
         return view('admin.communitypost.edit')->with('viewData', $viewData);
     }

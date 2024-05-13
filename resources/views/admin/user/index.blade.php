@@ -3,6 +3,7 @@
 @extends('layouts.admin')
 @section('title', $viewData['title'])
 @section('content')
+@include('partials.breadcrumbs', ['breadcrumbs' => $viewData['breadcrumbs']])
   <div class="container">
     <div class="row">
       <div class="d-flex justify-content-end mb-3">

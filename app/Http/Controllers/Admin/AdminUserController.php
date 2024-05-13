@@ -20,6 +20,9 @@ class AdminUserController extends Controller
 {
     public function index(): View
     {
+        $breadcrumbs = [
+            ['name' => trans('admin.user.users'), 'url' => route('admin.user.index')],
+        ];
         $collection = collect(User::all());
         $itemsPerPage = 5;
         $currentPage = Paginator::resolveCurrentPage('page') ?: 1;
@@ -36,6 +39,7 @@ class AdminUserController extends Controller
         $viewData['title'] = trans('admin.titles.users');
         $viewData['delete'] = trans('admin.community.are_you_sure');
         $viewData['users'] = $paginatedUsers;
+        $viewData['breadcrumbs'] = $breadcrumbs;
 
         return view('admin.user.index')->with('viewData', $viewData);
     }
@@ -44,9 +48,14 @@ class AdminUserController extends Controller
     {
         try {
             $user = User::findOrFail($id);
+            $breadcrumbs = [
+                ['name' => trans('admin.user.users'), 'url' => route('admin.user.index')],
+                ['name' => $user->getFirstName(), 'url' => route('admin.user.show', $id)],
+            ];
             $viewData = [];
             $viewData['title'] = "{$user->getFirstName()} - Temporal Adventures";
             $viewData['user'] = $user;
+            $viewData['breadcrumbs'] = $breadcrumbs;
 
             return view('admin.user.show')->with('viewData', $viewData);
         } catch (Exception $e) {
@@ -56,8 +65,13 @@ class AdminUserController extends Controller
 
     public function create(): View
     {
+        $breadcrumbs = [
+            ['name' => trans('admin.user.users'), 'url' => route('admin.user.index')],
+            ['name' => trans('admin.user.create_user'), 'url' => route('admin.user.create')],
+        ];
         $viewData = [];
         $viewData['title'] = trans('admin.titles.create_user');
+        $viewData['breadcrumbs'] = $breadcrumbs;
 
         return view('admin.user.create')->with('viewData', $viewData);
     }
@@ -94,9 +108,14 @@ class AdminUserController extends Controller
     {
         try {
             $user = User::findOrFail($id);
+            $breadcrumbs = [
+                ['name' => trans('admin.user.users'), 'url' => route('admin.user.index')],
+                ['name' => $user->getFirstName(), 'url' => route('admin.user.edit', $id)],
+            ];
             $viewData = [];
             $viewData['title'] = trans('admin.titles.edit_user');
             $viewData['user'] = $user;
+            $viewData['breadcrumbs'] = $breadcrumbs;
 
             return view('admin.user.edit')->with('viewData', $viewData);
         } catch (Exception $e) {

@@ -16,8 +16,14 @@ class HomeController extends Controller
 
     public static function about(): view
     {
+        $breadcrumbs = [
+            ['name' => trans('app.breadcrumbs.home'), 'url' => route('home.index')],
+            ['name' => trans('app.breadcrumbs.about_us'), 'url' => route('home.about')],
+        ];
+
         $viewData = [];
         $viewData['title'] = trans('app.titles.about');
+        $viewData['breadcrumbs'] = $breadcrumbs;
 
         return view('home.about')->with('viewData', $viewData);
     }

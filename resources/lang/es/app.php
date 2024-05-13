@@ -242,4 +242,15 @@ return [
         'next' => 'Siguiente',
         'previous' => 'Anterior',
     ],
+    'breadcrumbs' => [
+        'home' => 'Página de Inicio',
+        'cart_index' => 'Viajes en el carrito',
+        'cart_purchase' => 'Orden #',
+        'orders' => 'Órdenes',
+        'community_posts' => 'Publicaciones de la comunidad',
+        'create' => 'Crear',
+        'edit' => 'Editar',
+        'travels' => 'Viajes',
+        'about_us' => 'Sobre nosotros',
+    ],
 ];

@@ -243,4 +243,15 @@ return [
         'next' => 'Next',
         'previous' => 'Previous',
     ],
+    'breadcrumbs' => [
+        'home' => 'Home',
+        'cart_index' => 'Travels in Cart',
+        'cart_purchase' => 'Order #',
+        'orders' => 'Orders',
+        'community_posts' => 'Community posts',
+        'create' => 'Create',
+        'edit' => 'Edit',
+        'travels' => 'Travels',
+        'about_us' => 'About Us',
+    ],
 ];

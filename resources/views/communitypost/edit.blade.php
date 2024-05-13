@@ -3,7 +3,8 @@
 @extends('layouts.app')
 @section('title', $viewData['title'])
 @section('content')
-  <div class="container my-5">
+@include('partials.breadcrumbs', ['breadcrumbs' => $viewData['breadcrumbs']])
+  <div class="container mx-5 mb-5">
     <h1>@lang('app.edit_post.edit_post')</h1>
     <form action="{{ route('communitypost.update', $viewData['post']->getId()) }}" method="POST"
       enctype="multipart/form-data">

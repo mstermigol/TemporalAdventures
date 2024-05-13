@@ -104,3 +104,7 @@
 .d-none {
     display: none;
 }
+
+.breadcrumb-item{
+    margin-top: 1rem;
+}
