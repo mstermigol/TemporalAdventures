@@ -13,6 +13,8 @@ class OrderDownloadPng implements OrderDownload
         $html = view('myaccount.download', $viewData)->render();
 
         $imageData = Browsershot::html($html)
+            ->noSandbox()
+            ->waitUntilNetworkIdle()
             ->screenshot();
 
         return response($imageData)
