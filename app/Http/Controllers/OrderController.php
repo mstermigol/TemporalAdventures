@@ -22,7 +22,10 @@ class OrderController extends Controller
         $viewData = ['order' => $order];
 
         $orderDownloadInterface = app(OrderDownload::class, ['format' => $format]);
-        return $orderDownloadInterface->download($viewData, $id);
+
+        $orderFile = $orderDownloadInterface->download($viewData, $id);
+
+        return $orderFile;
 
     }
 
