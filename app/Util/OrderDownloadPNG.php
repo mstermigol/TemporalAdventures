@@ -6,7 +6,7 @@ use App\Interfaces\OrderDownload;
 use Illuminate\Http\Response;
 use Spatie\Browsershot\Browsershot;
 
-class OrderDownloadPng implements OrderDownload
+class OrderDownloadPNG implements OrderDownload
 {
     public function download(array $viewData, string $orderId): Response
     {
