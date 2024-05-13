@@ -9,14 +9,28 @@ namespace App\Http\Controllers;
 use App\Models\Travel;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
 
 class TravelController extends Controller
 {
     public function index(): View
     {
+        $collection = collect(Travel::all());
+        $itemsPerPage = 3;
+        $currentPage = Paginator::resolveCurrentPage('page') ?: 1;
+        $pagedOrders = $collection->forPage($currentPage, $itemsPerPage);
+        $paginatedOrders = new LengthAwarePaginator(
+            $pagedOrders,
+            $collection->count(),
+            $itemsPerPage,
+            $currentPage,
+            ['path' => route('travel.index')]
+        );
+
         $viewData = [];
         $viewData['title'] = trans('app.titles.travels');
-        $viewData['travels'] = Travel::all();
+        $viewData['travels'] = $paginatedOrders;
         $viewData['topThree'] = Travel::getTopThreePopular();
 
         return view('travel.index')->with('viewData', $viewData);
