@@ -13,9 +13,9 @@ use App\Util\ImageLocalStorage;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
+use Illuminate\View\View;
 
 class AdminTravelController extends Controller
 {

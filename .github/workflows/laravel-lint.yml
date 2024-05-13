@@ -3,8 +3,6 @@ name: Laravel-lint
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
   laravel-lint:
@@ -13,7 +11,7 @@ jobs:
 
     steps:
     - name: Copy Project Code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
@@ -33,7 +31,7 @@ jobs:
       run: vendor/bin/pint
 
     - name: Commit and push changes if Pint modified files
-      uses: stefanzweifel/git-auto-commit-action@v4
+      uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: Refactor PHP Linting (Pint)
         skip_fetch: true

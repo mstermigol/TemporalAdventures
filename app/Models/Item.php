@@ -23,8 +23,8 @@ class Item extends Model
      * $this->attribute['travel_id'] - int - contains the travel primary key (id)
      * $this->order - Order - contains the order asocciated to the item
      * $this->attribute['order_id'] - string - contains the order primary key (id)
-     * $this->attributes['created_at'] - string - contains the date of toy creation
-     * $this->attributes['updated_at'] - string - contains when the review was updated
+     * $this->attributes['created_at'] - string - contains the date of item creation
+     * $this->attributes['updated_at'] - string - contains when the item was updated
      */
     protected $fillable = ['name', 'quantity', 'price', 'subTotal', 'travel_id', 'order_id'];
 

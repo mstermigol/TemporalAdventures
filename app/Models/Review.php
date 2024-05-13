@@ -24,7 +24,7 @@ class Review extends Model
      * $this->attribute['travel_id'] - int - contains the travel primary key (id)
      * $this->community_post - CommunityPost - contains the community post assocciated to the review
      * $this->attribute['community_post_id'] - int - contains the community post primary key (id)
-     * $this->attributes['created_at'] - string - contains the date of toy creation
+     * $this->attributes['created_at'] - string - contains the date of review creation
      * $this->attributes['updated_at'] - string - contains when the review was updated
      */
     protected $fillable = ['title', 'description', 'rating', 'travel_id', 'community_post_id'];

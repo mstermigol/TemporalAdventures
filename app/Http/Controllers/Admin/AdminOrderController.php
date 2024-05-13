@@ -10,9 +10,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use Exception;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\View\View;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
+use Illuminate\View\View;
 
 class AdminOrderController extends Controller
 {
@@ -32,7 +32,6 @@ class AdminOrderController extends Controller
             $currentPage,
             ['path' => route('admin.order.index')]
         );
-
 
         $viewData = [];
         $viewData['title'] = trans('admin.titles.orders');
