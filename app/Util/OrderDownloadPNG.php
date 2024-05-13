@@ -16,6 +16,7 @@ class OrderDownloadPNG implements OrderDownload
             ->setNodeModulePath(base_path('node_modules'))
             ->setNodeBinary(base_path('node_modules/.bin/node'))
             ->setNpmBinary(base_path('node_modules/.bin/npm'))
+            ->setOption('tempDir', base_path('public/temp/'))
             ->noSandbox()
             ->waitUntilNetworkIdle()
             ->screenshot();
