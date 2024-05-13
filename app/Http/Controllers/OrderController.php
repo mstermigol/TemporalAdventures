@@ -7,45 +7,23 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
-use Dompdf\Dompdf;
-use Dompdf\Options;
 use Illuminate\Contracts\View\View as ViewPDF;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\View;
+use App\Interfaces\OrderDownload;
+
 
 class OrderController extends Controller
 {
-    public function downloadPDF(string $id): Response
+    public function download(string $id, string $format): Response
     {
         $order = Order::findOrFail($id);
 
         $viewData = ['order' => $order];
 
-        $pdfContent = $this->generatePDF('myaccount.download', $viewData);
+        $orderDownloadInterface = app(OrderDownload::class, ['format' => $format]);
+        return $orderDownloadInterface->download($viewData, $id);
 
-        return response($pdfContent)
-            ->header('Content-Type', 'application/pdf')
-            ->header('Content-Disposition', 'attachment; filename="order_'.$order->getId().'.pdf"');
-    }
-
-    private function generatePDF(string $view, array $data): string
-    {
-        $options = new Options();
-        $options->set('isHtml5ParserEnabled', true);
-        $options->set('isRemoteEnabled', true);
-
-        $dompdf = new Dompdf($options);
-
-        $html = View::make($view, $data)->render();
-
-        $dompdf->loadHtml($html);
-
-        $dompdf->setPaper('A4', 'portrait');
-
-        $dompdf->render();
-
-        return $dompdf->output();
     }
 
     public function orders(): ViewPDF
