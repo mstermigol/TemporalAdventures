@@ -11,6 +11,8 @@ use App\Models\CommunityPost;
 use App\Util\ImageLocalStorage;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
@@ -20,9 +22,21 @@ class CommunityPostController extends Controller
     {
         $arrayTopThreePosts = CommunityPost::getTopThreeRated();
 
+        $collection = collect(CommunityPost::with('user')->get());
+        $itemsPerPage = 3;
+        $currentPage = Paginator::resolveCurrentPage('page') ?: 1;
+        $pagedCommunityPosts = $collection->forPage($currentPage, $itemsPerPage);
+        $paginatedCommunityPosts = new LengthAwarePaginator(
+            $pagedCommunityPosts,
+            $collection->count(),
+            $itemsPerPage,
+            $currentPage,
+            ['path' => route('communitypost.index')]
+        );
+
         $viewData = [];
         $viewData['title'] = trans('app.titles.community_posts');
-        $viewData['posts'] = CommunityPost::with('user')->get();
+        $viewData['posts'] = $paginatedCommunityPosts;
         $viewData['delete'] = trans('app.content_community.are_you_sure');
         $viewData['topThree'] = collect($arrayTopThreePosts)->keys()->map(function ($id) {
             return CommunityPost::find($id);

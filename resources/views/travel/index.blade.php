@@ -47,5 +47,8 @@
         </li>
       @endforeach
     </ul>
+    <div class="p-3 w-75 mx-auto">
+      {{ $viewData['travels']->onEachSide(1)->links() }}
+    </div>
   </section>
 @endsection
