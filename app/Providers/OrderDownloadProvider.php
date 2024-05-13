@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use App\Interfaces\OrderDownload;
-use App\Util\OrderDownloadPNG;
 use App\Util\OrderDownloadPDF;
+use App\Util\OrderDownloadPNG;
+use Illuminate\Support\ServiceProvider;
 
 class OrderDownloadProvider extends ServiceProvider
 {
@@ -15,6 +15,7 @@ class OrderDownloadProvider extends ServiceProvider
             if ($parameters['format'] === 'png') {
                 return new OrderDownloadPNG();
             }
+
             return new OrderDownloadPDF();
         });
     }

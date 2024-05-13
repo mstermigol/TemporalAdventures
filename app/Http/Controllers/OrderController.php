@@ -6,12 +6,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Interfaces\OrderDownload;
 use App\Models\Order;
 use Illuminate\Contracts\View\View as ViewPDF;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
-use App\Interfaces\OrderDownload;
-
 
 class OrderController extends Controller
 {

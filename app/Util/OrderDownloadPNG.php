@@ -6,17 +6,14 @@ use App\Interfaces\OrderDownload;
 use Illuminate\Http\Response;
 use Spatie\Browsershot\Browsershot;
 
-
 class OrderDownloadPng implements OrderDownload
 {
     public function download(array $viewData, string $orderId): Response
     {
-        $html = view('myaccount.download', $viewData )->render();
+        $html = view('myaccount.download', $viewData)->render();
 
         $imageData = Browsershot::html($html)
             ->screenshot();
-
-
 
         return response($imageData)
             ->header('Content-Type', 'image/png')
