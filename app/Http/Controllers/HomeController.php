@@ -9,17 +9,17 @@ class HomeController extends Controller
 {
     public function index(): view
     {
-        $response = Http::get('https://api.open-meteo.com/v1/forecast', [
+        $weatherResponse = Http::get('https://api.open-meteo.com/v1/forecast', [
             'latitude' => 52.52,
             'longitude' => 13.41,
             'hourly' => 'temperature_2m'
         ]);
 
-        $data = $response->json();
+        $weatherData = $weatherResponse->json();
 
         $viewData = [];
         $viewData['title'] = trans('app.titles.welcome');
-        $viewData['weatherData'] = $data;
+        $viewData['weatherData'] = $weatherData;
 
         return view('home.index')->with('viewData', $viewData);
     }
