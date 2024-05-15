@@ -1,5 +1,9 @@
 <?php
 
+/*
+    Author: Miguel Jaramillo
+*/
+
 namespace App\Interfaces;
 
 use Illuminate\Http\Response;
