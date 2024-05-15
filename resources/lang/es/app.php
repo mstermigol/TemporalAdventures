@@ -160,6 +160,10 @@ return [
         'start_shopping' => 'Comienza a Comprar',
     ],
     'time_travel' => [
+        'weather_title' => 'Clima',
+        'weather' => '
+Conocer el clima de una ciudad antes de comprar un viaje en el tiempo es esencial para garantizar seguridad y comodidad. Permite a los viajeros prepararse adecuadamente con la ropa y equipo necesarios, planificar actividades según las condiciones climáticas, evitar problemas logísticos y seleccionar alojamientos adecuados. Además, ayuda a prevenir enfermedades, mejorar el bienestar y asegurar una experiencia más auténtica y disfrutable, maximizando la satisfacción y el disfrute del viaje en el tiempo.',
+        'today' => 'Hoy',
         'discover' => 'Descubre Viaje en el Tiempo',
         'description' => 'Nuestra plataforma de viaje en el tiempo facilita el viaje al pasado con asistencia cronológica confiable y disponible las 24 horas del día, y beneficios exclusivos para nuestros aventureros. Entra en la historia y experimenta los recuerdos que te esperan.',
         'support_24_7' => 'Soporte Cronológico 24/7',

@@ -125,5 +125,6 @@
         {{ $viewData['posts']->onEachSide(1)->links() }}
     </div>
 </section>
+<script src="{{ asset('/js/communityPostIndex.js') }}"></script>
 <script src="{{ asset('/js/app.js') }}"></script>
 @endsection
