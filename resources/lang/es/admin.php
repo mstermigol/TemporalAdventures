@@ -49,6 +49,7 @@ return [
         'table_user_role' => 'Rol de Usuario',
         'table_actions' => 'Acciones',
         'empty' => 'No hay usuarios',
+        'users' => 'Usuarios',
     ],
     'order' => [
         'total' => 'Total',
@@ -56,6 +57,7 @@ return [
         'order' => 'Pedido',
         'actions' => 'Acciones',
         'empty' => 'No hay pedidos',
+        'orders' => 'Pedidos',
     ],
     'review' => [
         'travel' => 'Viaje',
@@ -71,6 +73,9 @@ return [
         'table_type' => 'Tipo',
         'table_actions' => 'Acciones',
         'empty' => 'No hay reseñas',
+        'reviews' => 'Reseñas',
+        'create_travel_review' => 'Crear Reseña de Viaje',
+        'create_community_post_review' => 'Crear Reseña de Publicación de la Comunidad',
     ],
     'community' => [
         'are_you_sure' => '¿Estás seguro?',
@@ -93,6 +98,7 @@ return [
         'table_actions' => 'Acciones',
         'table_posted_on' => 'Publicado el',
         'empty' => 'No hay publicaciones',
+        'community_posts' => 'Publicaciones de la comunidad',
     ],
     'travel' => [
         'create_travel' => 'Crear Viaje',
@@ -112,5 +118,6 @@ return [
         'table_title' => 'Título',
         'table_actions' => 'Acciones',
         'empty' => 'No hay viajes',
+        'travels' => 'Viajes',
     ],
 ];

@@ -8,16 +8,35 @@ namespace App\Http\Controllers;
 
 use App\Models\Travel;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
 use Illuminate\View\View;
 
 class TravelController extends Controller
 {
     public function index(): View
     {
+        $breadcrumbs = [
+            ['name' => trans('app.breadcrumbs.home'), 'url' => route('home.index')],
+            ['name' => trans('app.content_travels.travels'), 'url' => route('travel.index')],
+        ];
+        $collection = collect(Travel::all());
+        $itemsPerPage = 3;
+        $currentPage = Paginator::resolveCurrentPage('page') ?: 1;
+        $pagedOrders = $collection->forPage($currentPage, $itemsPerPage);
+        $paginatedOrders = new LengthAwarePaginator(
+            $pagedOrders,
+            $collection->count(),
+            $itemsPerPage,
+            $currentPage,
+            ['path' => route('travel.index')]
+        );
+
         $viewData = [];
         $viewData['title'] = trans('app.titles.travels');
-        $viewData['travels'] = Travel::all();
+        $viewData['travels'] = $paginatedOrders;
         $viewData['topThree'] = Travel::getTopThreePopular();
+        $viewData['breadcrumbs'] = $breadcrumbs;
 
         return view('travel.index')->with('viewData', $viewData);
     }
@@ -25,11 +44,18 @@ class TravelController extends Controller
     public function show(string $id): View
     {
         $travel = Travel::with('reviews.user')->findOrFail($id);
+        $breadcrumbs = [
+            ['name' => trans('app.breadcrumbs.home'), 'url' => route('home.index')],
+            ['name' => trans('app.content_travels.travels'), 'url' => route('travel.index')],
+            ['name' => $travel->getTitle(), 'url' => route('travel.show', $id)],
+
+        ];
 
         $viewData = [];
         $viewData['title'] = "{$travel->getTitle()} - Temporal Adventures";
         $viewData['delete'] = trans('app.content_travels.are_you_sure');
         $viewData['travel'] = $travel;
+        $viewData['breadcrumbs'] = $breadcrumbs;
 
         return view('travel.show')->with('viewData', $viewData);
     }

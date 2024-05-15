@@ -108,3 +108,7 @@
     max-height: 800px;
     max-width: 1200px;
 }
+
+.breadcrumb-item{
+    margin-top: 1rem;
+}

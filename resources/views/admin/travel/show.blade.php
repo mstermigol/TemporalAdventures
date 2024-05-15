@@ -3,6 +3,7 @@
 @extends('layouts.admin')
 @section('title', $viewData['title'])
 @section('content')
+@include('partials.breadcrumbs', ['breadcrumbs' => $viewData['breadcrumbs']])
   <a href="{{ route('admin.travel.index') }}" class="btn btn-primary mb-3"><i class="fas fa-arrow-left"></i></a>
 
   <div class="row">

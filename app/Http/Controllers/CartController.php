@@ -22,6 +22,10 @@ class CartController extends Controller
 {
     public function index(Request $request): View
     {
+        $breadcrumbs = [
+            ['name' => trans('app.breadcrumbs.home'), 'url' => route('home.index')],
+            ['name' => trans('app.breadcrumbs.cart_index'), 'url' => route('cart.index')],
+        ];
         $total = 0;
         $travelsInCart = [];
 
@@ -48,6 +52,7 @@ class CartController extends Controller
 
         $viewData['total'] = $total;
         $viewData['travels'] = $paginatedTravels;
+        $viewData['breadcrumbs'] = $breadcrumbs;
 
         return view('cart.index')->with('viewData', $viewData);
     }
@@ -107,9 +112,15 @@ class CartController extends Controller
 
                     $request->session()->forget('travels');
 
+                    $breadcrumbs = [
+                        ['name' => trans('app.breadcrumbs.home'), 'url' => route('home.index')],
+                        ['name' => trans('app.breadcrumbs.cart_index'), 'url' => route('cart.index')],
+                        ['name' => trans('app.breadcrumbs.cart_purchase').$order->getId(), 'url' => route('cart.purchase')],
+                    ];
                     $viewData = [];
                     $viewData['title'] = trans('app.titles.purchase');
                     $viewData['order'] = $order;
+                    $viewData['breadcrumbs'] = $breadcrumbs;
 
                     DB::commit();
 

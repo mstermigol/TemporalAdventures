@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/cart/delete-item/{id}', 'App\Http\Controllers\CartController@deleteItem')->name('cart.delete_item');
 
     Route::get('/my-account/orders', 'App\Http\Controllers\OrderController@orders')->name('myaccount.orders');
-    Route::get('/order/{id}/pdf', 'App\Http\Controllers\OrderController@downloadPDF')->name('order.download');
+    Route::get('/order/{id}/{format}/download', 'App\Http\Controllers\OrderController@download')->name('order.download');
 });
 
 require __DIR__.'/admin/adminRoutes.php';

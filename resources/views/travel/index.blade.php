@@ -3,8 +3,8 @@
 @extends('layouts.app')
 @section('title', $viewData['title'])
 @section('content')
-
-  <section class="container my-5">
+@include('partials.breadcrumbs', ['breadcrumbs' => $viewData['breadcrumbs']])
+  <section class="container">
     <h2>@lang('app.content_travels.top_three')</h2>
     <ul class="row list-unstyled align-items-stretch">
       @foreach ($viewData['topThree'] as $travel)
@@ -47,5 +47,8 @@
         </li>
       @endforeach
     </ul>
+    <div class="p-3 w-75 mx-auto">
+      {{ $viewData['travels']->onEachSide(1)->links() }}
+    </div>
   </section>
 @endsection

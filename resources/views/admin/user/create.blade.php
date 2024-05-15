@@ -3,6 +3,7 @@
 @extends('layouts.admin')
 @section('title', $viewData['title'])
 @section('content')
+@include('partials.breadcrumbs', ['breadcrumbs' => $viewData['breadcrumbs']])
   <div class="container">
     <div class="row">
       <div class="col-md-6 offset-md-3">

@@ -141,7 +141,8 @@ return [
         'message' => 'Purchase Denied',
     ],
     'order' => [
-        'download_order' => 'Download Order',
+        'download_order_pdf' => 'Download PDF',
+        'download_order_png' => 'Download PNG',
         'temporal_adventures' => 'Temporal Adventures',
         'order' => 'Order',
         'order_number' => 'Order Number:',
@@ -245,5 +246,16 @@ return [
         'results' => 'results',
         'next' => 'Next',
         'previous' => 'Previous',
+    ],
+    'breadcrumbs' => [
+        'home' => 'Home',
+        'cart_index' => 'Travels in Cart',
+        'cart_purchase' => 'Order #',
+        'orders' => 'Orders',
+        'community_posts' => 'Community posts',
+        'create' => 'Create',
+        'edit' => 'Edit',
+        'travels' => 'Travels',
+        'about_us' => 'About Us',
     ],
 ];

@@ -47,10 +47,10 @@
             <div class="nav-link dropdown-toggle" role="button" id="navbarDropdown" data-bs-toggle="dropdown"
               aria-expanded="false"> <i class="bi bi-globe"></i> </div>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li class="dropdown-item"> <a class="nav-link" href="locale/en">@lang('app.navbar_items.english') <i> <img
-                      src="/images/usa-flag.png" alt="USA flag" width="20px" height="15px"></i></a> </li>
-              <li class="dropdown-item"> <a class="nav-link" href="locale/es">@lang('app.navbar_items.spanish') <i> <img
-                      src="/images/spain-flag.png" alt="Spain flag" width="20px" height="15px"></i></a> </li>
+              <li class="dropdown-item"> <a class="nav-link" href="{{ route('lang.setLang', ['lange' => 'en']) }}">@lang('app.navbar_items.english') <i> <img
+                      src="{{ url('/images/usa-flag.png') }}" alt="USA flag" width="20px" height="15px"></i></a> </li>
+              <li class="dropdown-item"> <a class="nav-link" href="{{ route('lang.setLang', ['lange' => 'es']) }}">@lang('app.navbar_items.spanish') <i> <img
+                      src="{{ url('/images/spain-flag.png') }}" alt="Spain flag" width="20px" height="15px"></i></a> </li>
             </ul>
           </li>
           <div class="vr bg-black mx-2 d-none d-lg-block"></div>

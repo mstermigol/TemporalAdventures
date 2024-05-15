@@ -11,6 +11,8 @@ use App\Models\CommunityPost;
 use App\Util\ImageLocalStorage;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
@@ -19,14 +21,31 @@ class CommunityPostController extends Controller
     public function index(): View
     {
         $arrayTopThreePosts = CommunityPost::getTopThreeRated();
+        $breadcrumbs = [
+            ['name' => trans('app.breadcrumbs.home'), 'url' => route('home.index')],
+            ['name' => trans('app.breadcrumbs.community_posts'), 'url' => route('communitypost.index')],
+        ];
+
+        $collection = collect(CommunityPost::with('user')->get());
+        $itemsPerPage = 3;
+        $currentPage = Paginator::resolveCurrentPage('page') ?: 1;
+        $pagedCommunityPosts = $collection->forPage($currentPage, $itemsPerPage);
+        $paginatedCommunityPosts = new LengthAwarePaginator(
+            $pagedCommunityPosts,
+            $collection->count(),
+            $itemsPerPage,
+            $currentPage,
+            ['path' => route('communitypost.index')]
+        );
 
         $viewData = [];
         $viewData['title'] = trans('app.titles.community_posts');
-        $viewData['posts'] = CommunityPost::with('user')->get();
+        $viewData['posts'] = $paginatedCommunityPosts;
         $viewData['delete'] = trans('app.content_community.are_you_sure');
         $viewData['topThree'] = collect($arrayTopThreePosts)->keys()->map(function ($id) {
             return CommunityPost::find($id);
         });
+        $viewData['breadcrumbs'] = $breadcrumbs;
 
         return view('communitypost.index')->with('viewData', $viewData);
     }
@@ -34,20 +53,33 @@ class CommunityPostController extends Controller
     public function show(string $id): View
     {
         $post = CommunityPost::with('reviews.user')->findOrFail($id);
+        $breadcrumbs = [
+            ['name' => trans('app.breadcrumbs.home'), 'url' => route('home.index')],
+            ['name' => trans('app.breadcrumbs.community_posts'), 'url' => route('communitypost.index')],
+            ['name' => $post->getTitle(), 'url' => route('communitypost.show', $id)],
+        ];
 
         $viewData = [];
         $viewData['title'] = "{$post->getTitle()} - Temporal Adventures";
         $viewData['delete'] = trans('app.content_community.are_you_sure');
         $viewData['post'] = $post;
+        $viewData['breadcrumbs'] = $breadcrumbs;
 
         return view('communitypost.show')->with('viewData', $viewData);
     }
 
     public function create(): View
     {
+        $breadcrumbs = [
+            ['name' => trans('app.breadcrumbs.home'), 'url' => route('home.index')],
+            ['name' => trans('app.breadcrumbs.community_posts'), 'url' => route('communitypost.index')],
+            ['name' => trans('app.breadcrumbs.create'), 'url' => route('communitypost.create')],
+        ];
+
         $viewData = [];
         $viewData['title'] = trans('app.titles.create_community_post');
         $viewData['categories'] = CategoryEnum::cases();
+        $viewData['breadcrumbs'] = $breadcrumbs;
 
         return view('communitypost.create')->with('viewData', $viewData);
     }
@@ -89,10 +121,17 @@ class CommunityPostController extends Controller
     public function edit(string $id): View
     {
         $post = CommunityPost::findOrFail($id);
+        $breadcrumbs = [
+            ['name' => trans('app.breadcrumbs.home'), 'url' => route('home.index')],
+            ['name' => trans('app.breadcrumbs.community_posts'), 'url' => route('communitypost.index')],
+            ['name' => trans('app.breadcrumbs.edit'), 'url' => route('communitypost.create')],
+        ];
+
         $viewData = [];
         $viewData['title'] = trans('app.titles.edit_community_post');
         $viewData['post'] = $post;
         $viewData['categories'] = CategoryEnum::cases();
+        $viewData['breadcrumbs'] = $breadcrumbs;
 
         return view('communitypost.edit')->with('viewData', $viewData);
     }

@@ -3,6 +3,7 @@
 @extends('layouts.app')
 @section('title', $viewData['title'])
 @section('content')
+@include('partials.breadcrumbs', ['breadcrumbs' => $viewData['breadcrumbs']])
   <div class="container">
     <div class="row">
       <div class="col-7">

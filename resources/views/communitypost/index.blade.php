@@ -3,7 +3,8 @@
 @extends('layouts.app')
 @section('title', $viewData['title'])
 @section('content')
-<section class="container my-5">
+@include('partials.breadcrumbs', ['breadcrumbs' => $viewData['breadcrumbs']])
+<section class="container mb-5">
     <div class="row">
         <div class="p-3 w-75 mx-auto d-flex justify-content-between align-items-center">
             <!-- Top three-->
@@ -120,6 +121,10 @@
         </div>
         @endforeach
     </div>
+    <div class="p-3 w-75 mx-auto">
+        {{ $viewData['posts']->onEachSide(1)->links() }}
+    </div>
 </section>
 <script src="{{ asset('/js/communityPostIndex.js') }}"></script>
+<script src="{{ asset('/js/app.js') }}"></script>
 @endsection

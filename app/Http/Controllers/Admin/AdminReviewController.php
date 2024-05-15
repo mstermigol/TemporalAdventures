@@ -22,6 +22,9 @@ class AdminReviewController extends Controller
 {
     public function index(): View
     {
+        $breadcrumbs = [
+            ['name' => trans('admin.review.reviews'), 'url' => route('admin.review.index')],
+        ];
         $collection = collect(Review::all());
         $itemsPerPage = 5;
         $currentPage = Paginator::resolveCurrentPage('page') ?: 1;
@@ -38,6 +41,7 @@ class AdminReviewController extends Controller
         $viewData['title'] = trans('admin.titles.reviews');
         $viewData['delete'] = trans('admin.community.are_you_sure');
         $viewData['reviews'] = $paginatedReviews;
+        $viewData['breadcrumbs'] = $breadcrumbs;
 
         return view('admin.review.index')->with('viewData', $viewData);
     }
@@ -46,6 +50,10 @@ class AdminReviewController extends Controller
     {
         try {
             $review = Review::find($id);
+            $breadcrumbs = [
+                ['name' => trans('admin.review.reviews'), 'url' => route('admin.review.index')],
+                ['name' => $review->getTitle(), 'url' => route('admin.review.show', $id)],
+            ];
 
             $userName = $review->getUser()->getName();
 
@@ -56,6 +64,7 @@ class AdminReviewController extends Controller
                 $viewData['review'] = $review;
                 $viewData['reviewOfTitle'] = $travelTitle;
                 $viewData['userName'] = $userName;
+                $viewData['breadcrumbs'] = $breadcrumbs;
 
                 return view('admin.review.show')->with('viewData', $viewData);
 
@@ -66,6 +75,7 @@ class AdminReviewController extends Controller
                 $viewData['review'] = $review;
                 $viewData['reviewOfTitle'] = $communityPostTitle;
                 $viewData['userName'] = $userName;
+                $viewData['breadcrumbs'] = $breadcrumbs;
 
                 return view('admin.review.show')->with('viewData', $viewData);
 
@@ -79,20 +89,30 @@ class AdminReviewController extends Controller
 
     public function createTravel(): View
     {
+        $breadcrumbs = [
+            ['name' => trans('admin.review.reviews'), 'url' => route('admin.review.index')],
+            ['name' => trans('admin.review.create_travel_review'), 'url' => route('admin.review.createTravel')],
+        ];
         $travels = Travel::all();
         $viewData = [];
         $viewData['title'] = trans('admin.titles.create_review_travel');
         $viewData['travels'] = $travels;
+        $viewData['breadcrumbs'] = $breadcrumbs;
 
         return view('admin.review.createTravel')->with('viewData', $viewData);
     }
 
     public function createCommunityPost(): View
     {
+        $breadcrumbs = [
+            ['name' => trans('admin.review.reviews'), 'url' => route('admin.review.index')],
+            ['name' => trans('admin.review.create_community_post_review'), 'url' => route('admin.review.createCommunityPost')],
+        ];
         $communityPosts = CommunityPost::all();
         $viewData = [];
         $viewData['title'] = trans('admin.titles.create_review_community');
         $viewData['communityPosts'] = $communityPosts;
+        $viewData['breadcrumbs'] = $breadcrumbs;
 
         return view('admin.review.createCommunityPost')->with('viewData', $viewData);
     }
@@ -125,9 +145,14 @@ class AdminReviewController extends Controller
     {
         try {
             $review = Review::find($id);
+            $breadcrumbs = [
+                ['name' => trans('admin.review.reviews'), 'url' => route('admin.review.index')],
+                ['name' => $review->getTitle(), 'url' => route('admin.review.show', $id)],
+            ];
             $viewData = [];
             $viewData['title'] = trans('admin.titles.edit_review');
             $viewData['review'] = $review;
+            $viewData['breadcrumbs'] = $breadcrumbs;
 
             return view('admin.review.edit')->with('viewData', $viewData);
         } catch (Exception $e) {

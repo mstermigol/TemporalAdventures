@@ -44,5 +44,5 @@ Route::middleware('admin')->group(function () {
     Route::put('/admin/travels/update/{id}', 'App\Http\Controllers\Admin\AdminTravelController@update')->name('admin.travel.update');
     Route::get('/admin/travels/{id}', 'App\Http\Controllers\Admin\AdminTravelController@show')->name('admin.travel.show');
 
-    Route::get('/admin/locale/{lange}', 'App\Http\Controllers\LangController@setLang')->name('lang.setLang');
+    Route::get('/admin/locale/{lange}', 'App\Http\Controllers\LangController@setLang')->name('admin.lang.setLang');
 });

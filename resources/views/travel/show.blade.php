@@ -3,7 +3,8 @@
 @extends('layouts.app')
 @section('title', $viewData['title'])
 @section('content')
-  <section class="container my-5">
+@include('partials.breadcrumbs', ['breadcrumbs' => $viewData['breadcrumbs']])
+  <section class="container mb-5">
     <div class="row">
       <div class="col-md-3">
         <img src="{{ url("{$viewData['travel']->getImage()}") }}" class="img-fluid rounded-3">

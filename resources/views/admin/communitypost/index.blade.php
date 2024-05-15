@@ -3,6 +3,7 @@
 @extends('layouts.admin')
 @section('title', $viewData['title'])
 @section('content')
+    @include('partials.breadcrumbs', ['breadcrumbs' => $viewData['breadcrumbs']])
   <div class="d-flex justify-content-end mb-3">
     <a href="{{ route('admin.communitypost.create') }}" class="btn btn-success" title="@lang('admin.community.create_post')">
       <i class="fas fa-plus"></i> @lang('admin.community.create_post')

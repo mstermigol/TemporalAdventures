@@ -47,6 +47,7 @@ return [
         'table_user_role' => 'User Role',
         'table_actions' => 'Actions',
         'empty' => 'No users',
+        'users' => 'Users',
     ],
     'order' => [
         'total' => 'Total',
@@ -54,6 +55,7 @@ return [
         'order' => 'Order',
         'actions' => 'Actions',
         'empty' => 'No orders',
+        'orders' => 'Orders',
     ],
     'review' => [
         'travel' => 'Travel',
@@ -69,6 +71,9 @@ return [
         'table_type' => 'Type',
         'table_actions' => 'Actions',
         'empty' => 'No reviews',
+        'reviews' => 'Reviews',
+        'create_travel_review' => 'Create Travel Review',
+        'create_community_post_review' => 'Create Community Post Review',
     ],
     'community' => [
         'are_you_sure' => 'Are you sure?',
@@ -91,6 +96,7 @@ return [
         'table_actions' => 'Actions',
         'table_posted_on' => 'Posted on',
         'empty' => 'No posts',
+        'community_posts' => 'Community Posts',
     ],
     'travel' => [
         'create_travel' => 'Create Travel',
@@ -110,5 +116,6 @@ return [
         'table_title' => 'Title',
         'table_actions' => 'Actions',
         'empty' => 'No travels',
+        'travels' => 'Travels',
     ],
 ];
