@@ -6,13 +6,10 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class LoginTest extends TestCase
 {
-
     public function test_login_path(): void
     {
         $response = $this->get('/login');
@@ -31,5 +28,4 @@ class LoginTest extends TestCase
 
         $response->assertDontSeeText(trans('app.navbar_items.login'));
     }
-
 }
