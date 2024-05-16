@@ -21,9 +21,6 @@ jobs:
     - name: Install Dependencies
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
-    - name: Generate key
-      run: php artisan key:generate
-
     - name: Execute migrations to test DB
       run: php artisan migrate --database=testing
 
