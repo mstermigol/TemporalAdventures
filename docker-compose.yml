@@ -1,8 +1,6 @@
 services:
   laravel-apache:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: mstermigol/laravel-apache:latest
     restart: always
     depends_on:
       - mysql
