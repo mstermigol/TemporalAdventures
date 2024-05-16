@@ -6,6 +6,7 @@ on:
 
 jobs:
   tests:
+    needs: laravel-lint
 
     runs-on: ubuntu-latest
 
