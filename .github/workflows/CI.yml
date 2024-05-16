@@ -1,0 +1,99 @@
+name: CI / Laravel Lint
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  laravel-lint:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Copy Project Code
+      uses: actions/checkout@v4
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2'
+
+    - name: Copy .env
+      run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+
+    - name: Install Dependencies
+      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
+    - name: Generate key
+      run: php artisan key:generate
+
+    - name: Execute Laravel Pint
+      run: vendor/bin/pint
+
+    - name: Commit and push changes if Pint modified files
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: Refactor PHP Linting (Pint)
+        skip_fetch: true
+
+  tests:
+    needs: laravel-lint
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Copy Project Code
+      uses: actions/checkout@v4
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2'
+
+    - name: Copy .env
+      run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+
+    - name: Install Dependencies
+      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
+    - name: Generate key
+      run: php artisan key:generate
+
+    - name: Execute migrations to test DB
+      run: php artisan migrate --database=testing --force
+
+    - name: Execute seeds to test DB
+      run: php artisan db:seed --database=testing --force
+
+    - name: Execute Laravel Tests
+      run: php artisan test
+
+  build:
+    needs: tests
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Generate .env file
+      run: |
+        cp .env.example .env
+        sed -i "s/DB_HOST=.*/DB_HOST=${{ secrets.DB_HOST }}/" .env
+        sed -i "s/DB_DATABASE=.*/DB_DATABASE=${{ secrets.DB_DATABASE }}/" .env
+        sed -i "s/DB_PASSWORD=.*/DB_PASSWORD=${{ secrets.DB_PASSWORD }}/" .env
+
+    - name: docker login
+      env:
+        DOCKER_USER: ${{ secrets.DOCKERHUB_USER }}
+        DOCKER_PASS: ${{ secrets.DOCKERHUB_PASS }}
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASS
+
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag mstermigol/laravel-apache:latest
+
+    - name: Docker Push
+      run: docker push mstermigol/laravel-apache
+
+
