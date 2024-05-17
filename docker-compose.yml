@@ -16,7 +16,7 @@ services:
       resources:
         limits:
           memory: 400M
-    memswap_limit: 5g
+    memswap_limit: 5G
 
   mysql:
     image: mysql:latest
@@ -34,8 +34,8 @@ services:
     deploy:
       resources:
         limits:
-          memory: 100G
-    memswap_limit: 3g
+          memory: 100M
+    memswap_limit: 3G
 
   watchtower:
     image: containrrr/watchtower
@@ -47,8 +47,8 @@ services:
     deploy:
       resources:
         limits:
-          memory: 100G
-    memswap_limit: 1g
+          memory: 100M
+    memswap_limit: 1G
 
 networks:
   internal:
