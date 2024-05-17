@@ -55,7 +55,7 @@
           </li>
           <div class="vr bg-black mx-2 d-none d-lg-block"></div>
           @guest
-            <a class="nav-link active" href="{{ route('login') }}">hola</a>
+            <a class="nav-link active" href="{{ route('login') }}">@lang('app.navbar_items.login')</a>
             <a class="nav-link active" href="{{ route('register') }}">@lang('app.navbar_items.register')</a>
           @else
             <li class="nav-item dropdown">
