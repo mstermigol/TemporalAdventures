@@ -27,10 +27,21 @@ services:
     networks:
       - internal
 
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /root/.docker/config.json:/config.json
+    networks:
+      - internal
+    command: --interval 30
+
 networks:
   internal:
 
 volumes:
   mysql_data:
   laravel_images:
+  /var/run/docker.sock:
+  /root/.docker/config.json:
 
