@@ -1,3 +1,4 @@
+version: '3.7'
 services:
   laravel-apache:
     image: mstermigol/laravel-apache:latest
@@ -12,6 +13,11 @@ services:
       - laravel_images:/var/www/html/storage
     networks:
       - internal
+    deploy:
+      resources:
+        limits:
+          memory: 400M
+    memswap_limit: 5g 
 
   mysql:
     image: mysql:latest
@@ -26,6 +32,11 @@ services:
       - mysql_data:/var/lib/mysql
     networks:
       - internal
+    deploy:
+      resources:
+        limits:
+          memory: 100G
+    memswap_limit: 3g
 
   watchtower:
     image: containrrr/watchtower
@@ -34,6 +45,11 @@ services:
     networks:
       - internal
     command: --interval 600
+    deploy:
+      resources:
+        limits:
+          memory: 100G
+    memswap_limit: 1g
 
 networks:
   internal:
