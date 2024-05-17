@@ -42,6 +42,3 @@ networks:
 volumes:
   mysql_data:
   laravel_images:
-  /var/run/docker.sock:
-  /root/.docker/config.json:
-
