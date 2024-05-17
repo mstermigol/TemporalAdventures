@@ -141,6 +141,8 @@ return [
         'message' => 'Compra Denegada',
     ],
     'order' => [
+        'order' => 'Orden',
+        'no_order' => 'No tienes ninguna orden =(.',
         'download_order_pdf' => 'Descargar PDF',
         'download_order_png' => 'Descargar PNG',
         'temporal_adventures' => 'Temporal Adventures',
