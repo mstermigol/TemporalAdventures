@@ -12,11 +12,6 @@ services:
       - laravel_images:/var/www/html/storage
     networks:
       - internal
-    deploy:
-      resources:
-        limits:
-          memory: 400M
-    memswap_limit: 5G
 
   mysql:
     image: mysql:latest
@@ -31,11 +26,6 @@ services:
       - mysql_data:/var/lib/mysql
     networks:
       - internal
-    deploy:
-      resources:
-        limits:
-          memory: 100M
-    memswap_limit: 3G
 
   watchtower:
     image: containrrr/watchtower
@@ -44,11 +34,6 @@ services:
     networks:
       - internal
     command: --interval 600
-    deploy:
-      resources:
-        limits:
-          memory: 100M
-    memswap_limit: 1G
 
 networks:
   internal:
