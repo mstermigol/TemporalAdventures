@@ -1,4 +1,3 @@
-version: '3.7'
 services:
   laravel-apache:
     image: mstermigol/laravel-apache:latest
@@ -17,7 +16,7 @@ services:
       resources:
         limits:
           memory: 400M
-    memswap_limit: 5g 
+    memswap_limit: 5g
 
   mysql:
     image: mysql:latest
