@@ -33,7 +33,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - internal
-    command: --interval 30
+    command: --interval 600
 
 networks:
   internal:
