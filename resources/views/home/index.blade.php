@@ -14,6 +14,13 @@
       </div>
     </div>
   </section>
+  <section class="text-center py-5">
+    Nombre: @json($viewData['team8Data']['name'])
+    Descripción: @json($viewData['team8Data']['description'])
+    Precio: @json($viewData['team8Data']['price'])
+    Categoría: @json($viewData['team8Data']['category'])
+    Existencias: @json($viewData['team8Data']['stock'])
+  </section>
   <section class="background-user text-center py-5">
     <h1 class="text-white">@lang('app.time_travel.weather_title') (@lang('app.time_travel.today') Medellín)</h1>
     <p class="mx-5 lead text-white">@lang('app.time_travel.weather')</p>

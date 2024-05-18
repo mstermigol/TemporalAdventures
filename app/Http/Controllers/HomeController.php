@@ -17,9 +17,25 @@ class HomeController extends Controller
 
         $weatherData = $weatherResponse->json();
 
+        $team8Response = '{
+            "id": "1",
+            "name": "Momia",
+            "description": "Katherine",
+            "category": "Medicamentos",
+            "price": "1000",
+            "stock": "10",
+            "image": "1.jpg",
+            "user_id": null,
+            "created_at": "2024-05-17T01:18:16.000000Z",
+            "updated_at": "2024-05-17T01:18:42.000000Z"
+        }';
+
+        $team8Data = json_decode($team8Response, true);
+
         $viewData = [];
         $viewData['title'] = trans('app.titles.welcome');
         $viewData['weatherData'] = $weatherData;
+        $viewData['team8Data'] = $team8Data;
 
         return view('home.index')->with('viewData', $viewData);
     }
