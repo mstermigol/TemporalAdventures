@@ -1,4 +1,4 @@
-<!-- Author: David Fonseca -->
+<!-- Authors: David Fonseca and Sergio Córdoba -->
 
 @extends('layouts.app')
 @section('title', $viewData['title'])
