@@ -1,5 +1,9 @@
 <?php
 
+/*
+    Authors: David Fonseca and Sergio Córdoba
+*/
+
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Http;
