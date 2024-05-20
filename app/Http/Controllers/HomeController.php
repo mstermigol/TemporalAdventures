@@ -6,9 +6,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Http;
 use Illuminate\View\View;
-use Illuminate\Pagination\LengthAwarePaginator;
 
 class HomeController extends Controller
 {
@@ -30,7 +30,7 @@ class HomeController extends Controller
         $currentItems = array_slice($moviesData, ($currentPage - 1) * $moviesPerPage, $moviesPerPage);
 
         $moviesPaginated = new LengthAwarePaginator($currentItems, count($moviesData), $moviesPerPage, $currentPage, [
-            'path' => LengthAwarePaginator::resolveCurrentPath()
+            'path' => LengthAwarePaginator::resolveCurrentPath(),
         ]);
 
         $viewData = [];
