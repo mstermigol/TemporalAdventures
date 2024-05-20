@@ -1,4 +1,4 @@
-<!-- Author: David Fonseca -->
+<!-- Authors: David Fonseca and Sergio Córdoba -->
 
 @extends('layouts.app')
 @section('title', $viewData['title'])
@@ -12,6 +12,31 @@
           <a href="{{ route('travel.index') }}" class="btn btn-primary btn-lg mb-5">@lang('app.adventure.start_shopping')</a>
         </div>
       </div>
+    </div>
+  </section>
+  <section class="text-center py-5">
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">@lang('app.api.title')</th>
+          <th scope="col">@lang('app.api.price')</th>
+          <th scope="col">@lang('app.api.stock')</th>
+          <th scope="col">@lang('app.api.rating')</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach($viewData['moviesData'] as $movie)
+          <tr>
+            <td>@json($movie['title'])</td>
+            <td>@json($movie['price'])</td>
+            <td>@json($movie['stock'])</td>
+            <td>@json($movie['rating'])</td>
+          </tr>
+        @endforeach
+      </tbody>
+    </table>
+    <div class="mx-2">
+        {{ $viewData['moviesData']->links() }}
     </div>
   </section>
   <section class="background-user text-center py-5">
