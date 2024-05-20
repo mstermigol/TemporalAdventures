@@ -258,4 +258,10 @@ return [
         'travels' => 'Travels',
         'about_us' => 'About Us',
     ],
+    'api' => [
+        'title' => 'Title',
+        'price' => 'Price',
+        'stock' => 'Stock',
+        'rating' => 'Rating',
+    ],
 ];

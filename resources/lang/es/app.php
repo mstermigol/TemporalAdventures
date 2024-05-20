@@ -260,4 +260,10 @@ Conocer el clima de una ciudad antes de comprar un viaje en el tiempo es esencia
         'travels' => 'Viajes',
         'about_us' => 'Sobre nosotros',
     ],
+    'api' => [
+        'title' => 'Título',
+        'price' => 'Precio',
+        'stock' => 'Existencias',
+        'rating' => 'Calificación',
+    ],
 ];

@@ -15,11 +15,29 @@
     </div>
   </section>
   <section class="text-center py-5">
-    Nombre: @json($viewData['team8Data']['name'])
-    Descripción: @json($viewData['team8Data']['description'])
-    Precio: @json($viewData['team8Data']['price'])
-    Categoría: @json($viewData['team8Data']['category'])
-    Existencias: @json($viewData['team8Data']['stock'])
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">@lang('app.api.title')</th>
+          <th scope="col">@lang('app.api.price')</th>
+          <th scope="col">@lang('app.api.stock')</th>
+          <th scope="col">@lang('app.api.rating')</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach($viewData['moviesData'] as $movie)
+          <tr>
+            <td>@json($movie['title'])</td>
+            <td>@json($movie['price'])</td>
+            <td>@json($movie['stock'])</td>
+            <td>@json($movie['rating'])</td>
+          </tr>
+        @endforeach
+      </tbody>
+    </table>
+    <div class="mx-2">
+        {{ $viewData['moviesData']->links() }}
+    </div>
   </section>
   <section class="background-user text-center py-5">
     <h1 class="text-white">@lang('app.time_travel.weather_title') (@lang('app.time_travel.today') Medellín)</h1>

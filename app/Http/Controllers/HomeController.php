@@ -8,6 +8,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Http;
 use Illuminate\View\View;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class HomeController extends Controller
 {
@@ -21,25 +22,21 @@ class HomeController extends Controller
 
         $weatherData = $weatherResponse->json();
 
-        $team8Response = '{
-            "id": "1",
-            "name": "Momia",
-            "description": "Katherine",
-            "category": "Medicamentos",
-            "price": "1000",
-            "stock": "10",
-            "image": "1.jpg",
-            "user_id": null,
-            "created_at": "2024-05-17T01:18:16.000000Z",
-            "updated_at": "2024-05-17T01:18:42.000000Z"
-        }';
+        $moviesResponse = Http::get('http://34.29.226.153/api/movies');
+        $moviesData = $moviesResponse->json();
 
-        $team8Data = json_decode($team8Response, true);
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+        $moviesPerPage = 4;
+        $currentItems = array_slice($moviesData, ($currentPage - 1) * $moviesPerPage, $moviesPerPage);
+
+        $moviesPaginated = new LengthAwarePaginator($currentItems, count($moviesData), $moviesPerPage, $currentPage, [
+            'path' => LengthAwarePaginator::resolveCurrentPath()
+        ]);
 
         $viewData = [];
         $viewData['title'] = trans('app.titles.welcome');
         $viewData['weatherData'] = $weatherData;
-        $viewData['team8Data'] = $team8Data;
+        $viewData['moviesData'] = $moviesPaginated;
 
         return view('home.index')->with('viewData', $viewData);
     }
