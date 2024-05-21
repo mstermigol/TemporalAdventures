@@ -1,7 +1,7 @@
 <?php
 
 /*
-    Authors: David Fonseca and Sergio Córdoba
+    Authors: David Fonseca, Sergio Córdoba and Miguel Jaramillo
 */
 
 namespace App\Http\Controllers;
@@ -22,7 +22,7 @@ class HomeController extends Controller
 
         $weatherData = $weatherResponse->json();
 
-        $moviesResponse = Http::get('http://34.29.226.153/api/movies');
+        $moviesResponse = Http::get('http://3chimbas.popmovies.tech/api/movies');
         $moviesData = $moviesResponse->json();
 
         $currentPage = LengthAwarePaginator::resolveCurrentPage();
